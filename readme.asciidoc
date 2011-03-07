@@ -38,6 +38,8 @@ Code for calling the API and parsing the results:
 
 ----
 
+The results will differ between the two APIs, as the algorithms are quite different. In particular, I designed Geodict for applications that are intolerant of false positives, so for example Placemaker will flag "New York Times" as a location whereas Geodict will ignore it.
+
 You can get started using the "http://geodictapi.com/" server, but for intensive use or to run behind a firewall, you'll probably want to create your own machine.
 
 == Setting up your own server
