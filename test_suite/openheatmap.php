@@ -10,12 +10,12 @@
 //define('YAHOO_PUBLIC_KEY', '');
 
 // Local server
-define('PLACEMAKER_URL', 'http://localhost:4567/v1/document');
-define('YAHOO_PUBLIC_KEY', '');
+//define('PLACEMAKER_URL', 'http://localhost:4567/v1/document');
+//define('YAHOO_PUBLIC_KEY', '');
 
 // Remote server
-//define('BASE_URL', 'http://geodictapi.com/v1/document');
-//define('APP_ID', '');
+define('PLACEMAKER_URL', 'http://geodictapi.com/v1/document');
+define('YAHOO_PUBLIC_KEY', '');
 
 define('PLACEMAKER_MAX_STRING_LENGTH', 4900);
 
