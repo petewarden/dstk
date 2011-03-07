@@ -501,13 +501,7 @@ def get_database_connection
       conn.trace(fd)
     end 
   rescue PGError
-    if (conn.status == PGconn::CONNECTION_BAD)
-      printf(STDERR, "We have lost the connection to the backend, so ")
-      printf(STDERR, "further processing is impossible.  ")
-      printf(STDERR, "Terminating.\n")
-    else
-      printf(STDERR, conn.error)
-    end
+    printf(STDERR, 'Error connecting to database')
     exit(1)
   end  
 
