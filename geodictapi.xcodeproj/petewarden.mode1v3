@@ -308,8 +308,6 @@
 							<key>Dock</key>
 							<array>
 								<dict>
-									<key>BecomeActive</key>
-									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
@@ -327,7 +325,7 @@
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>5929E1B11324B61C00B81D2E</string>
+												<string>5929E1B51324B68500B81D2E</string>
 												<key>history</key>
 												<array>
 													<string>5929E12313244A2300B81D2E</string>
@@ -361,6 +359,8 @@
 									<string>633pt</string>
 								</dict>
 								<dict>
+									<key>BecomeActive</key>
+									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
@@ -378,7 +378,7 @@
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>5929E1B21324B61C00B81D2E</string>
+												<string>5929E1B61324B68500B81D2E</string>
 												<key>history</key>
 												<array>
 													<string>5929E12313244A2300B81D2E</string>

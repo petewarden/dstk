@@ -501,7 +501,7 @@ def get_database_connection
       conn.trace(fd)
     end 
   rescue PGError
-    printf(STDERR, 'Error connecting to database')
+    printf(STDERR, "Error connecting to database\n")
     exit(1)
   end  
 
