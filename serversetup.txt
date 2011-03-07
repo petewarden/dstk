@@ -5,17 +5,13 @@ sudo aptitude safe-upgrade
 sudo aptitude full-upgrade
 sudo aptitude install build-essential
 sudo aptitude install apache2 apache2.2-common apache2-mpm-prefork apache2-utils libexpat1 ssl-cert
+sudo aptitude install postgresql
 
-sudo nano /etc/apache2/apache2.conf
-At end of file:
- ServerName geodictapi.com
+sudo nano /etc/postgresql/8.4/main/pg_hba.conf
+<change ident to trust>
+sudo /etc/init.d/postgresql restart
+createdb -U postgres geodict
 
-sudo apache2ctl graceful
-
-sudo usermod -a -G www-data ubuntu
-<log out and back in>
-sudo chgrp -R www-data /var/www
-sudo chmod -R 2750 /var/www
 sudo aptitude install ruby1.8-dev ruby1.8 ri1.8 rdoc1.8 irb1.8 libreadline-ruby1.8 libruby1.8 libopenssl-ruby sqlite3 libsqlite3-ruby1.8
 sudo ln -s /usr/bin/ruby1.8 /usr/bin/ruby
 sudo ln -s /usr/bin/ri1.8 /usr/bin/ri
@@ -41,3 +37,10 @@ sudo cp /etc/apache2/mods-available/proxy.conf /etc/apache2/mods-enabled/proxy.c
 sudo cp /etc/apache2/mods-available/proxy.load /etc/apache2/mods-enabled/proxy.load
 sudo apache2ctl graceful
 
+cd ~/sources
+sudo aptitude install git
+git clone git://github.com/petewarden/geodictapi.git
+git clone git://github.com/petewarden/geodictdata.git
+cd geodictapi
+sudo gem install bundler
+sudo bundle install
