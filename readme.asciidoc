@@ -44,6 +44,6 @@ You can get started using the "http://geodictapi.com/" server, but for intensive
 
 == Setting up your own server
 
-The simplest way to create a server is to grab an Amazon Machine Image turn-key system. You should then be able to fire up an instance on EC2 and immediately start using it.
+The simplest way to create a server is to grab one of the Amazon Machine Images listed at http://geodictapi.com/amis[http://geodictapi.com/amis]. You should then be able to fire up an instance on EC2 and immediately start using it.
 
 If you want to run on an in-house server, or on another hosting provider, serversetup.txt contains instructions on the exact steps I took to create that image starting from a clean Ubuntu 10.10 installation.
