@@ -1,6 +1,10 @@
-= GeodictAPI
-:author: Pete Warden <pete@petewarden.com>
+GeodictAPI
+==========
+Pete Warden <pete@petewarden.com>
 :website: http://petewarden.typepad.com/
+
+= GeodictAPI
+By http://petewarden.typepad.com/[Pete Warden] <pete@petewarden.com>
 
 An easy open-source API server for pulling location information from unstructured text. It emulates http://developer.yahoo.com/geo/placemaker/guide/web-service.html[Yahoo's Placemaker API], so you should be able to switch any existing code simply by changing any references to 'http://wherein.yahooapis.com/v1/document' to 'http://<your server>/v1/document' (eg 'http://geodictapi.com/v1/document').
 
