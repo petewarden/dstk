@@ -17,8 +17,10 @@
 require 'rubygems'
 
 require 'postgres'
-require 'geodict_config'
 require 'set'
+
+# Some hackiness to include the library script, even if invoked from another directory
+require File.join(File.expand_path(File.dirname(__FILE__)), 'geodict_config')
 
 # The main entry point. This function takes an unstructured text string and returns a list of all the
 # fragments it could identify as locations, together with lat/lon positions

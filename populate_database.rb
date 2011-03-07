@@ -2,9 +2,11 @@
 
 require 'rubygems'
 
-require 'geodict_lib'
 require 'postgres'
 require 'csv'
+
+# Some hackiness to include the library script, even if invoked from another directory
+require File.join(File.expand_path(File.dirname(__FILE__)), 'geodict_lib')
 
 def load_cities(conn)
 
