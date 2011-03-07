@@ -270,7 +270,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>10</integer>
+									<integer>5</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -315,7 +315,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>populate_database.rb</string>
+										<string>geodict_daemon.rb</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -323,11 +323,11 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>populate_database.rb</string>
+												<string>geodict_daemon.rb</string>
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>5929E1DF1324C7C500B81D2E</string>
+												<string>5929E1E31324C83C00B81D2E</string>
 												<key>history</key>
 												<array>
 													<string>5929E12313244A2300B81D2E</string>
@@ -338,9 +338,9 @@
 													<string>5929E1AF1324B61C00B81D2E</string>
 													<string>5929E1BD1324BF6300B81D2E</string>
 													<string>5929E1C31324C07000B81D2E</string>
-													<string>5929E1D91324C7A200B81D2E</string>
 													<string>5929E1DD1324C7C500B81D2E</string>
-													<string>5929E1DE1324C7C500B81D2E</string>
+													<string>5929E1E11324C83C00B81D2E</string>
+													<string>5929E1E21324C83C00B81D2E</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -379,7 +379,7 @@
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>5929E1E01324C7C500B81D2E</string>
+												<string>5929E1E41324C83C00B81D2E</string>
 												<key>history</key>
 												<array>
 													<string>5929E12313244A2300B81D2E</string>

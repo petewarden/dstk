@@ -49,17 +49,8 @@ sudo gem install bundler
 sudo bundle install
 ./populate_database.rb
 
-sudo nano /etc/init.d/geodict
-#!/bin/bash
-#
-# See http://www.kalzumeus.com/2010/01/15/deploying-sinatra-on-ubuntu-in-which-i-employ-a-secretary/
+sudo ln -s /home/ubuntu/sources/geodictapi/geodict_daemon.rb /etc/init.d/geodict
 
-sudo -u www-data ruby /home/ubuntu/sources/geodictapi/geodict_server.rb $1
-RETVAL=$?
-
-exit $RETVAL
-
-sudo chmod +x /etc/init.d/geodict
 sudo update-rc.d geodict defaults
 
 sudo mkdir /opt/pids/
