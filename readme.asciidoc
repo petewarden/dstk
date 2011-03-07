@@ -12,7 +12,21 @@ An easy open-source API server for pulling location information from unstructure
 
 There's examples of how to call the Placemaker API in the test_suite folder. I've focused on supporting the most commonly used features of Yahoo's interface, so if you have some code that relies on something that's missing, mailto:pete@petewarden.com[email me a sample of your source] and I'll do my best to add that in.
 
-Here's how the http://swiftriver.org/[Ushahidi Swift project] calls Placemaker to pull the first location mentioned in a document.
+Here's how the http://swift.ushahidi.com[Ushahidi Swift project] calls Placemaker to pull the first location mentioned in a document.
+
+For original Yahoo API:
+----
+define('BASE_URL', 'http://wherein.yahooapis.com/');
+define('APP_ID', '<Their API Key>');
+----
+
+Using GeodictAPI:
+----
+define('BASE_URL', 'http://geodictapi.com/');
+define('APP_ID', ''); // No API key needed
+----
+
+Code for calling the API and parsing the results:
 ----
     $encodedLocation = \urlencode($location);
     $url = BASE_URL."v1/document";
