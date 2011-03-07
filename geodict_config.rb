@@ -21,7 +21,7 @@ module GeodictConfig
 
   # Your MySQL user credentials
   USER = 'postgres'
-  PASSWORD = nil
+  PASSWORD = ''
 
   # The address and port number of your database server
   HOST = 'localhost'

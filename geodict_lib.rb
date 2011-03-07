@@ -494,16 +494,16 @@ end
 
 def get_database_connection
 
-  begin
+#  begin
     conn = PGconn.connect(GeodictConfig::HOST, GeodictConfig::PORT, '', '', GeodictConfig::DATABASE, GeodictConfig::USER, GeodictConfig::PASSWORD)
     if $DEBUG
       fd = open("/tmp/trace.out","w")
       conn.trace(fd)
     end 
-  rescue PGError
-    printf(STDERR, "Error connecting to database\n")
-    exit(1)
-  end  
+#  rescue PGError
+#    printf(STDERR, "Error connecting to database\n")
+#    exit(1)
+#  end  
 
   return conn
 
