@@ -6,8 +6,16 @@ Pete Warden <pete@petewarden.com>
 = GeodictAPI
 By http://petewarden.typepad.com/[Pete Warden] <pete@petewarden.com>
 
-An easy open-source API server for pulling location information from unstructured text. It emulates http://developer.yahoo.com/geo/placemaker/guide/web-service.html[Yahoo's Placemaker API], so you should be able to switch any existing code simply by changing any references to 'http://wherein.yahooapis.com/v1/document' to 'http://<your server>/v1/document' (eg 'http://geodictapi.com/v1/document').
+An easy open-source API server for pulling location information from unstructured text. It emulates http://developer.yahoo.com/geo/placemaker/guide/web-service.html[Yahoo's Placemaker API], so you should be able to switch any existing code simply by changing any references to "http://wherein.yahooapis.com/v1/document" to "http://<your server>/v1/document" (eg "http://geodictapi.com/v1/document").
 
-There's examples of how to call the Placemaker API in the test_suite folder. I've focused on supporting the most commonly used features of Yahoo's interface, so if you have some code that relies on something that's missing, drop me a sample and I'll do my best to add that in.
+== Usage
 
-== Installing
+There's examples of how to call the Placemaker API in the test_suite folder. I've focused on supporting the most commonly used features of Yahoo's interface, so if you have some code that relies on something that's missing, mailto:pete@petewarden.com[email me a sample of your source] and I'll do my best to add that in.
+
+You can get started using the "http://geodictapi.com/" server, but for intensive use or to run behind a firewall, you'll probably want to create your own machine.
+
+== Setting up a server
+
+The simplest way to create your own server is to grab an Amazon Machine Image turn-key system. You should then be able to fire up an instance on EC2 and immediately start using it.
+
+If you want to run on an in-house server, or on another hosting provider, serversetup.txt contains instructions on the exact steps I took to create that image starting from a clean Ubuntu 10.10 installation.
