@@ -1,0 +1,10 @@
+GeodictAPI
+==========
+Pete Warden <pete@petewarden.com>
+:website: http://petewarden.typepad.com/
+
+An easy open-source API server for pulling location information from unstructured text. It emulates http://developer.yahoo.com/geo/placemaker/guide/web-service.html[Yahoo's Placemaker API], so you should be able to switch any existing code simply by changing any references to 'http://wherein.yahooapis.com/v1/document' to 'http://<your server>/v1/document' (eg 'http://geodictapi.com/v1/document').
+
+There's examples of how to call the Placemaker API in the test_suite folder. I've focused on supporting the most commonly used features of Yahoo's interface, so if you have some code that relies on something that's missing, drop me a sample and I'll do my best to add that in.
+
+== Installing

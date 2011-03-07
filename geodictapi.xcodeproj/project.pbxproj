@@ -13,7 +13,6 @@
 		5929E11413243ECB00B81D2E /* gpl.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gpl.txt; sourceTree = "<group>"; };
 		5929E11513243ECB00B81D2E /* largetestinput.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = largetestinput.txt; sourceTree = "<group>"; };
 		5929E11613243ECB00B81D2E /* populate_database.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = populate_database.rb; sourceTree = "<group>"; };
-		5929E11713243ECB00B81D2E /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
 		5929E11813243ECB00B81D2E /* testinput.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testinput.txt; sourceTree = "<group>"; };
 		5929E11913243F0400B81D2E /* geodict_cli.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = geodict_cli.rb; sourceTree = "<group>"; };
 		5929E11A13243FB500B81D2E /* geodict_server.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = geodict_server.rb; sourceTree = "<group>"; };
@@ -22,6 +21,7 @@
 		5929E15B1324616E00B81D2E /* openheatmap.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = openheatmap.php; sourceTree = "<group>"; };
 		5929E17713246D9400B81D2E /* jumbo.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = jumbo.py; sourceTree = "<group>"; };
 		5929E1A11324993400B81D2E /* geodict_daemon.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = geodict_daemon.rb; sourceTree = "<group>"; };
+		5929E1E5132576FA00B81D2E /* readme.asciidoc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.asciidoc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -38,7 +38,7 @@
 				5929E11413243ECB00B81D2E /* gpl.txt */,
 				5929E11513243ECB00B81D2E /* largetestinput.txt */,
 				5929E11613243ECB00B81D2E /* populate_database.rb */,
-				5929E11713243ECB00B81D2E /* readme.txt */,
+				5929E1E5132576FA00B81D2E /* readme.asciidoc */,
 				5929E14613245CB200B81D2E /* test_suite */,
 				5929E11813243ECB00B81D2E /* testinput.txt */,
 			);

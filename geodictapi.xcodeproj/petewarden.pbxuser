@@ -250,6 +250,12 @@
 		};
 	};
 	5929E11713243ECB00B81D2E /* readme.txt */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = text;
+		name = readme.txt;
+		path = /Users/petewarden/Projects/geodictapi/readme.txt;
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {10806, 1350}}";
 			sepNavSelRange = "{0, 0}";
