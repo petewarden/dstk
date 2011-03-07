@@ -20,12 +20,4 @@
 require 'rubygems'
 require 'daemons'
 
-pwd = Dir.pwd
-Daemons.run_proc('geodict_server.rb', {
-  :dir_mode => :normal, 
-  :dir => '/opt/pids/sinatra', 
-  :log_output => true
-  }) do
-  Dir.chdir(pwd)
-  exec 'ruby geodict_server.rb'
-end
+Daemons.run('geodict_server.rb')
