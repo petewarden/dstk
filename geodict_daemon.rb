@@ -20,4 +20,7 @@
 require 'rubygems'
 require 'daemons'
 
-Daemons.run('geodict_server.rb')
+Daemons.run('/home/ubuntu/sources/geodict_server.rb', {
+  :dir => '/opt/pids/sinatra/',
+  :log_output => true,
+})

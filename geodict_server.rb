@@ -19,7 +19,9 @@
 
 require 'rubygems' if RUBY_VERSION < '1.9'
 require 'sinatra'
-require 'geodict_lib'
+
+# Some hackiness to include the library script, even if invoked from another directory
+require File.join(File.expand_path(File.dirname(__FILE__)), '..', 'geodict_lib')
 
 enable :run
 
