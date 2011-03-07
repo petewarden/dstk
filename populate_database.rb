@@ -10,7 +10,7 @@ def load_cities(conn)
 
   begin
     conn.exec('DROP TABLE cities')
-  rescue RuntimeError
+  rescue
     # ignore errors here
   end
 
@@ -70,7 +70,7 @@ end
 def load_countries(conn)
   begin
     conn.exec('DROP TABLE countries')
-  rescue RuntimeError
+  rescue
     # ignore errors here
   end
 
@@ -146,7 +146,7 @@ end
 def load_regions(conn)
   begin
     conn.exec('DROP TABLE regions')
-  rescue RuntimeError
+  rescue
     # ignore errors here
   end
   

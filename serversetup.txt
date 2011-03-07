@@ -8,7 +8,7 @@ sudo aptitude install apache2 apache2.2-common apache2-mpm-prefork apache2-utils
 sudo aptitude install postgresql
 
 sudo nano /etc/postgresql/8.4/main/pg_hba.conf
-<change ident to trust>
+<change ident and md5 to trust>
 sudo /etc/init.d/postgresql restart
 createdb -U postgres geodict
 sudo aptitude install libpq-dev
