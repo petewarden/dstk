@@ -270,7 +270,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>5</integer>
+									<integer>10</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -315,7 +315,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>geodict_daemon.rb</string>
+										<string>populate_database.rb</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -323,11 +323,11 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>geodict_daemon.rb</string>
+												<string>populate_database.rb</string>
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>5929E1C51324C07000B81D2E</string>
+												<string>5929E1C91324C18D00B81D2E</string>
 												<key>history</key>
 												<array>
 													<string>5929E12313244A2300B81D2E</string>
@@ -337,10 +337,10 @@
 													<string>5929E1AB1324B3B700B81D2E</string>
 													<string>5929E1AF1324B61C00B81D2E</string>
 													<string>5929E1BB1324BF6300B81D2E</string>
-													<string>5929E1BC1324BF6300B81D2E</string>
 													<string>5929E1BD1324BF6300B81D2E</string>
 													<string>5929E1C31324C07000B81D2E</string>
-													<string>5929E1C41324C07000B81D2E</string>
+													<string>5929E1C71324C18D00B81D2E</string>
+													<string>5929E1C81324C18D00B81D2E</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -379,7 +379,7 @@
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>5929E1C61324C07000B81D2E</string>
+												<string>5929E1CA1324C18D00B81D2E</string>
 												<key>history</key>
 												<array>
 													<string>5929E12313244A2300B81D2E</string>

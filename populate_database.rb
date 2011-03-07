@@ -226,7 +226,7 @@ end
 
 conn = get_database_connection()
 
-load_cities(conn)
+#load_cities(conn)
 load_countries(conn)
 load_regions(conn)
 
