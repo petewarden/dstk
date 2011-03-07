@@ -10,7 +10,7 @@ An open-source service for pulling location information from unstructured text. 
 
 == Usage
 
-There's examples of how to call the Placemaker API in the test_suite folder. I've focused on supporting the most commonly used features of Yahoo's interface, so if you have some code that relies on something that's missing, mailto:pete@petewarden.com[email me a sample of your source] and I'll do my best to add that in.
+As an emulation of Yahoo's service, a good place to start is http://developer.yahoo.com/geo/placemaker/guide/web-service.html[their Placemaker documentation]. There's also concrete examples of how to call the Placemaker API in the test_suite folder. I've focused on supporting the most commonly used features of Yahoo's interface, so if you have some code that relies on something that's missing, mailto:pete@petewarden.com[email me a sample of your source] and I'll do my best to add that in.
 
 Here's how the http://swift.ushahidi.com[Ushahidi Swift project] calls Placemaker to pull the first location mentioned in a document.
 
