@@ -1,0 +1,100 @@
+.clearer{:style=>"clear:both"}
+
+  .subtitle{:style=>"margin-top:-20px; font-size: 125%;"}
+    An 
+    %a{:href=>"http://github.com/petewarden/geodictapi"}open-source service
+    for pulling location information from unstructured text.
+
+  .developerinfo{:style=>"margin-top:20px; font-size: 125%;"}
+    %a{:href=>"/developerdocs"}Here's the developer documentation
+    covering calling the API and setting up your own servers. Geodict emulates the interface to 
+    %a{:href=>"http://developer.yahoo.com/geo/placemaker/guide/web-service.html "}Yahoo's Placemaker
+    , so switching should just mean changing 'http://wherein.yahooapis.com/' to 'http://geodictapi.com/' in your current code. 
+  
+  .developerinfo{:style=>"margin-top:20px; font-size: 125%;"}
+    Try it for yourself. Copy and paste some text into the box below to see what locations it finds.
+
+  %textarea#text{:style=>"width: 800px; margin-top: 10px;"}
+
+  #uploadtext.button{:style=>"width:150px; font-size: 125%;"}Find Locations
+  
+  #results{:style=>"margin-top:30px;"}
+  
+
+
+%script{:src=>"/scripts/jquery.exptextarea.js", :type=>"text/javascript"}
+:javascript
+  $(function() {
+    $('#text').expandingTextArea()
+
+    $('#uploadtext').click(function() {
+      var text = $('#text').val();
+      if (text.length<1) {
+        $('#results').html("No text found in input box.");
+        return;
+      }
+      
+      var apiUrl = '/v1/document';
+      apiUrl += '?documentContent='+encodeURIComponent(text);
+      apiUrl += '&outputType=json';
+      
+      $.ajax(apiUrl, {
+        success: function(result) {
+          if (typeof result['error'] !== 'undefined') {
+            $('#results')
+            .text(result.error);
+            return;
+          }
+
+          $('#results').empty()
+          
+          var resultDoc = result['document'];
+          var referenceList = resultDoc['referenceList'];
+          
+          for (var referenceIndex in referenceList) {
+            
+            var reference = referenceList[referenceIndex]['reference'];
+            var placeDetailsIndex = reference['placeIds'];
+
+            var placeDetail = resultDoc[placeDetailsIndex]['placeDetails'];
+            var place = placeDetail['place'];
+          
+            var centroid = place['centroid'];
+
+            var matchedString = reference['text'];
+            var lat = centroid['latitude'];
+            var lon = centroid['longitude'];
+            var type = place['type'];
+            var name = place['name'];
+            
+            var html = 
+              '<div>"'
+              +matchedString
+              +'" matches the '
+              +type.toLowerCase()
+              +' '
+              +name
+              +' at <a href="http://maps.google.com/maps?sll='
+              +lat
+              +','
+              +lon
+              +'">'
+              +lat
+              +','
+              +lon
+              +'</a>'
+              +'</div>';
+            
+            $('#results').append($(html));
+          }
+        }, 
+        error: function(jqXHR, textStatus, errorCode) {
+            $('#results').text('Error: '+textStatus);
+        }, 
+        dataType: 'jsonp',
+        crossDomain: true
+      });
+    
+    });
+
+  });

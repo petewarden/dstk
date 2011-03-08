@@ -30,6 +30,7 @@ def find_locations_in_text(text)
 
   current_index = text.length-1
   result = []
+  $tokenized_words = {}
 
   setup_countries_cache(cursor)
   setup_regions_cache(cursor)

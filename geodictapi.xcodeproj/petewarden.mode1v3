@@ -264,13 +264,18 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateExpansionKey</key>
 							<array>
 								<string>5929E0FE13243EA700B81D2E</string>
+								<string>5929E1E813258B3700B81D2E</string>
+								<string>5929E1E913258B3700B81D2E</string>
+								<string>5929E1EB13258B3700B81D2E</string>
+								<string>5929E1ED13258B3700B81D2E</string>
 								<string>5929E14613245CB200B81D2E</string>
+								<string>5929E1F013258C0500B81D2E</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>5</integer>
+									<integer>6</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -294,7 +299,7 @@
 							<real>186</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>42 162 1698 1016 0 0 1920 1178 </string>
+						<string>24 125 1698 1016 0 0 1920 1178 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -307,60 +312,6 @@
 						<dict>
 							<key>Dock</key>
 							<array>
-								<dict>
-									<key>BecomeActive</key>
-									<true/>
-									<key>ContentConfiguration</key>
-									<dict>
-										<key>PBXProjectModuleGUID</key>
-										<string>1CE0B20306471E060097A5F4</string>
-										<key>PBXProjectModuleLabel</key>
-										<string>geodict_daemon.rb</string>
-										<key>PBXSplitModuleInNavigatorKey</key>
-										<dict>
-											<key>Split0</key>
-											<dict>
-												<key>PBXProjectModuleGUID</key>
-												<string>1CE0B20406471E060097A5F4</string>
-												<key>PBXProjectModuleLabel</key>
-												<string>geodict_daemon.rb</string>
-												<key>_historyCapacity</key>
-												<integer>0</integer>
-												<key>bookmark</key>
-												<string>5929E1E31324C83C00B81D2E</string>
-												<key>history</key>
-												<array>
-													<string>5929E12313244A2300B81D2E</string>
-													<string>5929E12813244AA100B81D2E</string>
-													<string>5929E1781324731F00B81D2E</string>
-													<string>5929E1A213249DD800B81D2E</string>
-													<string>5929E1AB1324B3B700B81D2E</string>
-													<string>5929E1AF1324B61C00B81D2E</string>
-													<string>5929E1BD1324BF6300B81D2E</string>
-													<string>5929E1C31324C07000B81D2E</string>
-													<string>5929E1DD1324C7C500B81D2E</string>
-													<string>5929E1E11324C83C00B81D2E</string>
-													<string>5929E1E21324C83C00B81D2E</string>
-												</array>
-											</dict>
-											<key>SplitCount</key>
-											<string>1</string>
-										</dict>
-										<key>StatusBarVisibility</key>
-										<true/>
-									</dict>
-									<key>GeometryConfiguration</key>
-									<dict>
-										<key>Frame</key>
-										<string>{{0, 0}, {633, 970}}</string>
-										<key>RubberWindowFrame</key>
-										<string>42 162 1698 1016 0 0 1920 1178 </string>
-									</dict>
-									<key>Module</key>
-									<string>PBXNavigatorGroup</string>
-									<key>Proportion</key>
-									<string>633pt</string>
-								</dict>
 								<dict>
 									<key>ContentConfiguration</key>
 									<dict>
@@ -379,20 +330,81 @@
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>5929E1E41324C83C00B81D2E</string>
+												<string>5929E2DF1325B79D00B81D2E</string>
+												<key>history</key>
+												<array>
+													<string>5929E12313244A2300B81D2E</string>
+													<string>5929E12813244AA100B81D2E</string>
+													<string>5929E1BD1324BF6300B81D2E</string>
+													<string>5929E1DD1324C7C500B81D2E</string>
+													<string>5929E1E11324C83C00B81D2E</string>
+													<string>5929E20313258DC800B81D2E</string>
+													<string>5929E20413258DC800B81D2E</string>
+													<string>5929E20513258DC800B81D2E</string>
+													<string>5929E20613258DC800B81D2E</string>
+													<string>5929E21013258E7300B81D2E</string>
+													<string>5929E21113258E7300B81D2E</string>
+													<string>5929E23D1325980D00B81D2E</string>
+													<string>5929E243132599E300B81D2E</string>
+													<string>5929E24D13259AB700B81D2E</string>
+													<string>5929E25913259D8C00B81D2E</string>
+													<string>5929E2D51325B60D00B81D2E</string>
+													<string>5929E2D61325B60D00B81D2E</string>
+												</array>
+											</dict>
+											<key>SplitCount</key>
+											<string>1</string>
+										</dict>
+										<key>StatusBarVisibility</key>
+										<true/>
+									</dict>
+									<key>GeometryConfiguration</key>
+									<dict>
+										<key>Frame</key>
+										<string>{{0, 0}, {633, 970}}</string>
+										<key>RubberWindowFrame</key>
+										<string>24 125 1698 1016 0 0 1920 1178 </string>
+									</dict>
+									<key>Module</key>
+									<string>PBXNavigatorGroup</string>
+									<key>Proportion</key>
+									<string>633pt</string>
+								</dict>
+								<dict>
+									<key>BecomeActive</key>
+									<true/>
+									<key>ContentConfiguration</key>
+									<dict>
+										<key>PBXProjectModuleGUID</key>
+										<string>1CE0B20306471E060097A5F4</string>
+										<key>PBXProjectModuleLabel</key>
+										<string>geodict_lib.rb</string>
+										<key>PBXSplitModuleInNavigatorKey</key>
+										<dict>
+											<key>Split0</key>
+											<dict>
+												<key>PBXProjectModuleGUID</key>
+												<string>1CE0B20406471E060097A5F4</string>
+												<key>PBXProjectModuleLabel</key>
+												<string>geodict_lib.rb</string>
+												<key>_historyCapacity</key>
+												<integer>0</integer>
+												<key>bookmark</key>
+												<string>5929E2E21325B79D00B81D2E</string>
 												<key>history</key>
 												<array>
 													<string>5929E12313244A2300B81D2E</string>
 													<string>5929E12513244A2300B81D2E</string>
-													<string>5929E14913245EA300B81D2E</string>
 													<string>5929E16113246ABF00B81D2E</string>
-													<string>5929E16213246ABF00B81D2E</string>
-													<string>5929E17F1324734600B81D2E</string>
 													<string>5929E19B1324774300B81D2E</string>
-													<string>5929E19C1324774300B81D2E</string>
 													<string>5929E1A813249DD800B81D2E</string>
 													<string>5929E1D41324C74B00B81D2E</string>
-													<string>5929E1D51324C74B00B81D2E</string>
+													<string>5929E2201325951A00B81D2E</string>
+													<string>5929E24813259A4400B81D2E</string>
+													<string>5929E2CC1325B41300B81D2E</string>
+													<string>5929E2D81325B60D00B81D2E</string>
+													<string>5929E2E01325B79D00B81D2E</string>
+													<string>5929E2E11325B79D00B81D2E</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -406,7 +418,7 @@
 										<key>Frame</key>
 										<string>{{638, 0}, {852, 970}}</string>
 										<key>RubberWindowFrame</key>
-										<string>42 162 1698 1016 0 0 1920 1178 </string>
+										<string>24 125 1698 1016 0 0 1920 1178 </string>
 									</dict>
 									<key>Module</key>
 									<string>PBXNavigatorGroup</string>
@@ -430,7 +442,7 @@
 								<key>Frame</key>
 								<string>{{0, 975}, {1490, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>42 162 1698 1016 0 0 1920 1178 </string>
+								<string>24 125 1698 1016 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -602,7 +614,7 @@
 		<string>/Users/petewarden/Projects/geodictapi/geodictapi.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>42 162 1698 1016 0 0 1920 1178 </string>
+	<string>24 125 1698 1016 0 0 1920 1178 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -885,7 +897,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C530D57069F1CE1000CFCEE</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

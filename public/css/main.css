@@ -1,0 +1,158 @@
+
+body {
+  font-family: Baskerville, Georgia, 'Times New Roman', Serif;
+	font-size:1.0em;
+	margin:0px;
+	padding:0px;
+	text-align:left;
+  background-color: #ffffff;
+}
+
+#header { float: left; text-align: right; text-decoration: none; vertical-align: middle; background-color: #ffffff; margin-top: 10px;}
+#accountinfo { float: right; text-align: right; text-decoration: none; vertical-align: middle; background-color: #ffffff; margin-top: 20px; margin-right: -5px; }
+#footer { font-size: 100%; text-align: center; margin-top: 50px; margin-bottom: 50px; }
+#container { width: 840px; margin-left: auto; margin-right: auto; margin-top: 10px; background-color: #ffffff;}
+
+.headerlogo { position: relative; left: -10px; top: 0px; border-style: none; }
+
+.maindiv { position: absolute; left: 0px; top: 10px; width: 700px; height: 490px; border: 2px solid #000000; }
+.mainimg { position: absolute; left: 0px; top: 10px; width: 688px; }
+.overlay { position: absolute; left: 0px; top: 370px; width: 680px; height: 100px; background-color: #a0a0a0; opacity: 0.8; filter: alpha(opacity=80); font-size: 200%; padding: 10px; }
+
+.bgimg { position: absolute; left: 0px; top: 0px; width: 700px; height: 490px; }
+.img0 { position: absolute; left: 10px; top: 10px; height: 450px; }
+.img1 { position: absolute; left: 230px; top: 10px; height: 450px; }
+.img2 {position: absolute; left: 380px; top: 10px; height: 450px; }
+
+.sidediv0 { position: absolute; left: 710px; top: 10px; width: 245px; height: 157px; border: 2px solid #ff0000; }
+.sidediv1 { position: absolute; left: 710px; top: 177px; width: 245px; height: 157px; border: 2px solid #000000; }
+.sidediv2 { position: absolute; left: 710px; top: 343px; width: 245px; height: 157px; border: 2px solid #000000; }
+
+.sideimg0 { position: absolute; left: 45px; top: 5px; width: 150px; }
+.sideimg1 { position: absolute; left: 5px; top: 5px; width: 230px; }
+.sideimg2 { position: absolute; left: 35px; top: 5px; width: 170px; }
+
+.imagemain { position: relative; height: 520px; }
+
+.ui-corner-all {
+    background-color: #ffffff;
+    padding: 10px;
+    margin: 0px;
+    font-size: 100%;
+}
+
+.steplist {
+    margin-top: 10px;
+    padding-top: 30px;
+    padding-bottom: 5px;
+    font-size: 200%;
+    padding-left: 230px;
+    padding-right: 230px;
+    line-height: 150%;
+}
+
+.button 
+{
+  font-size: 100%; 
+  margin: 10px 0px 0px 0px; 
+  padding: 0px; 
+  text-align: center; 
+  width: 160px; 
+  height: 25px; 
+  background: #CCCCCC; 
+  display: block; 
+  padding: 5px; 
+  -webkit-border-radius: 5px; 
+  -moz-border-radius: 5px; 
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.button:hover {
+    background-color: #e0e0e0;
+    cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6 { margin-top: 0px; margin-bottom: 0px; font-weight: normal; }
+h1 { font-size: 2.25em; }
+h2 { font-size: 2.00em; }
+h3 { font-size: 1.75em; }
+h4 { font-size: 1.50em; }
+h5 { font-size: 1.25em; }
+h6 { font-size: 1.125em; }
+ul, ol, li { margin: 0px; padding: 0px; }
+
+.textred { color: #990000; } /* should do differently or change name */
+
+/* For Tabbed Navigation */
+ul.tabNav { float: left; list-style: none; width: 100%; margin-left: 0px; }
+ul.tabNav li { float: left; margin: 0 0px 0 0; padding: 6px 0 0; }
+ul.tabNav a { background: #ececec; border: 1px solid #dedede; border-width: 1px 1px 0; color: #333333; display: block; padding: 4px 20px 5px 20px; text-decoration: none; }
+ul.tabNav li.current a { background: #dedede; }
+
+div.tabContainer { clear: both; float: left; width: 100%; }
+div.tabContainer div.tab { border: 1px solid #dedede; color: #000; display: none; padding: 10px; }
+div.tabContainer div.current { display: block; }
+div.tab p:last-child { margin-bottom: 0; }
+
+/* Key */
+ul.key { float: left; list-style: none; width: 100%; margin-top: 30px; margin-bottom: 30px; }
+ul.key li { float: left; margin: 0px; padding: 5px 10px 5px 10px; text-align: center; width: 60px; height: 20px; }
+ul.key li.keyUnits { padding-right: 20px; width: auto; text-align: left; }
+
+#author_message { font-style: italic; padding: 10px; margin-top: 30px; margin-bottom: 0px; }
+.footer_links { margin: 20px; font-size: 120%; }
+#footer_byline { font-size: 75%; text-color: #a0a0a0; margin-top: 20px; }
+
+/* Share, embed etc. */
+ul.share { float: left; list-style: none; width: 100%; padding-top: margin-top: 10px; margin-bottom: 20px; margin-left: 0px; font-size: 100%; }
+ul.share li { float: left; margin: 10px 0px 15px 10px; padding: 0px; text-align: center; width: 80px; height: 25px; }
+ul.share li a { background: #CCCCCC; display: block; padding: 5px; }
+
+#openheatmap_container { border: 1px solid #979797; }
+
+a:link {color: #000000; text-decoration: underline;}
+a:visited {color: #000000; text-decoration: underline;}
+a:hover {color: #990000; text-decoration: underline;}
+
+.gallery_box1 { margin-top:10px; margin-right:15px; font-size: 150%; width:450px; height:470px; float:left; }
+.gallery_box2 { margin-top:10px; font-size: 150%; width:450px; height:470px; float:left; }
+
+.menu { }
+.menu li {	float: left; list-style: none; }
+.menu li a { display: block; background: #CCCCCC; padding: 5px 12px; text-decoration: none; width: 110px; color: #000000; white-space: nowrap; }
+.menu li a:hover { }		
+.menu li ul { margin: 0; padding: 0; position: absolute; visibility: hidden; }
+.menu li ul li { float: none; display: inline;}		
+.menu li ul li a { width: 110px; background: #CCCCCC; }
+.menu li ul li a:hover { color: #990000; }
+
+.headline { font-size:300%; margin-left:10px; }
+
+.shadow {
+	-moz-box-shadow: 3px 3px 4px #000;
+	-webkit-box-shadow: 3px 3px 4px #000;
+	box-shadow: 3px 3px 4px #000;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+}
+
+input { 
+  font-family: Baskerville, Georgia, 'Times New Roman', Serif;
+  -webkit-border-radius: 5px; 
+  -moz-border-radius: 5px; 
+  border-radius: 5px;
+  border: 1px solid black;
+  font-size: 18px;
+}
+
+textarea { 
+  font-family: Baskerville, Georgia, 'Times New Roman', Serif;
+  -webkit-border-radius: 5px; 
+  -moz-border-radius: 5px; 
+  border-radius: 5px;
+  border: 1px solid black;
+  font-size: 18px;
+}

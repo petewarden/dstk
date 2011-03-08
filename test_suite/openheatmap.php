@@ -10,12 +10,12 @@
 //define('YAHOO_PUBLIC_KEY', '');
 
 // Local server
-//define('PLACEMAKER_URL', 'http://localhost:4567/v1/document');
-//define('YAHOO_PUBLIC_KEY', '');
+define('PLACEMAKER_URL', 'http://localhost:4567/v1/document');
+define('YAHOO_PUBLIC_KEY', '');
 
 // Remote server
-define('PLACEMAKER_URL', 'http://geodictapi.com/v1/document');
-define('YAHOO_PUBLIC_KEY', '');
+//define('PLACEMAKER_URL', 'http://geodictapi.com/v1/document');
+//define('YAHOO_PUBLIC_KEY', '');
 
 define('PLACEMAKER_MAX_STRING_LENGTH', 4900);
 
@@ -141,7 +141,7 @@ function callPlacemaker($locationName) {
     curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 
     $output = curl_exec($ch);
-
+    
     $response_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
     if ($response_code!=200)

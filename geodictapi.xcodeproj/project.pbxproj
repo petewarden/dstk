@@ -22,6 +22,13 @@
 		5929E17713246D9400B81D2E /* jumbo.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = jumbo.py; sourceTree = "<group>"; };
 		5929E1A11324993400B81D2E /* geodict_daemon.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = geodict_daemon.rb; sourceTree = "<group>"; };
 		5929E1E5132576FA00B81D2E /* readme.asciidoc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.asciidoc; sourceTree = "<group>"; };
+		5929E1EA13258B3700B81D2E /* main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = main.css; sourceTree = "<group>"; };
+		5929E1EC13258B3700B81D2E /* textlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textlogo.png; sourceTree = "<group>"; };
+		5929E1EE13258B3700B81D2E /* jquery.json.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.json.js; sourceTree = "<group>"; };
+		5929E1EF13258B3700B81D2E /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
+		5929E1F113258C0500B81D2E /* about.haml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = about.haml; sourceTree = "<group>"; };
+		5929E1F213258C0500B81D2E /* layout.haml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = layout.haml; sourceTree = "<group>"; };
+		5929E1F313258C0500B81D2E /* welcome.haml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = welcome.haml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -38,9 +45,11 @@
 				5929E11413243ECB00B81D2E /* gpl.txt */,
 				5929E11513243ECB00B81D2E /* largetestinput.txt */,
 				5929E11613243ECB00B81D2E /* populate_database.rb */,
+				5929E1E813258B3700B81D2E /* public */,
 				5929E1E5132576FA00B81D2E /* readme.asciidoc */,
 				5929E14613245CB200B81D2E /* test_suite */,
 				5929E11813243ECB00B81D2E /* testinput.txt */,
+				5929E1F013258C0500B81D2E /* views */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,6 +61,51 @@
 				5929E14713245CEB00B81D2E /* swift.php */,
 			);
 			path = test_suite;
+			sourceTree = "<group>";
+		};
+		5929E1E813258B3700B81D2E /* public */ = {
+			isa = PBXGroup;
+			children = (
+				5929E1E913258B3700B81D2E /* css */,
+				5929E1EB13258B3700B81D2E /* images */,
+				5929E1ED13258B3700B81D2E /* scripts */,
+			);
+			path = public;
+			sourceTree = "<group>";
+		};
+		5929E1E913258B3700B81D2E /* css */ = {
+			isa = PBXGroup;
+			children = (
+				5929E1EA13258B3700B81D2E /* main.css */,
+			);
+			path = css;
+			sourceTree = "<group>";
+		};
+		5929E1EB13258B3700B81D2E /* images */ = {
+			isa = PBXGroup;
+			children = (
+				5929E1EC13258B3700B81D2E /* textlogo.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		5929E1ED13258B3700B81D2E /* scripts */ = {
+			isa = PBXGroup;
+			children = (
+				5929E1EE13258B3700B81D2E /* jquery.json.js */,
+				5929E1EF13258B3700B81D2E /* main.js */,
+			);
+			path = scripts;
+			sourceTree = "<group>";
+		};
+		5929E1F013258C0500B81D2E /* views */ = {
+			isa = PBXGroup;
+			children = (
+				5929E1F113258C0500B81D2E /* about.haml */,
+				5929E1F213258C0500B81D2E /* layout.haml */,
+				5929E1F313258C0500B81D2E /* welcome.haml */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
