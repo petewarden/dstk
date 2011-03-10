@@ -1,4 +1,4 @@
-Start with AMI # ami-cef405a7
+Start with AMI # ami-cef405a7 (Ubuntu 10.10)
 
 sudo aptitude update
 sudo aptitude safe-upgrade
@@ -9,9 +9,8 @@ sudo aptitude install postgresql
 sudo aptitude install libpq-dev
 sudo aptitude install ruby1.8-dev ruby1.8 ri1.8 rdoc1.8 irb1.8 libreadline-ruby1.8 libruby1.8 libopenssl-ruby sqlite3 libsqlite3-ruby1.8
 sudo aptitude install git
-sudo aptitude install libcurl4-openssl-dev install apache2-prefork-dev libapr1-dev libaprutil1-dev
+sudo aptitude install libcurl4-openssl-dev apache2-prefork-dev libapr1-dev libaprutil1-dev
 
-sudo nano /etc/postgresql/8.4/main/pg_hba.conf
 sudo sed -i "s/ident/trust/" /etc/postgresql/8.4/main/pg_hba.conf
 sudo sed -i "s/md5/trust/" /etc/postgresql/8.4/main/pg_hba.conf
 sudo /etc/init.d/postgresql restart
@@ -32,13 +31,11 @@ sudo gem update --system
 sudo gem update
 
 cd ~/sources
-
 git clone git://github.com/petewarden/geodictapi.git
 git clone git://github.com/petewarden/geodictdata.git
 cd geodictapi
 sudo gem install bundler
 sudo bundle install
-
 
 sudo gem install passenger
 sudo passenger-install-apache2-module
