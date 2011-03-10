@@ -2,6 +2,7 @@
 body {
   font-family: Baskerville, Georgia, 'Times New Roman', Serif;
 	font-size:1.0em;
+  letter-spacing: -1px;
 	margin:0px;
 	padding:0px;
 	text-align:left;
@@ -127,7 +128,7 @@ a:hover {color: #990000; text-decoration: underline;}
 .menu li ul li a { width: 110px; background: #CCCCCC; }
 .menu li ul li a:hover { color: #990000; }
 
-.headline { font-size:300%; margin-left:10px; }
+.headline { font-size:300%; margin-left:10px; letter-spacing: -3px; }
 
 .shadow {
 	-moz-box-shadow: 3px 3px 4px #000;

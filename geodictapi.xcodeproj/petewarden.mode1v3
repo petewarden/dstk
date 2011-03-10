@@ -275,7 +275,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>6</integer>
+									<integer>27</integer>
+									<integer>25</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -318,7 +319,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>geodict_server.rb</string>
+										<string>layout.haml</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -326,11 +327,11 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>geodict_server.rb</string>
+												<string>layout.haml</string>
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>5929E2DF1325B79D00B81D2E</string>
+												<string>5929E2F113262A4900B81D2E</string>
 												<key>history</key>
 												<array>
 													<string>5929E12313244A2300B81D2E</string>
@@ -345,11 +346,11 @@
 													<string>5929E21013258E7300B81D2E</string>
 													<string>5929E21113258E7300B81D2E</string>
 													<string>5929E23D1325980D00B81D2E</string>
-													<string>5929E243132599E300B81D2E</string>
 													<string>5929E24D13259AB700B81D2E</string>
 													<string>5929E25913259D8C00B81D2E</string>
 													<string>5929E2D51325B60D00B81D2E</string>
-													<string>5929E2D61325B60D00B81D2E</string>
+													<string>5929E2EB13262A3700B81D2E</string>
+													<string>5929E2EC13262A3700B81D2E</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -378,7 +379,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>geodict_lib.rb</string>
+										<string>main.css</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -386,11 +387,11 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>geodict_lib.rb</string>
+												<string>main.css</string>
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>5929E2E21325B79D00B81D2E</string>
+												<string>5929E2F213262A4900B81D2E</string>
 												<key>history</key>
 												<array>
 													<string>5929E12313244A2300B81D2E</string>
@@ -399,12 +400,12 @@
 													<string>5929E19B1324774300B81D2E</string>
 													<string>5929E1A813249DD800B81D2E</string>
 													<string>5929E1D41324C74B00B81D2E</string>
-													<string>5929E2201325951A00B81D2E</string>
 													<string>5929E24813259A4400B81D2E</string>
 													<string>5929E2CC1325B41300B81D2E</string>
 													<string>5929E2D81325B60D00B81D2E</string>
 													<string>5929E2E01325B79D00B81D2E</string>
-													<string>5929E2E11325B79D00B81D2E</string>
+													<string>5929E2E4132629CC00B81D2E</string>
+													<string>5929E2E5132629CC00B81D2E</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>

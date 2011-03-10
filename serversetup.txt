@@ -6,14 +6,17 @@ sudo aptitude full-upgrade
 sudo aptitude install build-essential
 sudo aptitude install apache2 apache2.2-common apache2-mpm-prefork apache2-utils libexpat1 ssl-cert
 sudo aptitude install postgresql
+sudo aptitude install libpq-dev
+sudo aptitude install ruby1.8-dev ruby1.8 ri1.8 rdoc1.8 irb1.8 libreadline-ruby1.8 libruby1.8 libopenssl-ruby sqlite3 libsqlite3-ruby1.8
+sudo aptitude install git
+sudo aptitude install libcurl4-openssl-dev install apache2-prefork-dev libapr1-dev libaprutil1-dev
 
 sudo nano /etc/postgresql/8.4/main/pg_hba.conf
-<change ident and md5 to trust>
+sudo sed -i "s/ident/trust/" /etc/postgresql/8.4/main/pg_hba.conf
+sudo sed -i "s/md5/trust/" /etc/postgresql/8.4/main/pg_hba.conf
 sudo /etc/init.d/postgresql restart
 createdb -U postgres geodict
-sudo aptitude install libpq-dev
 
-sudo aptitude install ruby1.8-dev ruby1.8 ri1.8 rdoc1.8 irb1.8 libreadline-ruby1.8 libruby1.8 libopenssl-ruby sqlite3 libsqlite3-ruby1.8
 sudo ln -s /usr/bin/ruby1.8 /usr/bin/ruby
 sudo ln -s /usr/bin/ri1.8 /usr/bin/ri
 sudo ln -s /usr/bin/rdoc1.8 /usr/bin/rdoc
@@ -27,33 +30,34 @@ sudo ruby setup.rb
 sudo ln -s /usr/bin/gem1.8 /usr/bin/gem
 sudo gem update --system
 sudo gem update
-sudo gem install daemons
-
-sudo nano /etc/apache2/sites-enabled/geodictapi.com
- <VirtualHost *:80>
- ServerName geodictapi.com
- ProxyPass / http://geodictapi.com:4567/
- </VirtualHost>
-sudo cp /etc/apache2/mods-available/proxy.conf /etc/apache2/mods-enabled/proxy.conf
-sudo cp /etc/apache2/mods-available/proxy.load /etc/apache2/mods-enabled/proxy.load
-sudo cp /etc/apache2/mods-available/proxy_http.load /etc/apache2/mods-enabled/proxy_http.load
-sudo apache2ctl graceful
 
 cd ~/sources
-sudo aptitude install git
 
 git clone git://github.com/petewarden/geodictapi.git
 git clone git://github.com/petewarden/geodictdata.git
 cd geodictapi
 sudo gem install bundler
 sudo bundle install
+
+
+sudo gem install passenger
+sudo passenger-install-apache2-module
+
+sudo bash -c 'echo "LoadModule passenger_module /usr/lib/ruby/gems/1.8/gems/passenger-3.0.4/ext/apache2/mod_passenger.so" > /etc/apache2/mods-enabled/passenger.load'
+sudo bash -c 'echo "PassengerRoot /usr/lib/ruby/gems/1.8/gems/passenger-3.0.4" > /etc/apache2/mods-enabled/passenger.conf'
+sudo bash -c 'echo "PassengerRuby /usr/bin/ruby1.8" >> /etc/apache2/mods-enabled/passenger.conf'
+
+sudo bash -c 'echo "
+  <VirtualHost *:80>
+      ServerName www.yourhost.com
+      DocumentRoot /home/ubuntu/sources/geodictapi/public
+      <Directory /home/ubuntu/sources/geodictapi/public>
+         AllowOverride all
+         Options -MultiViews
+      </Directory>
+   </VirtualHost>
+" > /etc/apache2/sites-enabled/000-default'
+
+sudo /etc/init.d/apache2 restart
+
 ./populate_database.rb
-
-sudo ln -s /home/ubuntu/sources/geodictapi/geodict_daemon.rb /etc/init.d/geodict
-
-sudo update-rc.d geodict defaults
-
-sudo mkdir /opt/pids/
-sudo mkdir /opt/pids/sinatra
-sudo chown www-data /opt/pids/sinatra
-sudo /etc/init.d/geodict start
