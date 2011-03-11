@@ -1,0 +1,36 @@
+Create and attach volume per 
+http://webkist.wordpress.com/2010/03/16/creating-an-amazon-ec2-ebs-ami-from-a-running-instance/
+
+sudo /etc/init.d/postgresql-8.4 stop
+sudo /etc/init.d/apache2 stop
+sudo mkfs.ext3 /dev/sdf
+sudo mkdir /mnt/ebs
+sudo mount /dev/sdf /mnt/ebs
+sudo rsync -a --delete --progress -x / /mnt/ebs
+sudo sed -i "s/^\/dev\/sdb/#\/dev\/sdb/" /mnt/ebs/etc/fstab
+sudo mknod /mnt/ebs/dev/console c 5 1
+sudo mknod /mnt/ebs/dev/tty c 5 0
+sudo mknod /mnt/ebs/dev/zero c 1 5
+sudo mknod /mnt/ebs/dev/null c 1 3
+sudo umount /mnt/ebs
+
+Create x509 certificate and private key, then from local machine
+scp -i ~/.ec2/id_rsa-pstam-keypair /Users/petewarden/Downloads/cert-*.pem ubuntu@geodictapi.com:/tmp/
+scp -i ~/.ec2/id_rsa-pstam-keypair /Users/petewarden/Downloads/pk-*.pem ubuntu@geodictapi.com:/tmp/
+
+cd ~/sources
+wget http://s3.amazonaws.com/ec2-downloads/ec2-ami-tools.zip
+sudo aptitude install unzip
+unzip ec2-ami-tools.zip
+sudo mv /opt/ ec2-ami-tools
+export PATH=$PATH:/opt/ec2-ami-tools-1.3-66634/bin
+export EC2_HOME=/opt/ec2-ami-tools-1.3-66634/
+wget http://s3.amazonaws.com/ec2-downloads/ec2-api-tools.zip
+sudo unzip -d /opt/ ec2-api-tools.zip
+export PATH=$PATH:/opt/ec2-api-tools-1.4.0.2/bin
+export EC2_HOME=/opt/ec2-api-tools-1.4.0.2/
+export JAVA_HOME=/usr
+sudo aptitude install openjdk-6-jre-headless
+
+sudo ec2-create-snapshot vol-* --private-key /tmp/pk-*.pem -C /tmp/cert-*.pem
+ec2-register --snapshot snap-* --description "This GeodictAPI Server image is a turnkey system for geodata processing - see http://geodictapi.com/ for more details" --name "GeodictAPI 1.00" --kernel aki-6a0cf803 --private-key /tmp/pk-*.pem -C /tmp/cert-*.pem --architecture x86_64
