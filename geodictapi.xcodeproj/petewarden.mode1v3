@@ -275,7 +275,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>29</integer>
+									<integer>26</integer>
 									<integer>25</integer>
 									<integer>0</integer>
 								</array>
@@ -314,12 +314,14 @@
 							<key>Dock</key>
 							<array>
 								<dict>
+									<key>BecomeActive</key>
+									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>welcome.haml</string>
+										<string>about.haml</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -327,11 +329,11 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>welcome.haml</string>
+												<string>about.haml</string>
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>5929E3C41329F95800B81D2E</string>
+												<string>5929E3CA1329FA5000B81D2E</string>
 												<key>history</key>
 												<array>
 													<string>5929E12313244A2300B81D2E</string>
@@ -352,9 +354,9 @@
 													<string>5929E3191329AF0900B81D2E</string>
 													<string>5929E32D1329B2B000B81D2E</string>
 													<string>5929E35E1329BABA00B81D2E</string>
-													<string>5929E35F1329BABA00B81D2E</string>
 													<string>5929E3B81329F46F00B81D2E</string>
-													<string>5929E3B91329F46F00B81D2E</string>
+													<string>5929E3C81329FA5000B81D2E</string>
+													<string>5929E3C91329FA5000B81D2E</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -376,8 +378,6 @@
 									<string>633pt</string>
 								</dict>
 								<dict>
-									<key>BecomeActive</key>
-									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
@@ -395,7 +395,7 @@
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>5929E3C51329F95800B81D2E</string>
+												<string>5929E3CB1329FA5000B81D2E</string>
 												<key>history</key>
 												<array>
 													<string>5929E12513244A2300B81D2E</string>
