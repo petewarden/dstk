@@ -5,7 +5,19 @@
   .toc{:style=>"margin-top:30px; margin-bottom:30px; font-size: 125%;"}
     %a{:href=>"#usage"} Usage
     %br
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    %a{:href=>"#geodict"} Geodict
+    %br
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    %a{:href=>"#ip2location"} IP Address to Location
+    %br
     %a{:href=>"#setup"} Setting up your own server
+    %br
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    %a{:href=>"#amazon"} Amazon EC2
+    %br
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    %a{:href=>"#vmware"} VMware
     %br
 
   .developerinfo{:style=>"margin-top:20px; font-size: 125%;"}
@@ -13,8 +25,13 @@
     %a{:name=>"usage"}
     :markdown
       ### Usage
+      
+    %br
+    %a{:name=>"geodict"}
+    :markdown
+      #### Geodict
 
-      As an emulation of Yahoo's service, a good place to start is [their Placemaker documentation](http://developer.yahoo.com/geo/placemaker/guide/web-service.html). There's also concrete examples of how to call the Placemaker API in the test_suite folder. I've focused on supporting the most commonly used features of Yahoo's interface, so if you have some code that relies on something that's missing, [email me a sample of your source](mailto:pete@petewarden.com) and I'll do my best to add that in.
+      As an emulation of Yahoo's service, a good place to start is [their Placemaker documentation](http://developer.yahoo.com/geo/placemaker/guide/web-service.html). There's also concrete examples of how to call the Placemaker API in the test_suite folder, and for Javascript in the source of the home page of this server. I've focused on supporting the most commonly used features of Yahoo's interface, so if you have some code that relies on something that's missing, [email me a sample of your source](mailto:pete@petewarden.com) and I'll do my best to add that in.
     
       Here's how the [Ushahidi Swift project](http://swift.ushahidi.com) calls Placemaker to pull the first location mentioned in a document.
     
@@ -52,17 +69,55 @@
       <hr>
       
       The results will differ between the two APIs, as the algorithms are quite different. In particular, I designed Geodict for applications that are intolerant of false positives, so for example Placemaker will flag "New York Times" as a location whereas Geodict will ignore it.
+
+    %a{:name=>"ip2location"}
+    :markdown
+      #### IP Address to Location
       
-      You can get started using the "http://geodictapi.com/" server, but for intensive use or to run behind a firewall, you'll probably want to create your own machine.
+      This API takes either a single numerical IP address, a comma-separated list, or a JSON-encoded array of addresses, and returns a JSON object with a key for every IP. The value for each key is either null if no information was found for the address, or an object containing location information, including country, region, city and latitude/longitude coordinates. Here's an example
+      `{"67.169.73.113":{`
+      
+      `  "country_name":"United States",`
+      
+      `  "area_code":415,`
+      
+      `  "region":"CA",`
+      
+      `  "postal_code":"94114",`
+      
+      `  "city":"San Francisco",`
+      
+      `  "latitude":37.7587013244629,`
+      
+      `  "country_code":"US",`
+      
+      `  "longitude":-122.438102722168,`
+      
+      `  "country_code3":"USA",`
+      
+      `  "dma_code":807}};
+
+      To call the API, you can make either a GET or a POST request to `/ip2location`. If you make a GET request, then you need to pass in the IP addresses in the suffix of the URL, eg `/ip2location/130.12.1.34%2C67.169.73.113`.
+
+      Using GET you can also pass in a callback parameter in the URL, making it possible to run this as a JSONP cross-domain request. You can see this method in action if you view source on the home page of this server.
+      
+      You can also make a POST request passing in the IP addresses in the body of the request. This is useful if you have very large arrays of IP addresses you need to process, since you won't hit any URL size limits.
+      
       
     %a{:name=>"setup"}
     :markdown
       ### Setting up your own server
 
+      You can get started using the "http://geodictapi.com/" server, but for intensive use or to run behind a firewall, you'll probably want to create your own machine.
+
+    %a{:name=>"amazon"}
+    :markdown
       The simplest way to create a server is to grab a virtual machine. This whole server is available ready-to-go as either a VMware or Amazon EC2 Image. 
       
       For Amazon, find the AMI with the id `ami-fcec1e95`. Start a new instance from this image, wait a couple of minutes for the machine to boot up, and then paste the public DNS name of the instance into your browser. You should see the normal home page of this site. You can test that it's working by pasting text into the main input. You can then just change your code base URL to that DNS name, and start using the API from your own server immediately.
 
+    %a{:name=>"vmware"}
+    :markdown
       For VMware, first [download the free Player application](http://www.vmware.com/products/player/). Then [download the Virtual Application image for the server](http://static.openheatmap.com/geodictapi_v1.00.vmwarevm.zip) and unzip it. Start up the VM, log in as 'ubuntu'/'changeme', and then type `ifconfig`. This will give you the VM's local IP address, so if you type that into the console you'll bring up this website, and be able to use it as an API endpoint.
 
       If you want to roll your own server from source on an in-house machine, or on another hosting provider, serversetup.txt contains instructions on the exact steps I took to create that image starting from a clean Ubuntu 10.04 installation.

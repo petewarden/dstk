@@ -39,4 +39,7 @@ module GeodictConfig
       'in' => true
   }
 
+  # The location of the MaxMind database file holding IP to location mappings
+  IP_MAPPING_DATABASE = '../geodictdata/GeoLiteCity.dat'
+
 end

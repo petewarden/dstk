@@ -5,20 +5,42 @@
     %a{:href=>"http://github.com/petewarden/geodictapi"}open-source service
     for pulling location information from unstructured text.
 
-  .developerinfo{:style=>"margin-top:20px; font-size: 125%;"}
+  %div{:style=>"margin-top:20px; font-size: 125%;"}
     %a{:href=>"http://geodictapi.com/developerdocs"}Here's the developer documentation
-    covering calling the API and setting up your own servers. Geodict emulates the interface to 
+    covering calling the API and setting up your own servers. 
+  %div{:style=>"margin-top:20px; font-size: 125%;"}
+    %h3 Geodict
+    Geodict pulls country, city and region names from raw paragraphs of text, and returns their coordinates.
+    %br
+    It emulates the interface to 
     %a{:href=>"http://developer.yahoo.com/geo/placemaker/guide/web-service.html "}Yahoo's Placemaker
     , so switching should just mean changing 'http://wherein.yahooapis.com/' to 'http://geodictapi.com/' in your current code. 
   
-  .developerinfo{:style=>"margin-top:20px; font-size: 125%;"}
+  .trygeodict{:style=>"margin-top:20px; font-size: 125%;"}
     Try it for yourself. Copy and paste some text into the box below to see what locations it finds.
 
   %textarea#text{:style=>"width: 800px; margin-top: 10px;"}
 
-  #uploadtext.button{:style=>"width:150px; font-size: 125%;"}Find Locations
+  #uploadtext.button{:style=>"width:150px; font-size: 125%;"} Extract Locations
   
   #results{:style=>"margin-top:30px;"}
+
+  %div{:style=>"margin-top:20px; font-size: 125%;"}
+    %h3 IP Address to Location
+    IP Address to Location calculates country, state, city and latitude/longitude coordinates for IP addresses.
+    %br
+    To call it, just make a request to
+    %a{:href=>"/ip2location/67.169.73.113"} /ip2location
+    passing in a single address, or a JSON array or comma-separated list of many IPs.
+
+  .tryip2location{:style=>"margin-top:20px; font-size: 125%;"}
+    Try it for yourself. Copy and paste some IP addresses into the box below to see what locations it finds.
+
+  %textarea#ip2locationtext{:style=>"width: 800px; margin-top: 10px;"}
+
+  #uploadip2locationtext.button{:style=>"width:150px; font-size: 125%;"} Locate IP Addresses
+  
+  #ip2locationresults{:style=>"margin-top:30px;"}
   
 
 
@@ -26,6 +48,7 @@
 :javascript
   $(function() {
     $('#text').expandingTextArea()
+    $('#ip2locationtext').expandingTextArea()
 
     $('#uploadtext').click(function() {
       var text = $('#text').val();
@@ -90,6 +113,81 @@
         }, 
         error: function(jqXHR, textStatus, errorCode) {
             $('#results').text('Error: '+textStatus);
+        }, 
+        dataType: 'jsonp',
+        crossDomain: true
+      });
+    
+    });
+
+    $('#uploadip2locationtext').click(function() {
+      var text = $('#ip2locationtext').val();
+      if (text.length<1) {
+        $('#ip2locationresults').html("No text found in input box.");
+        return;
+      }
+
+      text = text.replace("\n", ",");
+      text = text.replace(" ", ",");
+            
+      var apiUrl = '/ip2location';
+      apiUrl += '/'+encodeURIComponent(text);
+      
+      $.ajax(apiUrl, {
+        success: function(result) {
+          if (typeof result['error'] !== 'undefined') {
+            $('#ip2locationresults')
+            .text(result.error);
+            return;
+          }
+
+          $('#ip2locationresults').empty()
+          
+          for (var ip in result) {
+            var info = result[ip];
+            
+            var html;
+            if (info == null) {
+              html = "<div>"+ip+" - NA</div>"
+            } else {
+            
+              var lat = info['latitude'];
+              var lon = info['longitude'];
+              var country = info['country_name'];
+              var region = info['region'];
+              var city = info['city'];
+              var postal_code = info['postal_code'];
+              
+              html = 
+                '<div>'
+                +ip
+                +' - '
+                +city
+                +', '
+                +region
+                +' '
+                +postal_code
+                +', '
+                +country
+                +' '
+                +name
+                +' at <a href="http://maps.google.com/maps?sll='
+                +lat
+                +','
+                +lon
+                +'">'
+                +lat
+                +','
+                +lon
+                +'</a>'
+                +'</div>';
+            }
+            
+            $('#ip2locationresults').append($(html));
+          }
+        }, 
+        error: function(jqXHR, textStatus, errorCode) {
+            $('#ip2locationresults').text('Error: '+textStatus);
         }, 
         dataType: 'jsonp',
         crossDomain: true

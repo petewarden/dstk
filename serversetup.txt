@@ -52,3 +52,24 @@ sudo bash -c 'echo "
 sudo /etc/init.d/apache2 restart
 
 ./populate_database.rb
+
+// End of version 1.00
+
+cd ~/sources
+mkdir maxmind
+cd maxmind
+curl -O "http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz"
+gunzip GeoLiteCity.dat.gz
+curl -O "http://geolite.maxmind.com/download/geoip/api/c/GeoIP.tar.gz"
+tar xzvf GeoIP.tar.gz
+cd GeoIP-1.4.6/
+./configure
+make
+sudo make install
+cd ..
+sudo aptitude install subversion -y
+svn checkout svn://rubyforge.org/var/svn/net-geoip/trunk net-geoip
+cd net-geoip/
+ruby ext/extconf.rb 
+make
+sudo make install

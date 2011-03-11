@@ -20,9 +20,12 @@
 require 'rubygems' if RUBY_VERSION < '1.9'
 require 'sinatra'
 require 'json'
+require 'net/geoip'
 
 # Some hackiness to include the library script, even if invoked from another directory
-require File.join(File.expand_path(File.dirname(__FILE__)), 'geodict_lib')
+cwd = File.expand_path(File.dirname(__FILE__))
+require File.join(cwd, 'geodict_lib')
+require File.join(cwd, 'geodict_config')
 
 enable :run
 
@@ -360,7 +363,58 @@ def placemaker_api_call(params)
   return result
 end
 
-# Methods to directly serve up content
+# Takes an array of IP addresses as input, and looks up their locations using the
+# free database from GeoMind
+def ip2location(ips, callback=nil)
+
+  geoip = Net::GeoIP.new(GeodictConfig::IP_MAPPING_DATABASE)
+
+  output = {}
+  ips.each do |ip|
+    begin
+      record = geoip[ip]
+      info = {
+        :country_code => record.country_code,
+        :country_code3 => record.country_code3,
+        :country_name => record.country_name,
+        :region => record.region,
+        :city => record.city,
+        :latitude => record.latitude,
+        :longitude => record.longitude,
+        :dma_code => record.dma_code,
+        :area_code => record.area_code
+      }
+      begin
+        info[:postal_code] = record.postal_code
+      rescue ArgumentError
+        info[:postal_code] = ''
+      end
+    rescue Net::GeoIP::RecordNotFoundError, ArgumentError
+      info = nil
+    end
+    output[ip] = info
+  end
+  
+  result = make_json(output, callback)
+  
+  return result
+
+end
+
+# Takes a possibly JSON-encoded or comma-separated string, and splits into IPs
+def ips_list_from_string(ips_string)
+
+  # Do a bit of trickery to handle both JSON-encoded and comma-separated lists of
+  # IP addresses
+  ips_string.gsub!(/["\[\]]/, '') #"
+
+  ips_list = ips_string.split(',')
+  
+end
+
+########################################
+# Methods to directly serve up content #
+########################################
 
 # The main page.
 get '/' do
@@ -369,16 +423,6 @@ get '/' do
   
   haml :welcome
 
-end
-
-# The normal POST interface for Yahoo's Placemaker
-post '/v1/document' do
-  placemaker_api_call(params)
-end
-
-# Also support a non-standard GET version of the API for Javascript clients
-get '/v1/document' do
-  placemaker_api_call(params)
 end
 
 get '/developerdocs' do
@@ -396,3 +440,47 @@ get '/about' do
   haml :about
 
 end
+
+########################################
+# API entry points                     #
+########################################
+
+# The normal POST interface for Yahoo's Placemaker
+post '/v1/document' do
+  placemaker_api_call(params)
+end
+
+# Also support a non-standard GET version of the API for Javascript clients
+get '/v1/document' do
+  placemaker_api_call(params)
+end
+
+# The POST interface for the IP address to location lookup
+post '/ip2location' do
+  # Pull in the raw data in the body of the request
+  ips_string = request.env['rack.input'].read
+  
+  if !ips_string
+    fatal_error('You need to place the IP addresses as a comma-separated list inside the POST body', 
+      'json', 500, nil)
+  end
+  ips_list = ips_list_from_string(ips_string)
+
+  ip2location(ips_list)
+end
+
+# The GET interface for the IP address to location lookup
+get '/ip2location/:ips' do
+
+  callback = params[:callback]
+  ips_string = params[:ips]
+  if !ips_string
+    fatal_error('You need to place the IP addresses as a comma-separated list as part of the URL', 
+      'json', 500, callback)
+  end
+
+  ips_list = ips_list_from_string(ips_string)
+
+  ip2location(ips_list, callback)
+end
+
