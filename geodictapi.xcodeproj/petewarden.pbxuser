@@ -572,6 +572,8 @@
 			5929E3C11329F7DD00B81D2E /* PBXTextBookmark */ = 5929E3C11329F7DD00B81D2E /* PBXTextBookmark */;
 			5929E3C21329F90600B81D2E /* PBXTextBookmark */ = 5929E3C21329F90600B81D2E /* PBXTextBookmark */;
 			5929E3C31329F90600B81D2E /* PBXTextBookmark */ = 5929E3C31329F90600B81D2E /* PBXTextBookmark */;
+			5929E3C41329F95800B81D2E /* PBXTextBookmark */ = 5929E3C41329F95800B81D2E /* PBXTextBookmark */;
+			5929E3C51329F95800B81D2E /* PBXTextBookmark */ = 5929E3C51329F95800B81D2E /* PBXTextBookmark */;
 		};
 		sourceControlManager = 5929E10413243EA700B81D2E /* Source Control */;
 		userBuildSettings = {
@@ -4601,8 +4603,8 @@
 	5929E30C1329AD7900B81D2E /* developerdocs.haml */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {854, 2280}}";
-			sepNavSelRange = "{3644, 0}";
-			sepNavVisRange = "{2138, 2224}";
+			sepNavSelRange = "{3524, 0}";
+			sepNavVisRange = "{2138, 2105}";
 		};
 	};
 	5929E30D1329AE3D00B81D2E /* PBXTextBookmark */ = {
@@ -4659,7 +4661,7 @@
 		isa = PBXTextBookmark;
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 1";
-		rLen = 6019;
+		rLen = 5900;
 		rLoc = 0;
 		rType = 0;
 		vrLen = 2219;
@@ -4709,7 +4711,7 @@
 		isa = PBXTextBookmark;
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 1";
-		rLen = 6019;
+		rLen = 5900;
 		rLoc = 0;
 		rType = 0;
 		vrLen = 2219;
@@ -4720,7 +4722,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 44";
 		rLen = 0;
-		rLoc = 6019;
+		rLoc = 5900;
 		rType = 0;
 		vrLen = 2651;
 		vrLoc = 0;
@@ -4760,7 +4762,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 44";
 		rLen = 0;
-		rLoc = 6019;
+		rLoc = 5900;
 		rType = 0;
 		vrLen = 2651;
 		vrLoc = 0;
@@ -4780,7 +4782,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 44";
 		rLen = 0;
-		rLoc = 6019;
+		rLoc = 5900;
 		rType = 0;
 		vrLen = 2651;
 		vrLoc = 0;
@@ -4970,7 +4972,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 42";
 		rLen = 0;
-		rLoc = 6019;
+		rLoc = 5900;
 		rType = 0;
 		vrLen = 2535;
 		vrLoc = 0;
@@ -5110,7 +5112,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 53";
 		rLen = 0;
-		rLoc = 4698;
+		rLoc = 4579;
 		rType = 0;
 		vrLen = 2074;
 		vrLoc = 584;
@@ -5150,7 +5152,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 57";
 		rLen = 0;
-		rLoc = 4382;
+		rLoc = 4263;
 		rType = 0;
 		vrLen = 2056;
 		vrLoc = 697;
@@ -5190,7 +5192,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 67";
 		rLen = 0;
-		rLoc = 6019;
+		rLoc = 5900;
 		rType = 0;
 		vrLen = 2260;
 		vrLoc = 1068;
@@ -5210,7 +5212,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 69";
 		rLen = 0;
-		rLoc = 6019;
+		rLoc = 5900;
 		rType = 0;
 		vrLen = 2553;
 		vrLoc = 1234;
@@ -5230,7 +5232,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 64";
 		rLen = 0;
-		rLoc = 4956;
+		rLoc = 4837;
 		rType = 0;
 		vrLen = 2555;
 		vrLoc = 1234;
@@ -5250,7 +5252,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 66";
 		rLen = 0;
-		rLoc = 5543;
+		rLoc = 5424;
 		rType = 0;
 		vrLen = 2568;
 		vrLoc = 1234;
@@ -6106,7 +6108,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 118";
 		rLen = 0;
-		rLoc = 5288;
+		rLoc = 5169;
 		rType = 0;
 		vrLen = 2678;
 		vrLoc = 3197;
@@ -6146,9 +6148,29 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 99";
 		rLen = 0;
-		rLoc = 3644;
+		rLoc = 3524;
 		rType = 0;
 		vrLen = 2224;
+		vrLoc = 2138;
+	};
+	5929E3C41329F95800B81D2E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
+		name = "welcome.haml: 44";
+		rLen = 0;
+		rLoc = 2013;
+		rType = 0;
+		vrLen = 2241;
+		vrLoc = 0;
+	};
+	5929E3C51329F95800B81D2E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
+		name = "developerdocs.haml: 99";
+		rLen = 0;
+		rLoc = 3524;
+		rType = 0;
+		vrLen = 2105;
 		vrLoc = 2138;
 	};
 }
