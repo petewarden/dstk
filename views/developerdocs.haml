@@ -75,27 +75,29 @@
       #### IP Address to Location
       
       This API takes either a single numerical IP address, a comma-separated list, or a JSON-encoded array of addresses, and returns a JSON object with a key for every IP. The value for each key is either null if no information was found for the address, or an object containing location information, including country, region, city and latitude/longitude coordinates. Here's an example
+      <hr>
       `{"67.169.73.113":{`
       
-      `  "country_name":"United States",`
+      `&nbsp;&nbsp;"country_name":"United States",`
       
-      `  "area_code":415,`
+      `&nbsp;&nbsp;"area_code":415,`
       
-      `  "region":"CA",`
+      `&nbsp;&nbsp;"region":"CA",`
       
-      `  "postal_code":"94114",`
+      `&nbsp;&nbsp;"postal_code":"94114",`
       
-      `  "city":"San Francisco",`
+      `&nbsp;&nbsp;"city":"San Francisco",`
       
-      `  "latitude":37.7587013244629,`
+      `&nbsp;&nbsp;"latitude":37.7587013244629,`
       
-      `  "country_code":"US",`
+      `&nbsp;&nbsp;"country_code":"US",`
       
-      `  "longitude":-122.438102722168,`
+      `&nbsp;&nbsp;"longitude":-122.438102722168,`
       
-      `  "country_code3":"USA",`
+      `&nbsp;&nbsp;"country_code3":"USA",`
       
-      `  "dma_code":807}};
+      `&nbsp;&nbsp;"dma_code":807}};
+      <hr>
 
       To call the API, you can make either a GET or a POST request to `/ip2location`. If you make a GET request, then you need to pass in the IP addresses in the suffix of the URL, eg `/ip2location/130.12.1.34%2C67.169.73.113`.
 
