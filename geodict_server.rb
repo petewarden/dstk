@@ -380,3 +380,19 @@ end
 get '/v1/document' do
   placemaker_api_call(params)
 end
+
+get '/developerdocs' do
+  
+  @headline = 'Developer Documentation'
+  
+  haml :developerdocs
+
+end
+
+get '/about' do
+  
+  @headline = 'About'
+  
+  haml :about
+
+end

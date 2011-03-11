@@ -26,9 +26,10 @@
 		5929E1EC13258B3700B81D2E /* textlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textlogo.png; sourceTree = "<group>"; };
 		5929E1EE13258B3700B81D2E /* jquery.json.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.json.js; sourceTree = "<group>"; };
 		5929E1EF13258B3700B81D2E /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
-		5929E1F113258C0500B81D2E /* about.haml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = about.haml; sourceTree = "<group>"; };
+		5929E1F113258C0500B81D2E /* about.haml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = about.haml; sourceTree = "<group>"; wrapsLines = 1; };
 		5929E1F213258C0500B81D2E /* layout.haml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = layout.haml; sourceTree = "<group>"; };
 		5929E1F313258C0500B81D2E /* welcome.haml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = welcome.haml; sourceTree = "<group>"; };
+		5929E30C1329AD7900B81D2E /* developerdocs.haml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = developerdocs.haml; sourceTree = "<group>"; wrapsLines = 1; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -102,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				5929E1F113258C0500B81D2E /* about.haml */,
+				5929E30C1329AD7900B81D2E /* developerdocs.haml */,
 				5929E1F213258C0500B81D2E /* layout.haml */,
 				5929E1F313258C0500B81D2E /* welcome.haml */,
 			);
