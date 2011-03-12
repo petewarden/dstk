@@ -1,0 +1,14 @@
+Create and mount a volume on /dev/sdg
+sudo mkfs.ext3 /dev/sdg
+
+sudo mkdir /mnt/tiger
+sudo mount /dev/sdg /mnt/tiger
+sudo chown ubuntu /mnt/tiger
+
+sudo aptitude install ncftp
+ncftp
+open ftp.census.gov 
+cd geo/tiger/TIGER2009
+lcd /mnt/tiger
+get -R * 
+

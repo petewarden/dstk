@@ -73,3 +73,53 @@ cd net-geoip/
 ruby ext/extconf.rb 
 make
 sudo make install
+
+// End of version 1.05
+
+cd ~/sources
+wget http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.11.tar.gz
+tar -xvzf libiconv-1.11.tar.gz
+cd libiconv-1.11
+./configure --prefix=/usr/local/libiconv
+make
+sudo make install
+sudo ln -s /usr/local/libiconv/lib/libiconv.so.2 /usr/lib/libiconv.so.2
+
+cd ~/sources
+git clone git://github.com/geocommons/geocoder.git
+cd geocoder/
+sed -i "s/gcc-4.2/gcc/" src/libsqlite3_geocoder/Makefile
+sed -i "s/gcc-4.2/gcc/" src/shp2sqlite/Makefile
+sed -i "s/-arch i386 //" src/libsqlite3_geocoder/Makefile
+sed -i "s/CC=gcc/CC=gcc -fPIC/" src/libsqlite3_geocoder/Makefile
+sed -i "s/ -liconv / -L\/usr\/local\/libiconv\/lib\/ -liconv /" src/shp2sqlite/Makefile
+sed -i "s/ -lsqlite3 / -lsqlite3 -lm /" src/libsqlite3_geocoder/Makefile
+sed -i "s/\/Users\/katechapman\/Desktop\/geonames.db/..\/geocoderdata\/geocoder.db/" bin/
+
+nano lib/geocoder/us/database.rb
+require 'thread'
+
+sed -i "s/fastercsv/csv/" tests/database.rb
+sed -i "s/FasterCSV/CSV/" tests/database.rb
+sed -i "s/\/Users\/katechapman\/shineygeocoder.db/..\/geocoderdata\/geocoder.db/" tests/database.rb
+make
+sudo make install
+
+<Attach Tiger/Line 2009 EBS volume to /dev/sdg>
+sudo mkdir /mnt/tiger
+sudo mount /dev/sdg /mnt/tiger
+sudo chown ubuntu /mnt/tiger
+
+sudo aptitude install unzip -y
+
+mkdir ../geocoderdata
+bin/tiger_import ../geocoderdata/geocoder.db /mnt/tiger/
+
+sudo gem install text
+sudo gem install levenshtein
+chmod +x bin/rebuild_metaphones
+bin/rebuild_metaphones
+bin/build_indexes ../geocoderdata/geocoder.db
+
+sudo gem install Geocoder-US-2.0.0.gem
+
