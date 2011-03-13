@@ -429,6 +429,7 @@ def street2location(addresses, callback=nil)
     begin
       printf(STDERR, 'Calling geocode("'+address+'")'+"\n")
       location = db.geocode(address, true)
+      printf(STDERR, 'Found "'+location.inspect+'"'+"\n")
       if location
         info = {
           :country_code => 'US',
