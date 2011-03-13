@@ -420,14 +420,14 @@ end
 # data from the US census
 def street2location(addresses, callback=nil)
 
-  printf(STDERR, 'Calling street2location("'+addresses.inspect+'")')
+  printf(STDERR, 'Calling street2location("'+addresses.inspect+'")'+"\n")
 
   db = Geocoder::US::Database.new('../geocoderdata/geocoder.db', {:debug => false})
 
   output = {}
   addresses.each do |address|
     begin
-      printf(STDERR, 'Calling geocode("'+address+'")')
+      printf(STDERR, 'Calling geocode("'+address+'")'+"\n")
       location = db.geocode(address, true)
       if location
         info = {
@@ -443,10 +443,11 @@ def street2location(addresses, callback=nil)
           :fips_county => location.fips_county
         }
       else
+        printf(STDERR, 'No location found for "'+address+'"'+"\n")
         info = nil
       end
     rescue
-      puts $!.inspect, $@
+      printf(STDERR, $!.inspect + $@ + "\n")
       info = nil
     end
     output[address] = info
