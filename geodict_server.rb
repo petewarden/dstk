@@ -470,6 +470,8 @@ def addresses_list_from_string(addresses_string, callback=nil)
     fatal_error('Empy string passed in to street2location', 
       'json', 500, callback)
   end
+
+  printf(STDERR, addresses_string.inspect)
   
   # Do a bit of trickery to handle both JSON-encoded and single addresses
   first_character = addresses_string[0].chr
