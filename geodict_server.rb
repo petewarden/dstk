@@ -21,6 +21,7 @@ require 'rubygems' if RUBY_VERSION < '1.9'
 require 'sinatra'
 require 'json'
 require 'net/geoip'
+require '../geocoder/lib/geocoder/us/database'
 
 # Some hackiness to include the library script, even if invoked from another directory
 cwd = File.expand_path(File.dirname(__FILE__))
@@ -378,7 +379,7 @@ def ip2location(ips, callback=nil)
         :country_code3 => record.country_code3,
         :country_name => record.country_name,
         :region => record.region,
-        :city => record.city,
+        :locality => record.city,
         :latitude => record.latitude,
         :longitude => record.longitude,
         :dma_code => record.dma_code,
@@ -410,6 +411,63 @@ def ips_list_from_string(ips_string)
 
   ips_list = ips_string.split(',')
   
+end
+
+# Takes an array of postal addresses as input, and looks up their locations using
+# data from the US census
+def street2location(addresses, callback=nil)
+
+  db = Geocoder::US::Database.new('../geocoderdata/geocoder.db', {:debug => false})
+
+  output = {}
+  addresses.each do |address|
+    begin
+      location = db.geocode(address, true)
+      if location
+        info = {
+          :country_code => 'US',
+          :country_code3 => 'USA',
+          :country_name => 'United States',
+          :region => location.state,
+          :locality => location.city,
+          :street_address => location.number+' '+location.street,
+          :street_number => location.number,
+          :street_name => location.street,
+          :confidence => location.score,
+          :fips_county => location.fips_county
+        }
+      else
+        info = nil
+      end
+    rescue
+      info = nil
+    end
+    output[address] = info
+  end
+  
+  result = make_json(output, callback)
+  
+  return result
+
+end
+
+# Takes either a JSON-encoded string or single address, and produces a Ruby array
+def addresses_list_from_string(addresses_string, callback=nil)
+
+  if addresses_string == ''
+    fatal_error('Empy string passed in to street2location', 
+      'json', 500, callback)
+  end
+  
+  # Do a bit of trickery to handle both JSON-encoded and single addresses
+  first_character = addresses_string[0].chr
+  if first_character == '['
+    result = JSON.parse(addresses_string)
+  else
+    result = [addresses_string]
+  end
+  
+  result
 end
 
 ########################################
@@ -482,5 +540,34 @@ get '/ip2location/:ips' do
   ips_list = ips_list_from_string(ips_string)
 
   ip2location(ips_list, callback)
+end
+
+# The POST interface for the street address to location lookup
+post '/street2location' do
+  # Pull in the raw data in the body of the request
+  addresses_string = request.env['rack.input'].read
+  
+  if !addresses_string
+    fatal_error('You need to place the street addresses as a JSON-encoded array of strings inside the POST body', 
+      'json', 500, nil)
+  end
+  addresses_list = addresses_list_from_string(addresses_string)
+
+  street2location(addresses_list)
+end
+
+# The GET interface for the street address to location lookup
+get '/street2location/:ips' do
+
+  callback = params[:callback]
+  addresses_string = params[:addresses]
+  if !addresses_string
+    fatal_error('You need to place the street addresses as a JSON-encoded array of strings as part of the URL', 
+      'json', 500, callback)
+  end
+
+  addresses_list = ips_list_from_string(addresses_string, callback)
+
+  street2location(addresses_list, callback)
 end
 

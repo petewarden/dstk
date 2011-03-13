@@ -275,8 +275,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>26</integer>
-									<integer>25</integer>
+									<integer>7</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -300,7 +299,7 @@
 							<real>186</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>64 243 1749 897 0 0 1920 1178 </string>
+						<string>299 275 1749 897 0 0 1920 1178 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -321,7 +320,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>about.haml</string>
+										<string>geodict_server.rb</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -329,11 +328,11 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>about.haml</string>
+												<string>geodict_server.rb</string>
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>5929E3CA1329FA5000B81D2E</string>
+												<string>5929E3FA132C4FC200B81D2E</string>
 												<key>history</key>
 												<array>
 													<string>5929E12313244A2300B81D2E</string>
@@ -354,9 +353,14 @@
 													<string>5929E3191329AF0900B81D2E</string>
 													<string>5929E32D1329B2B000B81D2E</string>
 													<string>5929E35E1329BABA00B81D2E</string>
-													<string>5929E3B81329F46F00B81D2E</string>
 													<string>5929E3C81329FA5000B81D2E</string>
-													<string>5929E3C91329FA5000B81D2E</string>
+													<string>5929E3CC132C496100B81D2E</string>
+													<string>5929E3CD132C496100B81D2E</string>
+													<string>5929E3CF132C496100B81D2E</string>
+													<string>5929E3D1132C496100B81D2E</string>
+													<string>5929E3D3132C496100B81D2E</string>
+													<string>5929E3D5132C496100B81D2E</string>
+													<string>5929E3D7132C496100B81D2E</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -368,14 +372,14 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{0, 0}, {633, 851}}</string>
+										<string>{{0, 0}, {666, 851}}</string>
 										<key>RubberWindowFrame</key>
-										<string>64 243 1749 897 0 0 1920 1178 </string>
+										<string>299 275 1749 897 0 0 1920 1178 </string>
 									</dict>
 									<key>Module</key>
 									<string>PBXNavigatorGroup</string>
 									<key>Proportion</key>
-									<string>633pt</string>
+									<string>666pt</string>
 								</dict>
 								<dict>
 									<key>ContentConfiguration</key>
@@ -383,7 +387,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>developerdocs.haml</string>
+										<string>lwmpoint.c</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -391,11 +395,11 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>developerdocs.haml</string>
+												<string>lwmpoint.c</string>
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>5929E3CB1329FA5000B81D2E</string>
+												<string>5929E3FB132C4FC200B81D2E</string>
 												<key>history</key>
 												<array>
 													<string>5929E12513244A2300B81D2E</string>
@@ -414,7 +418,16 @@
 													<string>5929E3781329E80F00B81D2E</string>
 													<string>5929E3841329EC1800B81D2E</string>
 													<string>5929E3BB1329F46F00B81D2E</string>
-													<string>5929E3BC1329F46F00B81D2E</string>
+													<string>5929E3D9132C496100B81D2E</string>
+													<string>5929E3DA132C496100B81D2E</string>
+													<string>5929E3DC132C496100B81D2E</string>
+													<string>5929E3DE132C496100B81D2E</string>
+													<string>5929E3E0132C496100B81D2E</string>
+													<string>5929E3E2132C496100B81D2E</string>
+													<string>5929E3E4132C496100B81D2E</string>
+													<string>5929E3E6132C496100B81D2E</string>
+													<string>5929E3E8132C496100B81D2E</string>
+													<string>5929E3EA132C496100B81D2E</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -426,14 +439,14 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{638, 0}, {903, 851}}</string>
+										<string>{{671, 0}, {870, 851}}</string>
 										<key>RubberWindowFrame</key>
-										<string>64 243 1749 897 0 0 1920 1178 </string>
+										<string>299 275 1749 897 0 0 1920 1178 </string>
 									</dict>
 									<key>Module</key>
 									<string>PBXNavigatorGroup</string>
 									<key>Proportion</key>
-									<string>903pt</string>
+									<string>870pt</string>
 								</dict>
 							</array>
 							<key>Proportion</key>
@@ -452,7 +465,7 @@
 								<key>Frame</key>
 								<string>{{0, 856}, {1541, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>64 243 1749 897 0 0 1920 1178 </string>
+								<string>299 275 1749 897 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -624,7 +637,7 @@
 		<string>/Users/petewarden/Projects/geodictapi/geodictapi.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>64 243 1749 897 0 0 1920 1178 </string>
+	<string>299 275 1749 897 0 0 1920 1178 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -907,7 +920,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C530D57069F1CE1000CFCEE</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

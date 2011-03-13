@@ -113,13 +113,11 @@ sudo chown ubuntu /mnt/tiger
 sudo aptitude install unzip -y
 
 mkdir ../geocoderdata
-bin/tiger_import ../geocoderdata/geocoder.db /mnt/tiger/
+bin/tiger_import ../geocoderdata/geocoder_test.db /mnt/tiger/
 
 sudo gem install text
 sudo gem install levenshtein
 chmod +x bin/rebuild_metaphones
 bin/rebuild_metaphones
 bin/build_indexes ../geocoderdata/geocoder.db
-
-sudo gem install Geocoder-US-2.0.0.gem
 
