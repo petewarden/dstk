@@ -21,7 +21,10 @@ require 'rubygems' if RUBY_VERSION < '1.9'
 require 'sinatra'
 require 'json'
 require 'net/geoip'
-require '../geocoder/lib/geocoder/us/database'
+
+# A horrible hack to work around my problems getting the Geocoder to install as a gem
+$LOAD_PATH.unshift '../geocoder/lib'
+require 'geocoder/us/database'
 
 # Some hackiness to include the library script, even if invoked from another directory
 cwd = File.expand_path(File.dirname(__FILE__))
