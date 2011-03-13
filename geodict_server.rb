@@ -142,8 +142,6 @@ def placemaker_api_call(params)
   # Run the location extraction process
   locations = find_locations_in_text(input_text)
   
-  puts locations.inspect
-
   # Calculate the elapsed time for processing
   processing_end_time = Time.now
   processing_duration = processing_end_time-processing_start_time
@@ -358,8 +356,6 @@ def placemaker_api_call(params)
       
     end
       
-    puts output_object.inspect
-      
     result = make_json(output_object, callback)
   
   end
@@ -420,16 +416,12 @@ end
 # data from the US census
 def street2location(addresses, callback=nil)
 
-  printf(STDERR, 'Calling street2location("'+addresses.inspect+'")'+"\n")
-
   db = Geocoder::US::Database.new('../geocoderdata/geocoder.db', {:debug => false})
 
   output = {}
   addresses.each do |address|
     begin
-      printf(STDERR, 'Calling geocode("'+address+'")'+"\n")
       locations = db.geocode(address, true)
-      printf(STDERR, 'Found "'+locations.inspect+'"'+"\n")
       if locations and locations.length>0
         location = locations[0]
         info = {
@@ -447,7 +439,6 @@ def street2location(addresses, callback=nil)
           :fips_county => location[:fips_county]
         }
       else
-        printf(STDERR, 'No location found for "'+address+'"'+"\n")
         info = nil
       end
     rescue
@@ -471,8 +462,6 @@ def addresses_list_from_string(addresses_string, callback=nil)
       'json', 500, callback)
   end
 
-  printf(STDERR, addresses_string.inspect)
-  
   # Do a bit of trickery to handle both JSON-encoded and single addresses
   first_character = addresses_string[0].chr
   if first_character == '['
