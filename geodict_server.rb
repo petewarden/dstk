@@ -420,14 +420,14 @@ end
 # data from the US census
 def street2location(addresses, callback=nil)
 
-  puts 'Calling street2location("'+addresses.inspect+'")'
+  printf(STDERR, 'Calling street2location("'+addresses.inspect+'")')
 
   db = Geocoder::US::Database.new('../geocoderdata/geocoder.db', {:debug => false})
 
   output = {}
   addresses.each do |address|
     begin
-      puts 'Calling geocode("'+address+'")'
+      printf(STDERR, 'Calling geocode("'+address+'")')
       location = db.geocode(address, true)
       if location
         info = {
