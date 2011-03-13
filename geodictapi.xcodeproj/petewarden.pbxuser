@@ -669,6 +669,8 @@
 			5929E439132C5B4100B81D2E /* PBXTextBookmark */ = 5929E439132C5B4100B81D2E /* PBXTextBookmark */;
 			5929E43A132C5BED00B81D2E /* PBXTextBookmark */ = 5929E43A132C5BED00B81D2E /* PBXTextBookmark */;
 			5929E43B132C5BED00B81D2E /* PBXTextBookmark */ = 5929E43B132C5BED00B81D2E /* PBXTextBookmark */;
+			5929E43C132C5C4D00B81D2E /* PBXTextBookmark */ = 5929E43C132C5C4D00B81D2E /* PBXTextBookmark */;
+			5929E43D132C5C4D00B81D2E /* PBXTextBookmark */ = 5929E43D132C5C4D00B81D2E /* PBXTextBookmark */;
 		};
 		sourceControlManager = 5929E10413243EA700B81D2E /* Source Control */;
 		userBuildSettings = {
@@ -747,7 +749,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {824, 9375}}";
 			sepNavSelRange = "{17479, 0}";
-			sepNavVisRange = "{16002, 1477}";
+			sepNavVisRange = "{14618, 972}";
 		};
 	};
 	5929E11B13243FBE00B81D2E /* config.ru */ = {
@@ -2502,9 +2504,9 @@
 	};
 	5929E1F313258C0500B81D2E /* welcome.haml */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {821, 4875}}";
-			sepNavSelRange = "{7937, 0}";
-			sepNavVisRange = "{7037, 1615}";
+			sepNavIntBoundsRect = "{{0, 0}, {821, 4785}}";
+			sepNavSelRange = "{7857, 0}";
+			sepNavVisRange = "{6931, 1490}";
 		};
 	};
 	5929E20313258DC800B81D2E /* PBXTextBookmark */ = {
@@ -2586,7 +2588,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 5";
 		rLen = 0;
-		rLoc = 9525;
+		rLoc = 9532;
 		rType = 0;
 		vrLen = 63;
 		vrLoc = 0;
@@ -2646,7 +2648,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 5";
 		rLen = 0;
-		rLoc = 9525;
+		rLoc = 9532;
 		rType = 0;
 		vrLen = 63;
 		vrLoc = 0;
@@ -2806,7 +2808,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 5";
 		rLen = 0;
-		rLoc = 9525;
+		rLoc = 9532;
 		rType = 0;
 		vrLen = 63;
 		vrLoc = 0;
@@ -3076,7 +3078,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 22";
 		rLen = 0;
-		rLoc = 9525;
+		rLoc = 9532;
 		rType = 0;
 		vrLen = 709;
 		vrLoc = 0;
@@ -3176,7 +3178,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 23";
 		rLen = 0;
-		rLoc = 9525;
+		rLoc = 9532;
 		rType = 0;
 		vrLen = 976;
 		vrLoc = 0;
@@ -3206,7 +3208,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 23";
 		rLen = 0;
-		rLoc = 9525;
+		rLoc = 9532;
 		rType = 0;
 		vrLen = 976;
 		vrLoc = 0;
@@ -3356,7 +3358,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 31";
 		rLen = 0;
-		rLoc = 9525;
+		rLoc = 9532;
 		rType = 0;
 		vrLen = 1159;
 		vrLoc = 0;
@@ -4736,7 +4738,7 @@
 		isa = PBXTextBookmark;
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 1";
-		rLen = 9525;
+		rLen = 9532;
 		rLoc = 0;
 		rType = 0;
 		vrLen = 2651;
@@ -4766,7 +4768,7 @@
 		isa = PBXTextBookmark;
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 1";
-		rLen = 9525;
+		rLen = 9532;
 		rLoc = 0;
 		rType = 0;
 		vrLen = 2651;
@@ -4777,7 +4779,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 101";
 		rLen = 0;
-		rLoc = 9525;
+		rLoc = 9532;
 		rType = 0;
 		vrLen = 1660;
 		vrLoc = 1556;
@@ -4797,7 +4799,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 101";
 		rLen = 0;
-		rLoc = 9525;
+		rLoc = 9532;
 		rType = 0;
 		vrLen = 1660;
 		vrLoc = 1556;
@@ -4837,7 +4839,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 101";
 		rLen = 0;
-		rLoc = 9525;
+		rLoc = 9532;
 		rType = 0;
 		vrLen = 2219;
 		vrLoc = 0;
@@ -5753,7 +5755,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 101";
 		rLen = 0;
-		rLoc = 9525;
+		rLoc = 9532;
 		rType = 0;
 		vrLen = 1604;
 		vrLoc = 1556;
@@ -6717,7 +6719,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 294";
 		rLen = 0;
-		rLoc = 9383;
+		rLoc = 9390;
 		rType = 0;
 		vrLen = 1462;
 		vrLoc = 6910;
@@ -7167,7 +7169,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 290";
 		rLen = 0;
-		rLoc = 9245;
+		rLoc = 9252;
 		rType = 0;
 		vrLen = 1575;
 		vrLoc = 7716;
@@ -7187,7 +7189,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 276";
 		rLen = 0;
-		rLoc = 8932;
+		rLoc = 8939;
 		rType = 0;
 		vrLen = 1551;
 		vrLoc = 7762;
@@ -7207,7 +7209,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 261";
 		rLen = 0;
-		rLoc = 8652;
+		rLoc = 8659;
 		rType = 0;
 		vrLen = 1531;
 		vrLoc = 7762;
@@ -7227,7 +7229,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 261";
 		rLen = 0;
-		rLoc = 8652;
+		rLoc = 8659;
 		rType = 0;
 		vrLen = 1615;
 		vrLoc = 7037;
@@ -7247,7 +7249,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 261";
 		rLen = 0;
-		rLoc = 8652;
+		rLoc = 8659;
 		rType = 0;
 		vrLen = 1615;
 		vrLoc = 7037;
@@ -7267,7 +7269,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 261";
 		rLen = 0;
-		rLoc = 8652;
+		rLoc = 8659;
 		rType = 0;
 		vrLen = 1615;
 		vrLoc = 7037;
@@ -7287,7 +7289,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 261";
 		rLen = 0;
-		rLoc = 8652;
+		rLoc = 8659;
 		rType = 0;
 		vrLen = 1615;
 		vrLoc = 7037;
@@ -7307,9 +7309,29 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 239";
 		rLen = 0;
-		rLoc = 7937;
+		rLoc = 7944;
 		rType = 0;
 		vrLen = 1615;
 		vrLoc = 7037;
+	};
+	5929E43C132C5C4D00B81D2E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
+		name = "geodict_server.rb: 597";
+		rLen = 0;
+		rLoc = 17479;
+		rType = 0;
+		vrLen = 972;
+		vrLoc = 14618;
+	};
+	5929E43D132C5C4D00B81D2E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
+		name = "welcome.haml: 235";
+		rLen = 0;
+		rLoc = 7857;
+		rType = 0;
+		vrLen = 1490;
+		vrLoc = 6931;
 	};
 }

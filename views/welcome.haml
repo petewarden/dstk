@@ -232,7 +232,7 @@
       addresses_string = $.toJSON(addresses);
 
       var apiUrl = '/street2location';
-      apiUrl += '/'+encodeURIComponent(addresses);
+      apiUrl += '/'+encodeURIComponent(addresses_string);
       
       $.ajax(apiUrl, {
         success: function(result) {
