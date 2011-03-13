@@ -273,8 +273,6 @@
                 +postal_code
                 +', '
                 +country
-                +' '
-                +name
                 +' at <a href="http://maps.google.com/maps?sll='
                 +lat
                 +','
@@ -287,7 +285,7 @@
                 +'</div>';
             }
             
-            $('#ip2locationresults').append($(html));
+            $('#street2locationresults').append($(html));
           }
         }, 
         error: function(jqXHR, textStatus, errorCode) {
