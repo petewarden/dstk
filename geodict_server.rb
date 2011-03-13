@@ -569,7 +569,7 @@ post '/street2location' do
 end
 
 # The GET interface for the street address to location lookup
-get '/street2location/*.*' do
+get '/street2location/*' do
 
   callback = params[:callback]
   addresses_string = params['splat']
