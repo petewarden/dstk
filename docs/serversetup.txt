@@ -54,6 +54,10 @@ sudo /etc/init.d/apache2 restart
 ./populate_database.rb
 
 // End of version 1.00
+(To start from snapshot of this point, run
+ec2-run-instances --block-device-mapping /dev/sda1=:16 ami-fcec1e95 -t m1.large -z us-east-1d
+sudo resize2fs /dev/sda1
+)
 
 cd ~/sources
 mkdir maxmind
@@ -90,8 +94,6 @@ git clone git://github.com/petewarden/geocoder.git
 cd geocoder/
 make
 sudo make install
-sudo gem install text
-sudo gem install levenshtein
 
 cd /tmp
 curl -O "http://static.openheatmap.com/geocoder.db"
@@ -99,3 +101,4 @@ mv geocoder.db geocoder.db.gz
 gunzip geocoder.db.gz
 mkdir ~/sources/geocoderdata
 mv geocoder.db ~/sources/geocoderdata
+

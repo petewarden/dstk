@@ -11,6 +11,9 @@
     &nbsp;&nbsp;&nbsp;&nbsp;
     %a{:href=>"#ip2location"} IP Address to Location
     %br
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    %a{:href=>"#street2location"} Street Address to Location
+    %br
     %a{:href=>"#setup"} Setting up your own server
     %br
     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -105,6 +108,46 @@
       
       You can also make a POST request passing in the IP addresses in the body of the request. This is useful if you have very large arrays of IP addresses you need to process, since you won't hit any URL size limits.
       
+    %a{:name=>"street2location"}
+    :markdown
+      #### Street Address to Location
+      
+      This API takes either a single string representing a postal address, or a JSON-encoded array of addresses, and returns a JSON object with a key for every address. The value for each key is either null if no information was found for the address, or an object containing location information, including country, region, city and latitude/longitude coordinates. Here's an example:
+      <hr>
+      `curl "http://geodictapi.com/street2location/2543+Graystone+Place%2c+Simi+Valley%2c+CA+93065"`
+      
+      `{"2543 Graystone Place, Simi Valley, CA 93065":{
+
+      `"street_name":"Graystone Pl",`
+
+      `"country_code":"US",`
+
+      `"latitude":34.280874,`
+
+      `"street_address":"2543 Graystone Pl",`
+
+      `"country_code3":"USA",`
+
+      `"fips_county":"06111",`
+
+      `"longitude":-118.766207,`
+
+      `"country_name":"United States",`
+
+      `"confidence":0.922,`
+
+      `"region":"CA",`
+
+      `"street_number":"2543",`
+
+      `"locality":"Simi Valley"}}`
+      <hr>
+
+      To call the API, you can make either a GET or a POST request to `/street2location`. If you make a GET request, then you need to pass in the addresses in the suffix of the URL, as above.
+
+      Using GET you can also pass in a callback parameter in the URL, making it possible to run this as a JSONP cross-domain request. You can see this method in action if you view source on the home page of this server.
+      
+      You can also make a POST request passing in the addresses in the body of the request. This is useful if you have very large arrays of addresses you need to process, since you won't hit any URL size limits.
       
     %a{:name=>"setup"}
     :markdown
@@ -116,7 +159,7 @@
     :markdown
       The simplest way to create a server is to grab a virtual machine. This whole server is available ready-to-go as either a VMware or Amazon EC2 Image. 
       
-      For Amazon, find the AMI with the id `ami-fcec1e95`. Start a new instance from this image, wait a couple of minutes for the machine to boot up, and then paste the public DNS name of the instance into your browser. You should see the normal home page of this site. You can test that it's working by pasting text into the main input. You can then just change your code base URL to that DNS name, and start using the API from your own server immediately.
+      For Amazon, find the AMI with the id `ami-7ac53713`. Start a new instance from this image, wait a couple of minutes for the machine to boot up, and then paste the public DNS name of the instance into your browser. You should see the normal home page of this site. You can test that it's working by pasting text into the main input. You can then just change your code base URL to that DNS name, and start using the API from your own server immediately.
 
     %a{:name=>"vmware"}
     :markdown
