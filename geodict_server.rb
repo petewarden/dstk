@@ -556,30 +556,41 @@ end
 
 # The POST interface for the street address to location lookup
 post '/street2location' do
-  # Pull in the raw data in the body of the request
-  addresses_string = request.env['rack.input'].read
-  
-  if !addresses_string
-    fatal_error('You need to place the street addresses as a JSON-encoded array of strings inside the POST body', 
-      'json', 500, nil)
-  end
-  addresses_list = addresses_list_from_string(addresses_string)
+  begin
+    # Pull in the raw data in the body of the request
+    addresses_string = request.env['rack.input'].read
+    
+    if !addresses_string
+      fatal_error('You need to place the street addresses as a JSON-encoded array of strings inside the POST body', 
+        'json', 500, nil)
+    end
+    addresses_list = addresses_list_from_string(addresses_string)
 
-  street2location(addresses_list)
+    street2location(addresses_list)
+  rescue
+    fatal_error('street2location error: '+$!.inspect + $@.inspect, 'json', 500)
+  end
+
 end
 
 # The GET interface for the street address to location lookup
 get '/street2location/*' do
 
   callback = params[:callback]
-  addresses_string = params['splat']
-  if !addresses_string
-    fatal_error('You need to place the street addresses as a JSON-encoded array of strings as part of the URL', 
-      'json', 500, callback)
+
+  begin
+    addresses_string = params['splat']
+    if !addresses_string
+      fatal_error('You need to place the street addresses as a JSON-encoded array of strings as part of the URL', 
+        'json', 500, callback)
+    end
+
+    addresses_list = addresses_list_from_string(addresses_string, callback)
+
+    street2location(addresses_list, callback)
+  rescue
+    fatal_error('street2location error: '+$!.inspect + $@.inspect, 'json', 500, callback)
   end
-
-  addresses_list = addresses_list_from_string(addresses_string, callback)
-
-  street2location(addresses_list, callback)
+    
 end
 
