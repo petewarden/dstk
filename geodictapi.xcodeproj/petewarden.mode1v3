@@ -275,7 +275,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>7</integer>
+									<integer>2</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -320,7 +320,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>welcome.haml</string>
+										<string>Gemfile</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -328,11 +328,11 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>welcome.haml</string>
+												<string>Gemfile</string>
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>5929E3FE132C530800B81D2E</string>
+												<string>5929E404132C537C00B81D2E</string>
 												<key>history</key>
 												<array>
 													<string>5929E12313244A2300B81D2E</string>
@@ -351,7 +351,6 @@
 													<string>5929E2FA132964BC00B81D2E</string>
 													<string>5929E2FB132964BC00B81D2E</string>
 													<string>5929E3191329AF0900B81D2E</string>
-													<string>5929E32D1329B2B000B81D2E</string>
 													<string>5929E35E1329BABA00B81D2E</string>
 													<string>5929E3CC132C496100B81D2E</string>
 													<string>5929E3CD132C496100B81D2E</string>
@@ -360,7 +359,8 @@
 													<string>5929E3D3132C496100B81D2E</string>
 													<string>5929E3D5132C496100B81D2E</string>
 													<string>5929E3FC132C530800B81D2E</string>
-													<string>5929E3FD132C530800B81D2E</string>
+													<string>5929E402132C537C00B81D2E</string>
+													<string>5929E403132C537C00B81D2E</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -399,7 +399,7 @@
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>5929E401132C530800B81D2E</string>
+												<string>5929E405132C537C00B81D2E</string>
 												<key>history</key>
 												<array>
 													<string>5929E12513244A2300B81D2E</string>
