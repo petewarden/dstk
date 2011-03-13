@@ -425,6 +425,7 @@ def street2location(addresses, callback=nil)
   output = {}
   addresses.each do |address|
     begin
+      puts 'Calling geocode("'+address+'")'
       location = db.geocode(address, true)
       if location
         info = {
