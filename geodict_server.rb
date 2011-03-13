@@ -569,7 +569,7 @@ get '/street2location/:addresses' do
       'json', 500, callback)
   end
 
-  addresses_list = ips_list_from_string(addresses_string, callback)
+  addresses_list = addresses_list_from_string(addresses_string, callback)
 
   street2location(addresses_list, callback)
 end
