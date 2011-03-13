@@ -420,6 +420,8 @@ end
 # data from the US census
 def street2location(addresses, callback=nil)
 
+  puts 'Calling street2location("'+addresses.inspect+'")'
+
   db = Geocoder::US::Database.new('../geocoderdata/geocoder.db', {:debug => false})
 
   output = {}
