@@ -569,10 +569,10 @@ post '/street2location' do
 end
 
 # The GET interface for the street address to location lookup
-get '/street2location/:addresses' do
+get '/street2location/:*.*' do
 
   callback = params[:callback]
-  addresses_string = params[:addresses]
+  addresses_string = params['splat']
   if !addresses_string
     fatal_error('You need to place the street addresses as a JSON-encoded array of strings as part of the URL', 
       'json', 500, callback)
