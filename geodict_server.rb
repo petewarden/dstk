@@ -560,7 +560,7 @@ post '/street2location' do
 end
 
 # The GET interface for the street address to location lookup
-get '/street2location/:ips' do
+get '/street2location/:addresses' do
 
   callback = params[:callback]
   addresses_string = params[:addresses]
