@@ -447,7 +447,7 @@ def street2location(addresses, callback=nil)
         info = nil
       end
     rescue
-      printf(STDERR, $!.inspect + $@ + "\n")
+      printf(STDERR, $!.inspect + $@.inspect + "\n")
       info = nil
     end
     output[address] = info
