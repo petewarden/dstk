@@ -436,13 +436,13 @@ def street2location(addresses, callback=nil)
           :country_code => 'US',
           :country_code3 => 'USA',
           :country_name => 'United States',
-          :region => location.state,
-          :locality => location.city,
-          :street_address => location.number+' '+location.street,
-          :street_number => location.number,
-          :street_name => location.street,
-          :confidence => location.score,
-          :fips_county => location.fips_county
+          :region => location[:state],
+          :locality => location[:city],
+          :street_address => location[:number]+' '+location[:street],
+          :street_number => location[:number],
+          :street_name => location[:street],
+          :confidence => location[:score],
+          :fips_county => location[:fips_county]
         }
       else
         printf(STDERR, 'No location found for "'+address+'"'+"\n")
