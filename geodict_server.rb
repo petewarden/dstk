@@ -443,6 +443,7 @@ def street2location(addresses, callback=nil)
         info = nil
       end
     rescue
+      puts $!.inspect, $@
       info = nil
     end
     output[address] = info
