@@ -6,11 +6,42 @@
     for pulling location information from unstructured text.
 
   %div{:style=>"margin-top:20px; font-size: 125%;"}
-    %a{:href=>"http://geodictapi.com/developerdocs"}Here's the developer documentation
-    covering calling the API and setting up your own servers. 
+    %h3 Steal this server!
+    %a{:href=>"http://geodictapi.com/developerdocs#setup"} 
+      Grab this entire site as a free, self-contained, ready-to-run VM
+    %br
+    %br
+    <strong>Independence</strong> - Never worry about the provider going offline, or charging once you're hooked.
+    %br
+    %br
+    <strong>Security</strong> - Run on your intranet, so customer information stays within the firewall.
+    %br
+    %br
+    <strong>Scalability</strong> - No API limits. Run a cluster of as many instances as you need.
+    %br
+    %br
+  %div{:style=>"margin-top:20px; font-size: 125%;"}
+    %h3 Street Address to Location
+    Street Address to Location calculates the latitude/longitude coordinates for a postal address. 
+    %br
+    Currently restricted to the US.
+    %br
+    To call it, just make a request to
+    %a{:href=>"/street2location/2543+Graystone+Place%2c+Simi+Valley%2c+CA+93065"} /street2location
+    passing in a single address, or a JSON array of many addresses.
+
+  .tryip2location{:style=>"margin-top:20px; font-size: 125%;"}
+    Try it for yourself. Copy and paste some addresses into the box below to see what locations it finds.
+
+  %textarea#street2locationtext{:style=>"width: 800px; margin-top: 10px;"}
+
+  #uploadstreet2locationtext.button{:style=>"width:150px; font-size: 125%;"} Locate Addresses
+  
+  #street2locationresults{:style=>"margin-top:30px;"}  
+
   %div{:style=>"margin-top:20px; font-size: 125%;"}
     %h3 Geodict
-    Geodict pulls country, city and region names from raw paragraphs of text, and returns their coordinates.
+    Geodict pulls country, city and region names from unstructured English text, and returns their coordinates.
     %br
     It emulates the interface to 
     %a{:href=>"http://developer.yahoo.com/geo/placemaker/guide/web-service.html "}Yahoo's Placemaker
@@ -41,23 +72,6 @@
   #uploadip2locationtext.button{:style=>"width:150px; font-size: 125%;"} Locate IP Addresses
   
   #ip2locationresults{:style=>"margin-top:30px;"}
-
-  %div{:style=>"margin-top:20px; font-size: 125%;"}
-    %h3 Street Address to Location
-    Street Address to Location calculates the latitude/longitude coordinates for a postal address. Currently restricted to US locations.
-    %br
-    To call it, just make a request to
-    %a{:href=>"/street2location/2543+Graystone+Place%2c+Simi+Valley%2c+CA+93065"} /street2location
-    passing in a single address, or a JSON array of many addresses.
-
-  .tryip2location{:style=>"margin-top:20px; font-size: 125%;"}
-    Try it for yourself. Copy and paste some addresses into the box below to see what locations it finds.
-
-  %textarea#street2locationtext{:style=>"width: 800px; margin-top: 10px;"}
-
-  #uploadstreet2locationtext.button{:style=>"width:150px; font-size: 125%;"} Locate Addresses
-  
-  #street2locationresults{:style=>"margin-top:30px;"}  
 
 
 %script{:src=>"/scripts/jquery.exptextarea.js", :type=>"text/javascript"}

@@ -12,3 +12,16 @@ cd geo/tiger/TIGER2009
 lcd /mnt/tiger
 get -R * 
 
+<Attach Tiger/Line 2009 EBS volume to /dev/sdg>
+sudo mkdir /mnt/tiger
+sudo mount /dev/sdg /mnt/tiger
+sudo chown ubuntu /mnt/tiger
+
+sudo aptitude install unzip -y
+
+mkdir ../geocoderdata
+bin/tiger_import ../geocoderdata/geocoder_test.db /mnt/tiger/
+
+chmod +x bin/rebuild_metaphones
+bin/rebuild_metaphones
+bin/build_indexes ../geocoderdata/geocoder.db
