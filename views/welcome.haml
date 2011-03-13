@@ -41,7 +41,23 @@
   #uploadip2locationtext.button{:style=>"width:150px; font-size: 125%;"} Locate IP Addresses
   
   #ip2locationresults{:style=>"margin-top:30px;"}
+
+  %div{:style=>"margin-top:20px; font-size: 125%;"}
+    %h3 Street Address to Location
+    Street Address to Location calculates the latitude/longitude coordinates for a postal address. Currently restricted to US locations.
+    %br
+    To call it, just make a request to
+    %a{:href=>"/street2location/2543+Graystone+Place%2c+Simi+Valley%2c+CA+93065"} /street2location
+    passing in a single address, or a JSON array of many addresses.
+
+  .tryip2location{:style=>"margin-top:20px; font-size: 125%;"}
+    Try it for yourself. Copy and paste some addresses into the box below to see what locations it finds.
+
+  %textarea#street2locationtext{:style=>"width: 800px; margin-top: 10px;"}
+
+  #uploadstreet2locationtext.button{:style=>"width:150px; font-size: 125%;"} Locate Addresses
   
+  #street2locationresults{:style=>"margin-top:30px;"}  
 
 
 %script{:src=>"/scripts/jquery.exptextarea.js", :type=>"text/javascript"}
@@ -49,6 +65,7 @@
   $(function() {
     $('#text').expandingTextArea()
     $('#ip2locationtext').expandingTextArea()
+    $('#street2locationtext').expandingTextArea()
 
     $('#uploadtext').click(function() {
       var text = $('#text').val();
@@ -61,6 +78,7 @@
       apiUrl += '?documentContent='+encodeURIComponent(text);
       apiUrl += '&outputType=json';
       
+      // Handle the Placemaker test console
       $.ajax(apiUrl, {
         success: function(result) {
           if (typeof result['error'] !== 'undefined') {
@@ -89,6 +107,12 @@
             var lon = centroid['longitude'];
             var type = place['type'];
             var name = place['name'];
+
+            if ((referenceList.length==1)&&(lat==0)&&(lon==0)) {
+              $('#results')
+              .text('No locations found');
+              return;
+            }
             
             var html = 
               '<div>"'
@@ -120,6 +144,7 @@
     
     });
 
+    // Handle the IP lookup test console
     $('#uploadip2locationtext').click(function() {
       var text = $('#ip2locationtext').val();
       if (text.length<1) {
@@ -155,7 +180,7 @@
               var lon = info['longitude'];
               var country = info['country_name'];
               var region = info['region'];
-              var city = info['city'];
+              var city = info['locality'];
               var postal_code = info['postal_code'];
               
               html = 
@@ -188,6 +213,85 @@
         }, 
         error: function(jqXHR, textStatus, errorCode) {
             $('#ip2locationresults').text('Error: '+textStatus);
+        }, 
+        dataType: 'jsonp',
+        crossDomain: true
+      });
+    
+    });
+
+    // Handle the street address test console
+    $('#uploadstreet2locationtext').click(function() {
+      var text = $('#street2locationtext').val();
+      if (text.length<1) {
+        $('#street2locationresults').html("No text found in input box.");
+        return;
+      }
+
+      addresses = text.split("\n");
+      addresses_string = $.toJSON(addresses);
+
+      var apiUrl = '/street2location';
+      apiUrl += '/'+encodeURIComponent(addresses);
+      
+      $.ajax(apiUrl, {
+        success: function(result) {
+          if (typeof result['error'] !== 'undefined') {
+            $('#street2locationresults')
+            .text(result.error);
+            return;
+          }
+
+          $('#street2locationresults').empty()
+          
+          for (var address in result) {
+            var info = result[address];
+            
+            var html;
+            if (info == null) {
+              html = "<div>"+address+" - NA</div>"
+            } else {
+            
+              var lat = info['latitude'];
+              var lon = info['longitude'];
+              var country = info['country_name'];
+              var region = info['region'];
+              var city = info['locality'];
+              var street_address = info['street_address'];
+              var postal_code = info['postal_code'];
+              
+              html = 
+                '<div>"'
+                +address
+                +'" - '
+                +street_address
+                +', '
+                +city
+                +', '
+                +region
+                +' '
+                +postal_code
+                +', '
+                +country
+                +' '
+                +name
+                +' at <a href="http://maps.google.com/maps?sll='
+                +lat
+                +','
+                +lon
+                +'">'
+                +lat
+                +','
+                +lon
+                +'</a>'
+                +'</div>';
+            }
+            
+            $('#ip2locationresults').append($(html));
+          }
+        }, 
+        error: function(jqXHR, textStatus, errorCode) {
+            $('#street2locationresults').text('Error: '+textStatus);
         }, 
         dataType: 'jsonp',
         crossDomain: true
