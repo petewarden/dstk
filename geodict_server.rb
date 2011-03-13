@@ -433,8 +433,8 @@ def street2location(addresses, callback=nil)
       if locations and locations.length>0
         location = locations[0]
         info = {
-          :latitude => location[:latitude],
-          :longitude => location[:longitude],
+          :latitude => location[:lat],
+          :longitude => location[:lon],
           :country_code => 'US',
           :country_code3 => 'USA',
           :country_name => 'United States',
