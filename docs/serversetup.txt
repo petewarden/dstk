@@ -62,9 +62,9 @@ sudo resize2fs /dev/sda1
 cd ~/sources
 mkdir maxmind
 cd maxmind
-curl -O "http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz"
+wget "http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz"
 gunzip GeoLiteCity.dat.gz
-curl -O "http://geolite.maxmind.com/download/geoip/api/c/GeoIP.tar.gz"
+wget "http://geolite.maxmind.com/download/geoip/api/c/GeoIP.tar.gz"
 tar xzvf GeoIP.tar.gz
 cd GeoIP-1.4.6/
 ./configure
@@ -89,6 +89,7 @@ make
 sudo make install
 sudo ln -s /usr/local/libiconv/lib/libiconv.so.2 /usr/lib/libiconv.so.2
 
+[10.10 - sudo aptitude install flex]
 cd ~/sources
 git clone git://github.com/petewarden/geocoder.git
 cd geocoder/
@@ -96,9 +97,31 @@ make
 sudo make install
 
 cd /tmp
-curl -O "http://static.openheatmap.com/geocoder.db"
+wget "http://static.openheatmap.com/geocoder.db"
 mv geocoder.db geocoder.db.gz
 gunzip geocoder.db.gz
 mkdir ~/sources/geocoderdata
 mv geocoder.db ~/sources/geocoderdata
 
+// End of version 1.10
+(To start from snapshot of this point, run
+ec2-run-instances --block-device-mapping /dev/sda1=:32 ami-7ac53713 -t m1.large -z us-east-1d
+sudo resize2fs /dev/sda1
+)
+
+sudo aptitude install postgis
+sudo aptitude install postgresql-8.4-postgis
+createdb -U postgres reversegeo
+createlang -U postgres plpgsql reversegeo
+psql -U postgres -d postgis_template -f /usr/share/postgresql/8.4/contrib/postgis.sql
+psql -U postgres -d postgis_template -f /usr/share/postgresql/8.4/contrib/spatial_ref_sys.sql
+psql -U postgres -d postgis_template -f /usr/share/postgresql/8.4/contrib/postgis_comments.sql
+createdb -U postgres -T postgis_template reversegeo
+
+cd ~/sources
+svn export http://svn.openstreetmap.org/applications/utils/export/osm2pgsql/ osm2pgsql
+cd osm2pgsql/
+sudo aptitude install autoconf libtool libxml2-dev libbz2-1.0 libbz2-dev libgeos-dev proj-bin libproj-dev
+./autogen.sh
+make
+sudo make install

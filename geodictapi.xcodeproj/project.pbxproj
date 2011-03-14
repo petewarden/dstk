@@ -30,6 +30,7 @@
 		5929E1F213258C0500B81D2E /* layout.haml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = layout.haml; sourceTree = "<group>"; };
 		5929E1F313258C0500B81D2E /* welcome.haml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = welcome.haml; sourceTree = "<group>"; };
 		5929E30C1329AD7900B81D2E /* developerdocs.haml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = developerdocs.haml; sourceTree = "<group>"; wrapsLines = 1; };
+		597D87D6132E05EF0042C251 /* geodict_apiinfo.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = geodict_apiinfo.rb; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -38,6 +39,7 @@
 			children = (
 				5929E11B13243FBE00B81D2E /* config.ru */,
 				5929E11013243ECB00B81D2E /* Gemfile */,
+				597D87D6132E05EF0042C251 /* geodict_apiinfo.rb */,
 				5929E11913243F0400B81D2E /* geodict_cli.rb */,
 				5929E11113243ECB00B81D2E /* geodict_config.rb */,
 				5929E1A11324993400B81D2E /* geodict_daemon.rb */,
