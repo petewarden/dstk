@@ -508,7 +508,7 @@ def location2politics(locations, callback=nil)
       output = []
       country_hashes.each do |country_hash|
       
-        country_name = country_hash.country_name
+        country_name = country_hash.name
         country_code = country_hash.country_code.downcase
       
         output.push({
