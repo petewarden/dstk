@@ -21,6 +21,7 @@ require 'rubygems' if RUBY_VERSION < '1.9'
 require 'sinatra'
 require 'json'
 require 'net/geoip'
+require 'postgres'
 
 # A horrible hack to work around my problems getting the Geocoder to install as a gem
 $LOAD_PATH.unshift '../geocoder/lib'
