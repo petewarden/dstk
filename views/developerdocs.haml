@@ -157,33 +157,21 @@
       <hr>
       `curl "http://www.geodictapi.com/location2politics/37.769456%2c-122.429128"`
       
-      `{"2543 Graystone Place, Simi Valley, CA 93065":{`
-
-      `"street_name":"Graystone Pl",`
-
-      `"country_code":"US",`
-
-      `"latitude":34.280874,`
-
-      `"street_address":"2543 Graystone Pl",`
-
-      `"country_code3":"USA",`
-
-      `"fips_county":"06111",`
-
-      `"longitude":-118.766207,`
-
-      `"country_name":"United States",`
-
-      `"confidence":0.922,`
-
-      `"region":"CA",`
-
-      `"street_number":"2543",`
-
-      `"locality":"Simi Valley"}}`
+      `[{"location":{"latitude":"37.769456","longitude":"-122.429128"},"politics":[`
+      
+      `{"type":"admin2","code":"usa","friendly_type":"country","name":"United States"},`
+      
+      `{"type":"admin4","code":"us06","friendly_type":"state","name":"California"},`
+      
+      `{"type":"admin6","code":"06_075","friendly_type":"county","name":"San Francisco"},`
+      
+      `{"type":"admin5","code":"06_67000","friendly_type":"city","name":"San Francisco"},`
+      
+      `{"type":"constituency","code":"06_08","friendly_type":"constituency","name":"Eighth district, CA"}]}]`
       <hr>
 
+      To combat errors caused by lack of precision, there's a small amount of fuzziness built into the algorithm, so that points that lie very close to borders get information on both possible areas they could be within.
+      
       To call the API, you can make either a GET or a POST request to `/location2politics`. If you make a GET request, then you need to pass in the locations in the suffix of the URL, as above.
 
       Using GET you can also pass in a callback parameter in the URL, making it possible to run this as a JSONP cross-domain request. You can see this method in action if you view source on the home page of this server.
