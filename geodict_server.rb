@@ -727,7 +727,7 @@ get '/location2politics/*' do
 
   callback = params[:callback]
 
-  begin
+#  begin
     locations_string = params['splat'][0]
     if !locations_string
       fatal_error('You need to place the latitude/longitude coordinates as a JSON-encoded array as part of the URL', 
@@ -737,9 +737,9 @@ get '/location2politics/*' do
     locations_list = locations_list_from_string(locations_string, callback)
 
     location2politics(locations_list, callback)
-  rescue
-    fatal_error('location2politics error: '+$!.inspect + $@.inspect, 'json', 500, callback)
-  end
+#  rescue
+#    fatal_error('location2politics error: '+$!.inspect + $@.inspect, 'json', 500, callback)
+#  end
 
 end
 
