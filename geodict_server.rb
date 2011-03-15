@@ -518,29 +518,29 @@ def location2politics(locations, callback=nil)
           :friendly_type => 'country'
         })
 
-#        area_select = 'SELECT name,code,type FROM "admin_areas_polygon" WHERE country_code=\''+country_code+'\' AND within('+point_string+', way);'
+        area_select = 'SELECT name,code,type FROM "admin_areas_polygon" WHERE country_code=\''+country_code+'\' AND within('+point_string+', way);'
 
-#        area_hashes = select_as_hashes(conn, area_select)
-#        if area_hashes
-#        
-#          area_hashes.each do |area_hash|
-#            area_name = area_hash.name
-#            area_code = area_hash.code.downcase
-#            area_type = area_hash.type
-#            if TypeToFriendly.has_key?(area_type)
-#              friendly_type = TypeToFriendly[area_type]
-#            else
-#              friendly_type = area_type
-#            end
-#            output.push({
-#              :name => area_name,
-#              :code => area_code,
-#              :type => area_type,
-#              :friendly_type => friendly_type
-#            })
-#          end
-#        
-#        end
+        area_hashes = select_as_hashes(conn, area_select)
+        if area_hashes
+        
+          area_hashes.each do |area_hash|
+            area_name = area_hash.name
+            area_code = area_hash.code.downcase
+            area_type = area_hash.type
+            if TypeToFriendly.has_key?(area_type)
+              friendly_type = TypeToFriendly[area_type]
+            else
+              friendly_type = area_type
+            end
+            output.push({
+              :name => area_name,
+              :code => area_code,
+              :type => area_type,
+              :friendly_type => friendly_type
+            })
+          end
+        
+        end
       
       end
     
