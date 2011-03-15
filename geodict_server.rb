@@ -485,10 +485,10 @@ TypeToFriendly = {
 # within
 def location2politics(locations, callback=nil)
 
-#  conn = PGconn.connect(GeodictConfig::HOST, GeodictConfig::PORT, '', '', GeodictConfig::REVERSE_GEO_DATABASE, GeodictConfig::USER, GeodictConfig::PASSWORD)
-#
-#  result = []
-#  locations.each do |location|
+  conn = PGconn.connect(GeodictConfig::HOST, GeodictConfig::PORT, '', '', GeodictConfig::REVERSE_GEO_DATABASE, GeodictConfig::USER, GeodictConfig::PASSWORD)
+
+  result = []
+  locations.each do |location|
 #
 #    lat = location[:latitude]
 #    lon = location[:longitude]
@@ -549,9 +549,9 @@ def location2politics(locations, callback=nil)
 #      :politics => output
 #    })
 #  
-#  end
-#
-#  result
+  end
+
+  result
 
 end
 
