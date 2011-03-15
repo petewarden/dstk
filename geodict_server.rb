@@ -551,7 +551,7 @@ def location2politics(locations, callback=nil)
 #  
   end
 
-  result
+  make_json(result, callback)
 
 end
 
