@@ -543,7 +543,7 @@ def location2politics(locations, callback=nil)
         
         # Look in the neighborhoods table if we're in the US
         if country_code == 'usa'
-          neighborhood_select = 'SELECT name,city,state FROM "neighborhoods_polygon" ST_DWithin('+point_string+', way, 0.0001);'
+          neighborhood_select = 'SELECT name,city,state FROM "neighborhoods_polygon" WHERE ST_DWithin('+point_string+', way, 0.0001);'
 
           neighborhood_hashes = select_as_hashes(conn, neighborhood_select)
           if neighborhood_hashes
