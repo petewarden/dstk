@@ -478,7 +478,7 @@ TypeToFriendly = {
   'admin2' => 'country',
   'admin4' => 'state',
   'admin6' => 'county',
-  'admin5' => 'city'  
+  'admin5' => 'city',
   'admin8' => 'city'  
 }
 
