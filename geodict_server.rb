@@ -495,7 +495,7 @@ def location2politics(locations, callback=nil)
     
     point_string = 'setsrid(makepoint('+PGconn.escape(lon)+', '+PGconn.escape(lat)+'), 4326)'
 
-    country_select = 'SELECT name,country_code FROM "world_countries_polygon" WHERE within('+point_string+', way);'
+    country_select = 'SELECT name,country_code FROM "world_countries_polygon" WHERE ST_DWithin('+point_string+', way, 0.1);'
 
     result.push(country_select);
 
@@ -518,7 +518,7 @@ def location2politics(locations, callback=nil)
           :friendly_type => 'country'
         })
 
-        area_select = 'SELECT name,code,type FROM "admin_areas_polygon" WHERE country_code=\''+country_code+'\' AND within('+point_string+', way);'
+        area_select = 'SELECT name,code,type FROM "admin_areas_polygon" WHERE country_code=\''+country_code+'\' AND ST_DWithin('+point_string+', way, 0.01);'
 
         area_hashes = select_as_hashes(conn, area_select)
         if area_hashes
