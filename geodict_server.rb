@@ -495,27 +495,27 @@ def location2politics(locations, callback=nil)
     
     point_string = 'setsrid(makepoint('+PGconn.escape(lon)+', '+PGconn.escape(lat)+'), 4326)'
 
-#    country_select = 'SELECT name,country_code FROM "world_countries_polygon" WHERE within('+point_string+', way);'
-#
-#    country_hashes = select_as_hashes(conn, country_select)
-#
-#    if !country_hashes or country_hashes.length == 0
-#      output = nil
-#    else
-#    
-#      output = []
-#      country_hashes.each do |country_hash|
-#      
-#        country_name = country_hash.country_name
-#        country_code = country_hash.country_code.downcase
-#      
-#        output.push({
-#          :name => country_name,
-#          :code => country_code,
-#          :type => 'admin2',
-#          :friendly_type => 'country'
-#        })
-#
+    country_select = 'SELECT name,country_code FROM "world_countries_polygon" WHERE within('+point_string+', way);'
+
+    country_hashes = select_as_hashes(conn, country_select)
+
+    if !country_hashes or country_hashes.length == 0
+      output = nil
+    else
+    
+      output = []
+      country_hashes.each do |country_hash|
+      
+        country_name = country_hash.country_name
+        country_code = country_hash.country_code.downcase
+      
+        output.push({
+          :name => country_name,
+          :code => country_code,
+          :type => 'admin2',
+          :friendly_type => 'country'
+        })
+
 #        area_select = 'SELECT name,code,type FROM "admin_areas_polygon" WHERE country_code=\''+country_code+'\' AND within('+point_string+', way);'
 #
 #        area_hashes = select_as_hashes(conn, area_select)
@@ -539,16 +539,16 @@ def location2politics(locations, callback=nil)
 #          end
 #        
 #        end
-#      
-#      end
-#    
-#    end
-#    
-#    result.push({
-#      :location => location,
-#      :politics => output
-#    })
-#  
+      
+      end
+    
+    end
+    
+    result.push({
+      :location => location,
+      :politics => output
+    })
+  
   end
 
   make_json(result, callback)
