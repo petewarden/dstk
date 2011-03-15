@@ -519,7 +519,7 @@ def location2politics(locations, callback=nil)
         })
 
 #        area_select = 'SELECT name,code,type FROM "admin_areas_polygon" WHERE country_code=\''+country_code+'\' AND within('+point_string+', way);'
-#
+
 #        area_hashes = select_as_hashes(conn, area_select)
 #        if area_hashes
 #        
