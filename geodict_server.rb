@@ -493,15 +493,9 @@ def location2politics(locations, callback=nil)
     lat = location[:latitude]
     lon = location[:longitude]
     
-    point_string = 'setsrid(makepoint('
-      +PGconn.escape(lon.to_s)
-      +', '
-      +PGconn.escape(lat.to_s)
-      +'), 4326)'
+    point_string = 'setsrid(makepoint('+PGconn.escape(lon.to_s)+', '+PGconn.escape(lat.to_s)+'), 4326)'
 
-    country_select = 'SELECT name,country_code FROM "world_countries_polygon" WHERE within('
-      +point_string
-      +', way);'
+    country_select = 'SELECT name,country_code FROM "world_countries_polygon" WHERE within('+point_string+', way);'
 
     country_hashes = select_as_hashes(conn, country_select)
 
@@ -522,11 +516,7 @@ def location2politics(locations, callback=nil)
           :friendly_type => 'country'
         })
 
-        area_select = 'SELECT name,code,type FROM "admin_areas_polygon" WHERE country_code=\''
-        +country_code
-        +'\' AND within('
-          +point_string
-          +', way);'
+        area_select = 'SELECT name,code,type FROM "admin_areas_polygon" WHERE country_code=\''+country_code+'\' AND within('+point_string+', way);'
 
         area_hashes = select_as_hashes(conn, area_select)
         if area_hashes
