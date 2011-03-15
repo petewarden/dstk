@@ -275,7 +275,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>8</integer>
+									<integer>28</integer>
+									<integer>26</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -320,7 +321,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>geodict_server.rb</string>
+										<string>developerdocs.haml</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -328,11 +329,11 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>geodict_server.rb</string>
+												<string>developerdocs.haml</string>
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>597D8843132F382D0042C251</string>
+												<string>597D8847132F51DC0042C251</string>
 												<key>history</key>
 												<array>
 													<string>5929E12313244A2300B81D2E</string>
@@ -357,11 +358,11 @@
 													<string>597D8808132F17990042C251</string>
 													<string>597D8809132F17990042C251</string>
 													<string>597D880A132F17990042C251</string>
-													<string>597D880B132F17990042C251</string>
 													<string>597D880C132F17990042C251</string>
 													<string>597D883D132F26870042C251</string>
 													<string>597D8841132F382D0042C251</string>
-													<string>597D8842132F382D0042C251</string>
+													<string>597D8845132F51DC0042C251</string>
+													<string>597D8846132F51DC0042C251</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -400,7 +401,7 @@
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>597D8844132F382D0042C251</string>
+												<string>597D8848132F51DC0042C251</string>
 												<key>history</key>
 												<array>
 													<string>5929E12513244A2300B81D2E</string>
