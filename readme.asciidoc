@@ -6,7 +6,7 @@ Pete Warden <pete@petewarden.com>
 = GeodictAPI
 By http://petewarden.typepad.com/[Pete Warden] <pete@petewarden.com>
 
-An open-source service for pulling location information from unstructured text. It emulates http://developer.yahoo.com/geo/placemaker/guide/web-service.html[Yahoo's Placemaker API], so you should be able to switch any existing code simply by changing any references to "http://wherein.yahooapis.com/v1/document" to "http://<your server>/v1/document" (eg "http://geodictapi.com/v1/document").
+An open-source service for pulling location information from unstructured text. It emulates http://developer.yahoo.com/geo/placemaker/guide/web-service.html[Yahoo's Placemaker API], so you should be able to switch any existing code simply by changing any references to "http://wherein.yahooapis.com/v1/document" to "http://<your server>/v1/document" (eg "http://www.geodictapi.com/v1/document").
 
 == Usage
 
@@ -22,7 +22,7 @@ define('APP_ID', '<Their API Key>');
 
 Using GeodictAPI:
 ----
-define('BASE_URL', 'http://geodictapi.com/');
+define('BASE_URL', 'http://www.geodictapi.com/');
 define('APP_ID', ''); // No API key needed
 ----
 
@@ -40,10 +40,10 @@ Code for calling the API and parsing the results:
 
 The results will differ between the two APIs, as the algorithms are quite different. In particular, I designed Geodict for applications that are intolerant of false positives, so for example Placemaker will flag "New York Times" as a location whereas Geodict will ignore it.
 
-You can get started using the "http://geodictapi.com/" server, but for intensive use or to run behind a firewall, you'll probably want to create your own machine.
+You can get started using the "http://www.geodictapi.com/" server, but for intensive use or to run behind a firewall, you'll probably want to create your own machine.
 
 == Setting up your own server
 
-The simplest way to create a server is to grab one of the Amazon Machine Images listed at http://geodictapi.com/amis[http://geodictapi.com/amis]. You should then be able to fire up an instance on EC2 and immediately start using it.
+The simplest way to create a server is to grab one of the Amazon Machine Images listed at http://www.geodictapi.com/developerdocs[http://www.geodictapi.com/developerdocs]. You should then be able to fire up an instance on EC2 and immediately start using it.
 
 If you want to run on an in-house server, or on another hosting provider, serversetup.txt contains instructions on the exact steps I took to create that image starting from a clean Ubuntu 10.10 installation.

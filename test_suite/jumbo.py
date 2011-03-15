@@ -18,7 +18,7 @@ __YH_URL = 'http://localhost:4567/v1/document'
 __YH_APP_ID = ''
 
 # Remote server
-#__YH_URL = 'http://geodictapi.com/v1/document'
+#__YH_URL = 'http://www.geodictapi.com/v1/document'
 #__YH_APP_ID = ''
 
 class YHPlaceType(object):

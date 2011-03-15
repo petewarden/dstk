@@ -27,8 +27,11 @@ module GeodictConfig
   HOST = 'localhost'
   PORT = 5432
 
-  # The name of the database to create
+  # The name of the database holding the gazetteer data
   DATABASE = 'geodict'
+
+  # The name of the database holding the geometry used in reverse geocoding
+  REVERSE_GEO_DATABASE = 'reversegeo'
 
   # The maximum number of words in any name
   WORD_MAX = 3

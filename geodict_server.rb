@@ -458,7 +458,7 @@ end
 def addresses_list_from_string(addresses_string, callback=nil)
 
   if addresses_string == ''
-    fatal_error('Empy string passed in to street2location', 
+    fatal_error('Empty string passed in to street2location', 
       'json', 500, callback)
   end
 
@@ -468,6 +468,122 @@ def addresses_list_from_string(addresses_string, callback=nil)
     result = JSON.parse(addresses_string)
   else
     result = [addresses_string]
+  end
+  
+  result
+end
+
+TypeToFriendly = {
+  'admin2' => 'country',
+  'admin4' => 'state',
+  'admin6' => 'county',
+  'admin8' => 'city'  
+}
+
+# Takes an array of coordinates as input, and looks up what political areas they lie
+# within
+def location2politics(locations, callback=nil)
+
+
+  conn = PGconn.connect(GeodictConfig::HOST, GeodictConfig::PORT, '', '', GeodictConfig::REVERSE_GEO_DATABASE, GeodictConfig::USER, GeodictConfig::PASSWORD)
+
+  result = []
+  locations.each do |location|
+
+    lat = location.latitude
+    lon = location.longitude
+    
+    point_string = 'setsrid(makepoint('
+      +PGConn.escape(longitude)
+      +', '
+      +PGConn.escape(latitude)
+      +'), 4326)'
+
+    country_select = 'SELECT name,country_code FROM "world_countries_polygon" WHERE within('
+      +point_string
+      +', way);'
+
+    country_hashes = select_as_hashes(conn, country_select)
+
+    if !country_hashes or country_hashes.length == 0
+      output = nil
+    else
+    
+      output = []
+      country_hashes.each do |country_hash|
+      
+        country_name = country_hash.country_name
+        country_code = country_hash.country_code.downcase
+      
+        output.push({
+          :name => country_name,
+          :code => country_code,
+          :type => 'admin2',
+          :friendly_type => 'country'
+        })
+
+        area_select = 'SELECT name,code,type FROM "admin_areas_polygon" WHERE country_code=\''
+        +country_code
+        +'\' AND within('
+          +point_string
+          +', way);'
+
+        area_hashes = select_as_hashes(conn, area_select)
+        if area_hashes
+        
+          area_hashes.each do |area_hash|
+            area_name = area_hash.name
+            area_code = area_hash.code.downcase
+            area_type = area_hash.type
+            if TypeToFriendly.has_key?(area_type)
+              friendly_type = TypeToFriendly[area_type]
+            else
+              friendly_type = area_type
+            end
+            output.push({
+              :name => area_name,
+              :code => area_code,
+              :type => area_type,
+              :friendly_type => friendly_type
+            })
+          end
+        
+        end
+      
+      end
+    
+    end
+    
+    result.push({
+      :location => location,
+      :politics => output
+    })
+  
+  end
+
+  result
+
+end
+
+# Takes either a JSON-encoded string or single address, and produces a Ruby array
+def locations_list_from_string(locations_string, callback=nil)
+
+  if locations_string == ''
+    fatal_error('Empty string passed in to location2politics', 
+      'json', 500, callback)
+  end
+
+  # Do a bit of trickery to handle both JSON-encoded and single addresses
+  first_character = locations_string[0].chr
+  if first_character == '['
+    result = JSON.parse(locations_string)
+  else
+    coordinates = locations_string.split(',')
+    if coordinates.length != 2
+      fatal_error('Couldn\t understand string "'+locations_string+'" passed into location2politics', 
+        'json', 500, callback)
+    end
+    result = [{ :latitude => coordinates[0], :longitude => coordinates[1] }] 
   end
   
   result
@@ -583,5 +699,47 @@ get '/street2location/*' do
     fatal_error('street2location error: '+$!.inspect + $@.inspect, 'json', 500, callback)
   end
     
+end
+
+# The POST interface for the location to political areas lookup
+post '/location2politics' do
+  begin
+    # Pull in the raw data in the body of the request
+    locations_string = request.env['rack.input'].read
+    
+    if !locations_string
+      fatal_error('You need to place the latitude/longitude coordinates as a JSON-encoded array inside the POST body', 
+        'json', 500, nil)
+    end
+
+    locations_list = locations_list_from_string(locations_string)
+
+    location2politics(locations_list)
+
+  rescue
+    fatal_error('location2politics error: '+$!.inspect + $@.inspect, 'json', 500)
+  end
+
+end
+
+# The GET interface for the location to political areas lookup
+get '/location2politics/*' do
+
+  callback = params[:callback]
+
+  begin
+    locations_string = params['splat'][0]
+    if !locations_string
+      fatal_error('You need to place the latitude/longitude coordinates as a JSON-encoded array as part of the URL', 
+        'json', 500, callback)
+    end
+    
+    locations_list = locations_list_from_string(locations_string, callback)
+
+    location2politics(locations_list, callback)
+  rescue
+    fatal_error('location2politics error: '+$!.inspect + $@.inspect, 'json', 500, callback)
+  end
+
 end
 

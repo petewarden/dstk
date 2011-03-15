@@ -119,9 +119,13 @@ psql -U postgres -d postgis_template -f /usr/share/postgresql/8.4/contrib/postgi
 createdb -U postgres -T postgis_template reversegeo
 
 cd ~/sources
-svn export http://svn.openstreetmap.org/applications/utils/export/osm2pgsql/ osm2pgsql
+git clone git://github.com/petewarden/osm2pgsql
 cd osm2pgsql/
 sudo aptitude install autoconf libtool libxml2-dev libbz2-1.0 libbz2-dev libgeos-dev proj-bin libproj-dev
 ./autogen.sh
 make
 sudo make install
+cd ..
+
+osm2pgsql -U postgres -d reversegeo -p world_countries -S osm2pgsql/styles/world_countries.style geodictdata/world_countries.osm -l
+osm2pgsql -U postgres -d reversegeo -p admin_areas -S osm2pgsql/styles/admin_areas.style geodictdata/admin_areas.osm -l

@@ -48,7 +48,7 @@
       Using GeodictAPI:
       
       <hr>
-      `define('BASE_URL', 'http://geodictapi.com/');`
+      `define('BASE_URL', 'http://www.geodictapi.com/');`
       
       `define('APP_ID', ''); // No API key needed`
       <hr>
@@ -114,7 +114,7 @@
       
       This API takes either a single string representing a postal address, or a JSON-encoded array of addresses, and returns a JSON object with a key for every address. The value for each key is either null if no information was found for the address, or an object containing location information, including country, region, city and latitude/longitude coordinates. Here's an example:
       <hr>
-      `curl "http://geodictapi.com/street2location/2543+Graystone+Place%2c+Simi+Valley%2c+CA+93065"`
+      `curl "http://ww.geodictapi.com/street2location/2543+Graystone+Place%2c+Simi+Valley%2c+CA+93065"`
       
       `{"2543 Graystone Place, Simi Valley, CA 93065":{`
 
@@ -148,12 +148,53 @@
       Using GET you can also pass in a callback parameter in the URL, making it possible to run this as a JSONP cross-domain request. You can see this method in action if you view source on the home page of this server.
       
       You can also make a POST request passing in the addresses in the body of the request. This is useful if you have very large arrays of addresses you need to process, since you won't hit any URL size limits.
+
+    %a{:name=>"location2politics"}
+    :markdown
+      #### Location to Politics
+      
+      This API takes either a single string representing a comma-separated pair of latitude/longitude coordinates, or a JSON-encoded array of objects containing two keys, one for latitude and one for longitude. It returns a JSON array containing an object for every input location. The location member holds the coordinates that were queried, and politics holds an array of countries, states, provinces, cities, constituencies and neighborhoods that the point lies within. Here's an example:
+      <hr>
+      `curl "http://www.geodictapi.com/location2politics/37.769456%2c-122.429128"`
+      
+      `{"2543 Graystone Place, Simi Valley, CA 93065":{`
+
+      `"street_name":"Graystone Pl",`
+
+      `"country_code":"US",`
+
+      `"latitude":34.280874,`
+
+      `"street_address":"2543 Graystone Pl",`
+
+      `"country_code3":"USA",`
+
+      `"fips_county":"06111",`
+
+      `"longitude":-118.766207,`
+
+      `"country_name":"United States",`
+
+      `"confidence":0.922,`
+
+      `"region":"CA",`
+
+      `"street_number":"2543",`
+
+      `"locality":"Simi Valley"}}`
+      <hr>
+
+      To call the API, you can make either a GET or a POST request to `/location2politics`. If you make a GET request, then you need to pass in the locations in the suffix of the URL, as above.
+
+      Using GET you can also pass in a callback parameter in the URL, making it possible to run this as a JSONP cross-domain request. You can see this method in action if you view source on the home page of this server.
+      
+      You can also make a POST request passing in the locations in the body of the request. This is useful if you have very large arrays of locations you need to process, since you won't hit any URL size limits.
       
     %a{:name=>"setup"}
     :markdown
       ### Setting up your own server
 
-      You can get started using the "http://geodictapi.com/" server, but for intensive use or to run behind a firewall, you'll probably want to create your own machine.
+      You can get started using the "http://www.geodictapi.com/" server, but for intensive use or to run behind a firewall, you'll probably want to create your own machine.
 
     %a{:name=>"amazon"}
     :markdown

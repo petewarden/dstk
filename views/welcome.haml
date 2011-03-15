@@ -7,7 +7,7 @@
 
   %div{:style=>"margin-top:20px; font-size: 125%;"}
     %h3 Steal this server!
-    %a{:href=>"http://geodictapi.com/developerdocs#setup"} 
+    %a{:href=>"http://www.geodictapi.com/developerdocs#setup"} 
       Grab this entire site as a free, self-contained, ready-to-run VM
     %br
     %br
@@ -40,12 +40,29 @@
   #street2locationresults{:style=>"margin-top:30px;"}  
 
   %div{:style=>"margin-top:20px; font-size: 125%;"}
+    %h3 Location to Political Areas
+    Calculates what countries, regions, states, counties, constituencies and neighborhoods the latitude/longitude coordinates lie within. 
+    %br
+    To call it, just make a request to
+    %a{:href=>"/location2politics/37.769456%2c-122.429128"} /location2politics
+    passing in a pair of coordinates, or a JSON array of many coordinates.
+
+  .trylocation2politics{:style=>"margin-top:20px; font-size: 125%;"}
+    Try it for yourself. Copy and paste some coordinates into the box below to see what it finds.
+
+  %textarea#location2politicstext{:style=>"width: 800px; margin-top: 10px;"}
+
+  #uploadlocation2politicstext.button{:style=>"width:150px; font-size: 125%;"} Find
+  
+  #location2politicsresults{:style=>"margin-top:30px;"}  
+
+  %div{:style=>"margin-top:20px; font-size: 125%;"}
     %h3 Geodict
     Geodict pulls country, city and region names from unstructured English text, and returns their coordinates.
     %br
     It emulates the interface to 
     %a{:href=>"http://developer.yahoo.com/geo/placemaker/guide/web-service.html "}Yahoo's Placemaker
-    , so switching should just mean changing 'http://wherein.yahooapis.com/' to 'http://geodictapi.com/' in your current code. 
+    , so switching should just mean changing 'http://wherein.yahooapis.com/' to 'http://www.geodictapi.com/' in your current code. 
   
   .trygeodict{:style=>"margin-top:20px; font-size: 125%;"}
     Try it for yourself. Copy and paste some text into the box below to see what locations it finds.
@@ -80,6 +97,7 @@
     $('#text').expandingTextArea()
     $('#ip2locationtext').expandingTextArea()
     $('#street2locationtext').expandingTextArea()
+    $('#location2politicstext').expandingTextArea()
 
     $('#uploadtext').click(function() {
       var text = $('#text').val();
@@ -301,6 +319,95 @@
         }, 
         error: function(jqXHR, textStatus, errorCode) {
             $('#street2locationresults').text('Error: '+textStatus);
+        }, 
+        dataType: 'jsonp',
+        crossDomain: true
+      });
+    
+    });
+
+    // Handle the reverse geocoding test console
+    $('#uploadlocation2politicstext').click(function() {
+      var text = $('#location2politicstext').val();
+      if (text.length<1) {
+        $('#location2politicsresults').html("No text found in input box.");
+        return;
+      }
+
+      coordinatesList = text.split("\n");
+      if (coordinatesList.length==1) {
+        apiDataString = coordinatesList[0];
+      } else {
+        output = [];
+        for (coordinatesListIndex in coordinatesList) {
+          coordinatesString = coordinatesList[coordinatesListIndex];
+          coordinates = coordinatesString.split(',');
+          if (coordinates.length!=2) {
+            continue;
+          }
+          output.push({'latitude': coordinates[0], 'longitude': coordinates[1]});
+        }
+        apiDataString = $.toJSON(output);
+      }
+
+      var apiUrl = '/street2location';
+      apiUrl += '/'+encodeURIComponent(apiDataString);
+      
+      $.ajax(apiUrl, {
+        success: function(result) {
+          if (typeof result['error'] !== 'undefined') {
+            $('#location2politicsresults')
+            .text(result.error);
+            return;
+          }
+
+          $('#location2politicsresults').empty()
+          
+          for (var index in result) {
+            var info = result[index];
+            
+            var location = info['location'];
+            var politics = info['politics'];
+            
+            var html = '<div>';
+            html += '<a href="http://maps.google.com/maps?sll='
+              +location.latitude
+              +','
+              +location.longitude
+              +'">'
+              +location.latitude
+              +', '
+              +location.longitude
+              +'</a> - ';
+            
+            if (politics == null) {
+              html += "NA";
+            } else {
+            
+              for (var politicsIndex in politics) {
+                var politic = politics[politicsIndex];
+              
+                var name = politic['name'];
+                var code = politic['code'];
+                var type = politic['friendly_type'];
+                
+                html += 
+                  '('
+                  +name
+                  +', '
+                  +code
+                  +', '
+                  +type
+                  +') ';
+                }
+            }
+            html += '</div>'
+            
+            $('#location2politicsresults').append($(html));
+          }
+        }, 
+        error: function(jqXHR, textStatus, errorCode) {
+            $('#location2politicsresults').text('Error: '+textStatus);
         }, 
         dataType: 'jsonp',
         crossDomain: true
