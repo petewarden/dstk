@@ -494,9 +494,9 @@ def location2politics(locations, callback=nil)
     lon = location[:longitude]
     
     point_string = 'setsrid(makepoint('
-      +PGConn.escape(lon)
+      +PGconn.escape(lon)
       +', '
-      +PGConn.escape(lat)
+      +PGconn.escape(lat)
       +'), 4326)'
 
     country_select = 'SELECT name,country_code FROM "world_countries_polygon" WHERE within('
