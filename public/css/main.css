@@ -11,7 +11,7 @@ body {
 
 #header { float: left; text-align: right; text-decoration: none; vertical-align: middle; background-color: #ffffff; margin-top: 10px;}
 #accountinfo { float: right; text-align: right; text-decoration: none; vertical-align: middle; background-color: #ffffff; margin-top: 20px; margin-right: -5px; }
-#footer { font-size: 100%; text-align: center; margin-top: 50px; margin-bottom: 50px; }
+#footer { font-size: 100%; text-align: center; margin-top: 50px; margin-bottom: 5px; }
 #container { width: 840px; margin-left: auto; margin-right: auto; margin-top: 10px; background-color: #ffffff;}
 
 .headerlogo { position: relative; left: -10px; top: 0px; border-style: none; }
@@ -102,8 +102,8 @@ ul.key li { float: left; margin: 0px; padding: 5px 10px 5px 10px; text-align: ce
 ul.key li.keyUnits { padding-right: 20px; width: auto; text-align: left; }
 
 #author_message { font-style: italic; padding: 10px; margin-top: 30px; margin-bottom: 0px; }
-.footer_links { margin: 20px; font-size: 120%; }
-#footer_byline { font-size: 75%; text-color: #a0a0a0; margin-top: 20px; }
+.footer_links { margin: 20px; font-size: 150%; }
+#footer_byline { font-size: 100%; text-color: #a0a0a0; margin-top: 10px; margin-bottom: 75px; }
 
 /* Share, embed etc. */
 ul.share { float: left; list-style: none; width: 100%; padding-top: margin-top: 10px; margin-bottom: 20px; margin-left: 0px; font-size: 100%; }

@@ -275,7 +275,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>30</integer>
+									<integer>29</integer>
 									<integer>26</integer>
 									<integer>0</integer>
 								</array>
@@ -314,14 +314,12 @@
 							<key>Dock</key>
 							<array>
 								<dict>
-									<key>BecomeActive</key>
-									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>geodict_server.rb</string>
+										<string>about.haml</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -329,11 +327,11 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>geodict_server.rb</string>
+												<string>about.haml</string>
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>597D882B132F1F230042C251</string>
+												<string>597D883B132F24C50042C251</string>
 												<key>history</key>
 												<array>
 													<string>5929E12313244A2300B81D2E</string>
@@ -351,7 +349,6 @@
 													<string>5929E2F8132964BC00B81D2E</string>
 													<string>5929E2FB132964BC00B81D2E</string>
 													<string>5929E3191329AF0900B81D2E</string>
-													<string>5929E3CC132C496100B81D2E</string>
 													<string>5929E3CD132C496100B81D2E</string>
 													<string>5929E3CF132C496100B81D2E</string>
 													<string>5929E3D1132C496100B81D2E</string>
@@ -362,7 +359,8 @@
 													<string>597D880A132F17990042C251</string>
 													<string>597D880B132F17990042C251</string>
 													<string>597D880C132F17990042C251</string>
-													<string>597D880D132F17990042C251</string>
+													<string>597D882D132F218A0042C251</string>
+													<string>597D882E132F218A0042C251</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -384,12 +382,14 @@
 									<string>666pt</string>
 								</dict>
 								<dict>
+									<key>BecomeActive</key>
+									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>welcome.haml</string>
+										<string>layout.haml</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -397,11 +397,11 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>welcome.haml</string>
+												<string>layout.haml</string>
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>597D882C132F1F230042C251</string>
+												<string>597D883C132F24C50042C251</string>
 												<key>history</key>
 												<array>
 													<string>5929E12513244A2300B81D2E</string>
@@ -414,7 +414,6 @@
 													<string>5929E301132964BC00B81D2E</string>
 													<string>5929E303132964BC00B81D2E</string>
 													<string>5929E305132964BC00B81D2E</string>
-													<string>5929E307132964BC00B81D2E</string>
 													<string>5929E3841329EC1800B81D2E</string>
 													<string>5929E3DA132C496100B81D2E</string>
 													<string>5929E3DC132C496100B81D2E</string>
@@ -429,7 +428,8 @@
 													<string>597D8810132F17990042C251</string>
 													<string>597D8811132F17990042C251</string>
 													<string>597D8812132F17990042C251</string>
-													<string>597D8813132F17990042C251</string>
+													<string>597D8830132F218A0042C251</string>
+													<string>597D8831132F218A0042C251</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -922,7 +922,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C530D57069F1CE1000CFCEE</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>
