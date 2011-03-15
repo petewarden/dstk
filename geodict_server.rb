@@ -497,6 +497,8 @@ def location2politics(locations, callback=nil)
 
     country_select = 'SELECT name,country_code FROM "world_countries_polygon" WHERE within('+point_string+', way);'
 
+    result.push(country_select);
+
     country_hashes = select_as_hashes(conn, country_select)
 
     if !country_hashes or country_hashes.length == 0
