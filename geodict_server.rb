@@ -540,6 +540,33 @@ def location2politics(locations, callback=nil)
           end
         
         end
+        
+        # Look in the neighborhoods table if we're in the US
+        if country_code == 'usa'
+          neighborhood_select = 'SELECT name,city,state FROM "neighborhoods_polygon" ST_DWithin('+point_string+', way, 0.0001);'
+
+          neighborhood_hashes = select_as_hashes(conn, neighborhood_select)
+          if neighborhood_hashes
+          
+            neighborhood_hashes.each do |neighborhood_hash|
+              neighborhood_name = neighborhood_hash['name']
+              neighborhood_city = neighborhood_hash['city']
+              neighborhood_state = neighborhood_hash['state']
+              neighborhood_type = 'neighborhood'
+              friendly_type = 'neighborhood'
+              neighborhood_code = neighborhood_name+'|'+neighborhood_city+'|'+neighborhood_state
+
+              output.push({
+                :name => neighborhood_name,
+                :code => neighborhood_code,
+                :type => neighborhood_type,
+                :friendly_type => friendly_type
+              })
+            end
+          
+          end
+        
+        end
       
       end
     

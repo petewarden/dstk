@@ -275,8 +275,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>29</integer>
-									<integer>25</integer>
+									<integer>30</integer>
+									<integer>26</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -300,7 +300,7 @@
 							<real>186</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>299 275 1749 897 0 0 1920 1178 </string>
+						<string>30 266 1749 897 0 0 1920 1178 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -333,7 +333,7 @@
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>5929E444132C5DA400B81D2E</string>
+												<string>597D8829132F1ECC0042C251</string>
 												<key>history</key>
 												<array>
 													<string>5929E12313244A2300B81D2E</string>
@@ -349,19 +349,20 @@
 													<string>5929E25913259D8C00B81D2E</string>
 													<string>5929E2D51325B60D00B81D2E</string>
 													<string>5929E2F8132964BC00B81D2E</string>
-													<string>5929E2FA132964BC00B81D2E</string>
 													<string>5929E2FB132964BC00B81D2E</string>
 													<string>5929E3191329AF0900B81D2E</string>
-													<string>5929E35E1329BABA00B81D2E</string>
 													<string>5929E3CC132C496100B81D2E</string>
 													<string>5929E3CD132C496100B81D2E</string>
 													<string>5929E3CF132C496100B81D2E</string>
 													<string>5929E3D1132C496100B81D2E</string>
 													<string>5929E3D3132C496100B81D2E</string>
 													<string>5929E3D5132C496100B81D2E</string>
-													<string>5929E402132C537C00B81D2E</string>
-													<string>5929E408132C547600B81D2E</string>
-													<string>5929E409132C547600B81D2E</string>
+													<string>597D8808132F17990042C251</string>
+													<string>597D8809132F17990042C251</string>
+													<string>597D880A132F17990042C251</string>
+													<string>597D880B132F17990042C251</string>
+													<string>597D880C132F17990042C251</string>
+													<string>597D880D132F17990042C251</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -375,7 +376,7 @@
 										<key>Frame</key>
 										<string>{{0, 0}, {666, 851}}</string>
 										<key>RubberWindowFrame</key>
-										<string>299 275 1749 897 0 0 1920 1178 </string>
+										<string>30 266 1749 897 0 0 1920 1178 </string>
 									</dict>
 									<key>Module</key>
 									<string>PBXNavigatorGroup</string>
@@ -400,7 +401,7 @@
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>5929E445132C5DA400B81D2E</string>
+												<string>597D882A132F1ECC0042C251</string>
 												<key>history</key>
 												<array>
 													<string>5929E12513244A2300B81D2E</string>
@@ -409,15 +410,12 @@
 													<string>5929E1A813249DD800B81D2E</string>
 													<string>5929E2D81325B60D00B81D2E</string>
 													<string>5929E2E01325B79D00B81D2E</string>
-													<string>5929E2E4132629CC00B81D2E</string>
 													<string>5929E300132964BC00B81D2E</string>
 													<string>5929E301132964BC00B81D2E</string>
 													<string>5929E303132964BC00B81D2E</string>
 													<string>5929E305132964BC00B81D2E</string>
 													<string>5929E307132964BC00B81D2E</string>
-													<string>5929E3781329E80F00B81D2E</string>
 													<string>5929E3841329EC1800B81D2E</string>
-													<string>5929E3D9132C496100B81D2E</string>
 													<string>5929E3DA132C496100B81D2E</string>
 													<string>5929E3DC132C496100B81D2E</string>
 													<string>5929E3DE132C496100B81D2E</string>
@@ -427,8 +425,11 @@
 													<string>5929E3E6132C496100B81D2E</string>
 													<string>5929E3E8132C496100B81D2E</string>
 													<string>5929E3FF132C530800B81D2E</string>
-													<string>5929E429132C58E300B81D2E</string>
-													<string>5929E42A132C58E300B81D2E</string>
+													<string>597D880F132F17990042C251</string>
+													<string>597D8810132F17990042C251</string>
+													<string>597D8811132F17990042C251</string>
+													<string>597D8812132F17990042C251</string>
+													<string>597D8813132F17990042C251</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -442,7 +443,7 @@
 										<key>Frame</key>
 										<string>{{671, 0}, {870, 851}}</string>
 										<key>RubberWindowFrame</key>
-										<string>299 275 1749 897 0 0 1920 1178 </string>
+										<string>30 266 1749 897 0 0 1920 1178 </string>
 									</dict>
 									<key>Module</key>
 									<string>PBXNavigatorGroup</string>
@@ -466,7 +467,7 @@
 								<key>Frame</key>
 								<string>{{0, 856}, {1541, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>299 275 1749 897 0 0 1920 1178 </string>
+								<string>30 266 1749 897 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -492,10 +493,10 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>5929E10E13243EB600B81D2E</string>
+				<string>597D8815132F17990042C251</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>5929E10F13243EB600B81D2E</string>
-				<string>5929E12D13244AA100B81D2E</string>
+				<string>597D8816132F17990042C251</string>
+				<string>597D8817132F17990042C251</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
@@ -638,7 +639,7 @@
 		<string>/Users/petewarden/Projects/geodictapi/geodictapi.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>299 275 1749 897 0 0 1920 1178 </string>
+	<string>30 266 1749 897 0 0 1920 1178 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -853,7 +854,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CDD528C0622207200134675</string>
 										<key>PBXProjectModuleLabel</key>
-										<string></string>
+										<string>geodict_lib.rb</string>
 										<key>StatusBarVisibility</key>
 										<true/>
 									</dict>
@@ -911,8 +912,8 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C530D57069F1CE1000CFCEE</string>
-				<string>5929E16913246BAC00B81D2E</string>
-				<string>5929E16A13246BAC00B81D2E</string>
+				<string>597D87ED132F177B0042C251</string>
+				<string>597D87EE132F177B0042C251</string>
 				<string>1CDD528C0622207200134675</string>
 				<string>1CD0528E0623707200166675</string>
 			</array>
@@ -921,7 +922,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C530D57069F1CE1000CFCEE</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>
