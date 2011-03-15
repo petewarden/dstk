@@ -489,12 +489,12 @@ def location2politics(locations, callback=nil)
 
   result = []
   locations.each do |location|
-#
-#    lat = location[:latitude]
-#    lon = location[:longitude]
-#    
-#    point_string = 'setsrid(makepoint('+PGconn.escape(lon.to_s)+', '+PGconn.escape(lat.to_s)+'), 4326)'
-#
+
+    lat = location[:latitude]
+    lon = location[:longitude]
+    
+    point_string = 'setsrid(makepoint('+PGconn.escape(lon)+', '+PGconn.escape(lat)+'), 4326)'
+
 #    country_select = 'SELECT name,country_code FROM "world_countries_polygon" WHERE within('+point_string+', way);'
 #
 #    country_hashes = select_as_hashes(conn, country_select)
