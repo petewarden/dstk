@@ -484,14 +484,13 @@ TypeToFriendly = {
 # within
 def location2politics(locations, callback=nil)
 
-
   conn = PGconn.connect(GeodictConfig::HOST, GeodictConfig::PORT, '', '', GeodictConfig::REVERSE_GEO_DATABASE, GeodictConfig::USER, GeodictConfig::PASSWORD)
 
   result = []
   locations.each do |location|
 
-    lat = location.latitude
-    lon = location.longitude
+    lat = location[:latitude]
+    lon = location[:longitude]
     
     point_string = 'setsrid(makepoint('
       +PGConn.escape(longitude)
