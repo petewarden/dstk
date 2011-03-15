@@ -525,7 +525,7 @@ def location2politics(locations, callback=nil)
         
           area_hashes.each do |area_hash|
             area_name = area_hash['name']
-            area_code = area_hash['code.downcase']
+            area_code = area_hash['code'].downcase
             area_type = area_hash['type']
             if TypeToFriendly.has_key?(area_type)
               friendly_type = TypeToFriendly[area_type]
