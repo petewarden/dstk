@@ -109,10 +109,9 @@ ec2-run-instances --block-device-mapping /dev/sda1=:32 ami-7ac53713 -t m1.large 
 sudo resize2fs /dev/sda1
 )
 
-sudo aptitude install postgis
 sudo aptitude install postgresql-8.4-postgis
-createdb -U postgres reversegeo
-createlang -U postgres plpgsql reversegeo
+createdb -U postgres postgis_template
+createlang -U postgres plpgsql postgis_template
 psql -U postgres -d postgis_template -f /usr/share/postgresql/8.4/contrib/postgis.sql
 psql -U postgres -d postgis_template -f /usr/share/postgresql/8.4/contrib/spatial_ref_sys.sql
 psql -U postgres -d postgis_template -f /usr/share/postgresql/8.4/contrib/postgis_comments.sql
@@ -121,8 +120,9 @@ createdb -U postgres -T postgis_template reversegeo
 cd ~/sources
 git clone git://github.com/petewarden/osm2pgsql
 cd osm2pgsql/
-sudo aptitude install autoconf libtool libxml2-dev libbz2-1.0 libbz2-dev libgeos-dev proj-bin libproj-dev
+sudo aptitude install autoconf libtool libxml2-dev libbz2-1.0 libbz2-dev libgeos-dev proj-bin libproj-dev -y
 ./autogen.sh
+./configure
 make
 sudo make install
 cd ..

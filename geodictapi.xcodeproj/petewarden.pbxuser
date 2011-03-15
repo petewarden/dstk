@@ -721,6 +721,14 @@
 			597D883A132F24900042C251 /* PBXTextBookmark */ = 597D883A132F24900042C251 /* PBXTextBookmark */;
 			597D883B132F24C50042C251 /* PBXTextBookmark */ = 597D883B132F24C50042C251 /* PBXTextBookmark */;
 			597D883C132F24C50042C251 /* PBXTextBookmark */ = 597D883C132F24C50042C251 /* PBXTextBookmark */;
+			597D883D132F26870042C251 /* PBXTextBookmark */ = 597D883D132F26870042C251 /* PBXTextBookmark */;
+			597D883E132F26870042C251 /* PBXTextBookmark */ = 597D883E132F26870042C251 /* PBXTextBookmark */;
+			597D883F132F26870042C251 /* PBXTextBookmark */ = 597D883F132F26870042C251 /* PBXTextBookmark */;
+			597D8840132F26870042C251 /* PBXTextBookmark */ = 597D8840132F26870042C251 /* PBXTextBookmark */;
+			597D8841132F382D0042C251 /* PBXTextBookmark */ = 597D8841132F382D0042C251 /* PBXTextBookmark */;
+			597D8842132F382D0042C251 /* PBXTextBookmark */ = 597D8842132F382D0042C251 /* PBXTextBookmark */;
+			597D8843132F382D0042C251 /* PBXTextBookmark */ = 597D8843132F382D0042C251 /* PBXTextBookmark */;
+			597D8844132F382D0042C251 /* PBXTextBookmark */ = 597D8844132F382D0042C251 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 5929E10413243EA700B81D2E /* Source Control */;
 		userBuildSettings = {
@@ -792,9 +800,9 @@
 	};
 	5929E11A13243FB500B81D2E /* geodict_server.rb */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1111, 11550}}";
-			sepNavSelRange = "{17726, 0}";
-			sepNavVisRange = "{16518, 1610}";
+			sepNavIntBoundsRect = "{{0, 0}, {1104, 11490}}";
+			sepNavSelRange = "{15710, 0}";
+			sepNavVisRange = "{15424, 2030}";
 			sepNavWindowFrame = "{{15, 493}, {1279, 680}}";
 		};
 	};
@@ -860,7 +868,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 89";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 1514;
 		vrLoc = 1199;
@@ -880,7 +888,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 96";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 1813;
 		vrLoc = 1165;
@@ -920,7 +928,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 126";
 		rLen = 0;
-		rLoc = 22508;
+		rLoc = 22470;
 		rType = 0;
 		vrLen = 2022;
 		vrLoc = 1838;
@@ -960,7 +968,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 243";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 2035;
 		vrLoc = 2814;
@@ -980,7 +988,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 164";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 1932;
 		vrLoc = 3860;
@@ -1120,7 +1128,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 171";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 1885;
 		vrLoc = 4254;
@@ -1140,7 +1148,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 218";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 1686;
 		vrLoc = 5442;
@@ -1167,7 +1175,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 156";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 1852;
 		vrLoc = 3791;
@@ -1207,7 +1215,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 141";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 1852;
 		vrLoc = 3791;
@@ -1227,7 +1235,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 141";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 1852;
 		vrLoc = 3791;
@@ -1264,7 +1272,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 163";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 1811;
 		vrLoc = 3832;
@@ -1274,7 +1282,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 256";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 1766;
 		vrLoc = 6172;
@@ -1324,7 +1332,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 256";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 1766;
 		vrLoc = 6172;
@@ -1344,7 +1352,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 173";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 1882;
 		vrLoc = 3784;
@@ -1364,7 +1372,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 173";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 1908;
 		vrLoc = 3784;
@@ -1384,7 +1392,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 229";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 1844;
 		vrLoc = 6062;
@@ -1404,7 +1412,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 229";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 1844;
 		vrLoc = 6062;
@@ -1431,7 +1439,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 216";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 1844;
 		vrLoc = 6062;
@@ -1521,7 +1529,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 176";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 1977;
 		vrLoc = 3895;
@@ -1541,7 +1549,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 176";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 1977;
 		vrLoc = 3895;
@@ -1581,7 +1589,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 157";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 1977;
 		vrLoc = 3895;
@@ -2358,7 +2366,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 157";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 1927;
 		vrLoc = 3895;
@@ -2522,9 +2530,9 @@
 	};
 	5929E1EA13258B3700B81D2E /* main.css */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1300, 2400}}";
-			sepNavSelRange = "{5497, 0}";
-			sepNavVisRange = "{3703, 2560}";
+			sepNavIntBoundsRect = "{{0, 0}, {1300, 2370}}";
+			sepNavSelRange = "{4348, 0}";
+			sepNavVisRange = "{3048, 2829}";
 		};
 	};
 	5929E1EF13258B3700B81D2E /* main.js */ = {
@@ -2537,14 +2545,14 @@
 	5929E1F113258C0500B81D2E /* about.haml */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {617, 809}}";
-			sepNavSelRange = "{905, 0}";
-			sepNavVisRange = "{0, 1425}";
+			sepNavSelRange = "{1377, 0}";
+			sepNavVisRange = "{0, 1426}";
 		};
 	};
 	5929E1F213258C0500B81D2E /* layout.haml */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {821, 2250}}";
-			sepNavSelRange = "{1103, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {1300, 2025}}";
+			sepNavSelRange = "{1062, 0}";
 			sepNavVisRange = "{0, 1772}";
 		};
 	};
@@ -2724,7 +2732,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 77";
 		rLen = 0;
-		rLoc = 18792;
+		rLoc = 18754;
 		rType = 0;
 		vrLen = 1906;
 		vrLoc = 1432;
@@ -2764,7 +2772,7 @@
 		fRef = 5929E1EA13258B3700B81D2E /* main.css */;
 		name = "main.css: 16";
 		rLen = 0;
-		rLoc = 731;
+		rLoc = 730;
 		rType = 0;
 		vrLen = 2416;
 		vrLoc = 0;
@@ -2784,7 +2792,7 @@
 		fRef = 5929E1EA13258B3700B81D2E /* main.css */;
 		name = "main.css: 16";
 		rLen = 0;
-		rLoc = 731;
+		rLoc = 730;
 		rType = 0;
 		vrLen = 2416;
 		vrLoc = 0;
@@ -2804,7 +2812,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 211";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 2016;
 		vrLoc = 5937;
@@ -2814,7 +2822,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 74";
 		rLen = 0;
-		rLoc = 18753;
+		rLoc = 18715;
 		rType = 0;
 		vrLen = 1438;
 		vrLoc = 1099;
@@ -2824,7 +2832,7 @@
 		fRef = 5929E1EA13258B3700B81D2E /* main.css */;
 		name = "main.css: 16";
 		rLen = 0;
-		rLoc = 731;
+		rLoc = 730;
 		rType = 0;
 		vrLen = 2416;
 		vrLoc = 0;
@@ -2834,7 +2842,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 74";
 		rLen = 0;
-		rLoc = 18753;
+		rLoc = 18715;
 		rType = 0;
 		vrLen = 1438;
 		vrLoc = 1099;
@@ -2844,7 +2852,7 @@
 		fRef = 5929E1EA13258B3700B81D2E /* main.css */;
 		name = "main.css: 36";
 		rLen = 0;
-		rLoc = 2026;
+		rLoc = 2025;
 		rType = 0;
 		vrLen = 2416;
 		vrLoc = 0;
@@ -2874,7 +2882,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 74";
 		rLen = 0;
-		rLoc = 18753;
+		rLoc = 18715;
 		rType = 0;
 		vrLen = 1438;
 		vrLoc = 1099;
@@ -2894,7 +2902,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 74";
 		rLen = 0;
-		rLoc = 18753;
+		rLoc = 18715;
 		rType = 0;
 		vrLen = 1438;
 		vrLoc = 1099;
@@ -2934,7 +2942,7 @@
 		fRef = 5929E1EA13258B3700B81D2E /* main.css */;
 		name = "main.css: 16";
 		rLen = 0;
-		rLoc = 731;
+		rLoc = 730;
 		rType = 0;
 		vrLen = 2483;
 		vrLoc = 0;
@@ -2954,7 +2962,7 @@
 		fRef = 5929E1EA13258B3700B81D2E /* main.css */;
 		name = "main.css: 16";
 		rLen = 0;
-		rLoc = 731;
+		rLoc = 730;
 		rType = 0;
 		vrLen = 2484;
 		vrLoc = 0;
@@ -2974,7 +2982,7 @@
 		fRef = 5929E1EA13258B3700B81D2E /* main.css */;
 		name = "main.css: 16";
 		rLen = 0;
-		rLoc = 731;
+		rLoc = 730;
 		rType = 0;
 		vrLen = 2484;
 		vrLoc = 0;
@@ -2994,7 +3002,7 @@
 		fRef = 5929E1EA13258B3700B81D2E /* main.css */;
 		name = "main.css: 16";
 		rLen = 0;
-		rLoc = 731;
+		rLoc = 730;
 		rType = 0;
 		vrLen = 2484;
 		vrLoc = 0;
@@ -3014,7 +3022,7 @@
 		fRef = 5929E1EA13258B3700B81D2E /* main.css */;
 		name = "main.css: 16";
 		rLen = 0;
-		rLoc = 731;
+		rLoc = 730;
 		rType = 0;
 		vrLen = 2484;
 		vrLoc = 0;
@@ -3034,7 +3042,7 @@
 		fRef = 5929E1EA13258B3700B81D2E /* main.css */;
 		name = "main.css: 16";
 		rLen = 0;
-		rLoc = 731;
+		rLoc = 730;
 		rType = 0;
 		vrLen = 2484;
 		vrLoc = 0;
@@ -3054,7 +3062,7 @@
 		fRef = 5929E1EA13258B3700B81D2E /* main.css */;
 		name = "main.css: 16";
 		rLen = 0;
-		rLoc = 731;
+		rLoc = 730;
 		rType = 0;
 		vrLen = 2484;
 		vrLoc = 0;
@@ -3074,7 +3082,7 @@
 		fRef = 5929E1EA13258B3700B81D2E /* main.css */;
 		name = "main.css: 16";
 		rLen = 0;
-		rLoc = 731;
+		rLoc = 730;
 		rType = 0;
 		vrLen = 2484;
 		vrLoc = 0;
@@ -3094,7 +3102,7 @@
 		fRef = 5929E1EA13258B3700B81D2E /* main.css */;
 		name = "main.css: 45";
 		rLen = 0;
-		rLoc = 2168;
+		rLoc = 2167;
 		rType = 0;
 		vrLen = 2484;
 		vrLoc = 0;
@@ -3304,7 +3312,7 @@
 		fRef = 5929E1EA13258B3700B81D2E /* main.css */;
 		name = "main.css: 45";
 		rLen = 0;
-		rLoc = 2168;
+		rLoc = 2167;
 		rType = 0;
 		vrLen = 2484;
 		vrLoc = 0;
@@ -3314,7 +3322,7 @@
 		fRef = 5929E1EA13258B3700B81D2E /* main.css */;
 		name = "main.css: 45";
 		rLen = 0;
-		rLoc = 2168;
+		rLoc = 2167;
 		rType = 0;
 		vrLen = 1956;
 		vrLoc = 1626;
@@ -3334,7 +3342,7 @@
 		fRef = 5929E1EA13258B3700B81D2E /* main.css */;
 		name = "main.css: 65";
 		rLen = 0;
-		rLoc = 2509;
+		rLoc = 2508;
 		rType = 0;
 		vrLen = 2117;
 		vrLoc = 743;
@@ -3354,7 +3362,7 @@
 		fRef = 5929E1EA13258B3700B81D2E /* main.css */;
 		name = "main.css: 65";
 		rLen = 0;
-		rLoc = 2509;
+		rLoc = 2508;
 		rType = 0;
 		vrLen = 2117;
 		vrLoc = 743;
@@ -3374,7 +3382,7 @@
 		fRef = 5929E1EA13258B3700B81D2E /* main.css */;
 		name = "main.css: 73";
 		rLen = 0;
-		rLoc = 2687;
+		rLoc = 2686;
 		rType = 0;
 		vrLen = 2113;
 		vrLoc = 743;
@@ -3394,7 +3402,7 @@
 		fRef = 5929E1EA13258B3700B81D2E /* main.css */;
 		name = "main.css: 73";
 		rLen = 0;
-		rLoc = 2687;
+		rLoc = 2686;
 		rType = 0;
 		vrLen = 2113;
 		vrLoc = 743;
@@ -3414,7 +3422,7 @@
 		fRef = 5929E1EA13258B3700B81D2E /* main.css */;
 		name = "main.css: 32";
 		rLen = 0;
-		rLoc = 1892;
+		rLoc = 1891;
 		rType = 0;
 		vrLen = 2468;
 		vrLoc = 0;
@@ -3474,7 +3482,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 84";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 2214;
 		vrLoc = 2144;
@@ -3494,7 +3502,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 82";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 2219;
 		vrLoc = 2144;
@@ -3514,7 +3522,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 82";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 2214;
 		vrLoc = 2144;
@@ -3534,7 +3542,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 266";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 1428;
 		vrLoc = 6918;
@@ -3554,7 +3562,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 266";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 2211;
 		vrLoc = 1646;
@@ -3574,7 +3582,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 266";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 2211;
 		vrLoc = 1646;
@@ -3594,7 +3602,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 266";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 2211;
 		vrLoc = 1646;
@@ -3614,7 +3622,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 266";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 2211;
 		vrLoc = 1646;
@@ -3634,7 +3642,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 266";
 		rLen = 0;
-		rLoc = 18798;
+		rLoc = 18760;
 		rType = 0;
 		vrLen = 2211;
 		vrLoc = 1646;
@@ -4424,7 +4432,7 @@
 		fRef = 5929E1EA13258B3700B81D2E /* main.css */;
 		name = "main.css: 36";
 		rLen = 0;
-		rLoc = 2026;
+		rLoc = 2025;
 		rType = 0;
 		vrLen = 2425;
 		vrLoc = 0;
@@ -4514,9 +4522,9 @@
 		fRef = 5929E1EA13258B3700B81D2E /* main.css */;
 		name = "main.css: 131";
 		rLen = 0;
-		rLoc = 5497;
+		rLoc = 5518;
 		rType = 0;
-		vrLen = 2561;
+		vrLen = 2560;
 		vrLoc = 3703;
 	};
 	5929E2EF13262A3F00B81D2E /* PBXTextBookmark */ = {
@@ -4534,7 +4542,7 @@
 		fRef = 5929E1EA13258B3700B81D2E /* main.css */;
 		name = "main.css: 131";
 		rLen = 0;
-		rLoc = 5497;
+		rLoc = 5518;
 		rType = 0;
 		vrLen = 2560;
 		vrLoc = 3703;
@@ -4554,7 +4562,7 @@
 		fRef = 5929E1EA13258B3700B81D2E /* main.css */;
 		name = "main.css: 131";
 		rLen = 0;
-		rLoc = 5497;
+		rLoc = 5518;
 		rType = 0;
 		vrLen = 2560;
 		vrLoc = 3703;
@@ -4638,7 +4646,7 @@
 		fRef = 5929E1EA13258B3700B81D2E /* main.css */;
 		name = "main.css: 131";
 		rLen = 0;
-		rLoc = 5497;
+		rLoc = 5518;
 		rType = 0;
 		vrLen = 2560;
 		vrLoc = 3703;
@@ -4732,7 +4740,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 387";
 		rLen = 0;
-		rLoc = 18863;
+		rLoc = 18825;
 		rType = 0;
 		vrLen = 1159;
 		vrLoc = 10619;
@@ -4999,7 +5007,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 389";
 		rLen = 0;
-		rLoc = 18889;
+		rLoc = 18851;
 		rType = 0;
 		vrLen = 1177;
 		vrLoc = 10607;
@@ -5429,7 +5437,7 @@
 		fRef = 5929E1F113258C0500B81D2E /* about.haml */;
 		name = "about.haml: 8";
 		rLen = 0;
-		rLoc = 1384;
+		rLoc = 1385;
 		rType = 0;
 		vrLen = 411;
 		vrLoc = 0;
@@ -5449,7 +5457,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 394";
 		rLen = 0;
-		rLoc = 18935;
+		rLoc = 18897;
 		rType = 0;
 		vrLen = 1079;
 		vrLoc = 10760;
@@ -5469,7 +5477,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 396";
 		rLen = 0;
-		rLoc = 18953;
+		rLoc = 18915;
 		rType = 0;
 		vrLen = 1071;
 		vrLoc = 10760;
@@ -5489,7 +5497,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 461";
 		rLen = 0;
-		rLoc = 20023;
+		rLoc = 19985;
 		rType = 0;
 		vrLen = 1171;
 		vrLoc = 12341;
@@ -5629,7 +5637,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 464";
 		rLen = 0;
-		rLoc = 20076;
+		rLoc = 20038;
 		rType = 0;
 		vrLen = 1159;
 		vrLoc = 12407;
@@ -5649,7 +5657,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 466";
 		rLen = 0;
-		rLoc = 20111;
+		rLoc = 20073;
 		rType = 0;
 		vrLen = 1159;
 		vrLoc = 12407;
@@ -5720,7 +5728,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 458";
 		rLen = 0;
-		rLoc = 19508;
+		rLoc = 19470;
 		rType = 0;
 		vrLen = 1227;
 		vrLoc = 12835;
@@ -5780,7 +5788,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 469";
 		rLen = 0;
-		rLoc = 19818;
+		rLoc = 19780;
 		rType = 0;
 		vrLen = 1223;
 		vrLoc = 12843;
@@ -5820,7 +5828,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 469";
 		rLen = 0;
-		rLoc = 19818;
+		rLoc = 19780;
 		rType = 0;
 		vrLen = 1290;
 		vrLoc = 11221;
@@ -5840,7 +5848,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 469";
 		rLen = 0;
-		rLoc = 19818;
+		rLoc = 19780;
 		rType = 0;
 		vrLen = 1290;
 		vrLoc = 11221;
@@ -5860,7 +5868,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 469";
 		rLen = 0;
-		rLoc = 19818;
+		rLoc = 19780;
 		rType = 0;
 		vrLen = 1290;
 		vrLoc = 11221;
@@ -5880,7 +5888,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 469";
 		rLen = 0;
-		rLoc = 19818;
+		rLoc = 19780;
 		rType = 0;
 		vrLen = 1290;
 		vrLoc = 11221;
@@ -5900,7 +5908,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 469";
 		rLen = 0;
-		rLoc = 19818;
+		rLoc = 19780;
 		rType = 0;
 		vrLen = 1290;
 		vrLoc = 11221;
@@ -6350,7 +6358,7 @@
 		fRef = 5929E1F113258C0500B81D2E /* about.haml */;
 		name = "about.haml: 8";
 		rLen = 0;
-		rLoc = 1384;
+		rLoc = 1385;
 		rType = 0;
 		vrLen = 411;
 		vrLoc = 0;
@@ -6360,7 +6368,7 @@
 		fRef = 5929E1F113258C0500B81D2E /* about.haml */;
 		name = "about.haml: 8";
 		rLen = 0;
-		rLoc = 1173;
+		rLoc = 1174;
 		rType = 0;
 		vrLen = 539;
 		vrLoc = 0;
@@ -6380,7 +6388,7 @@
 		fRef = 5929E1F113258C0500B81D2E /* about.haml */;
 		name = "about.haml: 8";
 		rLen = 0;
-		rLoc = 1173;
+		rLoc = 1174;
 		rType = 0;
 		vrLen = 539;
 		vrLoc = 0;
@@ -6752,7 +6760,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 538";
 		rLen = 0;
-		rLoc = 20030;
+		rLoc = 19992;
 		rType = 0;
 		vrLen = 1516;
 		vrLoc = 15134;
@@ -6882,7 +6890,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 538";
 		rLen = 0;
-		rLoc = 20030;
+		rLoc = 19992;
 		rType = 0;
 		vrLen = 1535;
 		vrLoc = 15114;
@@ -6912,7 +6920,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 563";
 		rLen = 0;
-		rLoc = 20794;
+		rLoc = 20756;
 		rType = 0;
 		vrLen = 1522;
 		vrLoc = 15242;
@@ -6932,7 +6940,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 572";
 		rLen = 0;
-		rLoc = 20842;
+		rLoc = 20804;
 		rType = 0;
 		vrLen = 1528;
 		vrLoc = 15242;
@@ -7272,7 +7280,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 575";
 		rLen = 0;
-		rLoc = 20842;
+		rLoc = 20804;
 		rType = 0;
 		vrLen = 1447;
 		vrLoc = 15708;
@@ -7292,7 +7300,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 575";
 		rLen = 0;
-		rLoc = 20842;
+		rLoc = 20804;
 		rType = 0;
 		vrLen = 1447;
 		vrLoc = 15708;
@@ -7312,7 +7320,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 572";
 		rLen = 0;
-		rLoc = 20793;
+		rLoc = 20755;
 		rType = 0;
 		vrLen = 1447;
 		vrLoc = 15708;
@@ -7332,7 +7340,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 572";
 		rLen = 0;
-		rLoc = 20794;
+		rLoc = 20756;
 		rType = 0;
 		vrLen = 1447;
 		vrLoc = 15708;
@@ -7352,7 +7360,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 597";
 		rLen = 0;
-		rLoc = 22508;
+		rLoc = 22470;
 		rType = 0;
 		vrLen = 1153;
 		vrLoc = 16002;
@@ -7372,7 +7380,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 597";
 		rLen = 0;
-		rLoc = 22508;
+		rLoc = 22470;
 		rType = 0;
 		vrLen = 972;
 		vrLoc = 14618;
@@ -7412,7 +7420,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 579";
 		rLen = 0;
-		rLoc = 20794;
+		rLoc = 20756;
 		rType = 0;
 		vrLen = 1109;
 		vrLoc = 16046;
@@ -7432,7 +7440,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 584";
 		rLen = 0;
-		rLoc = 20881;
+		rLoc = 20843;
 		rType = 0;
 		vrLen = 1109;
 		vrLoc = 16046;
@@ -7616,7 +7624,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 541";
 		rLen = 0;
-		rLoc = 16298;
+		rLoc = 16260;
 		rType = 0;
 		vrLen = 1410;
 		vrLoc = 15276;
@@ -7696,7 +7704,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 562";
 		rLen = 0;
-		rLoc = 17485;
+		rLoc = 17447;
 		rType = 0;
 		vrLen = 1603;
 		vrLoc = 16409;
@@ -7716,7 +7724,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 546";
 		rLen = 0;
-		rLoc = 16642;
+		rLoc = 16604;
 		rType = 0;
 		vrLen = 1610;
 		vrLoc = 16518;
@@ -7736,7 +7744,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 577";
 		rLen = 0;
-		rLoc = 17726;
+		rLoc = 17688;
 		rType = 0;
 		vrLen = 1610;
 		vrLoc = 16518;
@@ -7746,7 +7754,7 @@
 		fRef = 5929E1F113258C0500B81D2E /* about.haml */;
 		name = "about.haml: 8";
 		rLen = 0;
-		rLoc = 1173;
+		rLoc = 1174;
 		rType = 0;
 		vrLen = 539;
 		vrLoc = 0;
@@ -7756,7 +7764,7 @@
 		fRef = 5929E1F113258C0500B81D2E /* about.haml */;
 		name = "about.haml: 13";
 		rLen = 0;
-		rLoc = 1425;
+		rLoc = 1426;
 		rType = 0;
 		vrLen = 541;
 		vrLoc = 0;
@@ -7796,7 +7804,7 @@
 		fRef = 5929E1F113258C0500B81D2E /* about.haml */;
 		name = "about.haml: 24";
 		rLen = 0;
-		rLoc = 1241;
+		rLoc = 1242;
 		rType = 0;
 		vrLen = 1398;
 		vrLoc = 0;
@@ -7876,7 +7884,7 @@
 		fRef = 5929E1F113258C0500B81D2E /* about.haml */;
 		name = "about.haml: 19";
 		rLen = 0;
-		rLoc = 905;
+		rLoc = 906;
 		rType = 0;
 		vrLen = 1425;
 		vrLoc = 0;
@@ -7887,6 +7895,86 @@
 		name = "layout.haml: 30";
 		rLen = 0;
 		rLoc = 1103;
+		rType = 0;
+		vrLen = 1772;
+		vrLoc = 0;
+	};
+	597D883D132F26870042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E1EA13258B3700B81D2E /* main.css */;
+		name = "main.css: 109";
+		rLen = 0;
+		rLoc = 4348;
+		rType = 0;
+		vrLen = 2829;
+		vrLoc = 3048;
+	};
+	597D883E132F26870042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E1F113258C0500B81D2E /* about.haml */;
+		name = "about.haml: 22";
+		rLen = 0;
+		rLoc = 1174;
+		rType = 0;
+		vrLen = 1425;
+		vrLoc = 0;
+	};
+	597D883F132F26870042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E1F113258C0500B81D2E /* about.haml */;
+		name = "about.haml: 8";
+		rLen = 0;
+		rLoc = 357;
+		rType = 0;
+		vrLen = 1426;
+		vrLoc = 0;
+	};
+	597D8840132F26870042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E1F213258C0500B81D2E /* layout.haml */;
+		name = "layout.haml: 26";
+		rLen = 0;
+		rLoc = 1062;
+		rType = 0;
+		vrLen = 1772;
+		vrLoc = 0;
+	};
+	597D8841132F382D0042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E1F113258C0500B81D2E /* about.haml */;
+		name = "about.haml: 26";
+		rLen = 0;
+		rLoc = 1377;
+		rType = 0;
+		vrLen = 1426;
+		vrLoc = 0;
+	};
+	597D8842132F382D0042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
+		name = "geodict_server.rb: 577";
+		rLen = 0;
+		rLoc = 17688;
+		rType = 0;
+		vrLen = 1601;
+		vrLoc = 16527;
+	};
+	597D8843132F382D0042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
+		name = "geodict_server.rb: 520";
+		rLen = 0;
+		rLoc = 15710;
+		rType = 0;
+		vrLen = 2030;
+		vrLoc = 15424;
+	};
+	597D8844132F382D0042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E1F213258C0500B81D2E /* layout.haml */;
+		name = "layout.haml: 26";
+		rLen = 0;
+		rLoc = 1062;
 		rType = 0;
 		vrLen = 1772;
 		vrLoc = 0;

@@ -517,7 +517,7 @@ def location2politics(locations, callback=nil)
           :friendly_type => 'country'
         })
 
-        area_select = 'SELECT name,code,type FROM "admin_areas_polygon" WHERE country_code=\''+country_code+'\' AND ST_DWithin('+point_string+', way, 0.01);'
+        area_select = 'SELECT name,code,type FROM "admin_areas_polygon" WHERE ST_DWithin('+point_string+', way, 0.01);'
 
         area_hashes = select_as_hashes(conn, area_select)
         if area_hashes
