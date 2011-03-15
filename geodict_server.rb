@@ -508,8 +508,8 @@ def location2politics(locations, callback=nil)
       output = []
       country_hashes.each do |country_hash|
       
-        country_name = country_hash.name
-        country_code = country_hash.country_code.downcase
+        country_name = country_hash['name']
+        country_code = country_hash['country_code'].downcase
       
         output.push({
           :name => country_name,
@@ -524,9 +524,9 @@ def location2politics(locations, callback=nil)
         if area_hashes
         
           area_hashes.each do |area_hash|
-            area_name = area_hash.name
-            area_code = area_hash.code.downcase
-            area_type = area_hash.type
+            area_name = area_hash['name']
+            area_code = area_hash['code.downcase']
+            area_type = area_hash['type']
             if TypeToFriendly.has_key?(area_type)
               friendly_type = TypeToFriendly[area_type]
             else
