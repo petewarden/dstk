@@ -478,6 +478,7 @@ TypeToFriendly = {
   'admin2' => 'country',
   'admin4' => 'state',
   'admin6' => 'county',
+  'admin5' => 'city'  
   'admin8' => 'city'  
 }
 
@@ -496,8 +497,6 @@ def location2politics(locations, callback=nil)
     point_string = 'setsrid(makepoint('+PGconn.escape(lon)+', '+PGconn.escape(lat)+'), 4326)'
 
     country_select = 'SELECT name,country_code FROM "world_countries_polygon" WHERE ST_DWithin('+point_string+', way, 0.1);'
-
-    result.push(country_select);
 
     country_hashes = select_as_hashes(conn, country_select)
 
