@@ -485,73 +485,73 @@ TypeToFriendly = {
 # within
 def location2politics(locations, callback=nil)
 
-  conn = PGconn.connect(GeodictConfig::HOST, GeodictConfig::PORT, '', '', GeodictConfig::REVERSE_GEO_DATABASE, GeodictConfig::USER, GeodictConfig::PASSWORD)
-
-  result = []
-  locations.each do |location|
-
-    lat = location[:latitude]
-    lon = location[:longitude]
-    
-    point_string = 'setsrid(makepoint('+PGconn.escape(lon.to_s)+', '+PGconn.escape(lat.to_s)+'), 4326)'
-
-    country_select = 'SELECT name,country_code FROM "world_countries_polygon" WHERE within('+point_string+', way);'
-
-    country_hashes = select_as_hashes(conn, country_select)
-
-    if !country_hashes or country_hashes.length == 0
-      output = nil
-    else
-    
-      output = []
-      country_hashes.each do |country_hash|
-      
-        country_name = country_hash.country_name
-        country_code = country_hash.country_code.downcase
-      
-        output.push({
-          :name => country_name,
-          :code => country_code,
-          :type => 'admin2',
-          :friendly_type => 'country'
-        })
-
-        area_select = 'SELECT name,code,type FROM "admin_areas_polygon" WHERE country_code=\''+country_code+'\' AND within('+point_string+', way);'
-
-        area_hashes = select_as_hashes(conn, area_select)
-        if area_hashes
-        
-          area_hashes.each do |area_hash|
-            area_name = area_hash.name
-            area_code = area_hash.code.downcase
-            area_type = area_hash.type
-            if TypeToFriendly.has_key?(area_type)
-              friendly_type = TypeToFriendly[area_type]
-            else
-              friendly_type = area_type
-            end
-            output.push({
-              :name => area_name,
-              :code => area_code,
-              :type => area_type,
-              :friendly_type => friendly_type
-            })
-          end
-        
-        end
-      
-      end
-    
-    end
-    
-    result.push({
-      :location => location,
-      :politics => output
-    })
-  
-  end
-
-  result
+#  conn = PGconn.connect(GeodictConfig::HOST, GeodictConfig::PORT, '', '', GeodictConfig::REVERSE_GEO_DATABASE, GeodictConfig::USER, GeodictConfig::PASSWORD)
+#
+#  result = []
+#  locations.each do |location|
+#
+#    lat = location[:latitude]
+#    lon = location[:longitude]
+#    
+#    point_string = 'setsrid(makepoint('+PGconn.escape(lon.to_s)+', '+PGconn.escape(lat.to_s)+'), 4326)'
+#
+#    country_select = 'SELECT name,country_code FROM "world_countries_polygon" WHERE within('+point_string+', way);'
+#
+#    country_hashes = select_as_hashes(conn, country_select)
+#
+#    if !country_hashes or country_hashes.length == 0
+#      output = nil
+#    else
+#    
+#      output = []
+#      country_hashes.each do |country_hash|
+#      
+#        country_name = country_hash.country_name
+#        country_code = country_hash.country_code.downcase
+#      
+#        output.push({
+#          :name => country_name,
+#          :code => country_code,
+#          :type => 'admin2',
+#          :friendly_type => 'country'
+#        })
+#
+#        area_select = 'SELECT name,code,type FROM "admin_areas_polygon" WHERE country_code=\''+country_code+'\' AND within('+point_string+', way);'
+#
+#        area_hashes = select_as_hashes(conn, area_select)
+#        if area_hashes
+#        
+#          area_hashes.each do |area_hash|
+#            area_name = area_hash.name
+#            area_code = area_hash.code.downcase
+#            area_type = area_hash.type
+#            if TypeToFriendly.has_key?(area_type)
+#              friendly_type = TypeToFriendly[area_type]
+#            else
+#              friendly_type = area_type
+#            end
+#            output.push({
+#              :name => area_name,
+#              :code => area_code,
+#              :type => area_type,
+#              :friendly_type => friendly_type
+#            })
+#          end
+#        
+#        end
+#      
+#      end
+#    
+#    end
+#    
+#    result.push({
+#      :location => location,
+#      :politics => output
+#    })
+#  
+#  end
+#
+#  result
 
 end
 
