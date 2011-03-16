@@ -519,13 +519,11 @@ def coordinates2politics(locations, callback=nil)
 
   conn = PGconn.connect(GeodictConfig::HOST, GeodictConfig::PORT, '', '', GeodictConfig::REVERSE_GEO_DATABASE, GeodictConfig::USER, GeodictConfig::PASSWORD)
 
-  halt 'FOFOFOFOFOFOFOFOFOFFOFOFO'+locations.inspect
-
   result = []
   locations.each do |location|
 
-    lat = location[:latitude]
-    lon = location[:longitude]
+    lat = location['latitude']
+    lon = location['longitude']
     
     point_string = 'setsrid(makepoint('+PGconn.escape(lon)+', '+PGconn.escape(lat)+'), 4326)'
 
