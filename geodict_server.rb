@@ -519,6 +519,8 @@ def coordinates2politics(locations, callback=nil)
 
   conn = PGconn.connect(GeodictConfig::HOST, GeodictConfig::PORT, '', '', GeodictConfig::REVERSE_GEO_DATABASE, GeodictConfig::USER, GeodictConfig::PASSWORD)
 
+  puts locations.inspect
+
   result = []
   locations.each do |location|
 
