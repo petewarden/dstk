@@ -135,7 +135,7 @@ DSTK.prototype.coordinates2politics = function(coordinates, callback) {
 DSTK.prototype.text2places = function(text, callback) {
 
   var apiUrl = this.apiBase+'/text2places';
-  apiUrl += '/'+encodeURIComponent(text);
+  apiUrl += '/'+encodeURIComponent($.toJSON(text));
 
   $.ajax(apiUrl, {
     success: callback,
