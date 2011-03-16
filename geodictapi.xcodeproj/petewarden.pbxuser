@@ -781,6 +781,8 @@
 			597D8886133069E60042C251 /* PBXTextBookmark */ = 597D8886133069E60042C251 /* PBXTextBookmark */;
 			597D888713306A2E0042C251 /* PBXTextBookmark */ = 597D888713306A2E0042C251 /* PBXTextBookmark */;
 			597D888813306A2E0042C251 /* PBXTextBookmark */ = 597D888813306A2E0042C251 /* PBXTextBookmark */;
+			597D888913306B450042C251 /* PBXTextBookmark */ = 597D888913306B450042C251 /* PBXTextBookmark */;
+			597D888A13306B450042C251 /* PBXTextBookmark */ = 597D888A13306B450042C251 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 5929E10413243EA700B81D2E /* Source Control */;
 		userBuildSettings = {
@@ -8142,9 +8144,9 @@
 	};
 	597D884E133040030042C251 /* jquery.dstk.js */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {754, 4950}}";
-			sepNavSelRange = "{1982, 0}";
-			sepNavVisRange = "{1570, 1261}";
+			sepNavIntBoundsRect = "{{0, 0}, {617, 4800}}";
+			sepNavSelRange = "{1432, 0}";
+			sepNavVisRange = "{0, 1709}";
 		};
 	};
 	597D8850133040030042C251 /* jquery.min.js */ = {
@@ -8189,7 +8191,7 @@
 		fRef = 597D884E133040030042C251 /* jquery.dstk.js */;
 		name = "jquery.dstk.js: 56";
 		rLen = 0;
-		rLoc = 1849;
+		rLoc = 1852;
 		rType = 0;
 		vrLen = 1223;
 		vrLoc = 1251;
@@ -8199,7 +8201,7 @@
 		fRef = 597D884E133040030042C251 /* jquery.dstk.js */;
 		name = "jquery.dstk.js: 66";
 		rLen = 0;
-		rLoc = 2020;
+		rLoc = 2023;
 		rType = 0;
 		vrLen = 1220;
 		vrLoc = 1251;
@@ -8269,7 +8271,7 @@
 		fRef = 597D884E133040030042C251 /* jquery.dstk.js */;
 		name = "jquery.dstk.js: 94";
 		rLen = 0;
-		rLoc = 2730;
+		rLoc = 2733;
 		rType = 0;
 		vrLen = 1280;
 		vrLoc = 2270;
@@ -8329,7 +8331,7 @@
 		fRef = 597D884E133040030042C251 /* jquery.dstk.js */;
 		name = "jquery.dstk.js: 110";
 		rLen = 0;
-		rLoc = 3087;
+		rLoc = 3090;
 		rType = 0;
 		vrLen = 1163;
 		vrLoc = 2407;
@@ -8339,7 +8341,7 @@
 		fRef = 597D884E133040030042C251 /* jquery.dstk.js */;
 		name = "jquery.dstk.js: 73";
 		rLen = 0;
-		rLoc = 2290;
+		rLoc = 2293;
 		rType = 0;
 		vrLen = 1199;
 		vrLoc = 1480;
@@ -8389,7 +8391,7 @@
 		fRef = 597D884E133040030042C251 /* jquery.dstk.js */;
 		name = "jquery.dstk.js: 73";
 		rLen = 0;
-		rLoc = 2290;
+		rLoc = 2293;
 		rType = 0;
 		vrLen = 1217;
 		vrLoc = 1608;
@@ -8469,7 +8471,7 @@
 		fRef = 597D884E133040030042C251 /* jquery.dstk.js */;
 		name = "jquery.dstk.js: 68";
 		rLen = 0;
-		rLoc = 1982;
+		rLoc = 1985;
 		rType = 0;
 		vrLen = 1267;
 		vrLoc = 1570;
@@ -8489,7 +8491,7 @@
 		fRef = 597D884E133040030042C251 /* jquery.dstk.js */;
 		name = "jquery.dstk.js: 76";
 		rLen = 0;
-		rLoc = 2241;
+		rLoc = 2244;
 		rType = 0;
 		vrLen = 1261;
 		vrLoc = 1570;
@@ -8509,7 +8511,7 @@
 		fRef = 597D884E133040030042C251 /* jquery.dstk.js */;
 		name = "jquery.dstk.js: 68";
 		rLen = 0;
-		rLoc = 1982;
+		rLoc = 1985;
 		rType = 0;
 		vrLen = 1261;
 		vrLoc = 1570;
@@ -8529,7 +8531,7 @@
 		fRef = 597D884E133040030042C251 /* jquery.dstk.js */;
 		name = "jquery.dstk.js: 68";
 		rLen = 0;
-		rLoc = 1982;
+		rLoc = 1985;
 		rType = 0;
 		vrLen = 1261;
 		vrLoc = 1570;
@@ -8549,7 +8551,7 @@
 		fRef = 597D884E133040030042C251 /* jquery.dstk.js */;
 		name = "jquery.dstk.js: 68";
 		rLen = 0;
-		rLoc = 1982;
+		rLoc = 1985;
 		rType = 0;
 		vrLen = 1261;
 		vrLoc = 1570;
@@ -8569,12 +8571,32 @@
 		fRef = 597D884E133040030042C251 /* jquery.dstk.js */;
 		name = "jquery.dstk.js: 68";
 		rLen = 0;
-		rLoc = 1982;
+		rLoc = 1985;
 		rType = 0;
 		vrLen = 1261;
 		vrLoc = 1570;
 	};
 	597D888813306A2E0042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
+		name = "welcome.haml: 104";
+		rLen = 0;
+		rLoc = 4434;
+		rType = 0;
+		vrLen = 1626;
+		vrLoc = 3742;
+	};
+	597D888913306B450042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 597D884E133040030042C251 /* jquery.dstk.js */;
+		name = "jquery.dstk.js: 43";
+		rLen = 0;
+		rLoc = 1432;
+		rType = 0;
+		vrLen = 1709;
+		vrLoc = 0;
+	};
+	597D888A13306B450042C251 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 104";

@@ -40,7 +40,7 @@
 function DSTK(options) {
     
   var defaultOptions = {
-    apiBase: 'http://www.geodict.com',
+    apiBase: 'http://www.geodictapi.com',
     checkVersion: true
   };
     
