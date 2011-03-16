@@ -296,7 +296,17 @@
 
       coordinatesList = text.split("\n");
       
-      dstk.coordinates2politics(coordinatesList, function(result) {
+      var coordinatesObjects = [];
+      for (var index in coordinatesList) {
+        var coordinates = coordinatesObjects[index];
+        var coordinatesObject = {
+          latitude: coordinates[0],
+          longitude: coordinates[1]
+        }
+        coordinatesObjects.push(coordinatesObject);
+      }
+      
+      dstk.coordinates2politics(coordinatesObjects, function(result) {
 
         if (typeof result['error'] !== 'undefined') {
           $('#coordinates2politicsresults')
