@@ -110,7 +110,7 @@
         return;
       }
 
-      dstk.text2places(text, function(results) {
+      dstk.text2places(text, function(result) {
         if (typeof result['error'] !== 'undefined') {
           $('#results')
           .text(result.error);
