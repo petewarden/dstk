@@ -789,6 +789,8 @@
 			597D888E13306C390042C251 /* PBXTextBookmark */ = 597D888E13306C390042C251 /* PBXTextBookmark */;
 			597D888F13306C390042C251 /* PBXTextBookmark */ = 597D888F13306C390042C251 /* PBXTextBookmark */;
 			597D889013306C390042C251 /* PBXTextBookmark */ = 597D889013306C390042C251 /* PBXTextBookmark */;
+			597D889113306CB50042C251 /* PBXTextBookmark */ = 597D889113306CB50042C251 /* PBXTextBookmark */;
+			597D889213306CB50042C251 /* PBXTextBookmark */ = 597D889213306CB50042C251 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 5929E10413243EA700B81D2E /* Source Control */;
 		userBuildSettings = {
@@ -2638,8 +2640,8 @@
 	5929E1F313258C0500B81D2E /* welcome.haml */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {821, 5805}}";
-			sepNavSelRange = "{9936, 0}";
-			sepNavVisRange = "{8950, 1497}";
+			sepNavSelRange = "{9709, 0}";
+			sepNavVisRange = "{8950, 1505}";
 		};
 	};
 	5929E20313258DC800B81D2E /* PBXTextBookmark */ = {
@@ -2721,7 +2723,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 5";
 		rLen = 0;
-		rLoc = 11354;
+		rLoc = 11362;
 		rType = 0;
 		vrLen = 63;
 		vrLoc = 0;
@@ -2781,7 +2783,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 5";
 		rLen = 0;
-		rLoc = 11354;
+		rLoc = 11362;
 		rType = 0;
 		vrLen = 63;
 		vrLoc = 0;
@@ -2941,7 +2943,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 5";
 		rLen = 0;
-		rLoc = 11354;
+		rLoc = 11362;
 		rType = 0;
 		vrLen = 63;
 		vrLoc = 0;
@@ -3211,7 +3213,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 22";
 		rLen = 0;
-		rLoc = 11354;
+		rLoc = 11362;
 		rType = 0;
 		vrLen = 709;
 		vrLoc = 0;
@@ -3311,7 +3313,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 23";
 		rLen = 0;
-		rLoc = 11354;
+		rLoc = 11362;
 		rType = 0;
 		vrLen = 976;
 		vrLoc = 0;
@@ -3341,7 +3343,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 23";
 		rLen = 0;
-		rLoc = 11354;
+		rLoc = 11362;
 		rType = 0;
 		vrLen = 976;
 		vrLoc = 0;
@@ -3491,7 +3493,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 31";
 		rLen = 0;
-		rLoc = 11354;
+		rLoc = 11362;
 		rType = 0;
 		vrLen = 1159;
 		vrLoc = 0;
@@ -4875,7 +4877,7 @@
 		isa = PBXTextBookmark;
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 1";
-		rLen = 11354;
+		rLen = 11362;
 		rLoc = 0;
 		rType = 0;
 		vrLen = 2651;
@@ -4905,7 +4907,7 @@
 		isa = PBXTextBookmark;
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 1";
-		rLen = 11354;
+		rLen = 11362;
 		rLoc = 0;
 		rType = 0;
 		vrLen = 2651;
@@ -4916,7 +4918,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 101";
 		rLen = 0;
-		rLoc = 11354;
+		rLoc = 11362;
 		rType = 0;
 		vrLen = 1660;
 		vrLoc = 1556;
@@ -4936,7 +4938,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 101";
 		rLen = 0;
-		rLoc = 11354;
+		rLoc = 11362;
 		rType = 0;
 		vrLen = 1660;
 		vrLoc = 1556;
@@ -4976,7 +4978,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 101";
 		rLen = 0;
-		rLoc = 11354;
+		rLoc = 11362;
 		rType = 0;
 		vrLen = 2219;
 		vrLoc = 0;
@@ -5887,7 +5889,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 101";
 		rLen = 0;
-		rLoc = 11354;
+		rLoc = 11362;
 		rType = 0;
 		vrLen = 1604;
 		vrLoc = 1556;
@@ -8387,7 +8389,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 349";
 		rLen = 0;
-		rLoc = 11338;
+		rLoc = 11346;
 		rType = 0;
 		vrLen = 2325;
 		vrLoc = 0;
@@ -8667,9 +8669,29 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 309";
 		rLen = 0;
-		rLoc = 9936;
+		rLoc = 9944;
 		rType = 0;
 		vrLen = 1497;
+		vrLoc = 8950;
+	};
+	597D889113306CB50042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
+		name = "geodict_server.rb: 529";
+		rLen = 0;
+		rLoc = 16081;
+		rType = 0;
+		vrLen = 1762;
+		vrLoc = 15452;
+	};
+	597D889213306CB50042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
+		name = "welcome.haml: 301";
+		rLen = 0;
+		rLoc = 9709;
+		rType = 0;
+		vrLen = 1505;
 		vrLoc = 8950;
 	};
 }
