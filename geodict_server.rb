@@ -369,6 +369,9 @@ def text2places(text, callback=nil)
 
   locations = find_locations_in_text(text)
 
+  printf(STDERR, text+"\n")
+  printf(STDERR, locations.inspect+"\n")
+
   # Convert the raw locations into a form that makes sense for output
   output_locations = []
   locations.each_with_index do |location_info, index|
