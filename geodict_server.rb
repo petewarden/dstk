@@ -369,8 +369,8 @@ def text2places(text, callback=nil)
 
   locations = find_locations_in_text(text)
 
-  print text
-  print locations.inspect
+  puts text
+  puts locations.inspect
 
   # Convert the raw locations into a form that makes sense for output
   output_locations = []
