@@ -275,8 +275,9 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>28</integer>
-									<integer>26</integer>
+									<integer>18</integer>
+									<integer>17</integer>
+									<integer>12</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -314,14 +315,12 @@
 							<key>Dock</key>
 							<array>
 								<dict>
-									<key>BecomeActive</key>
-									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>developerdocs.haml</string>
+										<string>jquery.dstk.js</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -329,11 +328,11 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>developerdocs.haml</string>
+												<string>jquery.dstk.js</string>
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>597D8849132FC81F0042C251</string>
+												<string>597D8883133069180042C251</string>
 												<key>history</key>
 												<array>
 													<string>5929E12313244A2300B81D2E</string>
@@ -344,7 +343,6 @@
 													<string>5929E20313258DC800B81D2E</string>
 													<string>5929E20513258DC800B81D2E</string>
 													<string>5929E20613258DC800B81D2E</string>
-													<string>5929E23D1325980D00B81D2E</string>
 													<string>5929E24D13259AB700B81D2E</string>
 													<string>5929E2D51325B60D00B81D2E</string>
 													<string>5929E2F8132964BC00B81D2E</string>
@@ -361,8 +359,11 @@
 													<string>597D880C132F17990042C251</string>
 													<string>597D883D132F26870042C251</string>
 													<string>597D8841132F382D0042C251</string>
-													<string>597D8845132F51DC0042C251</string>
-													<string>597D8846132F51DC0042C251</string>
+													<string>597D885E133062410042C251</string>
+													<string>597D885F133062410042C251</string>
+													<string>597D8860133062410042C251</string>
+													<string>597D886E133067220042C251</string>
+													<string>597D886F133067220042C251</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -384,12 +385,14 @@
 									<string>666pt</string>
 								</dict>
 								<dict>
+									<key>BecomeActive</key>
+									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>layout.haml</string>
+										<string>welcome.haml</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -397,11 +400,11 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>layout.haml</string>
+												<string>welcome.haml</string>
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>597D884A132FC81F0042C251</string>
+												<string>597D8884133069180042C251</string>
 												<key>history</key>
 												<array>
 													<string>5929E12513244A2300B81D2E</string>
@@ -424,12 +427,12 @@
 													<string>5929E3E6132C496100B81D2E</string>
 													<string>5929E3E8132C496100B81D2E</string>
 													<string>5929E3FF132C530800B81D2E</string>
-													<string>597D880F132F17990042C251</string>
 													<string>597D8810132F17990042C251</string>
 													<string>597D8811132F17990042C251</string>
-													<string>597D8812132F17990042C251</string>
-													<string>597D8830132F218A0042C251</string>
-													<string>597D8831132F218A0042C251</string>
+													<string>597D886A133063580042C251</string>
+													<string>597D8871133067220042C251</string>
+													<string>597D8872133067220042C251</string>
+													<string>597D8873133067220042C251</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>

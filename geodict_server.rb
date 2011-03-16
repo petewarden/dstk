@@ -364,9 +364,40 @@ def placemaker_api_call(params)
   return result
 end
 
+# A more standard interface to the same Placemaker functionality for pulling locations from text
+def text2places(text, callback=nil)
+
+  locations = find_locations_in_text(text)
+
+  # Convert the raw locations into a form that makes sense for output
+  output_locations = []
+  locations.each_with_index do |location_info, index|
+
+    found_tokens = location_info[:found_tokens]
+
+    match_start_index = found_tokens[0][:start_index]
+    match_end_index = found_tokens[found_tokens.length-1][:end_index]
+    matched_string = input_text[match_start_index..match_end_index]
+
+    location = found_tokens[0]
+    output_locations.push({
+      :type => location[:type],
+      :name => location[:matched_string],
+      :latitude => location[:lat].to_s,
+      :longitude => location[:lon].to_s,
+      :start_index => location[:start_index].to_s,
+      :end_index => location[:end_index].to_s,
+      :matched_string => matched_string
+    })
+  end
+
+  make_json(output_locations, callback)
+
+end
+
 # Takes an array of IP addresses as input, and looks up their locations using the
 # free database from GeoMind
-def ip2location(ips, callback=nil)
+def ip2coordinates(ips, callback=nil)
 
   geoip = Net::GeoIP.new(GeodictConfig::IP_MAPPING_DATABASE)
 
@@ -415,7 +446,7 @@ end
 
 # Takes an array of postal addresses as input, and looks up their locations using
 # data from the US census
-def street2location(addresses, callback=nil)
+def street2coordinates(addresses, callback=nil)
 
   db = Geocoder::US::Database.new('../geocoderdata/geocoder.db', {:debug => false})
 
@@ -459,7 +490,7 @@ end
 def addresses_list_from_string(addresses_string, callback=nil)
 
   if addresses_string == ''
-    fatal_error('Empty string passed in to street2location', 
+    fatal_error('Empty string passed in to street2coordinates', 
       'json', 500, callback)
   end
 
@@ -484,7 +515,7 @@ TypeToFriendly = {
 
 # Takes an array of coordinates as input, and looks up what political areas they lie
 # within
-def location2politics(locations, callback=nil)
+def coordinates2politics(locations, callback=nil)
 
   conn = PGconn.connect(GeodictConfig::HOST, GeodictConfig::PORT, '', '', GeodictConfig::REVERSE_GEO_DATABASE, GeodictConfig::USER, GeodictConfig::PASSWORD)
 
@@ -587,7 +618,7 @@ end
 def locations_list_from_string(locations_string, callback=nil)
 
   if locations_string == ''
-    fatal_error('Empty string passed in to location2politics', 
+    fatal_error('Empty string passed in to coordinates2politics', 
       'json', 500, callback)
   end
 
@@ -598,7 +629,7 @@ def locations_list_from_string(locations_string, callback=nil)
   else
     coordinates = locations_string.split(',')
     if coordinates.length != 2
-      fatal_error('Couldn\t understand string "'+locations_string+'" passed into location2politics', 
+      fatal_error('Couldn\t understand string "'+locations_string+'" passed into coordinates2politics', 
         'json', 500, callback)
     end
     result = [{ :latitude => coordinates[0], :longitude => coordinates[1] }] 
@@ -640,6 +671,15 @@ end
 # API entry points                     #
 ########################################
 
+# Returns version information about this server
+get '/info' do
+
+  callback = params[:callback]
+
+  make_json({:version => GeodictConfig::API_VERSION}, callback)
+
+end
+
 # The normal POST interface for Yahoo's Placemaker
 post '/v1/document' do
   placemaker_api_call(params)
@@ -650,8 +690,25 @@ get '/v1/document' do
   placemaker_api_call(params)
 end
 
+# The more standard REST/JSON interface for the Placemaker emulation
+post '/text2places' do
+
+  # Pull in the raw data in the body of the request
+  text = request.env['rack.input'].read
+
+  text2places(text)
+end
+
+# Also support a non-standard GET version of the API for Javascript clients
+get '/text2places/*' do
+  callback = params[:callback]
+  text = params['splat'][0]
+
+  text2places(text, callback)
+end
+
 # The POST interface for the IP address to location lookup
-post '/ip2location' do
+post '/ip2coordinates' do
   # Pull in the raw data in the body of the request
   ips_string = request.env['rack.input'].read
   
@@ -661,11 +718,11 @@ post '/ip2location' do
   end
   ips_list = ips_list_from_string(ips_string)
 
-  ip2location(ips_list)
+  ip2coordinates(ips_list)
 end
 
 # The GET interface for the IP address to location lookup
-get '/ip2location/:ips' do
+get '/ip2coordinates/:ips' do
 
   callback = params[:callback]
   ips_string = params[:ips]
@@ -676,11 +733,11 @@ get '/ip2location/:ips' do
 
   ips_list = ips_list_from_string(ips_string)
 
-  ip2location(ips_list, callback)
+  ip2coordinates(ips_list, callback)
 end
 
 # The POST interface for the street address to location lookup
-post '/street2location' do
+post '/street2coordinates' do
   begin
     # Pull in the raw data in the body of the request
     addresses_string = request.env['rack.input'].read
@@ -691,15 +748,15 @@ post '/street2location' do
     end
     addresses_list = addresses_list_from_string(addresses_string)
 
-    street2location(addresses_list)
+    street2coordinates(addresses_list)
   rescue
-    fatal_error('street2location error: '+$!.inspect + $@.inspect, 'json', 500)
+    fatal_error('street2coordinates error: '+$!.inspect + $@.inspect, 'json', 500)
   end
 
 end
 
 # The GET interface for the street address to location lookup
-get '/street2location/*' do
+get '/street2coordinates/*' do
 
   callback = params[:callback]
 
@@ -712,15 +769,15 @@ get '/street2location/*' do
 
     addresses_list = addresses_list_from_string(addresses_string, callback)
 
-    street2location(addresses_list, callback)
+    street2coordinates(addresses_list, callback)
   rescue
-    fatal_error('street2location error: '+$!.inspect + $@.inspect, 'json', 500, callback)
+    fatal_error('street2coordinates error: '+$!.inspect + $@.inspect, 'json', 500, callback)
   end
     
 end
 
 # The POST interface for the location to political areas lookup
-post '/location2politics' do
+post '/coordinates2politics' do
   begin
     # Pull in the raw data in the body of the request
     locations_string = request.env['rack.input'].read
@@ -732,16 +789,16 @@ post '/location2politics' do
 
     locations_list = locations_list_from_string(locations_string)
 
-    location2politics(locations_list)
+    coordinates2politics(locations_list)
 
   rescue
-    fatal_error('location2politics error: '+$!.inspect + $@.inspect, 'json', 500)
+    fatal_error('coordinates2politics error: '+$!.inspect + $@.inspect, 'json', 500)
   end
 
 end
 
 # The GET interface for the location to political areas lookup
-get '/location2politics/*' do
+get '/coordinates2politics/*' do
 
   callback = params[:callback]
 
@@ -754,9 +811,9 @@ get '/location2politics/*' do
     
     locations_list = locations_list_from_string(locations_string, callback)
 
-    location2politics(locations_list, callback)
+    coordinates2politics(locations_list, callback)
 #  rescue
-#    fatal_error('location2politics error: '+$!.inspect + $@.inspect, 'json', 500, callback)
+#    fatal_error('coordinates2politics error: '+$!.inspect + $@.inspect, 'json', 500, callback)
 #  end
 
 end

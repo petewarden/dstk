@@ -1,4 +1,152 @@
 /*
+ * jQuery Data Science Toolkit Plugin
+ * version: 1.20 (2011-03-15)
+ *
+ * All code (C) Pete Warden, 2011
+ *
+ *    This program is free software: you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation, either version 3 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * 
+ */
+ 
+(function($) {
+  $.DSTK = function(options) {
+  
+    if ((typeof options == 'undefined')||(options == null)) {
+      options = {};
+    }  
+  
+    // These are the only dependencies on JQuery. If you want to run the code without
+    // the framework, you can replace them with matching functions and call the
+    // constructor directly, eg
+    // var dstk = new DSTK({ajaxFunction: myAjax, toJSONFunction: myToJSON});
+    options.ajaxFunction = $.ajax;
+    options.toJSONFunction = $.toJSON;
+
+    return new DSTK(options);
+  };    
+})(jQuery);
+
+function DSTK(options) {
+    
+  var defaultOptions = {
+    apiBase: 'http://www.geodict.com',
+    checkVersion: true
+  };
+    
+  if ((typeof options == 'undefined')||(options == null)) {
+    options = defaultOptions;
+  } else {
+    for (var key in defaultOptions) {
+      if (typeof options[key]=='undefined') {
+        options[key] = defaultOptions[key];
+      }
+    }
+  }
+    
+  this.apiBase = options.apiBase;
+  this.ajaxFunction = options.ajaxFunction;
+  this.toJSONFunction = options.toJSONFunction;
+  
+  if (options.checkVersion) {
+    this.checkVersion();
+  }
+}
+
+DSTK.prototype.checkVersion = function() {
+
+  var requiredVersion = 130;
+
+  var apiUrl = this.apiBase+'/info';
+  
+  this.ajaxFunction(apiUrl, {
+    success: function(result) {
+      var actualVersion = result['version'];
+      if (actualVersion<requiredVersion) {
+        throw 'DSTK: Version '+actualVersion+' found at "'+apiUrl+'" but '+requiredVersion+' is required';
+      }
+    },
+    dataType: 'jsonp',
+    crossDomain: true
+  });
+
+};
+
+// See http://www.geodictapi.com/developerdocs for information on these calls
+
+DSTK.prototype.ip2coordinates = function(ips, callback) {
+
+  if (typeof ips.length == 'undefined') {
+    ips = [ips];
+  }
+
+  var apiUrl = this.apiBase+'/ip2coordinates';
+  apiUrl += '/'+encodeURIComponent($.toJSON(ips));
+
+  this.ajaxFunction(apiUrl, {
+    success: callback,
+    dataType: 'jsonp',
+    crossDomain: true
+  });
+};
+
+DSTK.prototype.street2coordinates = function(addresses, callback) {
+
+  if (typeof addresses.length == 'undefined') {
+    addresses = [addresses];
+  }
+
+  var apiUrl = this.apiBase+'/street2coordinates';
+  apiUrl += '/'+encodeURIComponent($.toJSON(addresses));
+
+  $.ajax(apiUrl, {
+    success: callback,
+    dataType: 'jsonp',
+    crossDomain: true
+  });
+};
+
+DSTK.prototype.coordinates2politics = function(coordinates, callback) {
+
+  if (typeof coordinates.length == 'undefined') {
+    coordinates = [coordinates];
+  }
+
+  var apiUrl = this.apiBase+'/coordinates2politics';
+  apiUrl += '/'+encodeURIComponent($.toJSON(coordinates));
+
+  $.ajax(apiUrl, {
+    success: callback,
+    dataType: 'jsonp',
+    crossDomain: true
+  });
+};
+
+DSTK.prototype.text2places = function(text, callback) {
+
+  var apiUrl = this.apiBase+'/text2places';
+  apiUrl += '/'+encodeURIComponent(text);
+
+  $.ajax(apiUrl, {
+    success: callback,
+    dataType: 'jsonp',
+    crossDomain: true
+  });
+};
+
+
+
+/*
  * jQuery JSON Plugin
  * version: 2.1 (2009-08-14)
  *

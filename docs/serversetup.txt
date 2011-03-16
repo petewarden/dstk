@@ -42,12 +42,16 @@ sudo bash -c 'echo "
   <VirtualHost *:80>
       ServerName www.yourhost.com
       DocumentRoot /home/ubuntu/sources/geodictapi/public
+      RewriteEngine On
+      RewriteCond %{HTTP_HOST} ^geodictapi.com$ [NC]
+      RewriteRule ^(.*)$ http://www.geodictapi.com$1 [R=301,L]
       <Directory /home/ubuntu/sources/geodictapi/public>
          AllowOverride all
          Options -MultiViews
       </Directory>
    </VirtualHost>
 " > /etc/apache2/sites-enabled/000-default'
+sudo ln -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/rewrite.load
 
 sudo /etc/init.d/apache2 restart
 

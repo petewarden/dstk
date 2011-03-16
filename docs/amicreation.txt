@@ -26,8 +26,6 @@ sudo aptitude update
 sudo aptitude install unzip
 unzip ec2-ami-tools.zip
 sudo mv ec2-ami-tools-1.3-66634 /opt/
-export PATH=$PATH:/opt/ec2-ami-tools-1.3-66634/bin
-export EC2_HOME=/opt/ec2-ami-tools-1.3-66634/
 wget http://s3.amazonaws.com/ec2-downloads/ec2-api-tools.zip
 sudo unzip -d /opt/ ec2-api-tools.zip
 export PATH=$PATH:/opt/ec2-api-tools-1.4.1.2/bin

@@ -21,40 +21,40 @@
     %br
     %br
   %div{:style=>"margin-top:20px; font-size: 125%;"}
-    %h3 Street Address to Location
+    %h3 Street Address to Coordinates
     Street Address to Location calculates the latitude/longitude coordinates for a postal address. 
     %br
     Currently restricted to the US.
     %br
     To call it, just make a request to
-    %a{:href=>"/street2location/2543+Graystone+Place%2c+Simi+Valley%2c+CA+93065"} /street2location
+    %a{:href=>"/street2coordinates/2543+Graystone+Place%2c+Simi+Valley%2c+CA+93065"} /street2coordinates
     passing in a single address, or a JSON array of many addresses.
 
-  .tryip2location{:style=>"margin-top:20px; font-size: 125%;"}
+  .tryip2coordinates{:style=>"margin-top:20px; font-size: 125%;"}
     Try it for yourself. Copy and paste some addresses into the box below to see what locations it finds.
 
-  %textarea#street2locationtext{:style=>"width: 800px; margin-top: 10px;"}
+  %textarea#street2coordinatestext{:style=>"width: 800px; margin-top: 10px;"}
 
-  #uploadstreet2locationtext.button{:style=>"width:150px; font-size: 125%;"} Locate Addresses
+  #uploadstreet2coordinatestext.button{:style=>"width:150px; font-size: 125%;"} Locate Addresses
   
-  #street2locationresults{:style=>"margin-top:30px;"}  
+  #street2coordinatesresults{:style=>"margin-top:30px;"}  
 
   %div{:style=>"margin-top:20px; font-size: 125%;"}
-    %h3 Location to Political Areas
+    %h3 Coordinates to Political Areas
     Returns which countries, regions, states, counties, constituencies and neighborhoods a point is inside.
     %br
     To call it, just make a request to
-    %a{:href=>"/location2politics/37.769456%2c-122.429128"} /location2politics
+    %a{:href=>"/coordinates2politics/37.769456%2c-122.429128"} /coordinates2politics
     passing in a pair of coordinates, or a JSON array of many coordinates.
 
-  .trylocation2politics{:style=>"margin-top:20px; font-size: 125%;"}
+  .trycoordinates2politics{:style=>"margin-top:20px; font-size: 125%;"}
     Try it for yourself. Copy and paste some coordinates into the box below to see what it finds.
 
-  %textarea#location2politicstext{:style=>"width: 800px; margin-top: 10px;"}
+  %textarea#coordinates2politicstext{:style=>"width: 800px; margin-top: 10px;"}
 
-  #uploadlocation2politicstext.button{:style=>"width:150px; font-size: 125%;"} Find
+  #uploadcoordinates2politicstext.button{:style=>"width:150px; font-size: 125%;"} Find
   
-  #location2politicsresults{:style=>"margin-top:30px;"}  
+  #coordinates2politicsresults{:style=>"margin-top:30px;"}  
 
   %div{:style=>"margin-top:20px; font-size: 125%;"}
     %h3 Geodict
@@ -74,30 +74,32 @@
   #results{:style=>"margin-top:30px;"}
 
   %div{:style=>"margin-top:20px; font-size: 125%;"}
-    %h3 IP Address to Location
+    %h3 IP Address to Coordinates
     IP Address to Location calculates country, state, city and latitude/longitude coordinates for IP addresses.
     %br
     To call it, just make a request to
-    %a{:href=>"/ip2location/67.169.73.113"} /ip2location
+    %a{:href=>"/ip2coordinates/67.169.73.113"} /ip2coordinates
     passing in a single address, or a JSON array or comma-separated list of many IPs.
 
-  .tryip2location{:style=>"margin-top:20px; font-size: 125%;"}
+  .tryip2coordinates{:style=>"margin-top:20px; font-size: 125%;"}
     Try it for yourself. Copy and paste some IP addresses into the box below to see what locations it finds.
 
-  %textarea#ip2locationtext{:style=>"width: 800px; margin-top: 10px;"}
+  %textarea#ip2coordinatestext{:style=>"width: 800px; margin-top: 10px;"}
 
-  #uploadip2locationtext.button{:style=>"width:150px; font-size: 125%;"} Locate IP Addresses
+  #uploadip2coordinatestext.button{:style=>"width:150px; font-size: 125%;"} Locate IPs
   
-  #ip2locationresults{:style=>"margin-top:30px;"}
+  #ip2coordinatesresults{:style=>"margin-top:30px;"}
 
 
 %script{:src=>"/scripts/jquery.exptextarea.js", :type=>"text/javascript"}
 :javascript
   $(function() {
     $('#text').expandingTextArea()
-    $('#ip2locationtext').expandingTextArea()
-    $('#street2locationtext').expandingTextArea()
-    $('#location2politicstext').expandingTextArea()
+    $('#ip2coordinatestext').expandingTextArea()
+    $('#street2coordinatestext').expandingTextArea()
+    $('#coordinates2politicstext').expandingTextArea()
+
+    var dstk = $.DSTK({apiBase:'http://localhost:4567'});
 
     $('#uploadtext').click(function() {
       var text = $('#text').val();
@@ -105,52 +107,101 @@
         $('#results').html("No text found in input box.");
         return;
       }
-      
-      var apiUrl = '/v1/document';
-      apiUrl += '?documentContent='+encodeURIComponent(text);
-      apiUrl += '&outputType=json';
-      
-      // Handle the Placemaker test console
-      $.ajax(apiUrl, {
-        success: function(result) {
-          if (typeof result['error'] !== 'undefined') {
-            $('#results')
-            .text(result.error);
-            return;
-          }
 
-          $('#results').empty()
+      dstk.text2places(text, function(results) {
+        if (typeof result['error'] !== 'undefined') {
+          $('#results')
+          .text(result.error);
+          return;
+        }
+
+        $('#results').empty();
+
+        if (results.length<1) {
+          $('#results')
+          .text('No locations found');
+          return;
+        }
+
+        for (var resultIndex in results) {
+          var location = results[resultIndex];
+
+          var matchedString = location['matched_string'];
+          var lat = location['latitude'];
+          var lon = location['longitude'];
+          var type = place['type'];
+          var name = place['name'];
+
+          var html = 
+            '<div>"'
+            +matchedString
+            +'" matches the '
+            +type.toLowerCase()
+            +' '
+            +name
+            +' at <a href="http://maps.google.com/maps?sll='
+            +lat
+            +','
+            +lon
+            +'">'
+            +lat
+            +','
+            +lon
+            +'</a>'
+            +'</div>';
           
-          var resultDoc = result['document'];
-          var referenceList = resultDoc['referenceList'];
-          
-          for (var referenceIndex in referenceList) {
+          $('#results').append($(html));
+        }
+      })
+    });
+
+    // Handle the IP lookup test console
+    $('#uploadip2coordinatestext').click(function() {
+      var text = $('#ip2coordinatestext').val();
+      if (text.length<1) {
+        $('#ip2coordinatesresults').html("No text found in input box.");
+        return;
+      }
+
+      text = text.replace("\n", ",");
+      text = text.replace(" ", ",");
+      ips = text.split(',');
+
+      dstk.ip2coordinates(ips, function(results) {
+        if (typeof result['error'] !== 'undefined') {
+          $('#results')
+          .text(result.error);
+          return;
+        }
             
-            var reference = referenceList[referenceIndex]['reference'];
-            var placeDetailsIndex = reference['placeIds'];
-
-            var placeDetail = resultDoc[placeDetailsIndex]['placeDetails'];
-            var place = placeDetail['place'];
+        $('#ip2coordinatesresults').empty()
+        
+        for (var ip in result) {
+          var info = result[ip];
           
-            var centroid = place['centroid'];
-
-            var matchedString = reference['text'];
-            var lat = centroid['latitude'];
-            var lon = centroid['longitude'];
-            var type = place['type'];
-            var name = place['name'];
-
-            if ((referenceList.length==1)&&(lat==0)&&(lon==0)) {
-              $('#results')
-              .text('No locations found');
-              return;
-            }
+          var html;
+          if (info == null) {
+            html = "<div>"+ip+" - NA</div>"
+          } else {
+          
+            var lat = info['latitude'];
+            var lon = info['longitude'];
+            var country = info['country_name'];
+            var region = info['region'];
+            var city = info['locality'];
+            var postal_code = info['postal_code'];
             
-            var html = 
-              '<div>"'
-              +matchedString
-              +'" matches the '
-              +type.toLowerCase()
+            html = 
+              '<div>'
+              +ip
+              +' - '
+              +city
+              +', '
+              +region
+              +' '
+              +postal_code
+              +', '
+              +country
               +' '
               +name
               +' at <a href="http://maps.google.com/maps?sll='
@@ -163,256 +214,139 @@
               +lon
               +'</a>'
               +'</div>';
-            
-            $('#results').append($(html));
           }
-        }, 
-        error: function(jqXHR, textStatus, errorCode) {
-            $('#results').text('Error: '+textStatus);
-        }, 
-        dataType: 'jsonp',
-        crossDomain: true
-      });
-    
-    });
-
-    // Handle the IP lookup test console
-    $('#uploadip2locationtext').click(function() {
-      var text = $('#ip2locationtext').val();
-      if (text.length<1) {
-        $('#ip2locationresults').html("No text found in input box.");
-        return;
-      }
-
-      text = text.replace("\n", ",");
-      text = text.replace(" ", ",");
-            
-      var apiUrl = '/ip2location';
-      apiUrl += '/'+encodeURIComponent(text);
-      
-      $.ajax(apiUrl, {
-        success: function(result) {
-          if (typeof result['error'] !== 'undefined') {
-            $('#ip2locationresults')
-            .text(result.error);
-            return;
-          }
-
-          $('#ip2locationresults').empty()
           
-          for (var ip in result) {
-            var info = result[ip];
-            
-            var html;
-            if (info == null) {
-              html = "<div>"+ip+" - NA</div>"
-            } else {
-            
-              var lat = info['latitude'];
-              var lon = info['longitude'];
-              var country = info['country_name'];
-              var region = info['region'];
-              var city = info['locality'];
-              var postal_code = info['postal_code'];
-              
-              html = 
-                '<div>'
-                +ip
-                +' - '
-                +city
-                +', '
-                +region
-                +' '
-                +postal_code
-                +', '
-                +country
-                +' '
-                +name
-                +' at <a href="http://maps.google.com/maps?sll='
-                +lat
-                +','
-                +lon
-                +'">'
-                +lat
-                +','
-                +lon
-                +'</a>'
-                +'</div>';
-            }
-            
-            $('#ip2locationresults').append($(html));
-          }
-        }, 
-        error: function(jqXHR, textStatus, errorCode) {
-            $('#ip2locationresults').text('Error: '+textStatus);
-        }, 
-        dataType: 'jsonp',
-        crossDomain: true
-      });
-    
+          $('#ip2coordinatesresults').append($(html));
+        }
+      });    
     });
 
     // Handle the street address test console
-    $('#uploadstreet2locationtext').click(function() {
-      var text = $('#street2locationtext').val();
+    $('#uploadstreet2coordinatestext').click(function() {
+      var text = $('#street2coordinatestext').val();
       if (text.length<1) {
-        $('#street2locationresults').html("No text found in input box.");
+        $('#street2coordinatesresults').html("No text found in input box.");
         return;
       }
 
       addresses = text.split("\n");
-      addresses_string = $.toJSON(addresses);
-
-      var apiUrl = '/street2location';
-      apiUrl += '/'+encodeURIComponent(addresses_string);
+      dstk.street2coordinates(addresses, function(result) {
       
-      $.ajax(apiUrl, {
-        success: function(result) {
-          if (typeof result['error'] !== 'undefined') {
-            $('#street2locationresults')
-            .text(result.error);
-            return;
-          }
+        if (typeof result['error'] !== 'undefined') {
+          $('#street2coordinatesresults')
+          .text(result.error);
+          return;
+        }
 
-          $('#street2locationresults').empty()
+        $('#street2coordinatesresults').empty()
+        
+        for (var address in result) {
+          var info = result[address];
           
-          for (var address in result) {
-            var info = result[address];
+          var html;
+          if (info == null) {
+            html = "<div>"+address+" - NA</div>"
+          } else {
+          
+            var lat = info['latitude'];
+            var lon = info['longitude'];
+            var country = info['country_name'];
+            var region = info['region'];
+            var city = info['locality'];
+            var street_address = info['street_address'];
             
-            var html;
-            if (info == null) {
-              html = "<div>"+address+" - NA</div>"
-            } else {
-            
-              var lat = info['latitude'];
-              var lon = info['longitude'];
-              var country = info['country_name'];
-              var region = info['region'];
-              var city = info['locality'];
-              var street_address = info['street_address'];
-              
-              html = 
-                '<div>"'
-                +address
-                +'" - '
-                +street_address
-                +', '
-                +city
-                +', '
-                +region
-                +', '
-                +country
-                +' at <a href="http://maps.google.com/maps?sll='
-                +lat
-                +','
-                +lon
-                +'">'
-                +lat
-                +','
-                +lon
-                +'</a>'
-                +'</div>';
-            }
-            
-            $('#street2locationresults').append($(html));
+            html = 
+              '<div>"'
+              +address
+              +'" - '
+              +street_address
+              +', '
+              +city
+              +', '
+              +region
+              +', '
+              +country
+              +' at <a href="http://maps.google.com/maps?sll='
+              +lat
+              +','
+              +lon
+              +'">'
+              +lat
+              +','
+              +lon
+              +'</a>'
+              +'</div>';
           }
-        }, 
-        error: function(jqXHR, textStatus, errorCode) {
-            $('#street2locationresults').text('Error: '+textStatus);
-        }, 
-        dataType: 'jsonp',
-        crossDomain: true
+          
+          $('#street2coordinatesresults').append($(html));
+        }
       });
     
     });
 
     // Handle the reverse geocoding test console
-    $('#uploadlocation2politicstext').click(function() {
-      var text = $('#location2politicstext').val();
+    $('#uploadcoordinates2politicstext').click(function() {
+      var text = $('#coordinates2politicstext').val();
       if (text.length<1) {
-        $('#location2politicsresults').html("No text found in input box.");
+        $('#coordinates2politicsresults').html("No text found in input box.");
         return;
       }
 
       coordinatesList = text.split("\n");
-      if (coordinatesList.length==1) {
-        apiDataString = coordinatesList[0];
-      } else {
-        output = [];
-        for (coordinatesListIndex in coordinatesList) {
-          coordinatesString = coordinatesList[coordinatesListIndex];
-          coordinates = coordinatesString.split(',');
-          if (coordinates.length!=2) {
-            continue;
-          }
-          output.push({'latitude': coordinates[0], 'longitude': coordinates[1]});
-        }
-        apiDataString = $.toJSON(output);
-      }
-
-      var apiUrl = '/location2politics';
-      apiUrl += '/'+encodeURIComponent(apiDataString);
       
-      $.ajax(apiUrl, {
-        success: function(result) {
-          if (typeof result['error'] !== 'undefined') {
-            $('#location2politicsresults')
-            .text(result.error);
-            return;
-          }
+      dstk.coordinates2politics(coordinatesList, function(result) {
 
-          $('#location2politicsresults').empty()
+        if (typeof result['error'] !== 'undefined') {
+          $('#coordinates2politicsresults')
+          .text(result.error);
+          return;
+        }
+
+        $('#coordinates2politicsresults').empty()
+        
+        for (var index in result) {
+          var info = result[index];
           
-          for (var index in result) {
-            var info = result[index];
+          var location = info['location'];
+          var politics = info['politics'];
+          
+          var html = '<div>';
+          html += '<a href="http://maps.google.com/maps?sll='
+            +location.latitude
+            +','
+            +location.longitude
+            +'">'
+            +location.latitude
+            +', '
+            +location.longitude
+            +'</a> - ';
+          
+          if (politics == null) {
+            html += "NA";
+          } else {
+          
+            for (var politicsIndex in politics) {
+              var politic = politics[politicsIndex];
             
-            var location = info['location'];
-            var politics = info['politics'];
-            
-            var html = '<div>';
-            html += '<a href="http://maps.google.com/maps?sll='
-              +location.latitude
-              +','
-              +location.longitude
-              +'">'
-              +location.latitude
-              +', '
-              +location.longitude
-              +'</a> - ';
-            
-            if (politics == null) {
-              html += "NA";
-            } else {
-            
-              for (var politicsIndex in politics) {
-                var politic = politics[politicsIndex];
+              var name = politic['name'];
+              var code = politic['code'];
+              var type = politic['friendly_type'];
               
-                var name = politic['name'];
-                var code = politic['code'];
-                var type = politic['friendly_type'];
-                
-                html += 
-                  '('
-                  +name
-                  +', '
-                  +code
-                  +', '
-                  +type
-                  +') ';
-                }
-            }
-            html += '</div>'
-            
-            $('#location2politicsresults').append($(html));
+              html += 
+                '('
+                +name
+                +', '
+                +code
+                +', '
+                +type
+                +') ';
+              }
           }
-        }, 
-        error: function(jqXHR, textStatus, errorCode) {
-            $('#location2politicsresults').text('Error: '+textStatus);
-        }, 
-        dataType: 'jsonp',
-        crossDomain: true
-      });
-    
+          html += '</div>'
+          
+          $('#coordinates2politicsresults').append($(html));
+        }
+      })
     });
 
   });

@@ -44,5 +44,8 @@ module GeodictConfig
 
   # The location of the MaxMind database file holding IP to location mappings
   IP_MAPPING_DATABASE = '../geodictdata/GeoLiteCity.dat'
+  
+  # The version of the API this code implements
+  API_VERSION = 130
 
 end
