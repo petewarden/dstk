@@ -779,6 +779,8 @@
 			597D8884133069180042C251 /* PBXTextBookmark */ = 597D8884133069180042C251 /* PBXTextBookmark */;
 			597D8885133069E60042C251 /* PBXTextBookmark */ = 597D8885133069E60042C251 /* PBXTextBookmark */;
 			597D8886133069E60042C251 /* PBXTextBookmark */ = 597D8886133069E60042C251 /* PBXTextBookmark */;
+			597D888713306A2E0042C251 /* PBXTextBookmark */ = 597D888713306A2E0042C251 /* PBXTextBookmark */;
+			597D888813306A2E0042C251 /* PBXTextBookmark */ = 597D888813306A2E0042C251 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 5929E10413243EA700B81D2E /* Source Control */;
 		userBuildSettings = {
@@ -2628,7 +2630,7 @@
 	5929E1F313258C0500B81D2E /* welcome.haml */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {929, 4755}}";
-			sepNavSelRange = "{4372, 0}";
+			sepNavSelRange = "{4434, 0}";
 			sepNavVisRange = "{3742, 1626}";
 		};
 	};
@@ -8558,6 +8560,26 @@
 		name = "welcome.haml: 102";
 		rLen = 0;
 		rLoc = 4372;
+		rType = 0;
+		vrLen = 1626;
+		vrLoc = 3742;
+	};
+	597D888713306A2E0042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 597D884E133040030042C251 /* jquery.dstk.js */;
+		name = "jquery.dstk.js: 68";
+		rLen = 0;
+		rLoc = 1982;
+		rType = 0;
+		vrLen = 1261;
+		vrLoc = 1570;
+	};
+	597D888813306A2E0042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
+		name = "welcome.haml: 104";
+		rLen = 0;
+		rLoc = 4434;
 		rType = 0;
 		vrLen = 1626;
 		vrLoc = 3742;
