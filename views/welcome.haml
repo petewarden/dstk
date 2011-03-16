@@ -119,14 +119,14 @@
 
         $('#results').empty();
 
-        if (results.length<1) {
+        if (result.length<1) {
           $('#results')
           .text('No locations found');
           return;
         }
 
-        for (var resultIndex in results) {
-          var place = results[resultIndex];
+        for (var resultIndex in result) {
+          var place = result[resultIndex];
 
           var matchedString = place['matched_string'];
           var lat = place['latitude'];
