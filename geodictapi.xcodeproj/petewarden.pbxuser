@@ -874,6 +874,10 @@
 			597D8AB3133183FA0042C251 /* PBXTextBookmark */ = 597D8AB3133183FA0042C251 /* PBXTextBookmark */;
 			597D8AB4133183FA0042C251 /* PBXTextBookmark */ = 597D8AB4133183FA0042C251 /* PBXTextBookmark */;
 			597D8AB5133183FA0042C251 /* PBXTextBookmark */ = 597D8AB5133183FA0042C251 /* PBXTextBookmark */;
+			597D8AB6133184ED0042C251 /* PBXTextBookmark */ = 597D8AB6133184ED0042C251 /* PBXTextBookmark */;
+			597D8AB7133184ED0042C251 /* PBXTextBookmark */ = 597D8AB7133184ED0042C251 /* PBXTextBookmark */;
+			597D8AB8133184ED0042C251 /* PBXTextBookmark */ = 597D8AB8133184ED0042C251 /* PBXTextBookmark */;
+			597D8AB9133184ED0042C251 /* PBXTextBookmark */ = 597D8AB9133184ED0042C251 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 5929E10413243EA700B81D2E /* Source Control */;
 		userBuildSettings = {
@@ -945,9 +949,9 @@
 	};
 	5929E11A13243FB500B81D2E /* geodict_server.rb */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {950, 12765}}";
-			sepNavSelRange = "{20902, 0}";
-			sepNavVisRange = "{20112, 1360}";
+			sepNavIntBoundsRect = "{{0, 0}, {950, 12810}}";
+			sepNavSelRange = "{20704, 0}";
+			sepNavVisRange = "{20070, 1373}";
 			sepNavWindowFrame = "{{15, 493}, {1279, 680}}";
 		};
 	};
@@ -1073,7 +1077,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 126";
 		rLen = 0;
-		rLoc = 24168;
+		rLoc = 24171;
 		rType = 0;
 		vrLen = 2022;
 		vrLoc = 1838;
@@ -7524,7 +7528,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 597";
 		rLen = 0;
-		rLoc = 24168;
+		rLoc = 24171;
 		rType = 0;
 		vrLen = 1153;
 		vrLoc = 16002;
@@ -7544,7 +7548,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 597";
 		rLen = 0;
-		rLoc = 24168;
+		rLoc = 24171;
 		rType = 0;
 		vrLen = 972;
 		vrLoc = 14618;
@@ -8235,9 +8239,9 @@
 	};
 	597D884E133040030042C251 /* jquery.dstk.js */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {821, 5175}}";
-			sepNavSelRange = "{3644, 0}";
-			sepNavVisRange = "{2912, 1262}";
+			sepNavIntBoundsRect = "{{0, 0}, {821, 5220}}";
+			sepNavSelRange = "{3645, 0}";
+			sepNavVisRange = "{3397, 1448}";
 		};
 	};
 	597D8850133040030042C251 /* jquery.min.js */ = {
@@ -9578,7 +9582,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 708";
 		rLen = 0;
-		rLoc = 20901;
+		rLoc = 20904;
 		rType = 0;
 		vrLen = 1621;
 		vrLoc = 20613;
@@ -9598,7 +9602,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 709";
 		rLen = 0;
-		rLoc = 20902;
+		rLoc = 20905;
 		rType = 0;
 		vrLen = 1360;
 		vrLoc = 20112;
@@ -9628,9 +9632,49 @@
 		fRef = 597D884E133040030042C251 /* jquery.dstk.js */;
 		name = "jquery.dstk.js: 138";
 		rLen = 0;
-		rLoc = 3644;
+		rLoc = 3646;
 		rType = 0;
 		vrLen = 1262;
 		vrLoc = 2912;
+	};
+	597D8AB6133184ED0042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
+		name = "dstk.py: 254";
+		rLen = 0;
+		rLoc = 6611;
+		rType = 0;
+		vrLen = 1303;
+		vrLoc = 7494;
+	};
+	597D8AB7133184ED0042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
+		name = "geodict_server.rb: 700";
+		rLen = 0;
+		rLoc = 20704;
+		rType = 0;
+		vrLen = 1373;
+		vrLoc = 20070;
+	};
+	597D8AB8133184ED0042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 597D884E133040030042C251 /* jquery.dstk.js */;
+		name = "jquery.dstk.js: 57";
+		rLen = 0;
+		rLoc = 1757;
+		rType = 0;
+		vrLen = 1249;
+		vrLoc = 1439;
+	};
+	597D8AB9133184ED0042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 597D884E133040030042C251 /* jquery.dstk.js */;
+		name = "jquery.dstk.js: 138";
+		rLen = 0;
+		rLoc = 3645;
+		rType = 0;
+		vrLen = 1448;
+		vrLoc = 3397;
 	};
 }

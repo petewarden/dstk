@@ -705,7 +705,7 @@ end
 # Also support a non-standard GET version of the API for Javascript clients
 get '/text2places/*' do
   callback = params[:callback]
-  text = JSON.parse(params['splat'][0])
+  text = JSON.parse(params['splat'][0])[0]
 
   text2places(text, callback)
 end
