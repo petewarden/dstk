@@ -369,6 +369,9 @@ def text2places(text, callback=nil)
 
   locations = find_locations_in_text(text)
 
+  print text
+  print locations.inspect
+
   # Convert the raw locations into a form that makes sense for output
   output_locations = []
   locations.each_with_index do |location_info, index|
@@ -438,7 +441,7 @@ def ips_list_from_string(ips_string)
 
   # Do a bit of trickery to handle both JSON-encoded and comma-separated lists of
   # IP addresses
-  ips_string.gsub!(/["\[\]]/, '') #"
+  ips_string.gsub!(/["\[\] ]/, '') #"
 
   ips_list = ips_string.split(',')
   

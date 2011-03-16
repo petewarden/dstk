@@ -32,6 +32,8 @@
 		597D884E133040030042C251 /* jquery.dstk.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.dstk.js; sourceTree = "<group>"; };
 		597D884F133040030042C251 /* jquery.exptextarea.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.exptextarea.js; sourceTree = "<group>"; };
 		597D8850133040030042C251 /* jquery.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.min.js; sourceTree = "<group>"; };
+		597D8A7513314BB00042C251 /* dstk.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = dstk.py; path = python/dstk.py; sourceTree = "<group>"; };
+		597D8A7613314BB00042C251 /* setup.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = setup.py; path = python/setup.py; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -50,6 +52,7 @@
 				5929E11513243ECB00B81D2E /* largetestinput.txt */,
 				5929E11613243ECB00B81D2E /* populate_database.rb */,
 				5929E1E813258B3700B81D2E /* public */,
+				597D8A7213314B920042C251 /* python */,
 				5929E1E5132576FA00B81D2E /* readme.asciidoc */,
 				5929E14613245CB200B81D2E /* test_suite */,
 				5929E11813243ECB00B81D2E /* testinput.txt */,
@@ -112,6 +115,15 @@
 				5929E1F313258C0500B81D2E /* welcome.haml */,
 			);
 			path = views;
+			sourceTree = "<group>";
+		};
+		597D8A7213314B920042C251 /* python */ = {
+			isa = PBXGroup;
+			children = (
+				597D8A7513314BB00042C251 /* dstk.py */,
+				597D8A7613314BB00042C251 /* setup.py */,
+			);
+			name = python;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
