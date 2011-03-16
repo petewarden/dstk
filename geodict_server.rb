@@ -377,7 +377,7 @@ def text2places(text, callback=nil)
 
     match_start_index = found_tokens[0][:start_index]
     match_end_index = found_tokens[found_tokens.length-1][:end_index]
-    matched_string = input_text[match_start_index..match_end_index]
+    matched_string = text[match_start_index..match_end_index]
 
     location = found_tokens[0]
     output_locations.push({
