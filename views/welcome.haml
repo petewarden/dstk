@@ -169,7 +169,7 @@
       text = text.replace(" ", ",");
       ips = text.split(',');
 
-      dstk.ip2coordinates(ips, function(results) {
+      dstk.ip2coordinates(ips, function(result) {
         if (typeof result['error'] !== 'undefined') {
           $('#results')
           .text(result.error);
