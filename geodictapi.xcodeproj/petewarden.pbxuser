@@ -947,6 +947,8 @@
 			597D8AFE1332CBE90042C251 /* PBXTextBookmark */ = 597D8AFE1332CBE90042C251 /* PBXTextBookmark */;
 			597D8B011332CDBC0042C251 /* PBXTextBookmark */ = 597D8B011332CDBC0042C251 /* PBXTextBookmark */;
 			597D8B021332CDBC0042C251 /* PBXTextBookmark */ = 597D8B021332CDBC0042C251 /* PBXTextBookmark */;
+			597D8B031332CE890042C251 /* PBXTextBookmark */ = 597D8B031332CE890042C251 /* PBXTextBookmark */;
+			597D8B041332CE890042C251 /* PBXTextBookmark */ = 597D8B041332CE890042C251 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 5929E10413243EA700B81D2E /* Source Control */;
 		userBuildSettings = {
@@ -1018,9 +1020,9 @@
 	};
 	5929E11A13243FB500B81D2E /* geodict_server.rb */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {971, 13740}}";
-			sepNavSelRange = "{25569, 0}";
-			sepNavVisRange = "{24994, 1789}";
+			sepNavIntBoundsRect = "{{0, 0}, {971, 13755}}";
+			sepNavSelRange = "{25616, 0}";
+			sepNavVisRange = "{24994, 1848}";
 			sepNavWindowFrame = "{{15, 493}, {1279, 680}}";
 		};
 	};
@@ -1146,7 +1148,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 126";
 		rLen = 0;
-		rLoc = 26787;
+		rLoc = 26853;
 		rType = 0;
 		vrLen = 2022;
 		vrLoc = 1838;
@@ -7597,7 +7599,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 597";
 		rLen = 0;
-		rLoc = 26787;
+		rLoc = 26853;
 		rType = 0;
 		vrLen = 1153;
 		vrLoc = 16002;
@@ -7617,7 +7619,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 597";
 		rLen = 0;
-		rLoc = 26787;
+		rLoc = 26853;
 		rType = 0;
 		vrLen = 972;
 		vrLoc = 14618;
@@ -10121,7 +10123,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 875";
 		rLen = 0;
-		rLoc = 26509;
+		rLoc = 26575;
 		rType = 0;
 		vrLen = 1309;
 		vrLoc = 18801;
@@ -10141,7 +10143,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 920";
 		rLen = 0;
-		rLoc = 26782;
+		rLoc = 26848;
 		rType = 0;
 		vrLen = 1720;
 		vrLoc = 25108;
@@ -10201,7 +10203,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 941";
 		rLen = 0;
-		rLoc = 26738;
+		rLoc = 26804;
 		rType = 0;
 		vrLen = 1723;
 		vrLoc = 25585;
@@ -10221,7 +10223,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 941";
 		rLen = 0;
-		rLoc = 26738;
+		rLoc = 26804;
 		rType = 0;
 		vrLen = 1723;
 		vrLoc = 25585;
@@ -10261,7 +10263,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 941";
 		rLen = 0;
-		rLoc = 26738;
+		rLoc = 26804;
 		rType = 0;
 		vrLen = 1723;
 		vrLoc = 25585;
@@ -10281,7 +10283,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 927";
 		rLen = 0;
-		rLoc = 26228;
+		rLoc = 26294;
 		rType = 0;
 		vrLen = 1738;
 		vrLoc = 25560;
@@ -10321,7 +10323,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 933";
 		rLen = 0;
-		rLoc = 26378;
+		rLoc = 26444;
 		rType = 0;
 		vrLen = 1523;
 		vrLoc = 22459;
@@ -10427,6 +10429,26 @@
 		vrLoc = 24994;
 	};
 	597D8B021332CDBC0042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
+		name = "welcome.haml: 92";
+		rLen = 0;
+		rLoc = 4070;
+		rType = 0;
+		vrLen = 2203;
+		vrLoc = 2995;
+	};
+	597D8B031332CE890042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
+		name = "geodict_server.rb: 903";
+		rLen = 0;
+		rLoc = 25616;
+		rType = 0;
+		vrLen = 1848;
+		vrLoc = 24994;
+	};
+	597D8B041332CE890042C251 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 92";

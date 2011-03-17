@@ -900,6 +900,7 @@ end
 post '/file2text' do
 
   printf(STDERR, params[:inputfile].inspect+"\n")
+  printf(STDERR, params[:inputfile][:tempfile].path.inspect+"\n")
 
   # Pull out the data we were given
   unless params[:inputfile] &&
