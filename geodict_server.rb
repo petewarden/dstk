@@ -899,9 +899,6 @@ end
 # The interface used to convert a pdf/word/excel/image file into text
 post '/file2text' do
 
-  printf(STDERR, params[:inputfile].inspect+"\n")
-  printf(STDERR, params[:inputfile][:tempfile].path.inspect+"\n")
-
   # Pull out the data we were given
   unless params[:inputfile] &&
     (tmpfile = params[:inputfile][:tempfile]) &&
@@ -910,6 +907,8 @@ post '/file2text' do
     fatal_error('Something went wrong with the file uploading', 'json', 500)
   end
 
+  tmpfile_name = params[:inputfile][:tempfile].path
+
   if content_type == 'text/plain'
     file_data = tmpfile.read
     text = file_data
@@ -917,13 +916,13 @@ post '/file2text' do
     file_data = tmpfile.read
     text = html2text(file_data)
   elsif content_type =~ /image\/*/
-    text = imagefile2text(tmpfile)
+    text = imagefile2text(tmpfile_name)
   elsif content_type == 'text/pdf'
-    text = pdffile2text(tmpfile)
+    text = pdffile2text(tmpfile_name)
   elsif content_type == 'application/msword' or content_type == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
-    text = wordfile2text(tmpfile)
+    text = wordfile2text(tmpfile_name)
   elsif content_type == 'application/vnd.ms-excel' or content_type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-    text = excelfile2text(tmpfile)
+    text = excelfile2text(tmpfile_name)
   else
     fatal_error('Mime type I don\'t know how to convert: "'+content_type+'"', 'json', 500)  
   end
