@@ -90,6 +90,22 @@
   
   #ip2coordinatesresults{:style=>"margin-top:30px;"}
 
+  %div{:style=>"margin-top:20px; font-size: 125%;"}
+    %h3 File to Text
+    Converts PDFs, Word Documents, Excel Spreadsheets to text.
+    %br
+    Also tries to recover text from images of scanned documents.
+    %br
+    To call it, POST a request to /file2text passing in your input file and type in the normal form for 
+    "multipart/form-data" forms.
+
+  .tryfile2text{:style=>"margin-top:20px; font-size: 125%;"}
+    Try it for yourself. Upload a file to see what text it finds.
+
+  %form{:target=>"_blank", :action=>"/file2text", :method=>"post", :enctype=>"multipart/form-data", :display=>"inline"}
+    %input{:type=>"file", :name=>"inputfile"}
+    %br
+    %input{:type=>"submit", :value=>"Extract Text"}
 
 %script{:src=>"/scripts/jquery.exptextarea.js", :type=>"text/javascript"}
 :javascript

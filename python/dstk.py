@@ -25,6 +25,12 @@ except ImportError:
   import json
 import os
 
+# This is the main interface class. You can see an example of it in use
+# below, implementing a command-line tool, but you basically just instantiate
+# dstk = DSTK()
+# and then call the method you want
+# coordinates = dstk.ip2coordinates('12.34.56.78')
+# The full documentation is at http://www.geodictapi.com/developerdocs
 class DSTK:
 
   api_base = None
@@ -120,9 +126,6 @@ class DSTK:
     response_string = urllib.urlopen(api_url, api_body).read()
     response = json.loads(response_string)
     
-    print api_body
-    print response_string
-    
     if 'error' in response:
       raise Exception(response['error'])
     
@@ -130,23 +133,6 @@ class DSTK:
 
 # End of the interface. The rest of this file is an example implementation of a
 # command line client.
-
-def print_usage(message=''):
-
-  print message
-  print "Usage:"
-  print "python dstk.py <command> [-a/--api_base 'http://yourhost.com'] [-h/--show_headers] <inputs>"
-  print "Where <command> is one of:"
-  print "  ip2coordinates" 
-  print "  street2coordinates" 
-  print "  coordinates2politics" 
-  print "  text2places"
-  print "If no inputs are specified, then standard input will be read and used"
-  print "See http://www.geodictapi.com/developerdocs for more details"
-  print "Example:"
-  print "python dstk.py ip2coordinates 67.169.73.113" 
-
-  exit(-1)
 
 def ip2coordinates_cli(dstk, options, inputs):
 
@@ -248,6 +234,23 @@ def coordinates2politics_cli(dstk, options, inputs):
       output += '"'+row_string+'"'+"\n"
     
   return output
+
+def print_usage(message=''):
+
+  print message
+  print "Usage:"
+  print "python dstk.py <command> [-a/--api_base 'http://yourhost.com'] [-h/--show_headers] <inputs>"
+  print "Where <command> is one of:"
+  print "  ip2coordinates" 
+  print "  street2coordinates" 
+  print "  coordinates2politics" 
+  print "  text2places"
+  print "If no inputs are specified, then standard input will be read and used"
+  print "See http://www.geodictapi.com/developerdocs for more details"
+  print "Example:"
+  print "python dstk.py ip2coordinates 67.169.73.113" 
+
+  exit(-1)
 
 def text2places_cli(dstk, options, inputs):
 

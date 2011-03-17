@@ -134,3 +134,11 @@ cd ..
 osm2pgsql -U postgres -d reversegeo -p world_countries -S osm2pgsql/styles/world_countries.style geodictdata/world_countries.osm -l
 osm2pgsql -U postgres -d reversegeo -p admin_areas -S osm2pgsql/styles/admin_areas.style geodictdata/admin_areas.osm -l
 osm2pgsql -U postgres -d reversegeo -p neighborhoods -S osm2pgsql/styles/neighborhoods.style geodictdata/neighborhoods.osm -l
+
+// End of version 1.20
+(To start from snapshot of this point, run
+ec2-run-instances ami-f639cb9f -t m1.large -z us-east-1d
+)
+
+sudo aptitude update
+sudo aptitude -y install ocropus pdftohtml catdoc

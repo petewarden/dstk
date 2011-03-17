@@ -641,6 +641,88 @@ def locations_list_from_string(locations_string, callback=nil)
   result
 end
 
+# Converts an HTML string into text
+def html2text(html)
+
+  web_doc= Hpricot(html)
+  web_doc.search("//comment()").remove
+
+  result = ''
+  web_doc.search("body :not(script)").each do |e| 
+    text = e.inner_text
+    if text
+      result += text+"\n"
+    end
+  end
+
+  result
+end
+
+# This may be overkill since our file names are supplied by the server, not by the
+# client, but since we're using them within backticks, I want to ensure they're clean
+# of any potential injected commands.
+# See http://guides.rubyonrails.org/security.html
+def sanitize_filename(filename)
+  filename.strip.tap do |name|
+    # NOTE: File.basename doesn't work right with Windows paths on Unix
+    # get only the filename, not the whole path
+    name.sub! /\A.*(\\|\/)/, ''
+    # Finally, replace all non alphanumeric, underscore
+    # or periods with underscore
+    name.gsub! /[^\w\.\-]/, '_'
+  end
+end
+
+# Performs OCR on the image to pull out any text
+def imagefile2text(filename)
+
+  sanitize_filename(filename)
+  output = `ocroscript recognize --output-mode=text #{filename}`
+  exit_code = $?.to_i
+  if exit_code != 0
+    return nil
+    
+  output
+end
+
+# Pulls the text from a PDF file
+def pdffile2text(filename)
+
+  sanitize_filename(filename)
+  html = `pdftohtml -stdout -noframes #{filename}`
+  exit_code = $?.to_i
+  if exit_code != 0
+    return nil
+    
+  output = html2text(html)
+
+  output
+end
+
+# Converts a Microsoft Word document into plain text
+def wordfile2text(filename)
+
+  sanitize_filename(filename)
+  output = `catdoc #{filename}`
+  exit_code = $?.to_i
+  if exit_code != 0
+    return nil
+    
+  output
+end
+
+# Converts a Microsoft Excel spreadsheet into CSV format
+def excelfile2text(tmpfile)
+
+  sanitize_filename(filename)
+  output = `xls2csv #{filename}`
+  exit_code = $?.to_i
+  if exit_code != 0
+    return nil
+    
+  output
+end
+
 ########################################
 # Methods to directly serve up content #
 ########################################
@@ -821,3 +903,43 @@ get '/coordinates2politics/*' do
 
 end
 
+# The interface used to convert a pdf/word/excel/image file into text
+post '/file2text' do
+
+  # Pull out the data we were given
+  unless params[:inputfile] &&
+    (tmpfile = params[:inputfile][:tempfile]) &&
+    (name = params[:inputfile][:filename]) &&
+    (content_type = params[:inputfile][:type])
+    fatal_error('Something went wrong with the file uploading', 'json', 500)
+  end
+
+  if content_type == 'text/plain'
+    file_data = tmpfile.read
+    text = file_data
+  elsif content_type = 'text/html'
+    file_data = tmpfile.read
+    text = html2text(file_data)
+  elsif content_type =~ /image\/*/
+    text = imagefile2text(tmpfile)
+  elsif content_type = 'text/pdf'
+    text = pdffile2text(tmpfile)
+  elsif content_type = 'application/msword' 
+    or content_type == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+    text = wordfile2text(tmpfile)
+  elsif content_type = 'application/vnd.ms-excel' 
+    or content_type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    text = excelfile2text(tmpfile)
+  else
+    fatal_error('Mime type I don\'t know how to convert: "'+content_type+'"', 'json', 500)  
+  end
+
+  if !text
+    fatal_error('Error when converting file to text', 'json', 500)
+  end
+
+  attachment(name+'.txt')
+  content_type('text/plain')
+
+  text
+end
