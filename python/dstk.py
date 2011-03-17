@@ -116,7 +116,7 @@ class DSTK:
   def text2places(self, text):
     
     api_url = self.api_base+'/text2places'
-    api_body = json.dumps(text)
+    api_body = text
     response_string = urllib.urlopen(api_url, api_body).read()
     response = json.loads(response_string)
     
@@ -251,7 +251,7 @@ def coordinates2politics_cli(dstk, options, inputs):
 
 def text2places_cli(dstk, options, inputs):
 
-  text = " \n".join(inputs)
+  text = "\n".join(inputs)
 
   result = dstk.text2places(text)
   
