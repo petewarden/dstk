@@ -663,7 +663,7 @@ end
 # of any potential injected commands.
 # See http://guides.rubyonrails.org/security.html
 def sanitize_filename(filename)
-  filename.strip.tap do |name|
+  filename.tap do |name|
     # NOTE: File.basename doesn't work right with Windows paths on Unix
     # get only the filename, not the whole path
     name.sub! /\A.*(\\|\/)/, ''
