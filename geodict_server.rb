@@ -658,25 +658,9 @@ def html2text(html)
   result
 end
 
-# This may be overkill since our file names are supplied by the server, not by the
-# client, but since we're using them within backticks, I want to ensure they're clean
-# of any potential injected commands.
-# See http://guides.rubyonrails.org/security.html
-def sanitize_filename(filename)
-  filename.tap do |name|
-    # NOTE: File.basename doesn't work right with Windows paths on Unix
-    # get only the filename, not the whole path
-    name.sub! /\A.*(\\|\/)/, ''
-    # Finally, replace all non alphanumeric, underscore
-    # or periods with underscore
-    name.gsub! /[^\w\.\-]/, '_'
-  end
-end
-
 # Performs OCR on the image to pull out any text
 def imagefile2text(filename)
 
-  sanitize_filename(filename)
   output = `ocroscript recognize --output-mode=text #{filename}`
   exit_code = $?.to_i
   if exit_code != 0
@@ -689,7 +673,6 @@ end
 # Pulls the text from a PDF file
 def pdffile2text(filename)
 
-  sanitize_filename(filename)
   html = `pdftohtml -stdout -noframes #{filename}`
   exit_code = $?.to_i
   if exit_code != 0
@@ -704,7 +687,6 @@ end
 # Converts a Microsoft Word document into plain text
 def wordfile2text(filename)
 
-  sanitize_filename(filename)
   output = `catdoc #{filename}`
   exit_code = $?.to_i
   if exit_code != 0
@@ -717,7 +699,6 @@ end
 # Converts a Microsoft Excel spreadsheet into CSV format
 def excelfile2text(tmpfile)
 
-  sanitize_filename(filename)
   output = `xls2csv #{filename}`
   exit_code = $?.to_i
   if exit_code != 0
