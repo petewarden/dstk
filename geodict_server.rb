@@ -687,8 +687,16 @@ end
 # Converts a Microsoft Word document into plain text
 def wordfile2text(filename)
 
+  printf(STDERR, "catdoc #{filename}\n")
+
   output = `catdoc #{filename}`
+
+  printf(STDERR, "output = #{output}\n")
+
   exit_code = $?.to_i
+
+  printf(STDERR, "exit_code = #{exit_code}\n")
+
   if exit_code != 0
     return nil
   end
