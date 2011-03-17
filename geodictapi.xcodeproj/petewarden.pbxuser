@@ -884,6 +884,10 @@
 			597D8ABD1331854E0042C251 /* PBXTextBookmark */ = 597D8ABD1331854E0042C251 /* PBXTextBookmark */;
 			597D8ABE133185A80042C251 /* PBXTextBookmark */ = 597D8ABE133185A80042C251 /* PBXTextBookmark */;
 			597D8ABF133185A80042C251 /* PBXTextBookmark */ = 597D8ABF133185A80042C251 /* PBXTextBookmark */;
+			597D8AC0133186EC0042C251 /* PBXTextBookmark */ = 597D8AC0133186EC0042C251 /* PBXTextBookmark */;
+			597D8AC1133186EC0042C251 /* PBXTextBookmark */ = 597D8AC1133186EC0042C251 /* PBXTextBookmark */;
+			597D8AC2133186EC0042C251 /* PBXTextBookmark */ = 597D8AC2133186EC0042C251 /* PBXTextBookmark */;
+			597D8AC3133186EC0042C251 /* PBXTextBookmark */ = 597D8AC3133186EC0042C251 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 5929E10413243EA700B81D2E /* Source Control */;
 		userBuildSettings = {
@@ -919,9 +923,9 @@
 	};
 	5929E11213243ECB00B81D2E /* geodict_lib.rb */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1034, 9255}}";
-			sepNavSelRange = "{752, 19}";
-			sepNavVisRange = "{585, 545}";
+			sepNavIntBoundsRect = "{{0, 0}, {1034, 9960}}";
+			sepNavSelRange = "{15918, 0}";
+			sepNavVisRange = "{14883, 1228}";
 		};
 	};
 	5929E11613243ECB00B81D2E /* populate_database.rb */ = {
@@ -9010,7 +9014,7 @@
 	597D8A7513314BB00042C251 /* dstk.py */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {691, 80880}}";
-			sepNavSelRange = "{6611, 0}";
+			sepNavSelRange = "{7810, 0}";
 			sepNavVisRange = "{7494, 1303}";
 		};
 	};
@@ -9734,6 +9738,46 @@
 		vrLoc = 7494;
 	};
 	597D8ABF133185A80042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
+		name = "geodict_server.rb: 374";
+		rLen = 0;
+		rLoc = 11710;
+		rType = 0;
+		vrLen = 1524;
+		vrLoc = 10979;
+	};
+	597D8AC0133186EC0042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
+		name = "dstk.py: 305";
+		rLen = 0;
+		rLoc = 7810;
+		rType = 0;
+		vrLen = 1303;
+		vrLoc = 7494;
+	};
+	597D8AC1133186EC0042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E11213243ECB00B81D2E /* geodict_lib.rb */;
+		name = "geodict_lib.rb: 20";
+		rLen = 0;
+		rLoc = 784;
+		rType = 0;
+		vrLen = 2240;
+		vrLoc = 0;
+	};
+	597D8AC2133186EC0042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E11213243ECB00B81D2E /* geodict_lib.rb */;
+		name = "geodict_lib.rb: 537";
+		rLen = 0;
+		rLoc = 15918;
+		rType = 0;
+		vrLen = 1228;
+		vrLoc = 14883;
+	};
+	597D8AC3133186EC0042C251 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 374";

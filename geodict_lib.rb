@@ -513,7 +513,9 @@ def get_database_connection
 end
 
 # Characters to ignore when pulling out words
-WHITESPACE = " \t'\",.-/\n\r<>".split(//).to_set
+#WHITESPACE = " \t'\",.-/\n\r<>".split(//).to_set
+WHITESPACE = /[ \t'\",.-/\n\r<>]/
+#'
 
 $tokenized_words = {}
 
@@ -532,7 +534,7 @@ def pull_word_from_end(text, index, use_cache=true)
     current_char = text[current_index].chr
     current_index -= 1
     
-    if WHITESPACE.include?(current_char)
+    if current_char =~ WHITESPACE
       
       if found_word == ''
         end_skipped += 1
