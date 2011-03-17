@@ -514,7 +514,7 @@ end
 
 # Characters to ignore when pulling out words
 #WHITESPACE = " \t'\",.-/\n\r<>".split(//).to_set
-WHITESPACE = /[ \t'\",.-/\n\r<>]/
+WHITESPACE = /[ \t'\",.-\/\n\r<>]/
 #'
 
 $tokenized_words = {}
