@@ -532,7 +532,7 @@ def pull_word_from_end(text, index, use_cache=true)
   end_skipped = 0
   while current_index>=0 do
   
-    printf(STDERR, text[current_index].to_s)
+    printf(STDERR, text[current_index].chr+'='text[current_index].to_s+"\n")
   
     current_char = text[current_index].chr
     current_index -= 1
