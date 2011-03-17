@@ -899,6 +899,8 @@ end
 # The interface used to convert a pdf/word/excel/image file into text
 post '/file2text' do
 
+  printf(STDERR, params[:inputfile].inspect+"\n")
+
   # Pull out the data we were given
   unless params[:inputfile] &&
     (tmpfile = params[:inputfile][:tempfile]) &&
