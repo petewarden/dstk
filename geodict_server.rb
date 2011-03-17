@@ -924,11 +924,9 @@ post '/file2text' do
     text = imagefile2text(tmpfile)
   elsif content_type = 'text/pdf'
     text = pdffile2text(tmpfile)
-  elsif content_type = 'application/msword' 
-    or content_type == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+  elsif content_type = 'application/msword' or content_type == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
     text = wordfile2text(tmpfile)
-  elsif content_type = 'application/vnd.ms-excel' 
-    or content_type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+  elsif content_type = 'application/vnd.ms-excel' or content_type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
     text = excelfile2text(tmpfile)
   else
     fatal_error('Mime type I don\'t know how to convert: "'+content_type+'"', 'json', 500)  
