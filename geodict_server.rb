@@ -681,6 +681,7 @@ def imagefile2text(filename)
   exit_code = $?.to_i
   if exit_code != 0
     return nil
+  end
     
   output
 end
@@ -693,6 +694,7 @@ def pdffile2text(filename)
   exit_code = $?.to_i
   if exit_code != 0
     return nil
+  end
     
   output = html2text(html)
 
@@ -707,6 +709,7 @@ def wordfile2text(filename)
   exit_code = $?.to_i
   if exit_code != 0
     return nil
+  end
     
   output
 end
@@ -719,6 +722,7 @@ def excelfile2text(tmpfile)
   exit_code = $?.to_i
   if exit_code != 0
     return nil
+  end
     
   output
 end
