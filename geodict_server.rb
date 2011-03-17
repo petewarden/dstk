@@ -705,7 +705,7 @@ def wordfile2text(filename)
 end
 
 # Converts a Microsoft Excel spreadsheet into CSV format
-def excelfile2text(tmpfile)
+def excelfile2text(filename)
 
   output = `xls2csv #{filename}`
   exit_code = $?.to_i
