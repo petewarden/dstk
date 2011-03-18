@@ -714,7 +714,7 @@ end
 # Unzips the given file to a folder and returns the path
 def unzip_to_temp(filename)
     
-  output_folder = '/tmp/'+ActiveSupport::SecureRandom.hex(8)+'/'
+  output_folder = '/tmp/unzip/'+ActiveSupport::SecureRandom.hex(8)+'/'
 
   `unzip #{filename} -d #{output_folder}`
   exit_code = $?.to_i
