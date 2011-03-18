@@ -646,12 +646,10 @@ end
 # Converts an HTML string into text
 def html2text(html)
 
-  printf(STDERR, html+"\n")
-
   web_doc= Hpricot(html)
 #  web_doc.search("//comment()").remove
 
-  result = ''
+  result = 'Fofofof'
   web_doc.search("body :not(script)").each do |e| 
     text = e.inner_text
     if text
@@ -659,7 +657,7 @@ def html2text(html)
     end
   end
 
-  result
+  result+'enenenene.'
 end
 
 # Performs OCR on the image to pull out any text
