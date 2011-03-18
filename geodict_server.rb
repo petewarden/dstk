@@ -662,7 +662,7 @@ end
 # Performs OCR on the image to pull out any text
 def imagefile2text(filename, content_type)
 
-  image_suffix = content_type.gsub(/$image\//, '')
+  image_suffix = content_type.gsub(/^image\//, '')
 
   suffix_filename = filename+'.'+image_suffix
   `mv #{filename} #{suffix_filename}` 
