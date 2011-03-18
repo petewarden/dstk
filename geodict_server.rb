@@ -660,9 +660,19 @@ def html2text(html)
 end
 
 # Performs OCR on the image to pull out any text
-def imagefile2text(filename)
+def imagefile2text(filename, content_type)
 
-  output = `ocroscript recognize --output-mode=text #{filename}`
+  image_suffix = content_type.gsub(/$image\//, '')
+
+  suffix_filename = filename+'.'+image_suffix
+  `mv #{filename} #{suffix_filename}` 
+
+  exit_code = $?.to_i
+  if exit_code != 0
+    return nil
+  end
+  
+  output = `ocroscript recognize --output-mode=text #{suffix_filename}`
   exit_code = $?.to_i
   if exit_code != 0
     return nil
@@ -966,7 +976,7 @@ post '/file2text' do
     file_data = tmpfile.read
     text = html2text(file_data)
   elsif content_type =~ /image\/*/
-    text = imagefile2text(tmpfile_name)
+    text = imagefile2text(tmpfile_name, content_type)
   elsif content_type == 'text/pdf'
     text = pdffile2text(tmpfile_name)
   elsif content_type == 'application/msword'
