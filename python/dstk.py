@@ -139,7 +139,7 @@ class DSTK:
     host = self.api_base.replace('http://', '')
 
     response = post_multipart(host,
-      '/text2places',[],[('inputfile', file_name, file_data)])
+      '/file2text',[],[('inputfile', file_name, file_data)])
   
     return response
 
