@@ -180,7 +180,7 @@ def encode_multipart_formdata(fields, files):
     for (key, filename, value) in files:
         L.append('--' + BOUNDARY)
         L.append('Content-Disposition: form-data; name="%s"; filename="%s"' % (key, filename))
-        L.append('Content-Type: %s' % get_content_type(filename))
+        L.append('Content-Type: %s' % guess_content_type(filename))
         L.append('')
         L.append(value)
     L.append('--' + BOUNDARY + '--')
@@ -189,7 +189,7 @@ def encode_multipart_formdata(fields, files):
     content_type = 'multipart/form-data; boundary=%s' % BOUNDARY
     return content_type, body
 
-def get_content_type(filename):
+def guess_content_type(filename):
     return mimetypes.guess_type(filename)[0] or 'application/octet-stream'
 
 # End of the interface. The rest of this file is an example implementation of a

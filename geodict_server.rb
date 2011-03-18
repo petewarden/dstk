@@ -974,6 +974,30 @@ post '/file2text' do
     fatal_error('Something went wrong with the file uploading', 'json', 500)
   end
 
+  # We weren't given a proper content type, so try to guess
+  if content_type == 'application/octet-stream':
+
+    basename, extension = os.path.splitext(filename)
+    extension = extension.replace('.', '').lowercase()
+    
+    known_extensions = {
+      'txt': 'text/plain',
+      'htm': 'text/html',
+      'html': 'text/html',
+      'png': 'image/png',
+      'jpg': 'image/jpeg',
+      'jpeg': 'image/jpeg',
+      'tif': 'image/tiff',
+      'tiff': 'image/tiff',
+      'doc': 'application/msword',
+      'docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      'xls': 'application/vnd.ms-excel',
+      'xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.document',
+    }
+
+    if extension in known_extensions:
+      content_type = known_extensions[extension]
+
   if content_type == 'text/plain'
     file_data = tmpfile.read
     text = file_data
