@@ -967,6 +967,8 @@
 			597D8B141332EB010042C251 /* PBXTextBookmark */ = 597D8B141332EB010042C251 /* PBXTextBookmark */;
 			597D8B151332EBD00042C251 /* PBXTextBookmark */ = 597D8B151332EBD00042C251 /* PBXTextBookmark */;
 			597D8B161332EBD00042C251 /* PBXTextBookmark */ = 597D8B161332EBD00042C251 /* PBXTextBookmark */;
+			597D8B171332EC6E0042C251 /* PBXTextBookmark */ = 597D8B171332EC6E0042C251 /* PBXTextBookmark */;
+			597D8B181332EC6E0042C251 /* PBXTextBookmark */ = 597D8B181332EC6E0042C251 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 5929E10413243EA700B81D2E /* Source Control */;
 		userBuildSettings = {
@@ -989,8 +991,8 @@
 	5929E11013243ECB00B81D2E /* Gemfile */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {821, 794}}";
-			sepNavSelRange = "{142, 0}";
-			sepNavVisRange = "{0, 142}";
+			sepNavSelRange = "{161, 0}";
+			sepNavVisRange = "{0, 162}";
 		};
 	};
 	5929E11113243ECB00B81D2E /* geodict_config.rb */ = {
@@ -1086,7 +1088,7 @@
 		fRef = 5929E11013243ECB00B81D2E /* Gemfile */;
 		name = "Gemfile: 6";
 		rLen = 0;
-		rLoc = 142;
+		rLoc = 162;
 		rType = 0;
 		vrLen = 62;
 		vrLoc = 0;
@@ -1807,7 +1809,7 @@
 		fRef = 5929E11013243ECB00B81D2E /* Gemfile */;
 		name = "Gemfile: 6";
 		rLen = 0;
-		rLoc = 142;
+		rLoc = 162;
 		rType = 0;
 		vrLen = 62;
 		vrLoc = 0;
@@ -1997,7 +1999,7 @@
 		fRef = 5929E11013243ECB00B81D2E /* Gemfile */;
 		name = "Gemfile: 7";
 		rLen = 0;
-		rLoc = 142;
+		rLoc = 162;
 		rType = 0;
 		vrLen = 73;
 		vrLoc = 0;
@@ -2194,7 +2196,7 @@
 		fRef = 5929E11013243ECB00B81D2E /* Gemfile */;
 		name = "Gemfile: 7";
 		rLen = 0;
-		rLoc = 142;
+		rLoc = 162;
 		rType = 0;
 		vrLen = 73;
 		vrLoc = 0;
@@ -2224,7 +2226,7 @@
 		fRef = 5929E11013243ECB00B81D2E /* Gemfile */;
 		name = "Gemfile: 7";
 		rLen = 0;
-		rLoc = 142;
+		rLoc = 162;
 		rType = 0;
 		vrLen = 72;
 		vrLoc = 0;
@@ -2909,7 +2911,7 @@
 		fRef = 5929E11013243ECB00B81D2E /* Gemfile */;
 		name = "Gemfile: 7";
 		rLen = 0;
-		rLoc = 142;
+		rLoc = 162;
 		rType = 0;
 		vrLen = 72;
 		vrLoc = 0;
@@ -2949,7 +2951,7 @@
 		fRef = 5929E11013243ECB00B81D2E /* Gemfile */;
 		name = "Gemfile: 8";
 		rLen = 0;
-		rLoc = 142;
+		rLoc = 162;
 		rType = 0;
 		vrLen = 83;
 		vrLoc = 0;
@@ -4873,7 +4875,7 @@
 		fRef = 5929E11013243ECB00B81D2E /* Gemfile */;
 		name = "Gemfile: 8";
 		rLen = 0;
-		rLoc = 142;
+		rLoc = 162;
 		rType = 0;
 		vrLen = 83;
 		vrLoc = 0;
@@ -5294,7 +5296,7 @@
 		fRef = 5929E11013243ECB00B81D2E /* Gemfile */;
 		name = "Gemfile: 8";
 		rLen = 0;
-		rLoc = 142;
+		rLoc = 162;
 		rType = 0;
 		vrLen = 83;
 		vrLoc = 0;
@@ -5324,7 +5326,7 @@
 		fRef = 5929E11013243ECB00B81D2E /* Gemfile */;
 		name = "Gemfile: 9";
 		rLen = 0;
-		rLoc = 142;
+		rLoc = 162;
 		rType = 0;
 		vrLen = 99;
 		vrLoc = 0;
@@ -7087,7 +7089,7 @@
 		fRef = 5929E11013243ECB00B81D2E /* Gemfile */;
 		name = "Gemfile: 9";
 		rLen = 0;
-		rLoc = 142;
+		rLoc = 162;
 		rType = 0;
 		vrLen = 99;
 		vrLoc = 0;
@@ -7137,7 +7139,7 @@
 		fRef = 5929E11013243ECB00B81D2E /* Gemfile */;
 		name = "Gemfile: 11";
 		rLen = 0;
-		rLoc = 142;
+		rLoc = 162;
 		rType = 0;
 		vrLen = 128;
 		vrLoc = 0;
@@ -7841,7 +7843,7 @@
 		fRef = 5929E11013243ECB00B81D2E /* Gemfile */;
 		name = "Gemfile: 11";
 		rLen = 0;
-		rLoc = 142;
+		rLoc = 162;
 		rType = 0;
 		vrLen = 128;
 		vrLoc = 0;
@@ -10181,7 +10183,7 @@
 		fRef = 5929E11013243ECB00B81D2E /* Gemfile */;
 		name = "Gemfile: 11";
 		rLen = 0;
-		rLoc = 142;
+		rLoc = 162;
 		rType = 0;
 		vrLen = 128;
 		vrLoc = 0;
@@ -10191,7 +10193,7 @@
 		fRef = 5929E11013243ECB00B81D2E /* Gemfile */;
 		name = "Gemfile: 12";
 		rLen = 0;
-		rLoc = 142;
+		rLoc = 162;
 		rType = 0;
 		vrLen = 142;
 		vrLoc = 0;
@@ -10211,7 +10213,7 @@
 		fRef = 5929E11013243ECB00B81D2E /* Gemfile */;
 		name = "Gemfile: 12";
 		rLen = 0;
-		rLoc = 142;
+		rLoc = 162;
 		rType = 0;
 		vrLen = 142;
 		vrLoc = 0;
@@ -10231,7 +10233,7 @@
 		fRef = 5929E11013243ECB00B81D2E /* Gemfile */;
 		name = "Gemfile: 12";
 		rLen = 0;
-		rLoc = 142;
+		rLoc = 162;
 		rType = 0;
 		vrLen = 142;
 		vrLoc = 0;
@@ -10251,7 +10253,7 @@
 		fRef = 5929E11013243ECB00B81D2E /* Gemfile */;
 		name = "Gemfile: 12";
 		rLen = 0;
-		rLoc = 142;
+		rLoc = 162;
 		rType = 0;
 		vrLen = 142;
 		vrLoc = 0;
@@ -10561,7 +10563,7 @@
 		fRef = 5929E11013243ECB00B81D2E /* Gemfile */;
 		name = "Gemfile: 12";
 		rLen = 0;
-		rLoc = 142;
+		rLoc = 162;
 		rType = 0;
 		vrLen = 142;
 		vrLoc = 0;
@@ -10571,7 +10573,7 @@
 		fRef = 5929E11013243ECB00B81D2E /* Gemfile */;
 		name = "Gemfile: 12";
 		rLen = 0;
-		rLoc = 142;
+		rLoc = 162;
 		rType = 0;
 		vrLen = 160;
 		vrLoc = 0;
@@ -10591,7 +10593,7 @@
 		fRef = 5929E11013243ECB00B81D2E /* Gemfile */;
 		name = "Gemfile: 14";
 		rLen = 0;
-		rLoc = 142;
+		rLoc = 162;
 		rType = 0;
 		vrLen = 175;
 		vrLoc = 0;
@@ -10611,7 +10613,7 @@
 		fRef = 5929E11013243ECB00B81D2E /* Gemfile */;
 		name = "Gemfile: 15";
 		rLen = 0;
-		rLoc = 142;
+		rLoc = 162;
 		rType = 0;
 		vrLen = 190;
 		vrLoc = 0;
@@ -10631,7 +10633,7 @@
 		fRef = 5929E11013243ECB00B81D2E /* Gemfile */;
 		name = "Gemfile: 12";
 		rLen = 0;
-		rLoc = 142;
+		rLoc = 162;
 		rType = 0;
 		vrLen = 142;
 		vrLoc = 0;
@@ -10651,9 +10653,29 @@
 		fRef = 5929E11013243ECB00B81D2E /* Gemfile */;
 		name = "Gemfile: 12";
 		rLen = 0;
-		rLoc = 142;
+		rLoc = 162;
 		rType = 0;
 		vrLen = 142;
+		vrLoc = 0;
+	};
+	597D8B171332EC6E0042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
+		name = "geodict_server.rb: 25";
+		rLen = 0;
+		rLoc = 1020;
+		rType = 0;
+		vrLen = 1760;
+		vrLoc = 0;
+	};
+	597D8B181332EC6E0042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E11013243ECB00B81D2E /* Gemfile */;
+		name = "Gemfile: 12";
+		rLen = 0;
+		rLoc = 161;
+		rType = 0;
+		vrLen = 162;
 		vrLoc = 0;
 	};
 }
