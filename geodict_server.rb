@@ -646,6 +646,8 @@ end
 # Converts an HTML string into text
 def html2text(html)
 
+  printf(STDERR, html+"\n")
+
   web_doc= Hpricot(html)
 #  web_doc.search("//comment()").remove
 
