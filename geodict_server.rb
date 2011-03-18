@@ -23,6 +23,7 @@ require 'json'
 require 'net/geoip'
 require 'postgres'
 require 'active_support/secure_random'
+require 'hpricot'
 
 # A horrible hack to work around my problems getting the Geocoder to install as a gem
 $LOAD_PATH.unshift '../geocoder/lib'
