@@ -650,6 +650,7 @@ def html2text(html)
 #  web_doc.search("//comment()").remove
 
   result = ''
+  printf(STDERR, 'web_doc='+web_doc.inspect+"\n")
   web_doc.search("body :not(script)").each do |e| 
     printf(STDERR, 'e='+e.inspect+"\n")
     text = e.inner_text
