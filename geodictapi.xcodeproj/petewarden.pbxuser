@@ -1071,6 +1071,8 @@
 			597D8B7C1333327E0042C251 /* PBXTextBookmark */ = 597D8B7C1333327E0042C251 /* PBXTextBookmark */;
 			597D8B7D133332980042C251 /* PBXTextBookmark */ = 597D8B7D133332980042C251 /* PBXTextBookmark */;
 			597D8B7E133332980042C251 /* PBXTextBookmark */ = 597D8B7E133332980042C251 /* PBXTextBookmark */;
+			597D8B7F133338950042C251 /* PBXTextBookmark */ = 597D8B7F133338950042C251 /* PBXTextBookmark */;
+			597D8B80133338950042C251 /* PBXTextBookmark */ = 597D8B80133338950042C251 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 5929E10413243EA700B81D2E /* Source Control */;
 		userBuildSettings = {
@@ -5118,9 +5120,9 @@
 	};
 	5929E30C1329AD7900B81D2E /* developerdocs.haml */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {821, 4155}}";
-			sepNavSelRange = "{345, 0}";
-			sepNavVisRange = "{0, 1832}";
+			sepNavIntBoundsRect = "{{0, 0}, {821, 3735}}";
+			sepNavSelRange = "{9833, 0}";
+			sepNavVisRange = "{8005, 2928}";
 		};
 	};
 	5929E30D1329AE3D00B81D2E /* PBXTextBookmark */ = {
@@ -5177,7 +5179,7 @@
 		isa = PBXTextBookmark;
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 1";
-		rLen = 12314;
+		rLen = 12325;
 		rLoc = 0;
 		rType = 0;
 		vrLen = 2219;
@@ -5227,7 +5229,7 @@
 		isa = PBXTextBookmark;
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 1";
-		rLen = 12314;
+		rLen = 12325;
 		rLoc = 0;
 		rType = 0;
 		vrLen = 2219;
@@ -5238,7 +5240,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 44";
 		rLen = 0;
-		rLoc = 12314;
+		rLoc = 12325;
 		rType = 0;
 		vrLen = 2651;
 		vrLoc = 0;
@@ -5278,7 +5280,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 44";
 		rLen = 0;
-		rLoc = 12314;
+		rLoc = 12325;
 		rType = 0;
 		vrLen = 2651;
 		vrLoc = 0;
@@ -5298,7 +5300,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 44";
 		rLen = 0;
-		rLoc = 12314;
+		rLoc = 12325;
 		rType = 0;
 		vrLen = 2651;
 		vrLoc = 0;
@@ -5488,7 +5490,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 42";
 		rLen = 0;
-		rLoc = 12314;
+		rLoc = 12325;
 		rType = 0;
 		vrLen = 2535;
 		vrLoc = 0;
@@ -5628,7 +5630,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 53";
 		rLen = 0;
-		rLoc = 10989;
+		rLoc = 11000;
 		rType = 0;
 		vrLen = 2074;
 		vrLoc = 584;
@@ -5668,7 +5670,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 57";
 		rLen = 0;
-		rLoc = 10669;
+		rLoc = 10680;
 		rType = 0;
 		vrLen = 2056;
 		vrLoc = 697;
@@ -5708,7 +5710,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 67";
 		rLen = 0;
-		rLoc = 12314;
+		rLoc = 12325;
 		rType = 0;
 		vrLen = 2260;
 		vrLoc = 1068;
@@ -5728,7 +5730,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 69";
 		rLen = 0;
-		rLoc = 12314;
+		rLoc = 12325;
 		rType = 0;
 		vrLen = 2553;
 		vrLoc = 1234;
@@ -5748,7 +5750,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 64";
 		rLen = 0;
-		rLoc = 11247;
+		rLoc = 11258;
 		rType = 0;
 		vrLen = 2555;
 		vrLoc = 1234;
@@ -5768,7 +5770,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 66";
 		rLen = 0;
-		rLoc = 11838;
+		rLoc = 11849;
 		rType = 0;
 		vrLen = 2568;
 		vrLoc = 1234;
@@ -6619,7 +6621,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 118";
 		rLen = 0;
-		rLoc = 11579;
+		rLoc = 11590;
 		rType = 0;
 		vrLen = 2678;
 		vrLoc = 3197;
@@ -7848,7 +7850,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 197";
 		rLen = 0;
-		rLoc = 10772;
+		rLoc = 10783;
 		rType = 0;
 		vrLen = 463;
 		vrLoc = 7825;
@@ -7965,7 +7967,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 166";
 		rLen = 0;
-		rLoc = 11824;
+		rLoc = 11835;
 		rType = 0;
 		vrLen = 2468;
 		vrLoc = 5233;
@@ -8355,7 +8357,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 198";
 		rLen = 0;
-		rLoc = 11824;
+		rLoc = 11835;
 		rType = 0;
 		vrLen = 2011;
 		vrLoc = 5190;
@@ -8365,7 +8367,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 194";
 		rLen = 0;
-		rLoc = 11155;
+		rLoc = 11166;
 		rType = 0;
 		vrLen = 2649;
 		vrLoc = 7299;
@@ -8385,7 +8387,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 198";
 		rLen = 0;
-		rLoc = 11824;
+		rLoc = 11835;
 		rType = 0;
 		vrLen = 2656;
 		vrLoc = 7299;
@@ -8415,7 +8417,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 198";
 		rLen = 0;
-		rLoc = 11824;
+		rLoc = 11835;
 		rType = 0;
 		vrLen = 2656;
 		vrLoc = 7299;
@@ -8449,7 +8451,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 198";
 		rLen = 0;
-		rLoc = 11824;
+		rLoc = 11835;
 		rType = 0;
 		vrLen = 2656;
 		vrLoc = 7299;
@@ -11799,5 +11801,25 @@
 		rType = 0;
 		vrLen = 1832;
 		vrLoc = 0;
+	};
+	597D8B7F133338950042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E1F113258C0500B81D2E /* about.haml */;
+		name = "about.haml: 22";
+		rLen = 120;
+		rLoc = 1053;
+		rType = 0;
+		vrLen = 1426;
+		vrLoc = 0;
+	};
+	597D8B80133338950042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
+		name = "developerdocs.haml: 217";
+		rLen = 0;
+		rLoc = 9833;
+		rType = 0;
+		vrLen = 2928;
+		vrLoc = 8005;
 	};
 }

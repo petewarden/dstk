@@ -214,7 +214,7 @@
     :markdown
       #### File to Text
       
-      If you pass in an image, this API will run an optical character recognition algorithm to extract any words or sentences it can from the picture. If you upload a PDF file, Word document or Excel spreadsheet, it will return a plain text version of the content. Unlike most of the calls, this one takes its input in the standard multipart form-encoded format that's used when browsers upload files, rather than as JSON. It returns any content it finds as a stream of text.
+      If you pass in an image, this API will run an optical character recognition algorithm to extract any words or sentences it can from the picture. If you upload a PDF file, Word document, Excel spreadsheet or HTML file, it will return a plain text version of the content. Unlike most of the calls, this one takes its input in the standard multipart form-encoded format that's used when browsers upload files, rather than as JSON. It returns any content it finds as a stream of text.
       <hr>
       `curl --form inputfile=@ExecutiveSummary.docx "http://www.geodictapi.com/file2text"`
 
