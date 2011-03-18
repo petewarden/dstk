@@ -24,6 +24,7 @@ require 'net/geoip'
 require 'postgres'
 require 'active_support/secure_random'
 require 'hpricot'
+require 'htmlentities'
 
 # A horrible hack to work around my problems getting the Geocoder to install as a gem
 $LOAD_PATH.unshift '../geocoder/lib'
@@ -664,6 +665,9 @@ def html2text(html)
   if result == ''
     result = strip_tags(html)
   end
+
+  coder = HTMLEntities.new
+  result = coder.decode(result)
 
   result
 end
