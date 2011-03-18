@@ -102,7 +102,7 @@
   .tryfile2text{:style=>"margin-top:20px; font-size: 125%;"}
     Try it for yourself. Upload a file to see what text it finds.
 
-  %form{:target=>"_blank", :action=>"/file2text", :method=>"post", :enctype=>"multipart/form-data", :display=>"inline"}
+  %form{:target=>"_new", :action=>"/file2text", :method=>"post", :enctype=>"multipart/form-data", :display=>"inline"}
     %input{:type=>"file", :name=>"inputfile"}
     %br
     %input{:type=>"submit", :value=>"Extract Text"}
