@@ -22,8 +22,7 @@ require 'sinatra'
 require 'json'
 require 'net/geoip'
 require 'postgres'
-require 'spreadsheet'
-require 'activesupport/securerandom'
+require 'active_support/secure_random'
 
 # A horrible hack to work around my problems getting the Geocoder to install as a gem
 $LOAD_PATH.unshift '../geocoder/lib'
