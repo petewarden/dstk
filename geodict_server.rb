@@ -651,15 +651,15 @@ def html2text(html)
 
   result = ''
   printf(STDERR, 'web_doc='+web_doc.inspect+"\n")
-  fatal_error('BOBOBOBOBFofofofo')
-  web_doc.search("body :not(script)").each { |e| 
-    fatal_error('Fofofofo')
+  elements = web_doc.search("body :not(script)")
+  printf(STDERR, 'elements='+elements.inspect+"\n")
+  elements.each do |e| 
     printf(STDERR, 'e='+e.inspect+"\n")
     text = e.inner_text
     if text
       result += text+"\n"
     end
-  }
+  end
 
   result
 end
