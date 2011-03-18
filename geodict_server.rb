@@ -1002,6 +1002,8 @@ post '/file2text' do
     fatal_error('Error when converting file to text', 'json', 500)
   end
 
+  printf(STDERR, 'Text='+text)
+
   attachment(name+'.txt')
   content_type('text/plain')
 
