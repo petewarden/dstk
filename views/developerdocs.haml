@@ -9,6 +9,9 @@
     %a{:href=>"#geodict"} Geodict
     %br
     &nbsp;&nbsp;&nbsp;&nbsp;
+    %a{:href=>"#text2places"} Text to Places
+    %br
+    &nbsp;&nbsp;&nbsp;&nbsp;
     %a{:href=>"#ip2coordinates"} IP Address to Location
     %br
     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -16,6 +19,9 @@
     %br
     &nbsp;&nbsp;&nbsp;&nbsp;
     %a{:href=>"#coordinates2politics"} Location to Politics
+    %br
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    %a{:href=>"#file2text"} File to Text
     %br
     %a{:href=>"#setup"} Setting up your own server
     %br
@@ -76,6 +82,20 @@
       
       The results will differ between the two APIs, as the algorithms are quite different. In particular, I designed Geodict for applications that are intolerant of false positives, so for example Placemaker will flag "New York Times" as a location whereas Geodict will ignore it.
 
+
+    %a{:name=>"text2places"}
+    :markdown
+      #### Text to Places
+      
+      This is the friendly interface to the same underlying functionality as Geodict. It uses a much simpler JSON format, taking an array with a single string as its input and returning an array of the locations found in that text. Here's an example:
+      <hr>
+      `curl "http://www.geodictapi.com/text2places/%5b%22Cairo%2c+Egypt%22%5d"`
+      
+      `[{"type":"CITY","start_index":"0","end_index":"4","matched_string":"Cairo, Egypt",`
+
+      ` "latitude":"30.05","longitude":"31.25","name":"Cairo"}]`
+      <hr>
+
     %a{:name=>"ip2coordinates"}
     :markdown
       #### IP Address to Location
@@ -111,6 +131,9 @@
       
       You can also make a POST request passing in the IP addresses in the body of the request. This is useful if you have very large arrays of IP addresses you need to process, since you won't hit any URL size limits.
       
+      This API uses data from [http://www.maxmind.com/](http://www.maxmind.com/).
+      
+
     %a{:name=>"street2coordinates"}
     :markdown
       #### Street Address to Location
@@ -151,6 +174,9 @@
       Using GET you can also pass in a callback parameter in the URL, making it possible to run this as a JSONP cross-domain request. You can see this method in action if you view source on the home page of this server.
       
       You can also make a POST request passing in the addresses in the body of the request. This is useful if you have very large arrays of addresses you need to process, since you won't hit any URL size limits.
+      
+      This API uses data from the US Census and code from [Schuyler Erle](https://github.com/geocommons/geocoder).
+
 
     %a{:name=>"coordinates2politics"}
     :markdown
@@ -180,6 +206,22 @@
       Using GET you can also pass in a callback parameter in the URL, making it possible to run this as a JSONP cross-domain request. You can see this method in action if you view source on the home page of this server.
       
       You can also make a POST request passing in the locations in the body of the request. This is useful if you have very large arrays of locations you need to process, since you won't hit any URL size limits.
+
+      This API relies on data gathered by volunteers around the world for [OpenHeatMap](http://www.openheatmap.com/), along with US census information and [neighborhood maps from Zillow](http://www.zillow.com/howto/api/neighborhood-boundaries.htm).
+
+
+    %a{:name=>"file2text"}
+    :markdown
+      #### File to Text
+      
+      If you pass in an image, this API will run an optical character recognition algorithm to extract any words or sentences it can from the picture. If you upload a PDF file, Word document or Excel spreadsheet, it will return a plain text version of the content. Unlike most of the calls, this one takes its input in the standard multipart form-encoded format that's used when browsers upload files, rather than as JSON. It returns any content it finds as a stream of text.
+      <hr>
+      `curl --form inputfile=@ExecutiveSummary.docx "http://www.geodictapi.com/file2text"`
+
+      `OverviewMoveableCode, inc. is a seed stage company funded by a National Science Foundation Phase 1 SBIR grant.  The company is developing software applications for mobile devices with a particular emphasis on Augmented Reality (AR).`
+      <hr>
+
+      This API relies on the [Ocropus project](http://code.google.com/p/ocropus/) for handling images, and [catdoc](http://wagner.pp.ru/~vitus/software/catdoc/) for pre-XML Word and Excel documents.
       
     %a{:name=>"setup"}
     :markdown

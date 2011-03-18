@@ -276,7 +276,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>8</integer>
+									<integer>31</integer>
+									<integer>30</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -319,7 +320,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>dstk.py</string>
+										<string>about.haml</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -327,11 +328,11 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>dstk.py</string>
+												<string>about.haml</string>
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>597D8B71133326410042C251</string>
+												<string>597D8B7D133332980042C251</string>
 												<key>history</key>
 												<array>
 													<string>5929E12313244A2300B81D2E</string>
@@ -356,7 +357,6 @@
 													<string>597D880A132F17990042C251</string>
 													<string>597D880C132F17990042C251</string>
 													<string>597D883D132F26870042C251</string>
-													<string>597D8841132F382D0042C251</string>
 													<string>597D885E133062410042C251</string>
 													<string>597D885F133062410042C251</string>
 													<string>597D8860133062410042C251</string>
@@ -364,7 +364,8 @@
 													<string>597D8AD71331DF350042C251</string>
 													<string>597D8ADF1332BE5E0042C251</string>
 													<string>597D8B4F13331A610042C251</string>
-													<string>597D8B5013331A610042C251</string>
+													<string>597D8B7313332FA60042C251</string>
+													<string>597D8B7413332FA60042C251</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -393,7 +394,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>geodict_server.rb</string>
+										<string>developerdocs.haml</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -401,11 +402,11 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>geodict_server.rb</string>
+												<string>developerdocs.haml</string>
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>597D8B72133326410042C251</string>
+												<string>597D8B7E133332980042C251</string>
 												<key>history</key>
 												<array>
 													<string>5929E16113246ABF00B81D2E</string>
@@ -430,7 +431,6 @@
 													<string>597D8810132F17990042C251</string>
 													<string>597D8811132F17990042C251</string>
 													<string>597D8871133067220042C251</string>
-													<string>597D8872133067220042C251</string>
 													<string>597D8A7A1331778D0042C251</string>
 													<string>597D8A7B1331778D0042C251</string>
 													<string>597D8A7D1331778D0042C251</string>
@@ -438,7 +438,8 @@
 													<string>597D8AE41332C3220042C251</string>
 													<string>597D8B481332F7730042C251</string>
 													<string>597D8B601333212C0042C251</string>
-													<string>597D8B611333212C0042C251</string>
+													<string>597D8B7613332FA60042C251</string>
+													<string>597D8B7713332FA60042C251</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
