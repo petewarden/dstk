@@ -24,6 +24,9 @@ try:
 except ImportError:
   import json
 import os
+import httplib
+import mimetypes
+
 
 # This is the main interface class. You can see an example of it in use
 # below, implementing a command-line tool, but you basically just instantiate
@@ -131,8 +134,67 @@ class DSTK:
     
     return response
 
+  def file2text(self, file_name, file_data):
+
+    host = self.api_base.replace('http://', '')
+
+    response = post_multipart(host,
+      '/text2places',[],[('inputfile', file_name, file_data)])
+  
+    return response
+
+# We need to post files as multipart form data, and Python has no native function for
+# that, so these utility functions implement what we need.
+# See http://code.activestate.com/recipes/146306/ 
+def post_multipart(host, selector, fields, files):
+    """
+    Post fields and files to an http host as multipart/form-data.
+    fields is a sequence of (name, value) elements for regular form fields.
+    files is a sequence of (name, filename, value) elements for data to be uploaded as files
+    Return the server's response page.
+    """
+    content_type, body = encode_multipart_formdata(fields, files)
+    h = httplib.HTTP(host)
+    h.putrequest('POST', selector)
+    h.putheader('content-type', content_type)
+    h.putheader('content-length', str(len(body)))
+    h.endheaders()
+    h.send(body)
+    errcode, errmsg, headers = h.getreply()
+    return h.file.read()
+
+def encode_multipart_formdata(fields, files):
+    """
+    fields is a sequence of (name, value) elements for regular form fields.
+    files is a sequence of (name, filename, value) elements for data to be uploaded as files
+    Return (content_type, body) ready for httplib.HTTP instance
+    """
+    BOUNDARY = '----------ThIs_Is_tHe_bouNdaRY_$'
+    CRLF = '\r\n'
+    L = []
+    for (key, value) in fields:
+        L.append('--' + BOUNDARY)
+        L.append('Content-Disposition: form-data; name="%s"' % key)
+        L.append('')
+        L.append(value)
+    for (key, filename, value) in files:
+        L.append('--' + BOUNDARY)
+        L.append('Content-Disposition: form-data; name="%s"; filename="%s"' % (key, filename))
+        L.append('Content-Type: %s' % get_content_type(filename))
+        L.append('')
+        L.append(value)
+    L.append('--' + BOUNDARY + '--')
+    L.append('')
+    body = CRLF.join(L)
+    content_type = 'multipart/form-data; boundary=%s' % BOUNDARY
+    return content_type, body
+
+def get_content_type(filename):
+    return mimetypes.guess_type(filename)[0] or 'application/octet-stream'
+
 # End of the interface. The rest of this file is an example implementation of a
 # command line client.
+
 
 def ip2coordinates_cli(dstk, options, inputs):
 
@@ -235,6 +297,24 @@ def coordinates2politics_cli(dstk, options, inputs):
     
   return output
 
+def file2text_cli(dstk, options, inputs):
+  output = ''
+  
+  for file_name in inputs:
+    if os.path.isdir(file_name):
+      children = os.listdir(file_name)
+      full_children = []
+      for child in children:
+        full_children.append(os.path.join(file_name, child))
+      output += file2text(dstk, options, full_children)
+    else:
+      file_data = open(file_name).read()
+      if options['showHeaders']:
+        output += '--File--: '+file_name+"\n"
+      output += dstk.file2text(file_name, file_data)
+      output += "\n"
+  return output
+
 def print_usage(message=''):
 
   print message
@@ -245,6 +325,7 @@ def print_usage(message=''):
   print "  street2coordinates" 
   print "  coordinates2politics" 
   print "  text2places"
+  print "  file2text"
   print "If no inputs are specified, then standard input will be read and used"
   print "See http://www.geodictapi.com/developerdocs for more details"
   print "Example:"
@@ -287,6 +368,7 @@ if __name__ == '__main__':
     'street2coordinates': { 'handler': street2coordinates_cli },
     'coordinates2politics': { 'handler': coordinates2politics_cli },
     'text2places': { 'handler': text2places_cli },
+    'file2text': { 'handler': file2text_cli },
   }
   switches = {
     'api_base': True,

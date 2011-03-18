@@ -372,9 +372,6 @@ def text2places(text, callback=nil)
 
   locations = find_locations_in_text(text)
 
-  printf(STDERR, text+"\n")
-  printf(STDERR, locations.inspect+"\n")
-
   # Convert the raw locations into a form that makes sense for output
   output_locations = []
   locations.each_with_index do |location_info, index|
@@ -651,11 +648,8 @@ def html2text(html)
 #  web_doc.search("//comment()").remove
 
   result = ''
-  printf(STDERR, 'web_doc='+web_doc.inspect+"\n")
   elements = web_doc.search("body :not(script)")
-  printf(STDERR, 'elements='+elements.inspect+"\n")
   elements.each do |e| 
-    printf(STDERR, 'e='+e.inspect+"\n")
     text = e.inner_text
     if text
       result += text+"\n"
