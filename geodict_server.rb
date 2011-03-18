@@ -966,11 +966,14 @@ end
 # The interface used to convert a pdf/word/excel/image file into text
 post '/file2text' do
 
+  printf(STDERR, 'Starting /file2text')
+
   # Pull out the data we were given
   unless params[:inputfile] &&
     (tmpfile = params[:inputfile][:tempfile]) &&
     (name = params[:inputfile][:filename]) &&
     (content_type = params[:inputfile][:type])
+    printf(STDERR, 'Error')
     fatal_error('Something went wrong with the file uploading', 'json', 500)
   end
 
