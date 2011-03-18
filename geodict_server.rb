@@ -714,7 +714,7 @@ end
 # Unzips the given file to a folder and returns the path
 def unzip_to_temp(filename)
     
-  output_folder = '/tmp/unzip/'+ActiveSupport::SecureRandom.hex(8)+'/'
+  output_folder = '/tmp/unzip_'+ActiveSupport::SecureRandom.hex(8)+'/'
 
   `unzip #{filename} -d #{output_folder}`
   exit_code = $?.to_i
@@ -740,6 +740,27 @@ def wordxmlfile2text(filename)
   `rm -rf #{folder_name}`
 
   output = strip_tags(document)
+
+  output
+end
+
+# Converts a new-style Excel XML document into plain text
+def excelxmlfile2text(filename)
+
+  folder_name = unzip_to_temp(filename)
+
+  output = ''
+  Dir.glob(folder_name+'xl/worksheets/*.xml').each do|f|
+    document = open(f).read()
+    
+    document.gsub!(/<\/c>/, ',')
+    document.gsub!(/<\/row>/, "\n")
+
+    output += strip_tags(document)+"\n"
+  
+  end
+
+  `rm -rf #{folder_name}`
 
   output
 end

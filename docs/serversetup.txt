@@ -141,6 +141,4 @@ ec2-run-instances ami-f639cb9f -t m1.large -z us-east-1d
 )
 
 sudo aptitude update
-sudo aptitude install -y ocropus pdftohtml catdoc
-mkdir /tmp/unzip/
-chmod a+w /tmp/unzip/
+sudo aptitude install -y ocropus pdftohtml catdoc unzip
