@@ -991,6 +991,7 @@ post '/file2text' do
       'jpeg' => 'image/jpeg',
       'tif' => 'image/tiff',
       'tiff' => 'image/tiff',
+      'pdf' => 'application/pdf',
       'doc' => 'application/msword',
       'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
       'xls' => 'application/vnd.ms-excel',
@@ -1010,7 +1011,7 @@ post '/file2text' do
     text = html2text(file_data)
   elsif content_type =~ /image\/*/
     text = imagefile2text(tmpfile_name, content_type)
-  elsif content_type == 'text/pdf'
+  elsif content_type == 'application/pdf'
     text = pdffile2text(tmpfile_name)
   elsif content_type == 'application/msword'
     text = wordfile2text(tmpfile_name)
