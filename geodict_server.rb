@@ -994,7 +994,7 @@ post '/file2text' do
       'doc' => 'application/msword',
       'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
       'xls' => 'application/vnd.ms-excel',
-      'xlsx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.document',
+      'xlsx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
     }
 
     if known_extensions.has_key?(extension)
