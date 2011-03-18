@@ -976,6 +976,9 @@ post '/file2text' do
 
   tmpfile_name = params[:inputfile][:tempfile].path
 
+  printf(STDERR, 'tmpfile_name='+tmpfile_name)
+  printf(STDERR, 'content_type='+content_type)
+
   if content_type == 'text/plain'
     file_data = tmpfile.read
     text = file_data
@@ -1001,8 +1004,6 @@ post '/file2text' do
   if !text
     fatal_error('Error when converting file to text', 'json', 500)
   end
-
-  printf(STDERR, 'Text='+text)
 
   attachment(name+'.txt')
   content_type('text/plain')
