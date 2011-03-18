@@ -22,6 +22,8 @@ require 'sinatra'
 require 'json'
 require 'net/geoip'
 require 'postgres'
+require 'spreadsheet'
+require 'activesupport/securerandom'
 
 # A horrible hack to work around my problems getting the Geocoder to install as a gem
 $LOAD_PATH.unshift '../geocoder/lib'
@@ -687,15 +689,9 @@ end
 # Converts a Microsoft Word document into plain text
 def wordfile2text(filename)
 
-  printf(STDERR, "catdoc #{filename}\n")
-
   output = `catdoc #{filename}`
 
-  printf(STDERR, "output = #{output}\n")
-
   exit_code = $?.to_i
-
-  printf(STDERR, "exit_code = #{exit_code}\n")
 
   if exit_code != 0
     return nil
@@ -715,6 +711,40 @@ def excelfile2text(filename)
     
   output
 end
+
+# Unzips the given file to a folder and returns the path
+def unzip_to_temp(filename)
+    
+  output_folder = '/tmp/'+ActiveSupport::SecureRandom.hex(8)+'/'
+
+  `unzip #{filename} -d #{output_folder}`
+  exit_code = $?.to_i
+  if exit_code != 0
+    fatal_error('Could not unzip to folder '+output_folder)
+  end
+
+  return output_folder
+end
+
+# Uses a simple regular-expression approach to remove all tags
+def strip_tags(input)
+  input.gsub(/<[^>]*>/, '')
+end
+
+# Converts a new-style Microsoft Word XML document into plain text
+def wordxmlfile2text(filename)
+
+  folder_name = unzip_to_temp(filename)
+
+  document = open(folder_name+'word/document.xml').read()
+
+  `rm -rf #{folder_name}`
+
+  output = strip_tags(document)
+
+  output
+end
+
 
 ########################################
 # Methods to directly serve up content #
@@ -919,10 +949,14 @@ post '/file2text' do
     text = imagefile2text(tmpfile_name)
   elsif content_type == 'text/pdf'
     text = pdffile2text(tmpfile_name)
-  elsif content_type == 'application/msword' or content_type == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+  elsif content_type == 'application/msword'
     text = wordfile2text(tmpfile_name)
-  elsif content_type == 'application/vnd.ms-excel' or content_type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+  elsif content_type == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+    text = wordxmlfile2text(tmpfile_name)
+  elsif content_type == 'application/vnd.ms-excel'
     text = excelfile2text(tmpfile_name)
+  elsif content_type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    text = excelxmlfile2text(tmpfile_name)
   else
     fatal_error('Mime type I don\'t know how to convert: "'+content_type+'"', 'json', 500)  
   end

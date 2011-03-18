@@ -141,4 +141,47 @@ ec2-run-instances ami-f639cb9f -t m1.large -z us-east-1d
 )
 
 sudo aptitude update
-sudo aptitude -y install ocropus pdftohtml catdoc
+sudo aptitude install -y ocropus pdftohtml catdoc
+sudo aptitude install -y unoconv openoffice.org-headless openoffice.org-writer
+
+cd /var/www/
+sudo mkdir .openoffice.org2
+sudo chown www-data .openoffice.org2
+
+echo '
+#!/bin/sh
+#
+# openofficeorg This shell script takes care of starting and stopping
+# openoffice server.
+#
+# description: unoconv listener for converting documents with OOo
+
+
+. /lib/lsb/init-functions
+
+# See how we were called.
+case "$1" in
+   start)
+      printf "Starting unoconvd: "
+      su - www-data -c "/usr/bin/unoconv --listener&"
+      echo
+   ;;
+   stop)
+      printf "Shutting down unoconvd: "
+      killall soffice.bin
+      echo
+   ;;
+   restart)
+      \$0 stop
+      \$0 start
+   ;;
+   *)
+      printf "Usage: unoconvd {start|stop|restart}\n"
+      exit 1
+   ;;
+esac
+
+exit 0
+' > /tmp/unoconv-listen
+
+sudo cp /tmp/unoconv-listen /etc/init.d/
