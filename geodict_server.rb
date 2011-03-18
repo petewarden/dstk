@@ -651,6 +651,7 @@ def html2text(html)
 
   result = ''
   printf(STDERR, 'web_doc='+web_doc.inspect+"\n")
+  fatal_error('BOBOBOBOBFofofofo')
   web_doc.search("body :not(script)").each { |e| 
     fatal_error('Fofofofo')
     printf(STDERR, 'e='+e.inspect+"\n")
