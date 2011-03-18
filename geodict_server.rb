@@ -661,6 +661,10 @@ def html2text(html)
     end
   end
 
+  if result == ''
+    result = strip_tags(html)
+  end
+
   result
 end
 
