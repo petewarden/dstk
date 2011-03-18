@@ -973,12 +973,14 @@ post '/file2text' do
     (content_type = params[:inputfile][:type])
     fatal_error('Something went wrong with the file uploading', 'json', 500)
   end
+  
+  tmpfile_name = tmpfile.path()
 
   # We weren't given a proper content type, so try to guess
-  if content_type == 'application/octet-stream':
+  if content_type == 'application/octet-stream'
 
-    basename, extension = os.path.splitext(filename)
-    extension = extension.replace('.', '').lowercase()
+    extension = File.extname(name)
+    extension.gsub!(/\./, '').downcase!()
     
     known_extensions = {
       'txt' => 'text/plain',
@@ -995,8 +997,10 @@ post '/file2text' do
       'xlsx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.document',
     }
 
-    if extension in known_extensions:
+    if known_extensions.has_key?(extension)
       content_type = known_extensions[extension]
+    end
+  end
 
   if content_type == 'text/plain'
     file_data = tmpfile.read
