@@ -1225,6 +1225,8 @@
 			597D8C47133470410042C251 /* PBXTextBookmark */ = 597D8C47133470410042C251 /* PBXTextBookmark */;
 			597D8C48133470680042C251 /* PBXTextBookmark */ = 597D8C48133470680042C251 /* PBXTextBookmark */;
 			597D8C49133470680042C251 /* PBXTextBookmark */ = 597D8C49133470680042C251 /* PBXTextBookmark */;
+			597D8C4A133470AA0042C251 /* PBXTextBookmark */ = 597D8C4A133470AA0042C251 /* PBXTextBookmark */;
+			597D8C4B133470AA0042C251 /* PBXTextBookmark */ = 597D8C4B133470AA0042C251 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 5929E10413243EA700B81D2E /* Source Control */;
 		userBuildSettings = {
@@ -12022,9 +12024,9 @@
 	};
 	597D8BAE13340F3E0042C251 /* cruftstripper.rb */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {821, 3420}}";
-			sepNavSelRange = "{1222, 0}";
-			sepNavVisRange = "{0, 1700}";
+			sepNavIntBoundsRect = "{{0, 0}, {821, 3390}}";
+			sepNavSelRange = "{6673, 0}";
+			sepNavVisRange = "{5145, 1623}";
 		};
 	};
 	597D8BAF13341B930042C251 /* PBXTextBookmark */ = {
@@ -12052,7 +12054,7 @@
 		fRef = 597D8BAE13340F3E0042C251 /* cruftstripper.rb */;
 		name = "cruftstripper.rb: 232";
 		rLen = 0;
-		rLoc = 6737;
+		rLoc = 6769;
 		rType = 0;
 		vrLen = 1608;
 		vrLoc = 5130;
@@ -12102,7 +12104,7 @@
 		fRef = 597D8BAE13340F3E0042C251 /* cruftstripper.rb */;
 		name = "cruftstripper.rb: 200";
 		rLen = 0;
-		rLoc = 5699;
+		rLoc = 5704;
 		rType = 0;
 		vrLen = 1608;
 		vrLoc = 5130;
@@ -12122,7 +12124,7 @@
 		fRef = 597D8BAE13340F3E0042C251 /* cruftstripper.rb */;
 		name = "cruftstripper.rb: 204";
 		rLen = 0;
-		rLoc = 5909;
+		rLoc = 5914;
 		rType = 0;
 		vrLen = 1608;
 		vrLoc = 5130;
@@ -12212,7 +12214,7 @@
 		fRef = 597D8BAE13340F3E0042C251 /* cruftstripper.rb */;
 		name = "cruftstripper.rb: 204";
 		rLen = 0;
-		rLoc = 5909;
+		rLoc = 5914;
 		rType = 0;
 		vrLen = 1709;
 		vrLoc = 5029;
@@ -12222,7 +12224,7 @@
 		fRef = 597D8BAE13340F3E0042C251 /* cruftstripper.rb */;
 		name = "cruftstripper.rb: 204";
 		rLen = 0;
-		rLoc = 5909;
+		rLoc = 5914;
 		rType = 0;
 		vrLen = 1726;
 		vrLoc = 0;
@@ -12242,7 +12244,7 @@
 		fRef = 597D8BAE13340F3E0042C251 /* cruftstripper.rb */;
 		name = "cruftstripper.rb: 204";
 		rLen = 0;
-		rLoc = 5909;
+		rLoc = 5914;
 		rType = 0;
 		vrLen = 1726;
 		vrLoc = 0;
@@ -12262,7 +12264,7 @@
 		fRef = 597D8BAE13340F3E0042C251 /* cruftstripper.rb */;
 		name = "cruftstripper.rb: 28";
 		rLen = 0;
-		rLoc = 1227;
+		rLoc = 1232;
 		rType = 0;
 		vrLen = 1726;
 		vrLoc = 0;
@@ -13472,7 +13474,7 @@
 		fRef = 597D8BAE13340F3E0042C251 /* cruftstripper.rb */;
 		name = "cruftstripper.rb: 28";
 		rLen = 0;
-		rLoc = 1227;
+		rLoc = 1232;
 		rType = 0;
 		vrLen = 1690;
 		vrLoc = 0;
@@ -13502,9 +13504,29 @@
 		fRef = 597D8BAE13340F3E0042C251 /* cruftstripper.rb */;
 		name = "cruftstripper.rb: 26";
 		rLen = 0;
-		rLoc = 1222;
+		rLoc = 1227;
 		rType = 0;
 		vrLen = 1700;
 		vrLoc = 0;
+	};
+	597D8C4A133470AA0042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
+		name = "dstk.py: 551";
+		rLen = 0;
+		rLoc = 15981;
+		rType = 0;
+		vrLen = 1296;
+		vrLoc = 14846;
+	};
+	597D8C4B133470AA0042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 597D8BAE13340F3E0042C251 /* cruftstripper.rb */;
+		name = "cruftstripper.rb: 223";
+		rLen = 0;
+		rLoc = 6673;
+		rType = 0;
+		vrLen = 1623;
+		vrLoc = 5145;
 	};
 }

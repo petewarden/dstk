@@ -23,7 +23,7 @@
 #***********************************************************************************
 
 def debug_log(message)
-  printf(STDERR, message)
+  printf(STDERR, message+"\n")
 end
 
 def strip_nonsentences(input, input_settings = { })
@@ -220,6 +220,7 @@ def strip_nonsentences(input, input_settings = { })
 
     if found_sentences_count >= settings['min_sentences_in_paragraph']
       result += found_sentences + "\n"
+      found_sentences = ''
     end
   end
 
