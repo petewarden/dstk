@@ -648,16 +648,13 @@ def html2text(html)
 
   web_doc = Hpricot(html)
   web_doc.search("//comment()").remove
+  web_doc.search("script").remove
+  web_doc.search("style").remove
+  web_doc.search("noscript").remove
 
   result = ''
   elements = web_doc.search("body :not(script) :not(style)")
   elements.each do |e| 
-
-    if !e.name or e.name == 'script' or e.name == 'style'
-      next
-    end
-
-    printf(STDERR, e.name+"\n")
     
     text = e.inner_text
     if text
