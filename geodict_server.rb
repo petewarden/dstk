@@ -647,7 +647,7 @@ end
 def html2text(html)
 
   web_doc = Hpricot(html)
-#  web_doc.search("//comment()").remove
+  web_doc.search("//comment()").remove
 
   result = ''
   elements = web_doc.search("body :not(script)")
