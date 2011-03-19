@@ -44,6 +44,7 @@
 		597D8C99133526740042C251 /* text2places */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = text2places; path = python/text2places; sourceTree = "<group>"; };
 		597D8C9A133526740042C251 /* text2sentences */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = text2sentences; path = python/text2sentences; sourceTree = "<group>"; };
 		597D8CC7133548CD0042C251 /* genderfromname.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = genderfromname.rb; sourceTree = "<group>"; };
+		597D8CE2133561460042C251 /* text2people.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = text2people.rb; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -67,6 +68,7 @@
 				5929E1E5132576FA00B81D2E /* readme.asciidoc */,
 				5929E14613245CB200B81D2E /* test_suite */,
 				5929E11813243ECB00B81D2E /* testinput.txt */,
+				597D8CE2133561460042C251 /* text2people.rb */,
 				5929E1F013258C0500B81D2E /* views */,
 			);
 			sourceTree = "<group>";

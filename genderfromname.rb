@@ -9,13 +9,15 @@
 # Ported to Ruby - Mar 19 2011 by
 # Pete Warden, <pete@petewarden.com>
 
+require 'rubygems' if RUBY_VERSION < '1.9'
+
 require 'text'
 
 def debug_log(message)
-  printf(STDERR, message+"\n")
+#  printf(STDERR, message+"\n")
 end
 
-def gender_from_name(name, looseness=1)
+def gender_from_name(name, looseness=5)
   gender = nil
 
   if !name or name.length == 0
@@ -23,30 +25,36 @@ def gender_from_name(name, looseness=1)
     return nil
   end
     
-  name.downcase!
+  name = name.downcase
 
   debug_log("Matching '"+name+"'")
 
+  confidence = -1
   (0..looseness).each do |i|
-    if !MATCH_LIST.has_key?(i)
-      next
-    end
   
-    debug_log("\t"+str(MATCH_LIST[i])+"...")
-
     if i == 0
+      debug_log("\tone_only...")
       gender = one_only(name)
     elsif i == 1
+      debug_log("\teither_weight...")
       gender = either_weight(name)
     elsif i == 2
+      debug_log("\tone_only_metaphone...")
       gender = one_only_metaphone(name)
     elsif i == 3
+      debug_log("\teither_weight_metaphone...")
       gender = either_weight_metaphone(name)
     elsif i == 4
+      debug_log("\tv2_rules...")
       gender = v2_rules(name)
     elsif i == 5
+      debug_log("\tv1_rules...")
       gender = v1_rules(name)
+    else
+      debug_log("Should never get here")
     end
+
+    confidence = i
     
     if gender
       debug_log("\t==> HIT ("+gender+")\n")
@@ -55,8 +63,6 @@ def gender_from_name(name, looseness=1)
 
   end
     
-  confidence = i
-
   if !gender
     return nil
   else
@@ -75,8 +81,8 @@ def one_only(name)
 
   # Match one list only
 
-  male_hit = Male.has_key?(name)
-  female_hit = Females.has_key?(name)
+  male_hit = $Males.has_key?(name)
+  female_hit = $Females.has_key?(name)
 
   if female_hit and not male_hit
     gender = 'f'
@@ -92,14 +98,14 @@ def either_weight(name)
   gender = nil
 
   # Match either, weight
-  if Males.has_key?(name)
-    male_hit = Males[name]
+  if $Males.has_key?(name)
+    male_hit = $Males[name]
   else
     male_hit = 0
   end
 
-  if Females.has_key?(name)
-    female_hit = Females[name]
+  if $Females.has_key?(name)
+    female_hit = $Females[name]
   else
     female_hit = 0
   end
@@ -137,7 +143,7 @@ def one_only_metaphone(name)
   male_hit = 0
   female_hit = 0
 
-  Females.each do |list_name, weight|
+  $Females.each do |list_name, weight|
     if female_hit > 0
       break
     end
@@ -151,7 +157,7 @@ def one_only_metaphone(name)
   
   end
 
-  Males.each do |list_name, weight|
+  $Males.each do |list_name, weight|
     if male_hit > 0
       break
     end
@@ -192,7 +198,7 @@ def either_weight_metaphone(name)
   male_hit = 0
   female_hit = 0
 
-  Females.each do |list_name, weight|
+  $Females.each do |list_name, weight|
     if female_hit > 0
       break
     end
@@ -206,7 +212,7 @@ def either_weight_metaphone(name)
   
   end
 
-  Males.each do |list_name, weight|
+  $Males.each do |list_name, weight|
     if male_hit > 0
       break
     end
@@ -356,7 +362,7 @@ end
 #
 # See CAVEATS in the perldoc for details.
 #
-Males = {
+$Males = {
   'michael' => 3.4091409099979,
   'christopher' => 2.83416303830628,
   'matthew' => 2.34473090442106,
@@ -1360,7 +1366,7 @@ Males = {
   'rey' => 0.00470706212810372
 }
 
-Females = {
+$Females = {
   'jessica' => 2.535806627657,
   'jennifer' => 2.37881388243059,
   'amanda' => 1.95012756995522,

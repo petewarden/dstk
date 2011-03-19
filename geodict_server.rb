@@ -36,6 +36,7 @@ cwd = File.expand_path(File.dirname(__FILE__))
 require File.join(cwd, 'geodict_lib')
 require File.join(cwd, 'geodict_config')
 require File.join(cwd, 'cruftstripper')
+require File.join(cwd, 'text2people')
 
 enable :run
 
@@ -1131,19 +1132,21 @@ get '/html2story/*' do
 end
 
 # Pulls out interesting features like people's names, addresses, phone numbers, emails, dates and times
-post '/text2things' do
+post '/text2people' do
 
   # Pull in the raw data in the body of the request
   text = request.env['rack.input'].read
 
-  text2things(text)
+  results = text2people(text)
 
+  make_json(results)
 end
 
-get '/text2things/*' do
+get '/text2people/*' do
   callback = params[:callback]
   text = JSON.parse(params['splat'][0])[0]
 
-  text2things(text, callback)
-  
+  results = text2people(text)
+
+  make_json(results, callback)
 end
