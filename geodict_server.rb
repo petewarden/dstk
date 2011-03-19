@@ -1129,3 +1129,21 @@ get '/html2story/*' do
   
   make_json({:story => output_text}, callback)
 end
+
+# Pulls out interesting features like people's names, addresses, phone numbers, emails, dates and times
+post '/text2things' do
+
+  # Pull in the raw data in the body of the request
+  text = request.env['rack.input'].read
+
+  text2things(text)
+
+end
+
+get '/text2things/*' do
+  callback = params[:callback]
+  text = JSON.parse(params['splat'][0])[0]
+
+  text2things(text, callback)
+  
+end

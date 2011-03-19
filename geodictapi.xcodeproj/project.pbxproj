@@ -43,6 +43,7 @@
 		597D8C98133526740042C251 /* street2coordinates */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = street2coordinates; path = python/street2coordinates; sourceTree = "<group>"; };
 		597D8C99133526740042C251 /* text2places */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = text2places; path = python/text2places; sourceTree = "<group>"; };
 		597D8C9A133526740042C251 /* text2sentences */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = text2sentences; path = python/text2sentences; sourceTree = "<group>"; };
+		597D8CC7133548CD0042C251 /* genderfromname.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = genderfromname.rb; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -52,6 +53,7 @@
 				5929E11B13243FBE00B81D2E /* config.ru */,
 				597D8BAE13340F3E0042C251 /* cruftstripper.rb */,
 				5929E11013243ECB00B81D2E /* Gemfile */,
+				597D8CC7133548CD0042C251 /* genderfromname.rb */,
 				5929E11913243F0400B81D2E /* geodict_cli.rb */,
 				5929E11113243ECB00B81D2E /* geodict_config.rb */,
 				5929E1A11324993400B81D2E /* geodict_daemon.rb */,
