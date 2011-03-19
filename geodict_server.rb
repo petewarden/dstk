@@ -655,7 +655,7 @@ def html2text(html)
   web_doc.search("embed").remove
 
   result = ''
-  elements = web_doc.search("body :not(script) :not(style)")
+  elements = web_doc.search("body").traverse_text
   elements.each do |e| 
     
     if e.content
