@@ -671,7 +671,7 @@ def html2text(html)
   coder = HTMLEntities.new
   result = coder.decode(result)
 
-  result.gsub!(/[\n \t]+/, "\n")
+  result.gsub!(/\n[\n \t]*/, "\n")
 
   result
 end
