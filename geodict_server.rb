@@ -651,6 +651,8 @@ def html2text(html)
   web_doc.search("script").remove
   web_doc.search("style").remove
   web_doc.search("noscript").remove
+  web_doc.search("object").remove
+  web_doc.search("embed").remove
 
   result = ''
   elements = web_doc.search("body :not(script) :not(style)")
