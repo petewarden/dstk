@@ -23,7 +23,7 @@
 #***********************************************************************************
 
 def debug_log(message)
-#  puts message
+  puts message
 end
 
 def strip_nonsentences(input, input_settings = { })

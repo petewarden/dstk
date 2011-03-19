@@ -143,6 +143,43 @@ class DSTK:
   
     return response
 
+  def text2sentences(self, text):
+    
+    api_url = self.api_base+'/text2sentences'
+    api_body = text
+    response_string = urllib.urlopen(api_url, api_body).read()
+    response = json.loads(response_string)
+    
+    if 'error' in response:
+      raise Exception(response['error'])
+    
+    return response
+
+  def html2text(self, html):
+    
+    api_url = self.api_base+'/html2text'
+    api_body = html
+    response_string = urllib.urlopen(api_url, api_body).read()
+    response = json.loads(response_string)
+    
+    if 'error' in response:
+      raise Exception(response['error'])
+    
+    return response
+
+  def html2story(self, html):
+    
+    api_url = self.api_base+'/html2story'
+    api_body = html
+    response_string = urllib.urlopen(api_url, api_body).read()
+    response = json.loads(response_string)
+    
+    if 'error' in response:
+      raise Exception(response['error'])
+    
+    return response
+
+
 # We need to post files as multipart form data, and Python has no native function for
 # that, so these utility functions implement what we need.
 # See http://code.activestate.com/recipes/146306/ 
@@ -306,7 +343,7 @@ def file2text_cli(dstk, options, inputs):
       full_children = []
       for child in children:
         full_children.append(os.path.join(file_name, child))
-      output += file2text(dstk, options, full_children)
+      output += file2text_cli(dstk, options, full_children)
     else:
       file_data = open(file_name).read()
       if options['showHeaders']:
@@ -315,49 +352,136 @@ def file2text_cli(dstk, options, inputs):
       output += "\n"
   return output
 
+def text2places_cli(dstk, options, inputs):
+
+  output = ''
+  
+  if options['showHeaders']:
+    row = ['latitude', 'longitude', 'name', 'type', 'start_index', 'end_index', 'matched_string', 'file_name']
+
+  options['showHeaders'] = False
+
+  for file_name in inputs:
+    if os.path.isdir(file_name):
+      children = os.listdir(file_name)
+      full_children = []
+      for child in children:
+        full_children.append(os.path.join(file_name, child))
+      output += text2places_cli(dstk, options, full_children)
+    else:
+      file_data = open(file_name).read()
+      result = dstk.text2places(file_data)
+      for info in result:
+
+        row = [info['latitude'], 
+          info['longitude'], 
+          info['name'],
+          info['type'],
+          info['start_index'],
+          info['end_index'],
+          info['matched_string'],
+          file_name
+        ]
+        row_string = '","'.join(row)      
+        output += '"'+row_string+'"'+"\n"
+
+  return output
+
+def html2text_cli(dstk, options, inputs):
+
+  if options['from_stdin']:
+    result = dstk.html2text(inputs.join("\n"))
+    return result['text']
+
+  output = ''
+  
+  for file_name in inputs:
+    if os.path.isdir(file_name):
+      children = os.listdir(file_name)
+      full_children = []
+      for child in children:
+        full_children.append(os.path.join(file_name, child))
+      output += html2text_cli(dstk, options, full_children)
+    else:
+      file_data = open(file_name).read()
+      if options['showHeaders']:
+        output += '--File--: '+file_name+"\n"
+      result = dstk.html2text(file_data)
+      output += result['text']
+      output += "\n"
+  return output
+
+def text2sentences_cli(dstk, options, inputs):
+
+  if options['from_stdin']:
+    result = dstk.text2sentences(inputs.join("\n"))
+    return result['sentences']
+
+  output = ''
+  
+  for file_name in inputs:
+    if os.path.isdir(file_name):
+      children = os.listdir(file_name)
+      full_children = []
+      for child in children:
+        full_children.append(os.path.join(file_name, child))
+      output += text2sentences_cli(dstk, options, full_children)
+    else:
+      file_data = open(file_name).read()
+      if options['showHeaders']:
+        output += '--File--: '+file_name+"\n"
+      result = dstk.text2sentences(file_data)
+      output += result['sentences']
+      output += "\n"
+  return output
+
+def html2story_cli(dstk, options, inputs):
+
+  if options['from_stdin']:
+    result = dstk.html2story(inputs.join("\n"))
+    return result['story']
+
+  output = ''
+  
+  for file_name in inputs:
+    if os.path.isdir(file_name):
+      children = os.listdir(file_name)
+      full_children = []
+      for child in children:
+        full_children.append(os.path.join(file_name, child))
+      output += html2story_cli(dstk, options, full_children)
+    else:
+      file_data = open(file_name).read()
+      if options['showHeaders']:
+        output += '--File--: '+file_name+"\n"
+      result = dstk.html2story(file_data)
+      output += result['story']
+      output += "\n"
+  return output
+
+
 def print_usage(message=''):
 
   print message
   print "Usage:"
   print "python dstk.py <command> [-a/--api_base 'http://yourhost.com'] [-h/--show_headers] <inputs>"
   print "Where <command> is one of:"
-  print "  ip2coordinates" 
-  print "  street2coordinates" 
-  print "  coordinates2politics" 
-  print "  text2places"
-  print "  file2text"
+  print "  ip2coordinates        (lat/lons for IP addresses)" 
+  print "  street2coordinates    (lat/lons for postal addresses)" 
+  print "  coordinates2politics  (country/state/county/constituency/etc for lat/lon)" 
+  print "  text2places           (lat/lons for places mentioned in unstructured text)"
+  print "  file2text             (PDF/Excel/Word to text, and OCR on PNG/Jpeg/Tiff images)"
+  print "  text2sentences        (parts of the text that look like proper sentences)"
+  print "  html2text             (text version of the HTML document)"
+  print "  html2story            (text version of the HTML with no boilerplate)"  
   print "If no inputs are specified, then standard input will be read and used"
   print "See http://www.geodictapi.com/developerdocs for more details"
-  print "Example:"
+  print "Examples:"
   print "python dstk.py ip2coordinates 67.169.73.113" 
+  print "python dstk.py street2coordinates \"2543 Graystone Place, Simi Valley, CA 93065\"" 
+  print "python dstk.py file2text scanned.jpg" 
 
   exit(-1)
-
-def text2places_cli(dstk, options, inputs):
-
-  text = "\n".join(inputs)
-
-  result = dstk.text2places(text)
-  
-  output = ''
-  if options['showHeaders']:
-    row = ['latitude', 'longitude', 'name', 'type', 'start_index', 'end_index', 'matched_string']
-    output += ','.join(row)+"\n"
-      
-  for info in result:
-
-    row = [info['latitude'], 
-      info['longitude'], 
-      info['name'],
-      info['type'],
-      info['start_index'],
-      info['end_index'],
-      info['matched_string'],
-    ]
-    row_string = '","'.join(row)      
-    output += '"'+row_string+'"'+"\n"
-    
-  return output
 
 if __name__ == '__main__': 
 
@@ -369,6 +493,9 @@ if __name__ == '__main__':
     'coordinates2politics': { 'handler': coordinates2politics_cli },
     'text2places': { 'handler': text2places_cli },
     'file2text': { 'handler': file2text_cli },
+    'text2sentences': { 'handler': text2sentences_cli },
+    'html2text': { 'handler': html2text_cli },
+    'html2story': { 'handler': html2story_cli },
   }
   switches = {
     'api_base': True,
@@ -418,8 +545,11 @@ if __name__ == '__main__':
     print_usage('No command specified')
         
   if len(inputs)<1:
+    options['from_stdin'] = True
     inputs = sys.stdin.readlines()
-    
+  else:
+    options['from_stdin'] = False    
+  
   command_info = commands[command]
   
   dstk = DSTK(options)

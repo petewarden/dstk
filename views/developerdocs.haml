@@ -23,6 +23,15 @@
     &nbsp;&nbsp;&nbsp;&nbsp;
     %a{:href=>"#file2text"} File to Text
     %br
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    %a{:href=>"#text2sentences"} Text to Sentences
+    %br
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    %a{:href=>"#html2text"} HTML to Text
+    %br
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    %a{:href=>"#html2story"} HTML to Story
+    %br
     %a{:href=>"#setup"} Setting up your own server
     %br
     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -243,25 +252,43 @@
       
       The POST form takes the input text as a single raw string in the body of the request. The result is a JSON-encoded object with a "sentences" member containing the matching parts of the input.
 
-    %a{:name=>"text2html"}
+    %a{:name=>"html2text"}
     :markdown
-      #### Text to HTML
+      #### HTML to Text
       
-      This call takes an HTML document, and analyzes it to determine what text it would display when rendered. This includes all headers, ads and other boilerplate. If you want 
+      This call takes an HTML document, and analyzes it to determine what text would be displayed when it is rendered. This includes all headers, ads and other boilerplate. If you want only the main body text (for example the story section in a news article) then you should use [html2story](#html2story) on the HTML. 
       <hr>
-      `curl -d "*Does*not*look_like999A sentence." "http://www.geodictapi.com/text2sentences"`
+      `curl -d "<html><head><title>MyTitle</title></head><body><script type="text/javascript">something();</script><div>Some actual text</div></body></html>" "http://www.geodictapi.com/html2text"`
       
-      `{"sentences":""}`
-
-      `curl -d "But this does, it contains enough words. So does this one, it appears correct. This is long and complete enough too."`
-      
-      `{"sentences":"But this does, it contains enough words. So does this one, it appears correct. This is long and complete enough too. \n"}`
+      `{"text":"Some actual text\n"}`
       
       <hr>
 
       The GET form of this call takes a JSON-encoded array of a single string containing the text to analyze. This string must be less than about 8,000 characters long, or the URL size limit will be exceeded. The Javascript interface automatically switches to POST for long text requests, which means they will not work cross-domain.
       
-      The POST form takes the input text as a single raw string in the body of the request. The result is a JSON-encoded object with a "sentences" member containing the matching parts of the input.
+      The POST form takes the input text as a single raw string in the body of the request. The result is a JSON-encoded object with a "text" member containing the matching parts of the input.
+
+      This API relies on the [Hpricot](http://hpricot.com/) library to parse the HTML.
+
+    %a{:name=>"text2story"}
+    :markdown
+      #### Text to Story
+      
+      This call takes an HTML document, and extracts the sections of text that appear to be the main body of a news story, or more generally the long, descriptive passages in any page. This is especially useful when you want to run an analysis only on the unique content of each page, ignoring all the repeated navigation elements.
+      <hr>
+      `curl -d "`*The contents of a real page*`" "http://www.geodictapi.com/html2story"`
+      
+      `{"story":"`*The story text*`"}`
+      
+      <hr>
+
+      This one is tough to demonstrate in a succinct example, because it requires a non-trivial document before it will accept its contents as a valid story. 
+
+      The GET form of this call takes a JSON-encoded array of a single string containing the text to analyze. This string must be less than about 8,000 characters long, or the URL size limit will be exceeded. The Javascript interface automatically switches to POST for long text requests, which means they will not work cross-domain.
+      
+      The POST form takes the input text as a single raw string in the body of the request. The result is a JSON-encoded object with a "story" member containing the matching parts of the input.
+
+      This API relies on the [Boilerpipe](http://code.google.com/p/boilerpipe/) library to recognize and extract the story text.
       
     %a{:name=>"setup"}
     :markdown
