@@ -652,6 +652,11 @@ def html2text(html)
   result = ''
   elements = web_doc.search("body :not(script) :not(style)")
   elements.each do |e| 
+
+    if !e.name or e.name == 'script' or e.name == 'style'
+      next
+    end
+    
     text = e.inner_text
     if text
       result += text+"\n"
