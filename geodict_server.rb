@@ -660,7 +660,9 @@ def html2text(html)
     
     text = e.inner_text
     if text
-      printf(STDERR, 'e='+e.inspect)
+      printf(STDERR, 'e='+e.inspect+"\n")
+      printf(STDERR, 'text='+text+"\n")
+      printf(STDERR, 'e.name='+e.name+"\n")
       result += text+"\n"
     end
   end
