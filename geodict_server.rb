@@ -658,12 +658,11 @@ def html2text(html)
   elements = web_doc.search("body :not(script) :not(style)")
   elements.each do |e| 
     
-    text = e.inner_text
-    if text
+    if e.content
       printf(STDERR, 'e='+e.inspect+"\n")
       printf(STDERR, 'text='+text+"\n")
-      printf(STDERR, 'e.name='+e.name+"\n")
-      result += text+"\n"
+      printf(STDERR, 'e.content='+e.content+"\n")
+      result += e.content+"\n"
     end
   end
 
