@@ -40,7 +40,8 @@
 function DSTK(options) {
     
   var defaultOptions = {
-    apiBase: 'http://www.geodictapi.com',
+//    apiBase: 'http://www.geodictapi.com',
+    apiBase: 'http://ec2-50-16-9-239.compute-1.amazonaws.com',
     checkVersion: true
   };
     

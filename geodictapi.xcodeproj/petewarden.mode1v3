@@ -276,9 +276,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>19</integer>
-									<integer>18</integer>
-									<integer>13</integer>
+									<integer>8</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -316,14 +314,12 @@
 							<key>Dock</key>
 							<array>
 								<dict>
-									<key>BecomeActive</key>
-									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>welcome.haml</string>
+										<string>geodict_server.rb</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -331,15 +327,14 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>welcome.haml</string>
+												<string>geodict_server.rb</string>
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>597D8BCE13342DEB0042C251</string>
+												<string>597D8BD313342E750042C251</string>
 												<key>history</key>
 												<array>
 													<string>5929E12313244A2300B81D2E</string>
-													<string>5929E12813244AA100B81D2E</string>
 													<string>5929E1BD1324BF6300B81D2E</string>
 													<string>5929E1E11324C83C00B81D2E</string>
 													<string>5929E20313258DC800B81D2E</string>
@@ -357,7 +352,6 @@
 													<string>5929E3D5132C496100B81D2E</string>
 													<string>597D8808132F17990042C251</string>
 													<string>597D8809132F17990042C251</string>
-													<string>597D880A132F17990042C251</string>
 													<string>597D883D132F26870042C251</string>
 													<string>597D885E133062410042C251</string>
 													<string>597D885F133062410042C251</string>
@@ -368,8 +362,9 @@
 													<string>597D8BAF13341B930042C251</string>
 													<string>597D8BBC1334207E0042C251</string>
 													<string>597D8BC1133426560042C251</string>
-													<string>597D8BC2133426560042C251</string>
-													<string>597D8BC3133426560042C251</string>
+													<string>597D8BD013342E750042C251</string>
+													<string>597D8BD113342E750042C251</string>
+													<string>597D8BD213342E750042C251</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -391,6 +386,8 @@
 									<string>666pt</string>
 								</dict>
 								<dict>
+									<key>BecomeActive</key>
+									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
@@ -408,7 +405,7 @@
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>597D8BCF13342DEB0042C251</string>
+												<string>597D8BD413342E750042C251</string>
 												<key>history</key>
 												<array>
 													<string>5929E16113246ABF00B81D2E</string>
