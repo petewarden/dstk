@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Python interface to the Data Science Toolkit Plugin
 # version: 1.30 (2011-03-16)
 #
@@ -359,8 +360,13 @@ def text2places_cli(dstk, options, inputs):
   
   if options['showHeaders']:
     row = ['latitude', 'longitude', 'name', 'type', 'start_index', 'end_index', 'matched_string', 'file_name']
-
+    output += ','.join(row)+"\n"
   options['showHeaders'] = False
+
+  if options['from_stdin']:
+    result = dstk.text2places("\n".join(inputs))
+    output += text2places_format(result, 'stdin')
+    return output
 
   for file_name in inputs:
     if os.path.isdir(file_name):
@@ -372,20 +378,25 @@ def text2places_cli(dstk, options, inputs):
     else:
       file_data = get_file_or_url_contents(file_name)
       result = dstk.text2places(file_data)
-      for info in result:
+      output += text2places_format(result, file_name)
 
-        row = [info['latitude'], 
-          info['longitude'], 
-          info['name'],
-          info['type'],
-          info['start_index'],
-          info['end_index'],
-          info['matched_string'],
-          file_name
-        ]
-        row_string = '","'.join(row)      
-        output += '"'+row_string+'"'+"\n"
+  return output
 
+def text2places_format(result, file_name):
+  output = ''
+  for info in result:
+
+    row = [info['latitude'], 
+      info['longitude'], 
+      info['name'],
+      info['type'],
+      info['start_index'],
+      info['end_index'],
+      info['matched_string'],
+      file_name
+    ]
+    row_string = '","'.join(row)      
+    output += '"'+row_string+'"'+"\n"
   return output
 
 def html2text_cli(dstk, options, inputs):

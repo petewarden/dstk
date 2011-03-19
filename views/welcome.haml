@@ -1,8 +1,7 @@
 .clearer{:style=>"clear:both"}
 
   .subtitle{:style=>"margin-top:-20px; font-size: 125%;"}
-    %a{:href=>"http://github.com/petewarden/geodictapi"}Open-source tools
-    for data.
+    Truly open tools for data.
 
   %div{:style=>"margin-top:20px; font-size: 125%;"}
     %h3 Steal this server!
@@ -21,13 +20,13 @@
     %br
   %div{:style=>"margin-top:20px; font-size: 125%;"}
     %h3 Street Address to Coordinates
+    API: 
+    %a{:href=>"developerdocs#street2coordinates"} /street2coordinates
+    %br
     Street Address to Location calculates the latitude/longitude coordinates for a postal address. 
     %br
     Currently restricted to the US.
     %br
-    To call it, just make a request to
-    %a{:href=>"/street2coordinates/2543+Graystone+Place%2c+Simi+Valley%2c+CA+93065"} /street2coordinates
-    passing in a single address, or a JSON array of many addresses.
 
   .tryip2coordinates{:style=>"margin-top:20px; font-size: 125%;"}
     Try it for yourself. Copy and paste some addresses into the box below to see what locations it finds.
@@ -40,12 +39,12 @@
 
   %div{:style=>"margin-top:20px; font-size: 125%;"}
     %h3 File to Text
+    API: 
+    %a{:href=>"developerdocs#file2text"} /file2text
+    %br
     Converts PDFs, Word Documents, Excel Spreadsheets to text.
     %br
-    Also recovers text from JPEG, PNG or TIFF images of scanned documents.
-    %br
-    To call it, POST a request to /file2text passing in your input file and type in the normal form for 
-    "multipart/form-data" forms.
+    Recovers text from JPEG, PNG or TIFF images of scanned documents.
 
   .tryfile2text{:style=>"margin-top:20px; font-size: 125%;"}
     Try it for yourself. Upload a file to see what text it finds.
@@ -53,20 +52,19 @@
   %form{:target=>"_new", :action=>"/file2text", :method=>"post", :enctype=>"multipart/form-data", :display=>"inline"}
     %input{:type=>"file", :name=>"inputfile"}
     %br
-    %input{:type=>"submit", :value=>"Extract Text"}
+    %input.button{:type=>"submit", :value=>"Extract Text", :style=>"font-size:125%; height: 35px;"}
 
   %div{:style=>"margin-top:20px; font-size: 125%;"}
     %h3 Coordinates to Political Areas
-    Returns which countries, regions, states, counties, constituencies and neighborhoods a point is inside.
+    API: 
+    %a{:href=>"developerdocs#coordinates2politics"} /coordinates2politics
     %br
-    To call it, just make a request to
-    %a{:href=>"/coordinates2politics/37.769456%2c-122.429128"} /coordinates2politics
-    passing in a pair of coordinates, or a JSON array of many coordinates.
-
+    Returns the country, region, state, county, constituencies and neighborhood a point is inside.
+    %br
   .trycoordinates2politics{:style=>"margin-top:20px; font-size: 125%;"}
     Try it for yourself. Copy and paste some coordinates into the box below to see what it finds.
 
-  %textarea#coordinates2politicstext{:style=>"width: 800px; margin-top: 10px;"}
+  %textarea#coordinates2politicstext{:style=>"width: 800px; margin-top: 10px;"} 37.769456,-122.429128
 
   #uploadcoordinates2politicstext.button{:style=>"width:150px; font-size: 125%;"} Find
   
@@ -74,6 +72,9 @@
 
   %div{:style=>"margin-top:20px; font-size: 125%;"}
     %h3 Geodict
+    API: 
+    %a{:href=>"developerdocs#geodict"} /v1/document
+    %br
     Geodict pulls country, city and region names from unstructured English text, and returns their coordinates.
     %br
     It emulates the interface to 
@@ -91,16 +92,16 @@
 
   %div{:style=>"margin-top:20px; font-size: 125%;"}
     %h3 IP Address to Coordinates
+    API: 
+    %a{:href=>"developerdocs#ip2coordinates"} /ip2coordinates
+    %br
     IP Address to Location calculates country, state, city and latitude/longitude coordinates for IP addresses.
     %br
-    To call it, just make a request to
-    %a{:href=>"/ip2coordinates/67.169.73.113"} /ip2coordinates
-    passing in a single address, or a JSON array or comma-separated list of many IPs.
-
+    
   .tryip2coordinates{:style=>"margin-top:20px; font-size: 125%;"}
     Try it for yourself. Copy and paste some IP addresses into the box below to see what locations it finds.
 
-  %textarea#ip2coordinatestext{:style=>"width: 800px; margin-top: 10px;"}
+  %textarea#ip2coordinatestext{:style=>"width: 800px; margin-top: 10px;"} 67.169.73.113
 
   #uploadip2coordinates.button{:style=>"width:150px; font-size: 125%;"} Locate IPs
   
@@ -108,10 +109,13 @@
 
   %div{:style=>"margin-top:20px; font-size: 125%;"}
     %h3 Text to Sentences
+    API: 
+    %a{:href=>"developerdocs#text2sentences"} /text2sentences
+    %br
     Removes any parts of the text that don't look like boilerplate instead of real sentences.
     %br
   .try{:style=>"margin-top:20px; font-size: 125%;"}
-    Try it for yourself. Copy and paste a large chunk of text into the box below to see what sentences it removes.
+    Try it for yourself. Copy and paste a large chunk of text into the box below to see what sentences it identifies.
 
   %textarea#text2sentencestext{:style=>"width: 800px; margin-top: 10px;"}
 
@@ -121,6 +125,9 @@
 
   %div{:style=>"margin-top:20px; font-size: 125%;"}
     %h3 HTML to Text
+    API: 
+    %a{:href=>"developerdocs#html2text"} /html2text
+    %br
     Returns the full text that would actually be displayed in the browser when an HTML document was rendered.
     %br
   .try{:style=>"margin-top:20px; font-size: 125%;"}
@@ -134,6 +141,9 @@
 
   %div{:style=>"margin-top:20px; font-size: 125%;"}
     %h3 HTML to Story
+    API: 
+    %a{:href=>"developerdocs#html2story"} /html2story
+    %br
     Takes an HTML document representing a news article or similar page, and extracts just the story text.
     %br
   .try{:style=>"margin-top:20px; font-size: 125%;"}

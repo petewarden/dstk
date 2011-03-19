@@ -1,0 +1,37 @@
+#!/bin/bash
+#
+# This script installs shortcut commands for the Data Science Toolkit scripts.
+# You can see full documentation at http://www.datasciencetoolkit.com/developerdocs
+
+pushd `dirname $0` > /dev/null
+CURRENT_DIR=`pwd`
+popd > /dev/null
+
+INSTALL_DIR=/usr/bin
+
+rm -f ${INSTALL_DIR}/dstk.py
+ln -s ${CURRENT_DIR}'/dstk.py' ${INSTALL_DIR}/
+
+rm -f ${INSTALL_DIR}/ip2coordinates
+ln -s ${CURRENT_DIR}'/ip2coordinates' ${INSTALL_DIR}/
+
+rm -f ${INSTALL_DIR}/street2coordinates
+ln -s ${CURRENT_DIR}'/street2coordinates' ${INSTALL_DIR}/
+
+rm -f ${INSTALL_DIR}/coordinates2politics
+ln -s ${CURRENT_DIR}'/coordinates2politics' ${INSTALL_DIR}/
+
+rm -f ${INSTALL_DIR}/text2places
+ln -s ${CURRENT_DIR}'/text2places' ${INSTALL_DIR}/
+
+rm -f ${INSTALL_DIR}/file2text
+ln -s ${CURRENT_DIR}'/file2text' ${INSTALL_DIR}/
+
+rm -f ${INSTALL_DIR}/text2sentences
+ln -s ${CURRENT_DIR}'/text2sentences' ${INSTALL_DIR}/
+
+rm -f ${INSTALL_DIR}/html2text
+ln -s ${CURRENT_DIR}'/html2text' ${INSTALL_DIR}/
+
+rm -f ${INSTALL_DIR}/html2story
+ln -s ${CURRENT_DIR}'/html2story' ${INSTALL_DIR}/
