@@ -798,16 +798,21 @@ end
 # Runs the Boilerpipe framework to strip boilerplate content from HTML
 def boilerpipe(input_html)
 
-  tempfile = Tempfile.new('boilerpipe')
-  tempfile << input_html
-  tempfile_path = tempfile.path
+  begin
 
-  bp = GeodictConfig::BOILERPIPE_FOLDER
-  output = `java -cp #{bp}dist/boilerpipe-1.1-dev.jar:#{bp}lib/xerces-2.9.1.jar:#{bp}lib/nekohtml-1.9.13.jar:#{bp}src/ BoilerpipeCLI < #{tempfile_path}`
+    tempfile = Tempfile.new('boilerpipe')
+    tempfile << input_html
+    tempfile_path = tempfile.path
 
-  exit_code = $?.to_i
-  if exit_code != 0
-    fatal_error('Error running Boilerpipe')
+    bp = GeodictConfig::BOILERPIPE_FOLDER
+    output = `java -cp #{bp}dist/boilerpipe-1.1-dev.jar:#{bp}lib/xerces-2.9.1.jar:#{bp}lib/nekohtml-1.9.13.jar:#{bp}src/ BoilerpipeCLI < #{tempfile_path}`
+
+    exit_code = $?.to_i
+    if exit_code != 0
+      fatal_error('Error running Boilerpipe')
+    end
+  rescue
+    fatal_error('Exception running Boilerpipe')  
   end
 
   output

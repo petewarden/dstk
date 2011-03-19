@@ -391,7 +391,7 @@ def text2places_cli(dstk, options, inputs):
 def html2text_cli(dstk, options, inputs):
 
   if options['from_stdin']:
-    result = dstk.html2text(inputs.join("\n"))
+    result = dstk.html2text("\n".join(inputs))
     return result['text']
 
   output = ''
@@ -415,7 +415,7 @@ def html2text_cli(dstk, options, inputs):
 def text2sentences_cli(dstk, options, inputs):
 
   if options['from_stdin']:
-    result = dstk.text2sentences(inputs.join("\n"))
+    result = dstk.text2sentences("\n".join(inputs))
     return result['sentences']
 
   output = ''
@@ -439,7 +439,7 @@ def text2sentences_cli(dstk, options, inputs):
 def html2story_cli(dstk, options, inputs):
 
   if options['from_stdin']:
-    result = dstk.html2story(inputs.join("\n"))
+    result = dstk.html2story("\n".join(inputs))
     return result['story']
 
   output = ''
@@ -563,4 +563,4 @@ if __name__ == '__main__':
   
   result = command_info['handler'](dstk, options, inputs)
   
-  print result
+  print result.encode("utf-8")
