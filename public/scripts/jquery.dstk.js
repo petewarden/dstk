@@ -136,49 +136,109 @@ DSTK.prototype.coordinates2politics = function(coordinates, callback) {
 DSTK.prototype.text2places = function(text, callback) {
 
   var apiUrl = this.apiBase+'/text2places';
-  apiUrl += '/'+encodeURIComponent($.toJSON([text]));
+  var apiSuffix = encodeURIComponent($.toJSON([text]));
 
-  $.ajax(apiUrl, {
-    success: callback,
-    dataType: 'jsonp',
-    crossDomain: true
-  });
+  if (apiSuffix.length<8000) {
+    apiUrl += '/'+apiSuffix;
+
+    $.ajax(apiUrl, {
+      success: callback,
+      dataType: 'jsonp',
+      crossDomain: true
+    });
+  } else {
+
+    $.ajax({
+      url: apiUrl,
+      data: text,
+      success: callback,
+      dataType: 'json',
+      type: 'POST',
+      crossDomain: true
+    });
+  
+  }
 };
 
 DSTK.prototype.text2sentences = function(text, callback) {
 
   var apiUrl = this.apiBase+'/text2sentences';
-  apiUrl += '/'+encodeURIComponent($.toJSON([text]));
+  var apiSuffix = encodeURIComponent($.toJSON([text]));
 
-  $.ajax(apiUrl, {
-    success: callback,
-    dataType: 'jsonp',
-    crossDomain: true
-  });
+  if (apiSuffix.length<8000) {
+    apiUrl += '/'+apiSuffix;
+
+    $.ajax(apiUrl, {
+      success: callback,
+      dataType: 'jsonp',
+      crossDomain: true
+    });
+  } else {
+
+    $.ajax({
+      url: apiUrl,
+      data: text,
+      success: callback,
+      dataType: 'json',
+      type: 'POST',
+      crossDomain: true
+    });
+  
+  }
 };
 
 DSTK.prototype.html2text = function(html, callback) {
 
   var apiUrl = this.apiBase+'/html2text';
-  apiUrl += '/'+encodeURIComponent($.toJSON([html]));
+  var apiSuffix = encodeURIComponent($.toJSON([html]));
 
-  $.ajax(apiUrl, {
-    success: callback,
-    dataType: 'jsonp',
-    crossDomain: true
-  });
+  if (apiSuffix.length<8000) {
+    apiUrl += '/'+apiSuffix;
+
+    $.ajax(apiUrl, {
+      success: callback,
+      dataType: 'jsonp',
+      crossDomain: true
+    });
+  } else {
+
+    $.ajax({
+      url: apiUrl,
+      data: html,
+      success: callback,
+      dataType: 'json',
+      type: 'POST',
+      crossDomain: true
+    });
+  
+  }
 };
 
 DSTK.prototype.html2story = function(html, callback) {
 
   var apiUrl = this.apiBase+'/html2story';
-  apiUrl += '/'+encodeURIComponent($.toJSON([html]));
+  var apiSuffix = encodeURIComponent($.toJSON([html]));
 
-  $.ajax(apiUrl, {
-    success: callback,
-    dataType: 'jsonp',
-    crossDomain: true
-  });
+  if (apiSuffix.length<8000) {
+    apiUrl += '/'+apiSuffix;
+
+    $.ajax(apiUrl, {
+      success: callback,
+      dataType: 'jsonp',
+      crossDomain: true
+    });
+  } else {
+
+    $.ajax({
+      url: apiUrl,
+      data: html,
+      success: callback,
+      dataType: 'json',
+      type: 'POST',
+      crossDomain: true
+    });
+  
+  }
 };
 
 
