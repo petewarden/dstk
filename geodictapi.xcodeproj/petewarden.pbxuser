@@ -1129,6 +1129,8 @@
 			597D8BE7133435B20042C251 /* PBXTextBookmark */ = 597D8BE7133435B20042C251 /* PBXTextBookmark */;
 			597D8BE8133436060042C251 /* PBXTextBookmark */ = 597D8BE8133436060042C251 /* PBXTextBookmark */;
 			597D8BE9133436060042C251 /* PBXTextBookmark */ = 597D8BE9133436060042C251 /* PBXTextBookmark */;
+			597D8BEA1334363D0042C251 /* PBXTextBookmark */ = 597D8BEA1334363D0042C251 /* PBXTextBookmark */;
+			597D8BEB1334363D0042C251 /* PBXTextBookmark */ = 597D8BEB1334363D0042C251 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 5929E10413243EA700B81D2E /* Source Control */;
 		userBuildSettings = {
@@ -1200,8 +1202,8 @@
 	};
 	5929E11A13243FB500B81D2E /* geodict_server.rb */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {950, 16710}}";
-			sepNavSelRange = "{19918, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {950, 16695}}";
+			sepNavSelRange = "{19998, 0}";
 			sepNavVisRange = "{19016, 1192}";
 			sepNavWindowFrame = "{{15, 493}, {1279, 680}}";
 		};
@@ -12416,7 +12418,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 656";
 		rLen = 0;
-		rLoc = 19978;
+		rLoc = 19945;
 		rType = 0;
 		vrLen = 1209;
 		vrLoc = 19016;
@@ -12436,12 +12438,32 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 656";
 		rLen = 0;
-		rLoc = 19918;
+		rLoc = 19887;
 		rType = 0;
 		vrLen = 1192;
 		vrLoc = 19016;
 	};
 	597D8BE9133436060042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
+		name = "welcome.haml: 457";
+		rLen = 0;
+		rLoc = 14923;
+		rType = 0;
+		vrLen = 1473;
+		vrLoc = 13524;
+	};
+	597D8BEA1334363D0042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
+		name = "geodict_server.rb: 661";
+		rLen = 0;
+		rLoc = 19998;
+		rType = 0;
+		vrLen = 1192;
+		vrLoc = 19016;
+	};
+	597D8BEB1334363D0042C251 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 457";
