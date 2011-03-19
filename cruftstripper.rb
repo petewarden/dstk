@@ -23,7 +23,7 @@
 #***********************************************************************************
 
 def debug_log(message)
-  printf(STDERR, message+"\n")
+#  printf(STDERR, message+"\n")
 end
 
 def strip_nonsentences(input, input_settings = { })

@@ -26,6 +26,7 @@ except ImportError:
 import os
 import httplib
 import mimetypes
+import re
 
 
 # This is the main interface class. You can see an example of it in use
@@ -345,7 +346,7 @@ def file2text_cli(dstk, options, inputs):
         full_children.append(os.path.join(file_name, child))
       output += file2text_cli(dstk, options, full_children)
     else:
-      file_data = open(file_name).read()
+      file_data = get_file_or_url_contents(file_name)
       if options['showHeaders']:
         output += '--File--: '+file_name+"\n"
       output += dstk.file2text(file_name, file_data)
@@ -369,7 +370,7 @@ def text2places_cli(dstk, options, inputs):
         full_children.append(os.path.join(file_name, child))
       output += text2places_cli(dstk, options, full_children)
     else:
-      file_data = open(file_name).read()
+      file_data = get_file_or_url_contents(file_name)
       result = dstk.text2places(file_data)
       for info in result:
 
@@ -403,7 +404,7 @@ def html2text_cli(dstk, options, inputs):
         full_children.append(os.path.join(file_name, child))
       output += html2text_cli(dstk, options, full_children)
     else:
-      file_data = open(file_name).read()
+      file_data = get_file_or_url_contents(file_name)
       if options['showHeaders']:
         output += '--File--: '+file_name+"\n"
       result = dstk.html2text(file_data)
@@ -427,7 +428,7 @@ def text2sentences_cli(dstk, options, inputs):
         full_children.append(os.path.join(file_name, child))
       output += text2sentences_cli(dstk, options, full_children)
     else:
-      file_data = open(file_name).read()
+      file_data = get_file_or_url_contents(file_name)
       if options['showHeaders']:
         output += '--File--: '+file_name+"\n"
       result = dstk.text2sentences(file_data)
@@ -451,7 +452,7 @@ def html2story_cli(dstk, options, inputs):
         full_children.append(os.path.join(file_name, child))
       output += html2story_cli(dstk, options, full_children)
     else:
-      file_data = open(file_name).read()
+      file_data = get_file_or_url_contents(file_name)
       if options['showHeaders']:
         output += '--File--: '+file_name+"\n"
       result = dstk.html2story(file_data)
@@ -459,6 +460,12 @@ def html2story_cli(dstk, options, inputs):
       output += "\n"
   return output
 
+def get_file_or_url_contents(file_name):
+  if re.match(r'http://', file_name):
+    file_data = urllib.urlopen(file_name).read()
+  else:
+    file_data = open(file_name).read()
+  return file_data
 
 def print_usage(message=''):
 
