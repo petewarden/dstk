@@ -428,7 +428,7 @@
       }
       
       dstk.text2sentences(text, function(result) {
-        var html = result['sentences'].replace('\n', '<br/>');
+        var html = result['sentences'].replace(/\n/g, '<br/>');
         $('#text2sentencesresults').html(html);
       });
     });
@@ -441,7 +441,7 @@
       }
       
       dstk.html2text(text, function(result) {
-        var html = result['text'].replace('\n', '<br/>');
+        var html = result['text'].replace(/\n/g, '<br/>');
         $('#html2textresults').html(html);
       });
     });
@@ -454,7 +454,7 @@
       }
       
       dstk.html2story(text, function(result) {
-        var html = result['story'].replace('\n', '<br/>');
+        var html = result['story'].replace(/\n/g, '<br/>');
         $('#html2storyresults').html(html);
       });
     });

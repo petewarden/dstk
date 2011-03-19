@@ -650,7 +650,7 @@ def html2text(html)
   web_doc.search("//comment()").remove
 
   result = ''
-  elements = web_doc.search("body :not(script)")
+  elements = web_doc.search("body :not(script) :not(style)")
   elements.each do |e| 
     text = e.inner_text
     if text
