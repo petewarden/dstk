@@ -2,8 +2,8 @@
 
   .subtitle{:style=>"margin-top:-20px; font-size: 125%;"}
     An 
-    %a{:href=>"http://github.com/petewarden/geodictapi"}open-source service
-    for location information.
+    %a{:href=>"http://github.com/petewarden/geodictapi"}open-source tools
+    for data.
 
   %div{:style=>"margin-top:20px; font-size: 125%;"}
     %h3 Steal this server!
@@ -38,6 +38,23 @@
   #uploadstreet2coordinatestext.button{:style=>"width:150px; font-size: 125%;"} Locate Addresses
   
   #street2coordinatesresults{:style=>"margin-top:30px;"}  
+
+  %div{:style=>"margin-top:20px; font-size: 125%;"}
+    %h3 File to Text
+    Converts PDFs, Word Documents, Excel Spreadsheets to text.
+    %br
+    Also recovers text from JPEG, PNG or TIFF images of scanned documents.
+    %br
+    To call it, POST a request to /file2text passing in your input file and type in the normal form for 
+    "multipart/form-data" forms.
+
+  .tryfile2text{:style=>"margin-top:20px; font-size: 125%;"}
+    Try it for yourself. Upload a file to see what text it finds.
+
+  %form{:target=>"_new", :action=>"/file2text", :method=>"post", :enctype=>"multipart/form-data", :display=>"inline"}
+    %input{:type=>"file", :name=>"inputfile"}
+    %br
+    %input{:type=>"submit", :value=>"Extract Text"}
 
   %div{:style=>"margin-top:20px; font-size: 125%;"}
     %h3 Coordinates to Political Areas
@@ -86,26 +103,49 @@
 
   %textarea#ip2coordinatestext{:style=>"width: 800px; margin-top: 10px;"}
 
-  #uploadip2coordinatestext.button{:style=>"width:150px; font-size: 125%;"} Locate IPs
+  #uploadip2coordinates.button{:style=>"width:150px; font-size: 125%;"} Locate IPs
   
   #ip2coordinatesresults{:style=>"margin-top:30px;"}
 
   %div{:style=>"margin-top:20px; font-size: 125%;"}
-    %h3 File to Text
-    Converts PDFs, Word Documents, Excel Spreadsheets to text.
+    %h3 Text to Sentences
+    Removes any parts of the text that don't look like boilerplate instead of real sentences.
     %br
-    Also tries to recover text from images of scanned documents.
-    %br
-    To call it, POST a request to /file2text passing in your input file and type in the normal form for 
-    "multipart/form-data" forms.
+  .try{:style=>"margin-top:20px; font-size: 125%;"}
+    Try it for yourself. Copy and paste a large chunk of text into the box below to see what sentences it removes.
 
-  .tryfile2text{:style=>"margin-top:20px; font-size: 125%;"}
-    Try it for yourself. Upload a file to see what text it finds.
+  %textarea#text2sentencestext{:style=>"width: 800px; margin-top: 10px;"}
 
-  %form{:target=>"_new", :action=>"/file2text", :method=>"post", :enctype=>"multipart/form-data", :display=>"inline"}
-    %input{:type=>"file", :name=>"inputfile"}
+  #uploadtext2sentencestext.button{:style=>"width:150px; font-size: 125%;"} Get Sentences
+  
+  #text2sentencesresults{:style=>"margin-top:30px;"}
+
+  %div{:style=>"margin-top:20px; font-size: 125%;"}
+    %h3 HTML to Text
+    Returns the text that would actually be displayed in the browser when an HTML document was rendered.
     %br
-    %input{:type=>"submit", :value=>"Extract Text"}
+  .try{:style=>"margin-top:20px; font-size: 125%;"}
+    Try it for yourself. Copy and paste your HTML into the box below to convert it into plain text.
+
+  %textarea#html2texttext{:style=>"width: 800px; margin-top: 10px;"}
+
+  #uploadhtml2text.button{:style=>"width:150px; font-size: 125%;"} Get Text
+  
+  #html2textresults{:style=>"margin-top:30px;"}
+
+  %div{:style=>"margin-top:20px; font-size: 125%;"}
+    %h3 HTML to Story
+    Takes an HTML document representing a news article or similar page, and extracts the story text.
+    %br
+  .try{:style=>"margin-top:20px; font-size: 125%;"}
+    Try it for yourself. Copy and paste your HTML into the box below to grab the story text.
+
+  %textarea#html2storytext{:style=>"width: 800px; margin-top: 10px;"}
+
+  #uploadhtml2story.button{:style=>"width:150px; font-size: 125%;"} Extract Story
+  
+  #html2storyresults{:style=>"margin-top:30px;"}
+
 
 %script{:src=>"/scripts/jquery.exptextarea.js", :type=>"text/javascript"}
 :javascript
@@ -114,6 +154,9 @@
     $('#ip2coordinatestext').expandingTextArea()
     $('#street2coordinatestext').expandingTextArea()
     $('#coordinates2politicstext').expandingTextArea()
+    $('#text2sentencestext').expandingTextArea()
+    $('#html2texttext').expandingTextArea()
+    $('#html2storytext').expandingTextArea()
 
     // Switch when testing locally
     var dstk = $.DSTK();
@@ -375,6 +418,42 @@
           $('#coordinates2politicsresults').append($(html));
         }
       })
+    });
+    
+    $('#uploadtext2sentences').click(function() {
+      var text = $('#text2sentencestext').val();
+      if (text.length<1) {
+        $('#text2sentencesresults').html("No text found in input box.");
+        return;
+      }
+      
+      dstk.text2sentences(text, function(result) {
+        $('#text2sentencesresults').text(result['sentences']);
+      });
+    });
+
+    $('#uploadhtml2text').click(function() {
+      var text = $('#html2texttext').val();
+      if (text.length<1) {
+        $('#html2textresults').html("No text found in input box.");
+        return;
+      }
+      
+      dstk.html2text(text, function(result) {
+        $('#html2textresults').text(result['text']);
+      });
+    });
+
+    $('#uploadhtml2story').click(function() {
+      var text = $('#html2storytext').val();
+      if (text.length<1) {
+        $('#html2storyresults').html("No text found in input box.");
+        return;
+      }
+      
+      dstk.html2story(text, function(result) {
+        $('#html2storyresults').text(result['story']);
+      });
     });
 
   });

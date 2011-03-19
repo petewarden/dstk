@@ -144,6 +144,41 @@ DSTK.prototype.text2places = function(text, callback) {
   });
 };
 
+DSTK.prototype.text2sentences = function(text, callback) {
+
+  var apiUrl = this.apiBase+'/text2sentences';
+  apiUrl += '/'+encodeURIComponent($.toJSON([text]));
+
+  $.ajax(apiUrl, {
+    success: callback,
+    dataType: 'jsonp',
+    crossDomain: true
+  });
+};
+
+DSTK.prototype.html2text = function(html, callback) {
+
+  var apiUrl = this.apiBase+'/html2text';
+  apiUrl += '/'+encodeURIComponent($.toJSON([html]));
+
+  $.ajax(apiUrl, {
+    success: callback,
+    dataType: 'jsonp',
+    crossDomain: true
+  });
+};
+
+DSTK.prototype.html2story = function(html, callback) {
+
+  var apiUrl = this.apiBase+'/html2story';
+  apiUrl += '/'+encodeURIComponent($.toJSON([html]));
+
+  $.ajax(apiUrl, {
+    success: callback,
+    dataType: 'jsonp',
+    crossDomain: true
+  });
+};
 
 
 /*

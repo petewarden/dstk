@@ -47,5 +47,8 @@ module GeodictConfig
   
   # The version of the API this code implements
   API_VERSION = 130
+  
+  # The home of the Boilerplate framework
+  BOILERPIPE_FOLDER = '../boilerpipe/boilerpipe-core/'
 
 end

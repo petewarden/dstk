@@ -25,6 +25,7 @@ require 'postgres'
 require 'active_support/secure_random'
 require 'hpricot'
 require 'htmlentities'
+require 'tempfile'
 
 # A horrible hack to work around my problems getting the Geocoder to install as a gem
 $LOAD_PATH.unshift '../geocoder/lib'
@@ -34,6 +35,7 @@ require 'geocoder/us/database'
 cwd = File.expand_path(File.dirname(__FILE__))
 require File.join(cwd, 'geodict_lib')
 require File.join(cwd, 'geodict_config')
+require File.join(cwd, 'cruftstripper')
 
 enable :run
 
@@ -782,6 +784,23 @@ def excelxmlfile2text(filename)
   output
 end
 
+# Runs the Boilerpipe framework to strip boilerplate content from HTML
+def boilerpipe(input_html)
+
+  tempfile = Tempfile.new('boilerpipe')
+  tempfile << input_html
+  tempfile_path = tempfile.path
+
+  bp = GeodictConfig::BOILERPIPE_FOLDER
+  output = `java -cp #{bp}dist/boilerpipe-1.1-dev.jar:#{bp}lib/xerces-2.9.1.jar:#{bp}lib/nekohtml-1.9.13.jar:#{bp}src/ BoilerpipeCLI < #{tempfile_path}`
+
+  exit_code = $?.to_i
+  if exit_code != 0
+    fatal_error('Error running Boilerpipe')
+  end
+
+  output
+end
 
 ########################################
 # Methods to directly serve up content #
@@ -790,7 +809,7 @@ end
 # The main page.
 get '/' do
   
-  @headline = 'Welcome to the Geodict API Server'
+  @headline = 'Welcome to the Data Science Toolkit'
   
   haml :welcome
 
@@ -1033,4 +1052,64 @@ post '/file2text' do
   content_type('text/plain')
 
   text
+end
+
+# Returns the portions of the text that look like sentences
+post '/text2sentences' do
+
+  # Pull in the raw data in the body of the request
+  text = request.env['rack.input'].read
+
+  output_text = strip_nonsentences(text)
+  
+  make_json({:sentences => output_text})
+end
+
+get '/text2sentences/*' do
+  callback = params[:callback]
+  text = JSON.parse(params['splat'][0])[0]
+
+  output_text = strip_nonsentences(text)
+  
+  make_json({:sentences => output_text}, callback)
+end
+
+# Extracts the displayed text from the input HTML
+post '/html2text' do
+
+  # Pull in the raw data in the body of the request
+  text = request.env['rack.input'].read
+
+  output_text = html2text(text)
+  
+  make_json({:text => output_text})
+end
+
+get '/html2text/*' do
+  callback = params[:callback]
+  text = JSON.parse(params['splat'][0])[0]
+
+  output_text = html2text(text)
+  
+  make_json({:text => output_text}, callback)
+end
+
+# Extracts the main story text from the input HTML
+post '/html2story' do
+
+  # Pull in the raw data in the body of the request
+  text = request.env['rack.input'].read
+
+  output_text = boilerpipe(text)
+  
+  make_json({:story => output_text})
+end
+
+get '/html2story/*' do
+  callback = params[:callback]
+  text = JSON.parse(params['splat'][0])[0]
+
+  output_text = boilerpipe(text)
+  
+  make_json({:story => output_text}, callback)
 end

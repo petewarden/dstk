@@ -141,4 +141,12 @@ ec2-run-instances ami-f639cb9f -t m1.large -z us-east-1d
 )
 
 sudo aptitude update
-sudo aptitude install -y ocropus pdftohtml catdoc unzip
+sudo aptitude install -y ocropus pdftohtml catdoc unzip ant openjdk-6-jdk
+
+cd ~/sources
+git clone git://github.com/petewarden/boilerpipe
+cd boilerpipe/boilerpipe-core/
+ant
+cd src
+javac -cp ../dist/boilerpipe-1.1-dev.jar boilerpipe.java
+
