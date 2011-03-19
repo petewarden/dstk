@@ -656,8 +656,7 @@ def html2text(html)
   web_doc.search("head").remove
 
   result = ''
-  elements = web_doc.traverse_text
-  elements.each do |e| 
+  web_doc.traverse_text do |e| 
     
     if e.content
       printf(STDERR, 'e='+e.inspect+"\n")
