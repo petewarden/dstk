@@ -222,6 +222,46 @@
       <hr>
 
       This API relies on the [Ocropus project](http://code.google.com/p/ocropus/) for handling images, and [catdoc](http://wagner.pp.ru/~vitus/software/catdoc/) for pre-XML Word and Excel documents.
+
+    %a{:name=>"text2sentences"}
+    :markdown
+      #### Text to Sentences
+      
+      This call takes some text, and returns any fragments of it that look like proper sentences organized into paragraphs. It's most useful for taking documents that may be full of uninteresting boilerplate like headings and captions, and returning only the descriptive passages for further analysis.
+      <hr>
+      `curl -d "*Does*not*look_like999A sentence." "http://www.geodictapi.com/text2sentences"`
+      
+      `{"sentences":""}`
+
+      `curl -d "But this does, it contains enough words. So does this one, it appears correct. This is long and complete enough too." "http://www.geodictapi.com/text2sentences"`
+      
+      `{"sentences":"But this does, it contains enough words. So does this one, it appears correct. This is long and complete enough too. \n"}`
+      
+      <hr>
+
+      The GET form of this call takes a JSON-encoded array of a single string containing the text to analyze. This string must be less than about 8,000 characters long, or the URL size limit will be exceeded. The Javascript interface automatically switches to POST for long text requests, which means they will not work cross-domain.
+      
+      The POST form takes the input text as a single raw string in the body of the request. The result is a JSON-encoded object with a "sentences" member containing the matching parts of the input.
+
+    %a{:name=>"text2html"}
+    :markdown
+      #### Text to HTML
+      
+      This call takes an HTML document, and analyzes it to determine what text it would display when rendered. This includes all headers, ads and other boilerplate. If you want 
+      <hr>
+      `curl -d "*Does*not*look_like999A sentence." "http://www.geodictapi.com/text2sentences"`
+      
+      `{"sentences":""}`
+
+      `curl -d "But this does, it contains enough words. So does this one, it appears correct. This is long and complete enough too."`
+      
+      `{"sentences":"But this does, it contains enough words. So does this one, it appears correct. This is long and complete enough too. \n"}`
+      
+      <hr>
+
+      The GET form of this call takes a JSON-encoded array of a single string containing the text to analyze. This string must be less than about 8,000 characters long, or the URL size limit will be exceeded. The Javascript interface automatically switches to POST for long text requests, which means they will not work cross-domain.
+      
+      The POST form takes the input text as a single raw string in the body of the request. The result is a JSON-encoded object with a "sentences" member containing the matching parts of the input.
       
     %a{:name=>"setup"}
     :markdown

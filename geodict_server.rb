@@ -660,6 +660,7 @@ def html2text(html)
     
     text = e.inner_text
     if text
+      printf(STDERR, 'e='+e.inspect)
       result += text+"\n"
     end
   end

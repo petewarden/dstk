@@ -1154,6 +1154,16 @@
 			597D8C00133439D80042C251 /* PBXTextBookmark */ = 597D8C00133439D80042C251 /* PBXTextBookmark */;
 			597D8C01133439F60042C251 /* PBXTextBookmark */ = 597D8C01133439F60042C251 /* PBXTextBookmark */;
 			597D8C02133439F60042C251 /* PBXTextBookmark */ = 597D8C02133439F60042C251 /* PBXTextBookmark */;
+			597D8C0313343A5F0042C251 /* PBXTextBookmark */ = 597D8C0313343A5F0042C251 /* PBXTextBookmark */;
+			597D8C0413343A5F0042C251 /* PBXTextBookmark */ = 597D8C0413343A5F0042C251 /* PBXTextBookmark */;
+			597D8C0513343AC10042C251 /* PBXTextBookmark */ = 597D8C0513343AC10042C251 /* PBXTextBookmark */;
+			597D8C0613343AC10042C251 /* PBXTextBookmark */ = 597D8C0613343AC10042C251 /* PBXTextBookmark */;
+			597D8C0713343B140042C251 /* PBXTextBookmark */ = 597D8C0713343B140042C251 /* PBXTextBookmark */;
+			597D8C0813343B140042C251 /* PBXTextBookmark */ = 597D8C0813343B140042C251 /* PBXTextBookmark */;
+			597D8C0913343B140042C251 /* PBXTextBookmark */ = 597D8C0913343B140042C251 /* PBXTextBookmark */;
+			597D8C0A13343B140042C251 /* PBXTextBookmark */ = 597D8C0A13343B140042C251 /* PBXTextBookmark */;
+			597D8C0B13345A970042C251 /* PBXTextBookmark */ = 597D8C0B13345A970042C251 /* PBXTextBookmark */;
+			597D8C0C13345A970042C251 /* PBXTextBookmark */ = 597D8C0C13345A970042C251 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 5929E10413243EA700B81D2E /* Source Control */;
 		userBuildSettings = {
@@ -1226,8 +1236,8 @@
 	5929E11A13243FB500B81D2E /* geodict_server.rb */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {950, 16725}}";
-			sepNavSelRange = "{20280, 0}";
-			sepNavVisRange = "{19016, 1283}";
+			sepNavSelRange = "{20134, 0}";
+			sepNavVisRange = "{19016, 1320}";
 			sepNavWindowFrame = "{{15, 493}, {1279, 680}}";
 		};
 	};
@@ -1353,7 +1363,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 126";
 		rLen = 0;
-		rLoc = 31242;
+		rLoc = 31279;
 		rType = 0;
 		vrLen = 2022;
 		vrLoc = 1838;
@@ -3002,9 +3012,9 @@
 	};
 	5929E1F313258C0500B81D2E /* welcome.haml */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {821, 7365}}";
-			sepNavSelRange = "{14536, 0}";
-			sepNavVisRange = "{13568, 1439}";
+			sepNavIntBoundsRect = "{{0, 0}, {831, 6795}}";
+			sepNavSelRange = "{863, 0}";
+			sepNavVisRange = "{0, 2253}";
 		};
 	};
 	5929E20313258DC800B81D2E /* PBXTextBookmark */ = {
@@ -3086,7 +3096,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 5";
 		rLen = 0;
-		rLoc = 15007;
+		rLoc = 15009;
 		rType = 0;
 		vrLen = 63;
 		vrLoc = 0;
@@ -3146,7 +3156,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 5";
 		rLen = 0;
-		rLoc = 15007;
+		rLoc = 15009;
 		rType = 0;
 		vrLen = 63;
 		vrLoc = 0;
@@ -3306,7 +3316,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 5";
 		rLen = 0;
-		rLoc = 15007;
+		rLoc = 15009;
 		rType = 0;
 		vrLen = 63;
 		vrLoc = 0;
@@ -3316,7 +3326,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 5";
 		rLen = 0;
-		rLoc = 176;
+		rLoc = 168;
 		rType = 0;
 		vrLen = 202;
 		vrLoc = 0;
@@ -3336,7 +3346,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 4";
 		rLen = 0;
-		rLoc = 103;
+		rLoc = 95;
 		rType = 0;
 		vrLen = 202;
 		vrLoc = 0;
@@ -3356,7 +3366,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 4";
 		rLen = 0;
-		rLoc = 106;
+		rLoc = 98;
 		rType = 0;
 		vrLen = 203;
 		vrLoc = 0;
@@ -3396,7 +3406,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 4";
 		rLen = 0;
-		rLoc = 106;
+		rLoc = 98;
 		rType = 0;
 		vrLen = 203;
 		vrLoc = 0;
@@ -3416,7 +3426,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 4";
 		rLen = 0;
-		rLoc = 106;
+		rLoc = 98;
 		rType = 0;
 		vrLen = 203;
 		vrLoc = 0;
@@ -3436,7 +3446,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 10";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 346;
 		vrLoc = 0;
@@ -3456,7 +3466,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 10";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 345;
 		vrLoc = 0;
@@ -3476,7 +3486,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 8";
 		rLen = 0;
-		rLoc = 236;
+		rLoc = 228;
 		rType = 0;
 		vrLen = 363;
 		vrLoc = 0;
@@ -3576,7 +3586,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 22";
 		rLen = 0;
-		rLoc = 15007;
+		rLoc = 15009;
 		rType = 0;
 		vrLen = 709;
 		vrLoc = 0;
@@ -3676,7 +3686,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 23";
 		rLen = 0;
-		rLoc = 15007;
+		rLoc = 15009;
 		rType = 0;
 		vrLen = 976;
 		vrLoc = 0;
@@ -3706,7 +3716,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 23";
 		rLen = 0;
-		rLoc = 15007;
+		rLoc = 15009;
 		rType = 0;
 		vrLen = 976;
 		vrLoc = 0;
@@ -3716,7 +3726,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 19";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1064;
 		vrLoc = 0;
@@ -3736,7 +3746,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 24";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1064;
 		vrLoc = 0;
@@ -3776,7 +3786,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 26";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1137;
 		vrLoc = 0;
@@ -3796,7 +3806,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 26";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1154;
 		vrLoc = 0;
@@ -3816,7 +3826,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 26";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1154;
 		vrLoc = 0;
@@ -3836,7 +3846,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 26";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1154;
 		vrLoc = 0;
@@ -3856,7 +3866,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 31";
 		rLen = 0;
-		rLoc = 15007;
+		rLoc = 15009;
 		rType = 0;
 		vrLen = 1159;
 		vrLoc = 0;
@@ -3896,7 +3906,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 46";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1753;
 		vrLoc = 0;
@@ -3916,7 +3926,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 38";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1749;
 		vrLoc = 0;
@@ -3936,7 +3946,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 38";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1749;
 		vrLoc = 0;
@@ -3956,7 +3966,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 38";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1749;
 		vrLoc = 0;
@@ -3976,7 +3986,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 38";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1749;
 		vrLoc = 0;
@@ -3996,7 +4006,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 38";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1749;
 		vrLoc = 0;
@@ -4016,7 +4026,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 15";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1748;
 		vrLoc = 0;
@@ -4036,7 +4046,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 15";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1748;
 		vrLoc = 0;
@@ -4056,7 +4066,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 49";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1782;
 		vrLoc = 0;
@@ -4076,7 +4086,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 49";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1782;
 		vrLoc = 0;
@@ -4096,7 +4106,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 39";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1786;
 		vrLoc = 0;
@@ -4116,7 +4126,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 39";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1786;
 		vrLoc = 0;
@@ -4136,7 +4146,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 50";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1813;
 		vrLoc = 0;
@@ -4156,7 +4166,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 50";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1813;
 		vrLoc = 0;
@@ -4176,7 +4186,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 50";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1813;
 		vrLoc = 0;
@@ -4196,7 +4206,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 43";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1838;
 		vrLoc = 0;
@@ -4216,7 +4226,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 43";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1841;
 		vrLoc = 0;
@@ -4236,7 +4246,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 50";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1957;
 		vrLoc = 0;
@@ -4256,7 +4266,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 22";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1957;
 		vrLoc = 0;
@@ -4436,7 +4446,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 22";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 2220;
 		vrLoc = 32;
@@ -4446,7 +4456,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 87";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1885;
 		vrLoc = 1254;
@@ -4466,7 +4476,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 87";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1753;
 		vrLoc = 1477;
@@ -4486,7 +4496,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 55";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1802;
 		vrLoc = 1477;
@@ -4506,7 +4516,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 59";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1730;
 		vrLoc = 1477;
@@ -4526,7 +4536,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 54";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1681;
 		vrLoc = 1477;
@@ -4546,7 +4556,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 56";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1682;
 		vrLoc = 1477;
@@ -4566,7 +4576,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 68";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1709;
 		vrLoc = 1477;
@@ -4586,7 +4596,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 74";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1656;
 		vrLoc = 1543;
@@ -4606,7 +4616,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 87";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 1683;
 		vrLoc = 1484;
@@ -4626,7 +4636,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 26";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 2209;
 		vrLoc = 0;
@@ -5164,7 +5174,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 26";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 2198;
 		vrLoc = 0;
@@ -5174,7 +5184,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 9";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 2219;
 		vrLoc = 0;
@@ -5194,16 +5204,16 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 14";
 		rLen = 0;
-		rLoc = 238;
+		rLoc = 230;
 		rType = 0;
 		vrLen = 2219;
 		vrLoc = 0;
 	};
 	5929E30C1329AD7900B81D2E /* developerdocs.haml */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {821, 3735}}";
-			sepNavSelRange = "{10485, 0}";
-			sepNavVisRange = "{8005, 2928}";
+			sepNavIntBoundsRect = "{{0, 0}, {821, 4335}}";
+			sepNavSelRange = "{12466, 188}";
+			sepNavVisRange = "{11038, 2750}";
 		};
 	};
 	5929E30D1329AE3D00B81D2E /* PBXTextBookmark */ = {
@@ -5240,7 +5250,7 @@
 		isa = PBXTextBookmark;
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 1";
-		rLen = 15007;
+		rLen = 15009;
 		rLoc = 0;
 		rType = 0;
 		vrLen = 2651;
@@ -5260,7 +5270,7 @@
 		isa = PBXTextBookmark;
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 1";
-		rLen = 12325;
+		rLen = 14970;
 		rLoc = 0;
 		rType = 0;
 		vrLen = 2219;
@@ -5270,7 +5280,7 @@
 		isa = PBXTextBookmark;
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 1";
-		rLen = 15007;
+		rLen = 15009;
 		rLoc = 0;
 		rType = 0;
 		vrLen = 2651;
@@ -5281,7 +5291,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 101";
 		rLen = 0;
-		rLoc = 15007;
+		rLoc = 15009;
 		rType = 0;
 		vrLen = 1660;
 		vrLoc = 1556;
@@ -5301,7 +5311,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 101";
 		rLen = 0;
-		rLoc = 15007;
+		rLoc = 15009;
 		rType = 0;
 		vrLen = 1660;
 		vrLoc = 1556;
@@ -5310,7 +5320,7 @@
 		isa = PBXTextBookmark;
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 1";
-		rLen = 12325;
+		rLen = 14970;
 		rLoc = 0;
 		rType = 0;
 		vrLen = 2219;
@@ -5321,7 +5331,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 44";
 		rLen = 0;
-		rLoc = 12325;
+		rLoc = 14970;
 		rType = 0;
 		vrLen = 2651;
 		vrLoc = 0;
@@ -5341,7 +5351,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 101";
 		rLen = 0;
-		rLoc = 15007;
+		rLoc = 15009;
 		rType = 0;
 		vrLen = 2219;
 		vrLoc = 0;
@@ -5351,7 +5361,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 9";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2197;
 		vrLoc = 0;
@@ -5361,7 +5371,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 44";
 		rLen = 0;
-		rLoc = 12325;
+		rLoc = 14970;
 		rType = 0;
 		vrLen = 2651;
 		vrLoc = 0;
@@ -5371,7 +5381,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 13";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2219;
 		vrLoc = 0;
@@ -5381,7 +5391,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 44";
 		rLen = 0;
-		rLoc = 12325;
+		rLoc = 14970;
 		rType = 0;
 		vrLen = 2651;
 		vrLoc = 0;
@@ -5391,7 +5401,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 13";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2219;
 		vrLoc = 0;
@@ -5411,7 +5421,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 13";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2219;
 		vrLoc = 0;
@@ -5431,7 +5441,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 22";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2219;
 		vrLoc = 0;
@@ -5571,7 +5581,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 42";
 		rLen = 0;
-		rLoc = 12325;
+		rLoc = 14970;
 		rType = 0;
 		vrLen = 2535;
 		vrLoc = 0;
@@ -5711,7 +5721,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 53";
 		rLen = 0;
-		rLoc = 11000;
+		rLoc = 13645;
 		rType = 0;
 		vrLen = 2074;
 		vrLoc = 584;
@@ -5751,7 +5761,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 57";
 		rLen = 0;
-		rLoc = 10680;
+		rLoc = 13325;
 		rType = 0;
 		vrLen = 2056;
 		vrLoc = 697;
@@ -5791,7 +5801,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 67";
 		rLen = 0;
-		rLoc = 12325;
+		rLoc = 14970;
 		rType = 0;
 		vrLen = 2260;
 		vrLoc = 1068;
@@ -5811,7 +5821,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 69";
 		rLen = 0;
-		rLoc = 12325;
+		rLoc = 14970;
 		rType = 0;
 		vrLen = 2553;
 		vrLoc = 1234;
@@ -5831,7 +5841,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 64";
 		rLen = 0;
-		rLoc = 11258;
+		rLoc = 13903;
 		rType = 0;
 		vrLen = 2555;
 		vrLoc = 1234;
@@ -5851,7 +5861,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 66";
 		rLen = 0;
-		rLoc = 11849;
+		rLoc = 14494;
 		rType = 0;
 		vrLen = 2568;
 		vrLoc = 1234;
@@ -6252,7 +6262,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 101";
 		rLen = 0;
-		rLoc = 15007;
+		rLoc = 15009;
 		rType = 0;
 		vrLen = 1604;
 		vrLoc = 1556;
@@ -6262,7 +6272,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 41";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 1627;
 		vrLoc = 1901;
@@ -6282,7 +6292,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 186";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 1307;
 		vrLoc = 4718;
@@ -6302,7 +6312,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 31";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2204;
 		vrLoc = 0;
@@ -6322,7 +6332,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 31";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2205;
 		vrLoc = 0;
@@ -6342,7 +6352,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 158";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 1433;
 		vrLoc = 4653;
@@ -6362,7 +6372,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 161";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 1431;
 		vrLoc = 4653;
@@ -6382,7 +6392,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 31";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2205;
 		vrLoc = 0;
@@ -6402,7 +6412,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 35";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2206;
 		vrLoc = 0;
@@ -6422,7 +6432,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 39";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2139;
 		vrLoc = 235;
@@ -6442,7 +6452,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 39";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2148;
 		vrLoc = 235;
@@ -6462,7 +6472,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 22";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2152;
 		vrLoc = 235;
@@ -6482,7 +6492,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 13";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2316;
 		vrLoc = 0;
@@ -6502,7 +6512,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 15";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2242;
 		vrLoc = 0;
@@ -6522,7 +6532,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 30";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2230;
 		vrLoc = 0;
@@ -6542,7 +6552,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 51";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2142;
 		vrLoc = 506;
@@ -6562,7 +6572,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 29";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2142;
 		vrLoc = 506;
@@ -6582,7 +6592,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 29";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2142;
 		vrLoc = 506;
@@ -6602,7 +6612,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 29";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2142;
 		vrLoc = 506;
@@ -6622,7 +6632,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 29";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2142;
 		vrLoc = 506;
@@ -6642,7 +6652,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 44";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2241;
 		vrLoc = 0;
@@ -6652,7 +6662,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 44";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2241;
 		vrLoc = 0;
@@ -6662,7 +6672,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 46";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2142;
 		vrLoc = 506;
@@ -6692,7 +6702,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 44";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2241;
 		vrLoc = 0;
@@ -6702,7 +6712,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 118";
 		rLen = 0;
-		rLoc = 11590;
+		rLoc = 14235;
 		rType = 0;
 		vrLen = 2678;
 		vrLoc = 3197;
@@ -6712,7 +6722,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 44";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2241;
 		vrLoc = 0;
@@ -6732,7 +6742,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 44";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2241;
 		vrLoc = 0;
@@ -6752,7 +6762,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 44";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2241;
 		vrLoc = 0;
@@ -6772,7 +6782,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 44";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2241;
 		vrLoc = 0;
@@ -6792,7 +6802,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 25";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2241;
 		vrLoc = 0;
@@ -7214,7 +7224,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 25";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2241;
 		vrLoc = 0;
@@ -7224,7 +7234,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 294";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 1462;
 		vrLoc = 6910;
@@ -7264,7 +7274,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 206";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 1462;
 		vrLoc = 6910;
@@ -7664,7 +7674,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 62";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2614;
 		vrLoc = 236;
@@ -7674,7 +7684,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 290";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 1575;
 		vrLoc = 7716;
@@ -7694,7 +7704,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 276";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 1551;
 		vrLoc = 7762;
@@ -7714,7 +7724,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 261";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 1531;
 		vrLoc = 7762;
@@ -7734,7 +7744,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 261";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 1615;
 		vrLoc = 7037;
@@ -7754,7 +7764,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 261";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 1615;
 		vrLoc = 7037;
@@ -7774,7 +7784,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 261";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 1615;
 		vrLoc = 7037;
@@ -7794,7 +7804,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 261";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 1615;
 		vrLoc = 7037;
@@ -7804,7 +7814,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 597";
 		rLen = 0;
-		rLoc = 31242;
+		rLoc = 31279;
 		rType = 0;
 		vrLen = 1153;
 		vrLoc = 16002;
@@ -7814,7 +7824,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 239";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 1615;
 		vrLoc = 7037;
@@ -7824,7 +7834,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 597";
 		rLen = 0;
-		rLoc = 31242;
+		rLoc = 31279;
 		rType = 0;
 		vrLen = 972;
 		vrLoc = 14618;
@@ -7834,7 +7844,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 235";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 1490;
 		vrLoc = 6931;
@@ -7854,7 +7864,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 235";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 1490;
 		vrLoc = 6931;
@@ -7874,7 +7884,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 235";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 1490;
 		vrLoc = 6931;
@@ -7894,7 +7904,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 235";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 1490;
 		vrLoc = 6931;
@@ -7914,7 +7924,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 235";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 1490;
 		vrLoc = 6931;
@@ -7937,7 +7947,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 197";
 		rLen = 0;
-		rLoc = 10783;
+		rLoc = 13428;
 		rType = 0;
 		vrLen = 463;
 		vrLoc = 7825;
@@ -7957,7 +7967,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 65";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 695;
 		vrLoc = 2566;
@@ -8054,7 +8064,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 166";
 		rLen = 0;
-		rLoc = 11835;
+		rLoc = 14480;
 		rType = 0;
 		vrLen = 2468;
 		vrLoc = 5233;
@@ -8064,7 +8074,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 44";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2408;
 		vrLoc = 90;
@@ -8134,7 +8144,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 406";
 		rLen = 0;
-		rLoc = 2630;
+		rLoc = 2622;
 		rType = 0;
 		vrLen = 1523;
 		vrLoc = 11973;
@@ -8144,7 +8154,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 6";
 		rLen = 0;
-		rLoc = 180;
+		rLoc = 172;
 		rType = 0;
 		vrLen = 2289;
 		vrLoc = 0;
@@ -8164,7 +8174,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 6";
 		rLen = 0;
-		rLoc = 180;
+		rLoc = 172;
 		rType = 0;
 		vrLen = 2289;
 		vrLoc = 0;
@@ -8184,7 +8194,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 6";
 		rLen = 0;
-		rLoc = 180;
+		rLoc = 172;
 		rType = 0;
 		vrLen = 2289;
 		vrLoc = 0;
@@ -8224,7 +8234,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 22";
 		rLen = 0;
-		rLoc = 781;
+		rLoc = 773;
 		rType = 0;
 		vrLen = 2289;
 		vrLoc = 0;
@@ -8444,7 +8454,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 198";
 		rLen = 0;
-		rLoc = 11835;
+		rLoc = 14480;
 		rType = 0;
 		vrLen = 2011;
 		vrLoc = 5190;
@@ -8454,7 +8464,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 194";
 		rLen = 0;
-		rLoc = 11166;
+		rLoc = 13811;
 		rType = 0;
 		vrLen = 2649;
 		vrLoc = 7299;
@@ -8474,7 +8484,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 198";
 		rLen = 0;
-		rLoc = 11835;
+		rLoc = 14480;
 		rType = 0;
 		vrLen = 2656;
 		vrLoc = 7299;
@@ -8504,7 +8514,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 198";
 		rLen = 0;
-		rLoc = 11835;
+		rLoc = 14480;
 		rType = 0;
 		vrLen = 2656;
 		vrLoc = 7299;
@@ -8538,7 +8548,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 198";
 		rLen = 0;
-		rLoc = 11835;
+		rLoc = 14480;
 		rType = 0;
 		vrLen = 2656;
 		vrLoc = 7299;
@@ -8618,7 +8628,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 211";
 		rLen = 0;
-		rLoc = 8835;
+		rLoc = 8837;
 		rType = 0;
 		vrLen = 1426;
 		vrLoc = 6162;
@@ -8668,7 +8678,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 13";
 		rLen = 0;
-		rLoc = 416;
+		rLoc = 408;
 		rType = 0;
 		vrLen = 2325;
 		vrLoc = 0;
@@ -8748,7 +8758,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 13";
 		rLen = 0;
-		rLoc = 416;
+		rLoc = 408;
 		rType = 0;
 		vrLen = 2325;
 		vrLoc = 0;
@@ -8758,7 +8768,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 349";
 		rLen = 0;
-		rLoc = 13802;
+		rLoc = 13804;
 		rType = 0;
 		vrLen = 2325;
 		vrLoc = 0;
@@ -8778,7 +8788,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 154";
 		rLen = 0;
-		rLoc = 8234;
+		rLoc = 8236;
 		rType = 0;
 		vrLen = 1374;
 		vrLoc = 4580;
@@ -8798,7 +8808,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 154";
 		rLen = 0;
-		rLoc = 8234;
+		rLoc = 8236;
 		rType = 0;
 		vrLen = 1374;
 		vrLoc = 4580;
@@ -8818,7 +8828,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 154";
 		rLen = 0;
-		rLoc = 8234;
+		rLoc = 8236;
 		rType = 0;
 		vrLen = 1374;
 		vrLoc = 4580;
@@ -8838,7 +8848,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 102";
 		rLen = 0;
-		rLoc = 6961;
+		rLoc = 6963;
 		rType = 0;
 		vrLen = 1807;
 		vrLoc = 3157;
@@ -8858,7 +8868,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 102";
 		rLen = 0;
-		rLoc = 6961;
+		rLoc = 6963;
 		rType = 0;
 		vrLen = 1807;
 		vrLoc = 3157;
@@ -8878,7 +8888,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 102";
 		rLen = 0;
-		rLoc = 6961;
+		rLoc = 6963;
 		rType = 0;
 		vrLen = 1666;
 		vrLoc = 3676;
@@ -8898,7 +8908,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 115";
 		rLen = 0;
-		rLoc = 7322;
+		rLoc = 7324;
 		rType = 0;
 		vrLen = 1666;
 		vrLoc = 3676;
@@ -8918,7 +8928,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 89";
 		rLen = 0;
-		rLoc = 4709;
+		rLoc = 4701;
 		rType = 0;
 		vrLen = 2278;
 		vrLoc = 2326;
@@ -8938,7 +8948,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 102";
 		rLen = 0;
-		rLoc = 6845;
+		rLoc = 6847;
 		rType = 0;
 		vrLen = 1626;
 		vrLoc = 3742;
@@ -8958,7 +8968,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 104";
 		rLen = 0;
-		rLoc = 6907;
+		rLoc = 6909;
 		rType = 0;
 		vrLen = 1626;
 		vrLoc = 3742;
@@ -8978,7 +8988,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 104";
 		rLen = 0;
-		rLoc = 6907;
+		rLoc = 6909;
 		rType = 0;
 		vrLen = 1626;
 		vrLoc = 3742;
@@ -9028,7 +9038,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 106";
 		rLen = 0;
-		rLoc = 7000;
+		rLoc = 7002;
 		rType = 0;
 		vrLen = 1605;
 		vrLoc = 3742;
@@ -9038,7 +9048,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 309";
 		rLen = 0;
-		rLoc = 12400;
+		rLoc = 12402;
 		rType = 0;
 		vrLen = 1497;
 		vrLoc = 8950;
@@ -9058,7 +9068,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 301";
 		rLen = 0;
-		rLoc = 12165;
+		rLoc = 12167;
 		rType = 0;
 		vrLen = 1505;
 		vrLoc = 8950;
@@ -9078,7 +9088,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 301";
 		rLen = 0;
-		rLoc = 12165;
+		rLoc = 12167;
 		rType = 0;
 		vrLen = 1505;
 		vrLoc = 8950;
@@ -9098,7 +9108,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 301";
 		rLen = 0;
-		rLoc = 12165;
+		rLoc = 12167;
 		rType = 0;
 		vrLen = 1505;
 		vrLoc = 8950;
@@ -9118,7 +9128,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 301";
 		rLen = 0;
-		rLoc = 12165;
+		rLoc = 12167;
 		rType = 0;
 		vrLen = 1505;
 		vrLoc = 8950;
@@ -9138,7 +9148,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 301";
 		rLen = 0;
-		rLoc = 12165;
+		rLoc = 12167;
 		rType = 0;
 		vrLen = 1505;
 		vrLoc = 8950;
@@ -9158,7 +9168,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 301";
 		rLen = 0;
-		rLoc = 12165;
+		rLoc = 12167;
 		rType = 0;
 		vrLen = 1505;
 		vrLoc = 8950;
@@ -9178,7 +9188,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 301";
 		rLen = 0;
-		rLoc = 12165;
+		rLoc = 12167;
 		rType = 0;
 		vrLen = 1505;
 		vrLoc = 8950;
@@ -9198,7 +9208,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 113";
 		rLen = 0;
-		rLoc = 7192;
+		rLoc = 7194;
 		rType = 0;
 		vrLen = 1829;
 		vrLoc = 3096;
@@ -9218,7 +9228,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 135";
 		rLen = 0;
-		rLoc = 7771;
+		rLoc = 7773;
 		rType = 0;
 		vrLen = 1335;
 		vrLoc = 4489;
@@ -9238,7 +9248,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 122";
 		rLen = 0;
-		rLoc = 7384;
+		rLoc = 7386;
 		rType = 0;
 		vrLen = 1332;
 		vrLoc = 4489;
@@ -9258,7 +9268,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 172";
 		rLen = 0;
-		rLoc = 8673;
+		rLoc = 8675;
 		rType = 0;
 		vrLen = 1534;
 		vrLoc = 5779;
@@ -9278,7 +9288,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 172";
 		rLen = 0;
-		rLoc = 8673;
+		rLoc = 8675;
 		rType = 0;
 		vrLen = 1534;
 		vrLoc = 5779;
@@ -9384,7 +9394,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 68";
 		rLen = 0;
-		rLoc = 3727;
+		rLoc = 3719;
 		rType = 0;
 		vrLen = 2540;
 		vrLoc = 1719;
@@ -9864,7 +9874,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 708";
 		rLen = 0;
-		rLoc = 24316;
+		rLoc = 24353;
 		rType = 0;
 		vrLen = 1621;
 		vrLoc = 20613;
@@ -9884,7 +9894,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 709";
 		rLen = 0;
-		rLoc = 24317;
+		rLoc = 24354;
 		rType = 0;
 		vrLen = 1360;
 		vrLoc = 20112;
@@ -9894,7 +9904,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 68";
 		rLen = 0;
-		rLoc = 3727;
+		rLoc = 3719;
 		rType = 0;
 		vrLen = 2385;
 		vrLoc = 1874;
@@ -9934,7 +9944,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 700";
 		rLen = 0;
-		rLoc = 24116;
+		rLoc = 24153;
 		rType = 0;
 		vrLen = 1373;
 		vrLoc = 20070;
@@ -9984,7 +9994,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 700";
 		rLen = 0;
-		rLoc = 24116;
+		rLoc = 24153;
 		rType = 0;
 		vrLen = 1343;
 		vrLoc = 20070;
@@ -10334,7 +10344,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 875";
 		rLen = 0;
-		rLoc = 29632;
+		rLoc = 29669;
 		rType = 0;
 		vrLen = 1309;
 		vrLoc = 18801;
@@ -10354,7 +10364,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 920";
 		rLen = 0;
-		rLoc = 29910;
+		rLoc = 29947;
 		rType = 0;
 		vrLen = 1720;
 		vrLoc = 25108;
@@ -10394,7 +10404,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 699";
 		rLen = 0;
-		rLoc = 20971;
+		rLoc = 21008;
 		rType = 0;
 		vrLen = 1063;
 		vrLoc = 20314;
@@ -10414,7 +10424,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 941";
 		rLen = 0;
-		rLoc = 29866;
+		rLoc = 29903;
 		rType = 0;
 		vrLen = 1723;
 		vrLoc = 25585;
@@ -10434,7 +10444,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 941";
 		rLen = 0;
-		rLoc = 29866;
+		rLoc = 29903;
 		rType = 0;
 		vrLen = 1723;
 		vrLoc = 25585;
@@ -10454,7 +10464,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 68";
 		rLen = 0;
-		rLoc = 3727;
+		rLoc = 3719;
 		rType = 0;
 		vrLen = 2385;
 		vrLoc = 1874;
@@ -10464,7 +10474,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 109";
 		rLen = 0;
-		rLoc = 6407;
+		rLoc = 6409;
 		rType = 0;
 		vrLen = 2202;
 		vrLoc = 2995;
@@ -10474,7 +10484,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 941";
 		rLen = 0;
-		rLoc = 29866;
+		rLoc = 29903;
 		rType = 0;
 		vrLen = 1723;
 		vrLoc = 25585;
@@ -10484,7 +10494,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 108";
 		rLen = 0;
-		rLoc = 6407;
+		rLoc = 6409;
 		rType = 0;
 		vrLen = 2203;
 		vrLoc = 2995;
@@ -10494,7 +10504,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 927";
 		rLen = 0;
-		rLoc = 29250;
+		rLoc = 29287;
 		rType = 0;
 		vrLen = 1738;
 		vrLoc = 25560;
@@ -10504,7 +10514,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 108";
 		rLen = 0;
-		rLoc = 6407;
+		rLoc = 6409;
 		rType = 0;
 		vrLen = 2203;
 		vrLoc = 2995;
@@ -10514,7 +10524,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 654";
 		rLen = 0;
-		rLoc = 20098;
+		rLoc = 20135;
 		rType = 0;
 		vrLen = 1222;
 		vrLoc = 19573;
@@ -10524,7 +10534,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 108";
 		rLen = 0;
-		rLoc = 6407;
+		rLoc = 6409;
 		rType = 0;
 		vrLen = 2203;
 		vrLoc = 2995;
@@ -10534,7 +10544,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 933";
 		rLen = 0;
-		rLoc = 29453;
+		rLoc = 29490;
 		rType = 0;
 		vrLen = 1523;
 		vrLoc = 22459;
@@ -10544,7 +10554,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 108";
 		rLen = 0;
-		rLoc = 6407;
+		rLoc = 6409;
 		rType = 0;
 		vrLen = 2203;
 		vrLoc = 2995;
@@ -10554,7 +10564,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 666";
 		rLen = 0;
-		rLoc = 20303;
+		rLoc = 20340;
 		rType = 0;
 		vrLen = 1262;
 		vrLoc = 19717;
@@ -10564,7 +10574,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 108";
 		rLen = 0;
-		rLoc = 6407;
+		rLoc = 6409;
 		rType = 0;
 		vrLen = 2203;
 		vrLoc = 2995;
@@ -10574,7 +10584,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 705";
 		rLen = 0;
-		rLoc = 21337;
+		rLoc = 21374;
 		rType = 0;
 		vrLen = 928;
 		vrLoc = 19873;
@@ -10584,7 +10594,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 108";
 		rLen = 0;
-		rLoc = 6407;
+		rLoc = 6409;
 		rType = 0;
 		vrLen = 2203;
 		vrLoc = 2995;
@@ -10594,7 +10604,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 690";
 		rLen = 0;
-		rLoc = 21059;
+		rLoc = 21096;
 		rType = 0;
 		vrLen = 888;
 		vrLoc = 19873;
@@ -10604,7 +10614,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 108";
 		rLen = 0;
-		rLoc = 6407;
+		rLoc = 6409;
 		rType = 0;
 		vrLen = 2203;
 		vrLoc = 2995;
@@ -10614,7 +10624,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 694";
 		rLen = 0;
-		rLoc = 21091;
+		rLoc = 21128;
 		rType = 0;
 		vrLen = 940;
 		vrLoc = 19873;
@@ -10624,7 +10634,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 108";
 		rLen = 0;
-		rLoc = 6407;
+		rLoc = 6409;
 		rType = 0;
 		vrLen = 2203;
 		vrLoc = 2995;
@@ -10634,7 +10644,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 902";
 		rLen = 0;
-		rLoc = 27675;
+		rLoc = 27712;
 		rType = 0;
 		vrLen = 1789;
 		vrLoc = 24994;
@@ -10644,7 +10654,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 92";
 		rLen = 0;
-		rLoc = 6406;
+		rLoc = 6408;
 		rType = 0;
 		vrLen = 2203;
 		vrLoc = 2995;
@@ -10654,7 +10664,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 903";
 		rLen = 0;
-		rLoc = 27675;
+		rLoc = 27712;
 		rType = 0;
 		vrLen = 1848;
 		vrLoc = 24994;
@@ -10664,7 +10674,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 92";
 		rLen = 0;
-		rLoc = 6406;
+		rLoc = 6408;
 		rType = 0;
 		vrLen = 2203;
 		vrLoc = 2995;
@@ -10674,7 +10684,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 925";
 		rLen = 0;
-		rLoc = 29654;
+		rLoc = 29691;
 		rType = 0;
 		vrLen = 1811;
 		vrLoc = 24994;
@@ -10684,7 +10694,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 92";
 		rLen = 0;
-		rLoc = 6406;
+		rLoc = 6408;
 		rType = 0;
 		vrLen = 2203;
 		vrLoc = 2995;
@@ -10694,7 +10704,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 708";
 		rLen = 8;
-		rLoc = 21251;
+		rLoc = 21288;
 		rType = 0;
 		vrLen = 871;
 		vrLoc = 20212;
@@ -10704,7 +10714,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 92";
 		rLen = 0;
-		rLoc = 6406;
+		rLoc = 6408;
 		rType = 0;
 		vrLen = 2203;
 		vrLoc = 2995;
@@ -10724,7 +10734,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 92";
 		rLen = 0;
-		rLoc = 6406;
+		rLoc = 6408;
 		rType = 0;
 		vrLen = 2325;
 		vrLoc = 0;
@@ -10814,7 +10824,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 738";
 		rLen = 0;
-		rLoc = 21975;
+		rLoc = 22012;
 		rType = 0;
 		vrLen = 1066;
 		vrLoc = 20666;
@@ -10874,7 +10884,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 717";
 		rLen = 0;
-		rLoc = 21497;
+		rLoc = 21534;
 		rType = 0;
 		vrLen = 1036;
 		vrLoc = 20499;
@@ -10894,7 +10904,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 717";
 		rLen = 0;
-		rLoc = 21497;
+		rLoc = 21534;
 		rType = 0;
 		vrLen = 1036;
 		vrLoc = 20499;
@@ -10914,7 +10924,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 730";
 		rLen = 0;
-		rLoc = 21828;
+		rLoc = 21865;
 		rType = 0;
 		vrLen = 1036;
 		vrLoc = 20499;
@@ -10934,7 +10944,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 748";
 		rLen = 0;
-		rLoc = 22176;
+		rLoc = 22213;
 		rType = 0;
 		vrLen = 900;
 		vrLoc = 21187;
@@ -10954,7 +10964,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 764";
 		rLen = 0;
-		rLoc = 22493;
+		rLoc = 22530;
 		rType = 0;
 		vrLen = 960;
 		vrLoc = 21187;
@@ -10974,7 +10984,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 764";
 		rLen = 0;
-		rLoc = 22493;
+		rLoc = 22530;
 		rType = 0;
 		vrLen = 960;
 		vrLoc = 21187;
@@ -11004,7 +11014,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 105";
 		rLen = 0;
-		rLoc = 6407;
+		rLoc = 6409;
 		rType = 0;
 		vrLen = 2150;
 		vrLoc = 3281;
@@ -11014,7 +11024,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 674";
 		rLen = 0;
-		rLoc = 20600;
+		rLoc = 20637;
 		rType = 0;
 		vrLen = 1008;
 		vrLoc = 19692;
@@ -11024,7 +11034,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 105";
 		rLen = 0;
-		rLoc = 6407;
+		rLoc = 6409;
 		rType = 0;
 		vrLen = 2150;
 		vrLoc = 3281;
@@ -11034,7 +11044,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 665";
 		rLen = 0;
-		rLoc = 20434;
+		rLoc = 20471;
 		rType = 0;
 		vrLen = 1008;
 		vrLoc = 19692;
@@ -11044,7 +11054,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 105";
 		rLen = 0;
-		rLoc = 6407;
+		rLoc = 6409;
 		rType = 0;
 		vrLen = 2150;
 		vrLoc = 3281;
@@ -11064,7 +11074,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 105";
 		rLen = 0;
-		rLoc = 6407;
+		rLoc = 6409;
 		rType = 0;
 		vrLen = 2150;
 		vrLoc = 3281;
@@ -11084,7 +11094,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 105";
 		rLen = 0;
-		rLoc = 6407;
+		rLoc = 6409;
 		rType = 0;
 		vrLen = 2150;
 		vrLoc = 3281;
@@ -11104,7 +11114,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 105";
 		rLen = 0;
-		rLoc = 6407;
+		rLoc = 6409;
 		rType = 0;
 		vrLen = 2150;
 		vrLoc = 3281;
@@ -11114,7 +11124,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 660";
 		rLen = 0;
-		rLoc = 20298;
+		rLoc = 20335;
 		rType = 0;
 		vrLen = 1263;
 		vrLoc = 19135;
@@ -11124,7 +11134,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 105";
 		rLen = 0;
-		rLoc = 6407;
+		rLoc = 6409;
 		rType = 0;
 		vrLen = 2150;
 		vrLoc = 3281;
@@ -11134,7 +11144,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 660";
 		rLen = 0;
-		rLoc = 20298;
+		rLoc = 20335;
 		rType = 0;
 		vrLen = 1245;
 		vrLoc = 19135;
@@ -11144,7 +11154,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 105";
 		rLen = 0;
-		rLoc = 6407;
+		rLoc = 6409;
 		rType = 0;
 		vrLen = 2150;
 		vrLoc = 3281;
@@ -11164,7 +11174,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 105";
 		rLen = 0;
-		rLoc = 6407;
+		rLoc = 6409;
 		rType = 0;
 		vrLen = 2150;
 		vrLoc = 3281;
@@ -11184,7 +11194,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 105";
 		rLen = 0;
-		rLoc = 6407;
+		rLoc = 6409;
 		rType = 0;
 		vrLen = 2150;
 		vrLoc = 3281;
@@ -11204,7 +11214,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 105";
 		rLen = 0;
-		rLoc = 6407;
+		rLoc = 6409;
 		rType = 0;
 		vrLen = 2150;
 		vrLoc = 3281;
@@ -11224,7 +11234,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 105";
 		rLen = 0;
-		rLoc = 6407;
+		rLoc = 6409;
 		rType = 0;
 		vrLen = 2150;
 		vrLoc = 3281;
@@ -11233,7 +11243,7 @@
 		isa = PBXTextBookmark;
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 649";
-		rLen = 416;
+		rLen = 453;
 		rLoc = 19722;
 		rType = 0;
 		vrLen = 1259;
@@ -11244,7 +11254,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 105";
 		rLen = 0;
-		rLoc = 6407;
+		rLoc = 6409;
 		rType = 0;
 		vrLen = 2150;
 		vrLoc = 3281;
@@ -11264,7 +11274,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 105";
 		rLen = 0;
-		rLoc = 6407;
+		rLoc = 6409;
 		rType = 0;
 		vrLen = 2150;
 		vrLoc = 3281;
@@ -11284,7 +11294,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 105";
 		rLen = 0;
-		rLoc = 6407;
+		rLoc = 6409;
 		rType = 0;
 		vrLen = 2150;
 		vrLoc = 3281;
@@ -11294,7 +11304,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 662";
 		rLen = 0;
-		rLoc = 20137;
+		rLoc = 20174;
 		rType = 0;
 		vrLen = 1319;
 		vrLoc = 19210;
@@ -11304,7 +11314,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 105";
 		rLen = 0;
-		rLoc = 6407;
+		rLoc = 6409;
 		rType = 0;
 		vrLen = 2150;
 		vrLoc = 3281;
@@ -11314,7 +11324,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 665";
 		rLen = 0;
-		rLoc = 20186;
+		rLoc = 20223;
 		rType = 0;
 		vrLen = 1311;
 		vrLoc = 19210;
@@ -11324,7 +11334,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 105";
 		rLen = 0;
-		rLoc = 6407;
+		rLoc = 6409;
 		rType = 0;
 		vrLen = 2150;
 		vrLoc = 3281;
@@ -11334,7 +11344,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 665";
 		rLen = 0;
-		rLoc = 20186;
+		rLoc = 20223;
 		rType = 0;
 		vrLen = 1311;
 		vrLoc = 19210;
@@ -11344,7 +11354,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 86";
 		rLen = 0;
-		rLoc = 4552;
+		rLoc = 4544;
 		rType = 0;
 		vrLen = 2150;
 		vrLoc = 3281;
@@ -11394,7 +11404,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 670";
 		rLen = 0;
-		rLoc = 20252;
+		rLoc = 20289;
 		rType = 0;
 		vrLen = 1227;
 		vrLoc = 19305;
@@ -11624,7 +11634,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 1005";
 		rLen = 0;
-		rLoc = 29847;
+		rLoc = 29884;
 		rType = 0;
 		vrLen = 1770;
 		vrLoc = 26551;
@@ -11644,7 +11654,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 980";
 		rLen = 0;
-		rLoc = 28855;
+		rLoc = 28892;
 		rType = 0;
 		vrLen = 1826;
 		vrLoc = 26551;
@@ -11664,7 +11674,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 976";
 		rLen = 0;
-		rLoc = 27884;
+		rLoc = 27921;
 		rType = 0;
 		vrLen = 1839;
 		vrLoc = 26551;
@@ -11684,7 +11694,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 974";
 		rLen = 0;
-		rLoc = 27884;
+		rLoc = 27921;
 		rType = 0;
 		vrLen = 1728;
 		vrLoc = 26512;
@@ -11704,7 +11714,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 1017";
 		rLen = 0;
-		rLoc = 29569;
+		rLoc = 29606;
 		rType = 0;
 		vrLen = 1972;
 		vrLoc = 27011;
@@ -11724,7 +11734,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 995";
 		rLen = 0;
-		rLoc = 28671;
+		rLoc = 28708;
 		rType = 0;
 		vrLen = 1996;
 		vrLoc = 27011;
@@ -11744,7 +11754,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 983";
 		rLen = 0;
-		rLoc = 28151;
+		rLoc = 28188;
 		rType = 0;
 		vrLen = 1830;
 		vrLoc = 26873;
@@ -11764,7 +11774,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 997";
 		rLen = 0;
-		rLoc = 28738;
+		rLoc = 28775;
 		rType = 0;
 		vrLen = 1762;
 		vrLoc = 27332;
@@ -11804,7 +11814,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 1012";
 		rLen = 0;
-		rLoc = 29120;
+		rLoc = 29157;
 		rType = 0;
 		vrLen = 1762;
 		vrLoc = 27332;
@@ -11934,7 +11944,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 1012";
 		rLen = 0;
-		rLoc = 29120;
+		rLoc = 29157;
 		rType = 0;
 		vrLen = 1758;
 		vrLoc = 27332;
@@ -11944,7 +11954,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 994";
 		rLen = 0;
-		rLoc = 28484;
+		rLoc = 28521;
 		rType = 0;
 		vrLen = 1792;
 		vrLoc = 27332;
@@ -12021,7 +12031,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 1090";
 		rLen = 0;
-		rLoc = 31073;
+		rLoc = 31110;
 		rType = 0;
 		vrLen = 1101;
 		vrLoc = 29397;
@@ -12041,7 +12051,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 790";
 		rLen = 0;
-		rLoc = 22609;
+		rLoc = 22646;
 		rType = 0;
 		vrLen = 1272;
 		vrLoc = 21812;
@@ -12081,7 +12091,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 809";
 		rLen = 0;
-		rLoc = 23146;
+		rLoc = 23183;
 		rType = 0;
 		vrLen = 1038;
 		vrLoc = 22120;
@@ -12111,7 +12121,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 30";
 		rLen = 0;
-		rLoc = 1086;
+		rLoc = 1078;
 		rType = 0;
 		vrLen = 2326;
 		vrLoc = 204;
@@ -12121,7 +12131,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 134";
 		rLen = 0;
-		rLoc = 5834;
+		rLoc = 5831;
 		rType = 0;
 		vrLen = 2204;
 		vrLoc = 3859;
@@ -12131,7 +12141,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 1051";
 		rLen = 0;
-		rLoc = 29873;
+		rLoc = 29910;
 		rType = 0;
 		vrLen = 1291;
 		vrLoc = 29299;
@@ -12161,7 +12171,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 147";
 		rLen = 0;
-		rLoc = 6369;
+		rLoc = 6371;
 		rType = 0;
 		vrLen = 1947;
 		vrLoc = 5115;
@@ -12181,7 +12191,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 455";
 		rLen = 0;
-		rLoc = 14975;
+		rLoc = 14977;
 		rType = 0;
 		vrLen = 1333;
 		vrLoc = 13528;
@@ -12221,7 +12231,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 119";
 		rLen = 0;
-		rLoc = 5214;
+		rLoc = 5206;
 		rType = 0;
 		vrLen = 2290;
 		vrLoc = 3981;
@@ -12241,7 +12251,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 119";
 		rLen = 0;
-		rLoc = 5214;
+		rLoc = 5206;
 		rType = 0;
 		vrLen = 2290;
 		vrLoc = 3981;
@@ -12351,7 +12361,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 103";
 		rLen = 0;
-		rLoc = 4552;
+		rLoc = 4544;
 		rType = 0;
 		vrLen = 2494;
 		vrLoc = 3178;
@@ -12361,7 +12371,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 458";
 		rLen = 0;
-		rLoc = 14979;
+		rLoc = 14981;
 		rType = 0;
 		vrLen = 1470;
 		vrLoc = 13524;
@@ -12421,7 +12431,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 429";
 		rLen = 0;
-		rLoc = 14045;
+		rLoc = 14047;
 		rType = 0;
 		vrLen = 1470;
 		vrLoc = 13524;
@@ -12431,7 +12441,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 457";
 		rLen = 0;
-		rLoc = 14926;
+		rLoc = 14928;
 		rType = 0;
 		vrLen = 1473;
 		vrLoc = 13524;
@@ -12451,7 +12461,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 457";
 		rLen = 0;
-		rLoc = 14926;
+		rLoc = 14928;
 		rType = 0;
 		vrLen = 1473;
 		vrLoc = 13524;
@@ -12471,7 +12481,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 457";
 		rLen = 0;
-		rLoc = 14926;
+		rLoc = 14928;
 		rType = 0;
 		vrLen = 1473;
 		vrLoc = 13524;
@@ -12491,7 +12501,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 457";
 		rLen = 0;
-		rLoc = 14926;
+		rLoc = 14928;
 		rType = 0;
 		vrLen = 1473;
 		vrLoc = 13524;
@@ -12511,7 +12521,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 457";
 		rLen = 0;
-		rLoc = 14926;
+		rLoc = 14928;
 		rType = 0;
 		vrLen = 1473;
 		vrLoc = 13524;
@@ -12531,7 +12541,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 429";
 		rLen = 0;
-		rLoc = 14045;
+		rLoc = 14047;
 		rType = 0;
 		vrLen = 1473;
 		vrLoc = 13524;
@@ -12541,7 +12551,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 457";
 		rLen = 0;
-		rLoc = 14924;
+		rLoc = 14926;
 		rType = 0;
 		vrLen = 1439;
 		vrLoc = 13568;
@@ -12551,7 +12561,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 675";
 		rLen = 0;
-		rLoc = 20289;
+		rLoc = 20326;
 		rType = 0;
 		vrLen = 1276;
 		vrLoc = 19016;
@@ -12561,7 +12571,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 444";
 		rLen = 0;
-		rLoc = 14536;
+		rLoc = 14538;
 		rType = 0;
 		vrLen = 1439;
 		vrLoc = 13568;
@@ -12571,7 +12581,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 675";
 		rLen = 0;
-		rLoc = 20289;
+		rLoc = 20326;
 		rType = 0;
 		vrLen = 1277;
 		vrLoc = 19016;
@@ -12581,7 +12591,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 444";
 		rLen = 0;
-		rLoc = 14536;
+		rLoc = 14538;
 		rType = 0;
 		vrLen = 1439;
 		vrLoc = 13568;
@@ -12591,7 +12601,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 674";
 		rLen = 0;
-		rLoc = 20286;
+		rLoc = 20323;
 		rType = 0;
 		vrLen = 1284;
 		vrLoc = 19016;
@@ -12601,7 +12611,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 444";
 		rLen = 0;
-		rLoc = 14536;
+		rLoc = 14538;
 		rType = 0;
 		vrLen = 1439;
 		vrLoc = 13568;
@@ -12611,7 +12621,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 674";
 		rLen = 0;
-		rLoc = 20286;
+		rLoc = 20323;
 		rType = 0;
 		vrLen = 1281;
 		vrLoc = 19016;
@@ -12621,7 +12631,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 444";
 		rLen = 0;
-		rLoc = 14536;
+		rLoc = 14538;
 		rType = 0;
 		vrLen = 1439;
 		vrLoc = 13568;
@@ -12631,7 +12641,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 674";
 		rLen = 0;
-		rLoc = 20273;
+		rLoc = 20310;
 		rType = 0;
 		vrLen = 1280;
 		vrLoc = 19016;
@@ -12641,7 +12651,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 444";
 		rLen = 0;
-		rLoc = 14536;
+		rLoc = 14538;
 		rType = 0;
 		vrLen = 1439;
 		vrLoc = 13568;
@@ -12651,7 +12661,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 674";
 		rLen = 0;
-		rLoc = 20280;
+		rLoc = 20317;
 		rType = 0;
 		vrLen = 1284;
 		vrLoc = 19016;
@@ -12661,7 +12671,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 444";
 		rLen = 0;
-		rLoc = 14536;
+		rLoc = 14538;
 		rType = 0;
 		vrLen = 1439;
 		vrLoc = 13568;
@@ -12671,7 +12681,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 674";
 		rLen = 0;
-		rLoc = 20278;
+		rLoc = 20315;
 		rType = 0;
 		vrLen = 1286;
 		vrLoc = 19016;
@@ -12681,7 +12691,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 444";
 		rLen = 0;
-		rLoc = 14536;
+		rLoc = 14538;
 		rType = 0;
 		vrLen = 1439;
 		vrLoc = 13568;
@@ -12691,7 +12701,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 674";
 		rLen = 0;
-		rLoc = 20286;
+		rLoc = 20323;
 		rType = 0;
 		vrLen = 1281;
 		vrLoc = 19016;
@@ -12701,7 +12711,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 444";
 		rLen = 0;
-		rLoc = 14536;
+		rLoc = 14538;
 		rType = 0;
 		vrLen = 1439;
 		vrLoc = 13568;
@@ -12711,7 +12721,7 @@
 		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
 		name = "geodict_server.rb: 674";
 		rLen = 0;
-		rLoc = 20280;
+		rLoc = 20317;
 		rType = 0;
 		vrLen = 1283;
 		vrLoc = 19016;
@@ -12721,9 +12731,109 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 444";
 		rLen = 0;
-		rLoc = 14536;
+		rLoc = 14538;
 		rType = 0;
 		vrLen = 1439;
 		vrLoc = 13568;
+	};
+	597D8C0313343A5F0042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
+		name = "geodict_server.rb: 674";
+		rLen = 0;
+		rLoc = 20317;
+		rType = 0;
+		vrLen = 1283;
+		vrLoc = 19016;
+	};
+	597D8C0413343A5F0042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
+		name = "welcome.haml: 125";
+		rLen = 0;
+		rLoc = 5419;
+		rType = 0;
+		vrLen = 2041;
+		vrLoc = 5116;
+	};
+	597D8C0513343AC10042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
+		name = "geodict_server.rb: 674";
+		rLen = 0;
+		rLoc = 20317;
+		rType = 0;
+		vrLen = 1283;
+		vrLoc = 19016;
+	};
+	597D8C0613343AC10042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
+		name = "welcome.haml: 4";
+		rLen = 0;
+		rLoc = 147;
+		rType = 0;
+		vrLen = 2253;
+		vrLoc = 0;
+	};
+	597D8C0713343B140042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
+		name = "geodict_server.rb: 674";
+		rLen = 0;
+		rLoc = 20317;
+		rType = 0;
+		vrLen = 1283;
+		vrLoc = 19016;
+	};
+	597D8C0813343B140042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
+		name = "welcome.haml: 23";
+		rLen = 0;
+		rLoc = 863;
+		rType = 0;
+		vrLen = 2253;
+		vrLoc = 0;
+	};
+	597D8C0913343B140042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
+		name = "developerdocs.haml: 224";
+		rLen = 0;
+		rLoc = 10485;
+		rType = 0;
+		vrLen = 2904;
+		vrLoc = 8005;
+	};
+	597D8C0A13343B140042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
+		name = "developerdocs.haml: 228";
+		rLen = 0;
+		rLoc = 10728;
+		rType = 0;
+		vrLen = 3006;
+		vrLoc = 10200;
+	};
+	597D8C0B13345A970042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
+		name = "geodict_server.rb: 663";
+		rLen = 0;
+		rLoc = 20134;
+		rType = 0;
+		vrLen = 1320;
+		vrLoc = 19016;
+	};
+	597D8C0C13345A970042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
+		name = "developerdocs.haml: 252";
+		rLen = 188;
+		rLoc = 12466;
+		rType = 0;
+		vrLen = 2750;
+		vrLoc = 11038;
 	};
 }
