@@ -657,11 +657,13 @@ def html2text(html)
 
   result = ''
   web_doc.traverse_text do |e| 
-    
-    if e.content
-      printf(STDERR, 'e='+e.inspect+"\n")
-      printf(STDERR, 'e.content='+e.content+"\n")
-      result += e.content+"\n"
+
+    begin
+      if e.content
+        result += e.content+"\n"
+      end
+    rescue
+      # ignore errors
     end
   end
 
