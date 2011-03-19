@@ -653,9 +653,10 @@ def html2text(html)
   web_doc.search("noscript").remove
   web_doc.search("object").remove
   web_doc.search("embed").remove
+  web_doc.search("head").remove
 
   result = ''
-  elements = web_doc.search("body").traverse_text
+  elements = web_doc.traverse_text
   elements.each do |e| 
     
     if e.content
