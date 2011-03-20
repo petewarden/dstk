@@ -21,7 +21,7 @@
 		5929E15B1324616E00B81D2E /* openheatmap.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = openheatmap.php; sourceTree = "<group>"; };
 		5929E17713246D9400B81D2E /* jumbo.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = jumbo.py; sourceTree = "<group>"; };
 		5929E1A11324993400B81D2E /* geodict_daemon.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = geodict_daemon.rb; sourceTree = "<group>"; };
-		5929E1E5132576FA00B81D2E /* readme.asciidoc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.asciidoc; sourceTree = "<group>"; };
+		5929E1E5132576FA00B81D2E /* readme.asciidoc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.asciidoc; sourceTree = "<group>"; wrapsLines = 1; };
 		5929E1EA13258B3700B81D2E /* main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = main.css; sourceTree = "<group>"; };
 		5929E1EC13258B3700B81D2E /* textlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textlogo.png; sourceTree = "<group>"; };
 		5929E1F113258C0500B81D2E /* about.haml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = about.haml; sourceTree = "<group>"; wrapsLines = 1; };

@@ -4,7 +4,10 @@
  *
  * Example:
  *   var dstk = $.DSTK();
- *   var coordinates = dstk.street2coordinates('2543 Graystone Place, Simi Valley, CA 93065');
+ *   dstk.street2coordinates('2543 Graystone Place, Simi Valley, CA 93065', myCallback);
+ *
+ * See http://www.datasciencetoolkit.org/developerdocs#javascript for a full
+ * guide on how to use this interface.
  *
  * This jQuery plugin is a simple way to access the Data Science Toolkit
  * from Javascript. It's designed to work well cross-domain, using JSONP
@@ -55,7 +58,7 @@
 function DSTK(options) {
     
   var defaultOptions = {
-//    apiBase: 'http://www.geodictapi.com',
+//    apiBase: 'http://www.datasciencetoolkit.org',
     apiBase: 'http://ec2-50-16-9-239.compute-1.amazonaws.com',
     checkVersion: true
   };
@@ -98,7 +101,7 @@ DSTK.prototype.checkVersion = function() {
 
 };
 
-// See http://www.geodictapi.com/developerdocs for information on these calls
+// See http://www.datasciencetoolkit.org/developerdocs for information on these calls
 
 DSTK.prototype.ip2coordinates = function(ips, callback) {
 

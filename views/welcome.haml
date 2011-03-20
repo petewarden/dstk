@@ -5,7 +5,7 @@
 
   %div{:style=>"margin-top:20px; font-size: 125%;"}
     %h3 Steal this server!
-    %a{:href=>"http://www.geodictapi.com/developerdocs#setup"} 
+    %a{:href=>"http://www.datasciencetoolkit.org/developerdocs#setup"} 
       Grab this entire site as a free, self-contained, ready-to-run VM
     %br
     %br
@@ -79,7 +79,7 @@
     %br
     It emulates the interface to 
     %a{:href=>"http://developer.yahoo.com/geo/placemaker/guide/web-service.html "}Yahoo's Placemaker
-    , so switching should just mean changing 'http://wherein.yahooapis.com/' to 'http://www.geodictapi.com/' in your current code. 
+    , so switching should just mean changing 'http://wherein.yahooapis.com/' to 'http://www.datasciencetoolkit.org/' in your current code. 
   
   .trygeodict{:style=>"margin-top:20px; font-size: 125%;"}
     Try it for yourself. Copy and paste some text into the box below to see what locations it finds.
@@ -175,11 +175,12 @@
 %script{:src=>"/scripts/jquery.exptextarea.js", :type=>"text/javascript"}
 :javascript
   $(function() {
+
     $('textarea').expandingTextArea()
 
     // This creates the Data Science Toolkit object we'll be using to 
     // make API calls with.
-    // By default it uses the datasciencetoolkit.com server, but if you
+    // By default it uses the datasciencetoolkit.org server, but if you
     // set up your own, you can just switch the URL in this constructor.
     var dstk = $.DSTK();
     //var dstk = $.DSTK({apiBase:'http://localhost:4567'});

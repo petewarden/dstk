@@ -1,49 +1,11 @@
-GeodictAPI
-==========
+Data Science Toolkit
+====================
 Pete Warden <pete@petewarden.com>
 :website: http://petewarden.typepad.com/
 
-= GeodictAPI
+= Data Science Toolkit
 By http://petewarden.typepad.com/[Pete Warden] <pete@petewarden.com>
 
-An open-source service for pulling location information from unstructured text. It emulates http://developer.yahoo.com/geo/placemaker/guide/web-service.html[Yahoo's Placemaker API], so you should be able to switch any existing code simply by changing any references to "http://wherein.yahooapis.com/v1/document" to "http://<your server>/v1/document" (eg "http://www.geodictapi.com/v1/document").
+A collection of the best open data sets and open-source tools for data science, wrapped in an easy-to-use REST/JSON API with http://www.datasciencetoolkit.org/developerdocs#commandline[command line], http://www.datasciencetoolkit.org/developerdocs#python[Python] and http://www.datasciencetoolkit.org/developerdocs#javascript[Javascript] interfaces. Available as a http://www.datasciencetoolkit.org/developerdocs#vmware[self-contained VM] or http://www.datasciencetoolkit.org/developerdocs#amazon[EC2 AMI] that you can deploy yourself.
 
-== Usage
-
-As an emulation of Yahoo's service, a good place to start is http://developer.yahoo.com/geo/placemaker/guide/web-service.html[their Placemaker documentation]. There's also concrete examples of how to call the Placemaker API in the test_suite folder. I've focused on supporting the most commonly used features of Yahoo's interface, so if you have some code that relies on something that's missing, mailto:pete@petewarden.com[email me a sample of your source] and I'll do my best to add that in.
-
-Here's how the http://swift.ushahidi.com[Ushahidi Swift project] calls Placemaker to pull the first location mentioned in a document.
-
-For original Yahoo API:
-----
-define('BASE_URL', 'http://wherein.yahooapis.com/');
-define('APP_ID', '<Their API Key>');
-----
-
-Using GeodictAPI:
-----
-define('BASE_URL', 'http://www.geodictapi.com/');
-define('APP_ID', ''); // No API key needed
-----
-
-Code for calling the API and parsing the results:
-----
-    $encodedLocation = \urlencode($location);
-    $url = BASE_URL."v1/document";
-    $postvars = "documentContent=$encodedLocation&documentType=text/plain&appid=$appid";
-    $return = curl_request($url, $postvars);
-    $xml = new \SimpleXMLElement($return);
-    $long = (float) $xml->document->placeDetails->place->centroid->longitude;
-    $latt = (float) $xml->document->placeDetails->place->centroid->latitude;
-
-----
-
-The results will differ between the two APIs, as the algorithms are quite different. In particular, I designed Geodict for applications that are intolerant of false positives, so for example Placemaker will flag "New York Times" as a location whereas Geodict will ignore it.
-
-You can get started using the "http://www.geodictapi.com/" server, but for intensive use or to run behind a firewall, you'll probably want to create your own machine.
-
-== Setting up your own server
-
-The simplest way to create a server is to grab one of the Amazon Machine Images listed at http://www.geodictapi.com/developerdocs[http://www.geodictapi.com/developerdocs]. You should then be able to fire up an instance on EC2 and immediately start using it.
-
-If you want to run on an in-house server, or on another hosting provider, serversetup.txt contains instructions on the exact steps I took to create that image starting from a clean Ubuntu 10.10 installation.
+See http://www.datasciencetoolkit.org/developerdocs[www.datasciencetoolkit.org/developerdocs] for full documentation.

@@ -14,7 +14,7 @@ define('PLACEMAKER_URL', 'http://localhost:4567/v1/document');
 define('YAHOO_PUBLIC_KEY', '');
 
 // Remote server
-//define('PLACEMAKER_URL', 'http://www.geodictapi.com/v1/document');
+//define('PLACEMAKER_URL', 'http://www.datasciencetoolkit.org/v1/document');
 //define('YAHOO_PUBLIC_KEY', '');
 
 define('PLACEMAKER_MAX_STRING_LENGTH', 4900);

@@ -10,7 +10,7 @@
       #container.ui-corner-all{:style=>"text-align: left;"}
         #header.ui-corner-all
           %a{:style=>"text-decoration:none;", :href=>"/"}
-            %img.headerlogo{:src=>"/images/textlogo.png", :width=>"140", :height=>"28"}
+            %img.headerlogo{:src=>"/images/textlogo.png", :width=>"293", :height=>"27"}
         .clearer{:style=>"clear:both"}
         .headline #{if @headline then @headline else '' end}
         .clearer{:style=>"clear:both"}
@@ -18,9 +18,9 @@
           = yield
           
       #footer
-        %a{:href=>"http://github.com/petewarden/geodictapi"} Source Code
+        %a{:href=>"http://github.com/petewarden/datasciencetoolkit"} Source Code
         =" | "
-        %a{:href=>"http://www.geodictapi.com/developerdocs"} Documentation
+        %a{:href=>"http://www.datasciencetoolkit.org/developerdocs"} Documentation
         =" | "
         %a{:href=>"/about"} About
       

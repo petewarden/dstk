@@ -6,19 +6,30 @@
     %a{:href=>"#usage"} Usage
     %br
     &nbsp;&nbsp;&nbsp;&nbsp;
+    %a{:href=>"#commandline"} Command Line
+    %br
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    %a{:href=>"#python"} Python
+    %br
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    %a{:href=>"#javascript"} Javascript
+    %br
+    %a{:href=>"#api"} API
+    %br
+    &nbsp;&nbsp;&nbsp;&nbsp;
     %a{:href=>"#geodict"} Geodict
     %br
     &nbsp;&nbsp;&nbsp;&nbsp;
     %a{:href=>"#text2places"} Text to Places
     %br
     &nbsp;&nbsp;&nbsp;&nbsp;
-    %a{:href=>"#ip2coordinates"} IP Address to Location
+    %a{:href=>"#ip2coordinates"} IP Address to Coordinates
     %br
     &nbsp;&nbsp;&nbsp;&nbsp;
-    %a{:href=>"#street2coordinates"} Street Address to Location
+    %a{:href=>"#street2coordinates"} Street Address to Coordinates
     %br
     &nbsp;&nbsp;&nbsp;&nbsp;
-    %a{:href=>"#coordinates2politics"} Location to Politics
+    %a{:href=>"#coordinates2politics"} Coordinates to Politics
     %br
     &nbsp;&nbsp;&nbsp;&nbsp;
     %a{:href=>"#file2text"} File to Text
@@ -32,6 +43,9 @@
     &nbsp;&nbsp;&nbsp;&nbsp;
     %a{:href=>"#html2story"} HTML to Story
     %br
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    %a{:href=>"#text2people"} Text to People
+    %br
     %a{:href=>"#setup"} Setting up your own server
     %br
     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -40,12 +54,117 @@
     &nbsp;&nbsp;&nbsp;&nbsp;
     %a{:href=>"#vmware"} VMware
     %br
-
+    %br
+    
+    Questions? Get help from 
+    %a{:href=>"http://groups.google.com/group/dstk-users"} http://groups.google.com/group/dstk-users
+  
+    %br
+  
   .developerinfo{:style=>"margin-top:20px; font-size: 125%;"}
 
     %a{:name=>"usage"}
     :markdown
       ### Usage
+    %br
+
+    %a{:name=>"commandline"}
+    :markdown
+      #### Command Line
+      Download [python_tools.zip](/python_tools.zip), extract into a new folder, `cd` into it and run `./install`
+      
+      This will create a set of scripts you can run directly from the command line, like this:
+      
+      `html2text http://nytimes.com | text2people`
+
+      The command above fetches the New York Times front page, extracts a plain text version, and then pulls out likely names. There's command-line scripts for all the API calls, and they're designed to work according to the normal Unix conventions. That means you can pipe the output from one command to another, since if no inputs are specified the commands will read from stdin. The calls that take in large chunks of text interpret any arguments as file names or URLs to read. If a name starts with "http://" the document at that location will be fetched and processed, as in the New York Times example above. If a file name is a directory, it will recurse down through the folder structure, reading in all files it finds. For example:
+      
+      `file2text -h ~/scanned_documents/*.jpg > scanned_text.txt` 
+      
+      This will run OCR on all the JPEG images in that folder (the same command also works on PDF, DOC and XLS files). The -h switch is applicable to most commands, and tells them to output header information, in this case the file name for each chunk of text pulled from an image.
+      
+      Commands that take in inputs that aren't natural-language text or html treat their arguments as the strings to process, rather than file names. For example, this call looks up the given IP address, not the file with that name:
+      
+      `ip2coordinates "67.169.73.113"`
+      
+      If you do want to run one of these commands on a large number of inputs, you can pipe them in from a file on stdin, and each line in the file will be treated as an input:
+      
+      `ip2coordinates < someips.txt`
+
+      The commands that produce structured results (something other than a blob of text) write out their information in comma-separated value format. This means you can redirect their output into a .csv file and then load that into your favorite spreadsheet, or read it into your own scripts to do custom processing. Here's an example of how that works:
+      
+      `text2places -h http://nytimes.com/ > nytimes_places.csv`
+      
+      By default, the command-line tools will use the [datasciencetoolkit.org](http://www.datasciencetoolkit.org) server to do the processing, but if [you set up your own server](#setup) you can redirect all calls to that URL by setting the enviroment variable `DSTK_API_BASE` or using the -a switch for each command, eg:
+      
+       `export DSTK_API_BASE=http://example.com` 
+    %br
+       
+    %a{:name=>"python"}
+    :markdown
+      #### Python
+
+      Download [python_tools.zip](/python_tools.zip), extract into a new folder, `cd` into it and run `python setup.py`
+      
+      This installs the DSTK interface as a module. If you run the Python interactive console, you can test it out:
+      
+      `>>> import dstk`
+      
+      `>>> dstk = dstk.DSTK()`
+      
+      `>>> dstk.street2coordinates('2543 Graystone Place, Simi Valley, CA 93065')`
+      
+      `{'2543 Graystone Place, Simi Valley, CA 93065': {'confidence': 0.92200000000000004, 'street_number': '2543', 'locality': 'Simi Valley', 'street_name': 'Graystone Pl', 'fips_county': '06111', 'country_code3': 'USA', 'country_name': 'United States', 'longitude': -118.76620699999999, 'country_code': 'US', 'latitude': 34.280873999999997, 'region': 'CA', 'street_address': '2543 Graystone Pl'}}`
+
+      You can access all of the API methods by calling the corresponding function on the interface object. Most functions can take either a single string, or an array of input strings, and return either an array or dictionary of results. The individual methods' documentation explains the exact format of their output.
+      
+      By default, the [datasciencetoolkit.org](http://www.datasciencetoolkit.org) server is called, but if the `DSTK_API_BASE` environment variable is set, that URL will be used instead. You can also pass in a custom server URL in the options structure when you create the interface object:
+      
+      `dstk = dstk.DSTK({'apiBase':'http://example.com'})`
+
+       If no Data Science Toolkit server is detected at the URL, an exception is thrown. You can skip the call required to pull the server information by setting `checkVersion` to False in the constructor options.
+       
+       For a full example of the Python interface in action, look at the command-line tool included at the bottom of the dstk.py file inside python_tools.zip.
+
+    %br
+
+    %a{:name=>"javascript"}
+    :markdown
+      #### Javascript
+      
+      The Javascript interface is available as a jQuery plugin, to get started download [jquery.dstk.js](/scripts/jquery.dstk.js). Once you've included that in your page, you'll be able to call it like this:
+      
+      `var dstk = $.DSTK();`
+      
+      `dstk.ip2coordinates('67.169.73.113', function(result) {`
+      
+      &nbsp;&nbsp;`if (typeof result['error'] !== 'undefined') {`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;`alert('Error: '+result['error']);`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;`return`
+      
+      &nbsp;&nbsp;`}`
+      
+      &nbsp;&nbsp;`for (var ip in result) {`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;`var info = result[ip];`
+      
+      &nbsp;&nbsp;&nbsp;&nbsp;`alert(ip+' is at '+info['latitude']+','+info['longitude']);`
+      
+      &nbsp;&nbsp;`}`
+      
+      `});`
+
+      The DSTK interface object supports all of the API calls except [file2text](#file2text), since there's no simple way to upload files directly from Javascript. It uses JSONP calls where possible, injecting script tags to allow cross-domain access, so scripts on your own sites' pages can run using the default [datasciencetoolkit.org](http://www.datasciencetoolkit.org) server. Since JSONP relies on the GET method, it runs into URL size limits when dealing with larger text inputs (over about 8k). It will automatically switch to using jQuery's AJAX POST method, but this will fail if you're running cross-domain. You can work around this by setting up a proxy on your own domain, either [a full copy of the server](#setup) or a proxy pointing to the datasciencetoolkit.org site. You specify which server to use by setting the `apiBase` option in the constructor, eg:
+      
+      `var dstk = $.DSTK({apiBase:'http://example.com'});`
+
+    %br
+
+    %a{:name=>"api"}
+    :markdown
+      ### API
       
     %br
     %a{:name=>"geodict"}
@@ -66,7 +185,7 @@
       Using GeodictAPI:
       
       <hr>
-      `define('BASE_URL', 'http://www.geodictapi.com/');`
+      `define('BASE_URL', 'http://www.datasciencetoolkit.org/');`
       
       `define('APP_ID', ''); // No API key needed`
       <hr>
@@ -98,7 +217,7 @@
       
       This is the friendly interface to the same underlying functionality as Geodict. It uses a much simpler JSON format, taking an array with a single string as its input and returning an array of the locations found in that text. Here's an example:
       <hr>
-      `curl "http://www.geodictapi.com/text2places/%5b%22Cairo%2c+Egypt%22%5d"`
+      `curl "http://www.datasciencetoolkit.org/text2places/%5b%22Cairo%2c+Egypt%22%5d"`
       
       `[{"type":"CITY","start_index":"0","end_index":"4","matched_string":"Cairo, Egypt",`
 
@@ -107,7 +226,7 @@
 
     %a{:name=>"ip2coordinates"}
     :markdown
-      #### IP Address to Location
+      #### IP Address to Coordinates
       
       This API takes either a single numerical IP address, a comma-separated list, or a JSON-encoded array of addresses, and returns a JSON object with a key for every IP. The value for each key is either null if no information was found for the address, or an object containing location information, including country, region, city and latitude/longitude coordinates. Here's an example:
       <hr>
@@ -145,11 +264,11 @@
 
     %a{:name=>"street2coordinates"}
     :markdown
-      #### Street Address to Location
+      #### Street Address to Coordinates
       
       This API takes either a single string representing a postal address, or a JSON-encoded array of addresses, and returns a JSON object with a key for every address. The value for each key is either null if no information was found for the address, or an object containing location information, including country, region, city and latitude/longitude coordinates. Here's an example:
       <hr>
-      `curl "http://ww.geodictapi.com/street2coordinates/2543+Graystone+Place%2c+Simi+Valley%2c+CA+93065"`
+      `curl "http://ww.datasciencetoolkit.org/street2coordinates/2543+Graystone+Place%2c+Simi+Valley%2c+CA+93065"`
       
       `{"2543 Graystone Place, Simi Valley, CA 93065":{`
 
@@ -189,11 +308,11 @@
 
     %a{:name=>"coordinates2politics"}
     :markdown
-      #### Location to Politics
+      #### Coordinates to Politics
       
       This API takes either a single string representing a comma-separated pair of latitude/longitude coordinates, or a JSON-encoded array of objects containing two keys, one for latitude and one for longitude. It returns a JSON array containing an object for every input location. The location member holds the coordinates that were queried, and politics holds an array of countries, states, provinces, cities, constituencies and neighborhoods that the point lies within. Here's an example:
       <hr>
-      `curl "http://www.geodictapi.com/coordinates2politics/37.769456%2c-122.429128"`
+      `curl "http://www.datasciencetoolkit.org/coordinates2politics/37.769456%2c-122.429128"`
       
       `[{"location":{"latitude":"37.769456","longitude":"-122.429128"},"politics":[`
       
@@ -225,7 +344,7 @@
       
       If you pass in an image, this API will run an optical character recognition algorithm to extract any words or sentences it can from the picture. If you upload a PDF file, Word document, Excel spreadsheet or HTML file, it will return a plain text version of the content. Unlike most of the calls, this one takes its input in the standard multipart form-encoded format that's used when browsers upload files, rather than as JSON. It returns any content it finds as a stream of text.
       <hr>
-      `curl --form inputfile=@ExecutiveSummary.docx "http://www.geodictapi.com/file2text"`
+      `curl --form inputfile=@ExecutiveSummary.docx "http://www.datasciencetoolkit.org/file2text"`
 
       `OverviewMoveableCode, inc. is a seed stage company funded by a National Science Foundation Phase 1 SBIR grant.  The company is developing software applications for mobile devices with a particular emphasis on Augmented Reality (AR).`
       <hr>
@@ -238,11 +357,11 @@
       
       This call takes some text, and returns any fragments of it that look like proper sentences organized into paragraphs. It's most useful for taking documents that may be full of uninteresting boilerplate like headings and captions, and returning only the descriptive passages for further analysis.
       <hr>
-      `curl -d "*Does*not*look_like999A sentence." "http://www.geodictapi.com/text2sentences"`
+      `curl -d "*Does*not*look_like999A sentence." "http://www.datasciencetoolkit.org/text2sentences"`
       
       `{"sentences":""}`
 
-      `curl -d "But this does, it contains enough words. So does this one, it appears correct. This is long and complete enough too." "http://www.geodictapi.com/text2sentences"`
+      `curl -d "But this does, it contains enough words. So does this one, it appears correct. This is long and complete enough too." "http://www.datasciencetoolkit.org/text2sentences"`
       
       `{"sentences":"But this does, it contains enough words. So does this one, it appears correct. This is long and complete enough too. \n"}`
       
@@ -258,7 +377,7 @@
       
       This call takes an HTML document, and analyzes it to determine what text would be displayed when it is rendered. This includes all headers, ads and other boilerplate. If you want only the main body text (for example the story section in a news article) then you should use [html2story](#html2story) on the HTML. 
       <hr>
-      `curl -d "<html><head><title>MyTitle</title></head><body><script type="text/javascript">something();</script><div>Some actual text</div></body></html>" "http://www.geodictapi.com/html2text"`
+      `curl -d "<html><head><title>MyTitle</title></head><body><script type="text/javascript">something();</script><div>Some actual text</div></body></html>" "http://www.datasciencetoolkit.org/html2text"`
       
       `{"text":"Some actual text\n"}`
       
@@ -276,7 +395,7 @@
       
       This call takes an HTML document, and extracts the sections of text that appear to be the main body of a news story, or more generally the long, descriptive passages in any page. This is especially useful when you want to run an analysis only on the unique content of each page, ignoring all the repeated navigation elements.
       <hr>
-      `curl -d "`*The contents of a real page*`" "http://www.geodictapi.com/html2story"`
+      `curl -d "`*The contents of a real page*`" "http://www.datasciencetoolkit.org/html2story"`
       
       `{"story":"`*The story text*`"}`
       
@@ -289,12 +408,35 @@
       The POST form takes the input text as a single raw string in the body of the request. The result is a JSON-encoded object with a "story" member containing the matching parts of the input.
 
       This API relies on the [Boilerpipe](http://code.google.com/p/boilerpipe/) library to recognize and extract the story text.
+
+    %a{:name=>"text2people"}
+    :markdown
+      #### Text to People
+      
+      Extracts any sequences of words that look like people's names, and tries to guess their gender from any first names found. This works best on names that are common in English-speaking countries, though it does cover the most popular foreign-language names too. It also looks for some common titles like Mr and Mrs to help it spot possible people. It relies on capitalization of names, so it will only work on more formal texts.
+      There will inevitably be some noise (is "Will Hunting" in "Good Will Hunting" a name?) so you'll need an application where some false positives aren't a problem. For example, you could use this to spot the most popular people in a collection of crawled news pages.
+      <hr>
+      `curl -d "Tim O'Reilly, Archbishop Huxley" "http://www.datasciencetoolkit.org/text2people"`
+      
+      `[{"start_index":0,"gender":"m","end_index":12,"first_name":"Tim","surnames":"O'Reilly",`
+      
+      `"matching_text":"Tim O'Reilly","title":""},`
+      
+      `{"start_index":14,"gender":"u","end_index":31,"first_name":"","surnames":"Huxley",`
+      
+      `"matching_text":"Archbishop Huxley","title":"archbishop"}]`
+      
+      <hr>
+
+      The text is passed in either as a JSON-encoded array in the remainder of the URL for a GET call, or in the raw body of the request for POST. The usual 8,000 character limit on GET URLs applies, so use POST for larger texts.
+
+      This API uses my Ruby port of Eamon Daly and Jon Orwant's original [GenderFromName Perl module](http://search.cpan.org/~edaly/Text-GenderFromName-0.32/GenderFromName.pm) to classify first names.
       
     %a{:name=>"setup"}
     :markdown
       ### Setting up your own server
 
-      You can get started using the "http://www.geodictapi.com/" server, but for intensive use or to run behind a firewall, you'll probably want to create your own machine.
+      You can get started using the "http://www.datasciencetoolkit.org/" server, but for intensive use or to run behind a firewall, you'll probably want to create your own machine.
 
     %a{:name=>"amazon"}
     :markdown

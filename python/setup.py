@@ -4,5 +4,5 @@ setup(name='dstk',
       py_modules=['dstk'],
       author='Pete Warden',
       author_email='pete@petewarden.com',
-      url='http://www.geodictapi.com/'
+      url='http://www.datasciencetoolkit.org/'
       )

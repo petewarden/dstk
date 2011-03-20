@@ -2,7 +2,7 @@
 # Python interface to the Data Science Toolkit Plugin
 # version: 1.30 (2011-03-16)
 #
-# See http://www.geodictapi.com/developerdocs for more details
+# See http://www.datasciencetoolkit.org/developerdocs#python for full details
 #
 # All code (C) Pete Warden, 2011
 # 
@@ -36,7 +36,7 @@ import csv
 # dstk = DSTK()
 # and then call the method you want
 # coordinates = dstk.ip2coordinates('12.34.56.78')
-# The full documentation is at http://www.geodictapi.com/developerdocs
+# The full documentation is at http://www.datasciencetoolkit.org/developerdocs
 class DSTK:
 
   api_base = None
@@ -46,7 +46,7 @@ class DSTK:
       options = {}
     
     defaultOptions = {
-      'apiBase': 'http://www.geodictapi.com',
+      'apiBase': 'http://www.datasciencetoolkit.org',
       'checkVersion': True
     }
 
@@ -246,7 +246,6 @@ def guess_content_type(filename):
 # End of the interface. The rest of this file is an example implementation of a
 # command line client.
 
-
 def ip2coordinates_cli(dstk, options, inputs, output):
 
   writer = csv.writer(sys.stdout)
@@ -356,12 +355,14 @@ def file2text_cli(dstk, options, inputs, output):
       file_data = get_file_or_url_contents(file_name)
       if options['showHeaders']:
         output.write('--File--: '+file_name+"\n")
-      output.write(dstk.file2text(file_name, file_data))
+      result = dstk.file2text(file_name, file_data)
+      
+      print result
   return
 
-def text2places_cli(dstk, options, inputs):
+def text2places_cli(dstk, options, inputs, output):
 
-  writer = csv.writer(sys.stdout)
+  writer = csv.writer(output)
   
   if options['showHeaders']:
     row = ['latitude', 'longitude', 'name', 'type', 'start_index', 'end_index', 'matched_string', 'file_name']
@@ -406,7 +407,7 @@ def html2text_cli(dstk, options, inputs, output):
 
   if options['from_stdin']:
     result = dstk.html2text("\n".join(inputs))
-    output.write(result['text'])
+    print result['text']
     return
 
   for file_name in inputs:
@@ -421,14 +422,14 @@ def html2text_cli(dstk, options, inputs, output):
       if options['showHeaders']:
         output.write('--File--: '+file_name+"\n")
       result = dstk.html2text(file_data)
-      output.write(result['text'])
+      print result['text']
   return
 
 def text2sentences_cli(dstk, options, inputs, output):
 
   if options['from_stdin']:
     result = dstk.text2sentences("\n".join(inputs))
-    output.write(result['sentences'])
+    print result['sentences']
     return
 
   for file_name in inputs:
@@ -443,7 +444,7 @@ def text2sentences_cli(dstk, options, inputs, output):
       if options['showHeaders']:
         output.write('--File--: '+file_name+"\n")
       result = dstk.text2sentences(file_data)
-      output.write(result['sentences'])
+      print result['sentences']
 
   return
 
@@ -451,7 +452,7 @@ def html2story_cli(dstk, options, inputs, output):
 
   if options['from_stdin']:
     result = dstk.html2story("\n".join(inputs))
-    output.write(result['story'])
+    print result['story']
     return
 
   for file_name in inputs:
@@ -466,7 +467,7 @@ def html2story_cli(dstk, options, inputs, output):
       if options['showHeaders']:
         output.write('--File--: '+file_name+"\n")
       result = dstk.html2story(file_data)
-      output.write(result['story'])
+      print result['story']
   
   return
 
@@ -536,7 +537,7 @@ def print_usage(message=''):
   print "  html2text             (text version of the HTML document)"
   print "  html2story            (text version of the HTML with no boilerplate)"  
   print "If no inputs are specified, then standard input will be read and used"
-  print "See http://www.geodictapi.com/developerdocs for more details"
+  print "See http://www.datasciencetoolkit.org/developerdocs for more details"
   print "Examples:"
   print "python dstk.py ip2coordinates 67.169.73.113" 
   print "python dstk.py street2coordinates \"2543 Graystone Place, Simi Valley, CA 93065\"" 

@@ -276,9 +276,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>19</integer>
-									<integer>18</integer>
-									<integer>13</integer>
+									<integer>43</integer>
+									<integer>42</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -321,7 +320,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>jquery.dstk.js</string>
+										<string>about.haml</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -329,11 +328,11 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>jquery.dstk.js</string>
+												<string>about.haml</string>
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>597D8D811335C4460042C251</string>
+												<string>597D8E10133679D50042C251</string>
 												<key>history</key>
 												<array>
 													<string>5929E12313244A2300B81D2E</string>
@@ -346,24 +345,19 @@
 													<string>5929E2D51325B60D00B81D2E</string>
 													<string>5929E2F8132964BC00B81D2E</string>
 													<string>5929E2FB132964BC00B81D2E</string>
-													<string>5929E3191329AF0900B81D2E</string>
 													<string>5929E3CD132C496100B81D2E</string>
 													<string>5929E3CF132C496100B81D2E</string>
 													<string>5929E3D1132C496100B81D2E</string>
 													<string>5929E3D3132C496100B81D2E</string>
 													<string>5929E3D5132C496100B81D2E</string>
-													<string>597D8808132F17990042C251</string>
 													<string>597D8809132F17990042C251</string>
 													<string>597D885F133062410042C251</string>
 													<string>597D8AD71331DF350042C251</string>
-													<string>597D8BAF13341B930042C251</string>
 													<string>597D8BBC1334207E0042C251</string>
 													<string>597D8BC1133426560042C251</string>
-													<string>597D8BD013342E750042C251</string>
 													<string>597D8BD113342E750042C251</string>
 													<string>597D8C39133466F30042C251</string>
 													<string>597D8C821334877A0042C251</string>
-													<string>597D8C9B133528DE0042C251</string>
 													<string>597D8C9C133528DE0042C251</string>
 													<string>597D8C9D133528DE0042C251</string>
 													<string>597D8C9E133528DE0042C251</string>
@@ -374,9 +368,14 @@
 													<string>597D8CF713357B530042C251</string>
 													<string>597D8CF813357B530042C251</string>
 													<string>597D8CF913357B530042C251</string>
-													<string>597D8D39133583FB0042C251</string>
-													<string>597D8D731335C0960042C251</string>
-													<string>597D8D741335C0960042C251</string>
+													<string>597D8D871335C7D20042C251</string>
+													<string>597D8D931335D4370042C251</string>
+													<string>597D8DC71335E4C90042C251</string>
+													<string>597D8DD913366EF20042C251</string>
+													<string>597D8DFD1336785D0042C251</string>
+													<string>597D8DFE1336785D0042C251</string>
+													<string>597D8DFF1336785D0042C251</string>
+													<string>597D8E001336785D0042C251</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -405,7 +404,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>welcome.haml</string>
+										<string>developerdocs.haml</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -413,18 +412,17 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>welcome.haml</string>
+												<string>developerdocs.haml</string>
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>597D8D821335C4460042C251</string>
+												<string>597D8E11133679D50042C251</string>
 												<key>history</key>
 												<array>
 													<string>5929E16113246ABF00B81D2E</string>
 													<string>5929E19B1324774300B81D2E</string>
 													<string>5929E1A813249DD800B81D2E</string>
 													<string>5929E2E01325B79D00B81D2E</string>
-													<string>5929E300132964BC00B81D2E</string>
 													<string>5929E301132964BC00B81D2E</string>
 													<string>5929E303132964BC00B81D2E</string>
 													<string>5929E305132964BC00B81D2E</string>
@@ -444,8 +442,6 @@
 													<string>597D8A7D1331778D0042C251</string>
 													<string>597D8BB213341B930042C251</string>
 													<string>597D8BB313341B930042C251</string>
-													<string>597D8BE11334348D0042C251</string>
-													<string>597D8C44133470410042C251</string>
 													<string>597D8C5D133474900042C251</string>
 													<string>597D8CBA13352C760042C251</string>
 													<string>597D8CBE13352CB50042C251</string>
@@ -463,7 +459,12 @@
 													<string>597D8D22133580D10042C251</string>
 													<string>597D8D6A1335903E0042C251</string>
 													<string>597D8D701335BABE0042C251</string>
-													<string>597D8D711335BABE0042C251</string>
+													<string>597D8D8A1335C7D20042C251</string>
+													<string>597D8DBC1335E0E70042C251</string>
+													<string>597D8DD61335E7600042C251</string>
+													<string>597D8E021336785D0042C251</string>
+													<string>597D8E031336785D0042C251</string>
+													<string>597D8E041336785D0042C251</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -890,7 +891,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CDD528C0622207200134675</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>geodict_server.rb</string>
+										<string>welcome.haml</string>
 										<key>StatusBarVisibility</key>
 										<true/>
 									</dict>
@@ -899,7 +900,7 @@
 										<key>Frame</key>
 										<string>{{0, 0}, {781, 212}}</string>
 										<key>RubberWindowFrame</key>
-										<string>93 655 781 470 0 0 1920 1178 </string>
+										<string>407 691 781 470 0 0 1920 1178 </string>
 									</dict>
 									<key>Module</key>
 									<string>PBXNavigatorGroup</string>
@@ -923,7 +924,7 @@
 								<key>Frame</key>
 								<string>{{0, 217}, {781, 212}}</string>
 								<key>RubberWindowFrame</key>
-								<string>93 655 781 470 0 0 1920 1178 </string>
+								<string>407 691 781 470 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXProjectFindModule</string>
@@ -952,7 +953,7 @@
 				<string>1CD0528E0623707200166675</string>
 			</array>
 			<key>WindowString</key>
-			<string>93 655 781 470 0 0 1920 1178 </string>
+			<string>407 691 781 470 0 0 1920 1178 </string>
 			<key>WindowToolGUID</key>
 			<string>1C530D57069F1CE1000CFCEE</string>
 			<key>WindowToolIsVisible</key>

@@ -15,7 +15,7 @@ define('BASE_URL', 'http://localhost:4567/');
 define('APP_ID', '');
 
 // Remote server
-//define('BASE_URL', 'http://www.geodictapi.com/');
+//define('BASE_URL', 'http://www.datasciencetoolkit.org/');
 //define('APP_ID', '');
 
 function curl_request($url, $postvars = null)
