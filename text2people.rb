@@ -25,7 +25,7 @@ def debug_log(message)
   if !message
     printf(STDERR, "Bogus message\n")
   else
-    printf(STDERR, "%s\n" % message)
+    printf(STDERR, "%s\n" % message.inspect)
   end
 end
 
