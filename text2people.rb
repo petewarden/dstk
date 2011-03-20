@@ -191,6 +191,6 @@ def match_first_name(word)
   { :gender => info[:gender] }  
 end
 
-text = open('../cruftstripper/test_data/inputs/cnn.com.html').read()
-output = text2people(text)
-puts output.inspect
+#text = open('../cruftstripper/test_data/inputs/cnn.com.html').read()
+#output = text2people(text)
+#puts output.inspect
