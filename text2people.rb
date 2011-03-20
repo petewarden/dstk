@@ -107,8 +107,6 @@ def text2people(text)
 
     offset = end_index
   
-    printf(STDERR, 'Found "'+matched_string+'"'+"\n")
-  
     result.push({
       :gender => gender,
       :title => title,
