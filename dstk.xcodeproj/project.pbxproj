@@ -155,7 +155,7 @@
 /* Begin PBXProject section */
 		5929E10013243EA700B81D2E /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 5929E10313243EA700B81D2E /* Build configuration list for PBXProject "geodictapi" */;
+			buildConfigurationList = 5929E10313243EA700B81D2E /* Build configuration list for PBXProject "dstk" */;
 			compatibilityVersion = "Xcode 2.4";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -191,7 +191,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5929E10313243EA700B81D2E /* Build configuration list for PBXProject "geodictapi" */ = {
+		5929E10313243EA700B81D2E /* Build configuration list for PBXProject "dstk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5929E10113243EA700B81D2E /* Debug */,
