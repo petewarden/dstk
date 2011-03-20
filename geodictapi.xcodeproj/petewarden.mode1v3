@@ -276,7 +276,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>43</integer>
+									<integer>46</integer>
 									<integer>42</integer>
 									<integer>0</integer>
 								</array>
@@ -315,12 +315,14 @@
 							<key>Dock</key>
 							<array>
 								<dict>
+									<key>BecomeActive</key>
+									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>about.haml</string>
+										<string>welcome.haml</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -328,14 +330,13 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>about.haml</string>
+												<string>welcome.haml</string>
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>597D8E10133679D50042C251</string>
+												<string>597D8E35133680340042C251</string>
 												<key>history</key>
 												<array>
-													<string>5929E12313244A2300B81D2E</string>
 													<string>5929E1BD1324BF6300B81D2E</string>
 													<string>5929E1E11324C83C00B81D2E</string>
 													<string>5929E20313258DC800B81D2E</string>
@@ -354,10 +355,7 @@
 													<string>597D885F133062410042C251</string>
 													<string>597D8AD71331DF350042C251</string>
 													<string>597D8BBC1334207E0042C251</string>
-													<string>597D8BC1133426560042C251</string>
 													<string>597D8BD113342E750042C251</string>
-													<string>597D8C39133466F30042C251</string>
-													<string>597D8C821334877A0042C251</string>
 													<string>597D8C9C133528DE0042C251</string>
 													<string>597D8C9D133528DE0042C251</string>
 													<string>597D8C9E133528DE0042C251</string>
@@ -371,11 +369,14 @@
 													<string>597D8D871335C7D20042C251</string>
 													<string>597D8D931335D4370042C251</string>
 													<string>597D8DC71335E4C90042C251</string>
-													<string>597D8DD913366EF20042C251</string>
-													<string>597D8DFD1336785D0042C251</string>
 													<string>597D8DFE1336785D0042C251</string>
 													<string>597D8DFF1336785D0042C251</string>
-													<string>597D8E001336785D0042C251</string>
+													<string>597D8E1613367CAB0042C251</string>
+													<string>597D8E1713367CAB0042C251</string>
+													<string>597D8E2113367DA40042C251</string>
+													<string>597D8E2D13367F7F0042C251</string>
+													<string>597D8E33133680340042C251</string>
+													<string>597D8E34133680340042C251</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -397,14 +398,12 @@
 									<string>666pt</string>
 								</dict>
 								<dict>
-									<key>BecomeActive</key>
-									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>developerdocs.haml</string>
+										<string>about.haml</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -412,11 +411,11 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>developerdocs.haml</string>
+												<string>about.haml</string>
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>597D8E11133679D50042C251</string>
+												<string>597D8E36133680340042C251</string>
 												<key>history</key>
 												<array>
 													<string>5929E16113246ABF00B81D2E</string>
@@ -436,7 +435,6 @@
 													<string>5929E3E6132C496100B81D2E</string>
 													<string>5929E3E8132C496100B81D2E</string>
 													<string>5929E3FF132C530800B81D2E</string>
-													<string>597D8811132F17990042C251</string>
 													<string>597D8871133067220042C251</string>
 													<string>597D8A7B1331778D0042C251</string>
 													<string>597D8A7D1331778D0042C251</string>
@@ -456,7 +454,6 @@
 													<string>597D8CD113355F190042C251</string>
 													<string>597D8CE61335746F0042C251</string>
 													<string>597D8D1413357F080042C251</string>
-													<string>597D8D22133580D10042C251</string>
 													<string>597D8D6A1335903E0042C251</string>
 													<string>597D8D701335BABE0042C251</string>
 													<string>597D8D8A1335C7D20042C251</string>
@@ -464,7 +461,9 @@
 													<string>597D8DD61335E7600042C251</string>
 													<string>597D8E021336785D0042C251</string>
 													<string>597D8E031336785D0042C251</string>
-													<string>597D8E041336785D0042C251</string>
+													<string>597D8E1A13367CAB0042C251</string>
+													<string>597D8E1E13367D020042C251</string>
+													<string>597D8E1F13367D020042C251</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -891,7 +890,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CDD528C0622207200134675</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>welcome.haml</string>
+										<string>layout.haml</string>
 										<key>StatusBarVisibility</key>
 										<true/>
 									</dict>

@@ -20,7 +20,7 @@ require 'postgres'
 require 'set'
 
 # Some hackiness to include the library script, even if invoked from another directory
-require File.join(File.expand_path(File.dirname(__FILE__)), 'geodict_config')
+require File.join(File.expand_path(File.dirname(__FILE__)), 'dstk_config')
 
 # The main entry point. This function takes an unstructured text string and returns a list of all the
 # fragments it could identify as locations, together with lat/lon positions
@@ -168,7 +168,7 @@ def is_country(conn, text, text_starting_index, previous_result)
 
   # Walk backwards through the current fragment, pulling out words and seeing if they match
   # the country names we know about
-  while pulled_word_count < GeodictConfig::WORD_MAX do
+  while pulled_word_count < DSTKConfig::WORD_MAX do
     pulled_word, current_index, end_skipped = pull_word_from_end(text, current_index)
     pulled_word_count += 1
     if current_word == ''
@@ -281,7 +281,7 @@ def is_city(conn, text, text_starting_index, previous_result)
   current_index = text_starting_index
   pulled_word_count = 0
   found_row = nil
-  while pulled_word_count < GeodictConfig::WORD_MAX do
+  while pulled_word_count < DSTKConfig::WORD_MAX do
     pulled_word, current_index, end_skipped = pull_word_from_end(text, current_index)
     pulled_word_count += 1
         
@@ -383,7 +383,7 @@ def is_region(cursor, text, text_starting_index, previous_result)
   current_index = text_starting_index
   pulled_word_count = 0
   found_row = nil
-  while pulled_word_count < GeodictConfig::WORD_MAX do
+  while pulled_word_count < DSTKConfig::WORD_MAX do
     pulled_word, current_index, end_skipped = pull_word_from_end(text, current_index)
     pulled_word_count += 1
     if current_word == ''
@@ -485,7 +485,7 @@ def is_location_word(cursor, text, text_starting_index, previous_result)
 
   current_word.downcase!
     
-  if !GeodictConfig::LOCATION_WORDS.has_key?(current_word)
+  if !DSTKConfig::LOCATION_WORDS.has_key?(current_word)
     return nil
   end
 
@@ -498,7 +498,7 @@ end
 def get_database_connection
 
 #  begin
-    conn = PGconn.connect(GeodictConfig::HOST, GeodictConfig::PORT, '', '', GeodictConfig::DATABASE, GeodictConfig::USER, GeodictConfig::PASSWORD)
+    conn = PGconn.connect(DSTKConfig::HOST, DSTKConfig::PORT, '', '', DSTKConfig::DATABASE, DSTKConfig::USER, DSTKConfig::PASSWORD)
     if $DEBUG
       fd = open("/tmp/trace.out","w")
       conn.trace(fd)

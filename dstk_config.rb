@@ -1,4 +1,4 @@
-# Geodict
+# Data Science Toolkit
 # Copyright (C) 2010 Pete Warden <pete@petewarden.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -14,10 +14,10 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-module GeodictConfig
+module DSTKConfig
 
   # The location of the source data to be loaded into your database
-  SOURCE_FOLDER = '../geodictdata/'
+  SOURCE_FOLDER = '../dstkdata/'
 
   # Your MySQL user credentials
   USER = 'postgres'
@@ -43,7 +43,7 @@ module GeodictConfig
   }
 
   # The location of the MaxMind database file holding IP to location mappings
-  IP_MAPPING_DATABASE = '../geodictdata/GeoLiteCity.dat'
+  IP_MAPPING_DATABASE = '../dstkdata/GeoLiteCity.dat'
   
   # The version of the API this code implements
   API_VERSION = 130

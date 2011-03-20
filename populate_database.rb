@@ -27,7 +27,7 @@ def load_cities(conn)
         PRIMARY KEY (city, country));')
   conn.exec('CREATE INDEX city_last_word_index ON cities(last_word)')
   
-  file_name = GeodictConfig::SOURCE_FOLDER+'worldcitiespop.csv'
+  file_name = DSTKConfig::SOURCE_FOLDER+'worldcitiespop.csv'
   File.foreach(file_name) do |line|    
     begin
       row = CSV.parse_line(line)
@@ -87,7 +87,7 @@ def load_countries(conn)
   
   country_positions = {}
   
-  file_name = GeodictConfig::SOURCE_FOLDER+'countrypositions.csv'
+  file_name = DSTKConfig::SOURCE_FOLDER+'countrypositions.csv'
   File.foreach(file_name) do |line|    
     begin
       row = CSV.parse_line(line)
@@ -102,7 +102,7 @@ def load_countries(conn)
     country_positions[country_code] = { :lat => lat, :lon => lon }
   end
   
-  file_name = GeodictConfig::SOURCE_FOLDER+'countrynames.csv'
+  file_name = DSTKConfig::SOURCE_FOLDER+'countrynames.csv'
   File.foreach(file_name) do |line|    
     begin
       row = CSV.parse_line(line)
@@ -164,7 +164,7 @@ def load_regions(conn)
 
   us_state_positions = {}
 
-  file_name = GeodictConfig::SOURCE_FOLDER+'us_statepositions.csv'
+  file_name = DSTKConfig::SOURCE_FOLDER+'us_statepositions.csv'
   File.foreach(file_name) do |line|    
     begin
       row = CSV.parse_line(line)
@@ -182,7 +182,7 @@ def load_regions(conn)
 
   country_code = 'US'
 
-  file_name = GeodictConfig::SOURCE_FOLDER+'us_statenames.csv'
+  file_name = DSTKConfig::SOURCE_FOLDER+'us_statenames.csv'
   File.foreach(file_name) do |line|    
     begin
       row = CSV.parse_line(line)

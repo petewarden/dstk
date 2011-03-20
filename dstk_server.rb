@@ -34,7 +34,7 @@ require 'geocoder/us/database'
 # Some hackiness to include the library script, even if invoked from another directory
 cwd = File.expand_path(File.dirname(__FILE__))
 require File.join(cwd, 'geodict_lib')
-require File.join(cwd, 'geodict_config')
+require File.join(cwd, 'dstk_config')
 require File.join(cwd, 'cruftstripper')
 require File.join(cwd, 'text2people')
 
@@ -405,7 +405,7 @@ end
 # free database from GeoMind
 def ip2coordinates(ips, callback=nil)
 
-  geoip = Net::GeoIP.new(GeodictConfig::IP_MAPPING_DATABASE)
+  geoip = Net::GeoIP.new(DSTKConfig::IP_MAPPING_DATABASE)
 
   output = {}
   ips.each do |ip|
@@ -523,7 +523,7 @@ TypeToFriendly = {
 # within
 def coordinates2politics(locations, callback=nil)
 
-  conn = PGconn.connect(GeodictConfig::HOST, GeodictConfig::PORT, '', '', GeodictConfig::REVERSE_GEO_DATABASE, GeodictConfig::USER, GeodictConfig::PASSWORD)
+  conn = PGconn.connect(DSTKConfig::HOST, DSTKConfig::PORT, '', '', DSTKConfig::REVERSE_GEO_DATABASE, DSTKConfig::USER, DSTKConfig::PASSWORD)
 
   result = []
   locations.each do |location|
@@ -805,7 +805,7 @@ def boilerpipe(input_html)
     tempfile << input_html
     tempfile_path = tempfile.path
 
-    bp = GeodictConfig::BOILERPIPE_FOLDER
+    bp = DSTKConfig::BOILERPIPE_FOLDER
     output = `java -cp #{bp}dist/boilerpipe-1.1-dev.jar:#{bp}lib/xerces-2.9.1.jar:#{bp}lib/nekohtml-1.9.13.jar:#{bp}src/ BoilerpipeCLI < #{tempfile_path}`
 
     exit_code = $?.to_i
@@ -857,7 +857,7 @@ get '/info' do
 
   callback = params[:callback]
 
-  make_json({:version => GeodictConfig::API_VERSION}, callback)
+  make_json({:version => DSTKConfig::API_VERSION}, callback)
 
 end
 

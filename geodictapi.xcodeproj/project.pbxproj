@@ -8,14 +8,12 @@
 
 /* Begin PBXFileReference section */
 		5929E11013243ECB00B81D2E /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
-		5929E11113243ECB00B81D2E /* geodict_config.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = geodict_config.rb; sourceTree = "<group>"; };
 		5929E11213243ECB00B81D2E /* geodict_lib.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = geodict_lib.rb; sourceTree = "<group>"; };
 		5929E11413243ECB00B81D2E /* gpl.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gpl.txt; sourceTree = "<group>"; };
 		5929E11513243ECB00B81D2E /* largetestinput.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = largetestinput.txt; sourceTree = "<group>"; };
 		5929E11613243ECB00B81D2E /* populate_database.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = populate_database.rb; sourceTree = "<group>"; };
 		5929E11813243ECB00B81D2E /* testinput.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testinput.txt; sourceTree = "<group>"; };
 		5929E11913243F0400B81D2E /* geodict_cli.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = geodict_cli.rb; sourceTree = "<group>"; };
-		5929E11A13243FB500B81D2E /* geodict_server.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = geodict_server.rb; sourceTree = "<group>"; };
 		5929E11B13243FBE00B81D2E /* config.ru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.ru; sourceTree = "<group>"; };
 		5929E14713245CEB00B81D2E /* swift.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = swift.php; sourceTree = "<group>"; };
 		5929E15B1324616E00B81D2E /* openheatmap.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = openheatmap.php; sourceTree = "<group>"; };
@@ -46,6 +44,8 @@
 		597D8CC7133548CD0042C251 /* genderfromname.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = genderfromname.rb; sourceTree = "<group>"; };
 		597D8CE2133561460042C251 /* text2people.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = text2people.rb; sourceTree = "<group>"; };
 		597D8CF613357A260042C251 /* text2people */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = text2people; path = python/text2people; sourceTree = "<group>"; };
+		597D8E1213367B6F0042C251 /* dstk_server.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = dstk_server.rb; sourceTree = "<group>"; };
+		597D8E1313367BA40042C251 /* dstk_config.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = dstk_config.rb; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -54,13 +54,13 @@
 			children = (
 				5929E11B13243FBE00B81D2E /* config.ru */,
 				597D8BAE13340F3E0042C251 /* cruftstripper.rb */,
+				597D8E1313367BA40042C251 /* dstk_config.rb */,
+				597D8E1213367B6F0042C251 /* dstk_server.rb */,
 				5929E11013243ECB00B81D2E /* Gemfile */,
 				597D8CC7133548CD0042C251 /* genderfromname.rb */,
 				5929E11913243F0400B81D2E /* geodict_cli.rb */,
-				5929E11113243ECB00B81D2E /* geodict_config.rb */,
 				5929E1A11324993400B81D2E /* geodict_daemon.rb */,
 				5929E11213243ECB00B81D2E /* geodict_lib.rb */,
-				5929E11A13243FB500B81D2E /* geodict_server.rb */,
 				5929E11413243ECB00B81D2E /* gpl.txt */,
 				5929E11513243ECB00B81D2E /* largetestinput.txt */,
 				5929E11613243ECB00B81D2E /* populate_database.rb */,

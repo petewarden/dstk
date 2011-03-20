@@ -1,29 +1,41 @@
 .clearer{:style=>"clear:both"}
 
 .column{:style=>"width:600px;"}
-  %div{:style=>"margin-top:20px;"}
+  %div{:style=>"margin-top:20px; font-size:125%;"}
     :markdown
     
       A collection of the best open data sets and open-source tools for data science, wrapped in an easy-to-use REST/JSON API with [command line](http://www.datasciencetoolkit.org/developerdocs#commandline), [Python](http://www.datasciencetoolkit.org/developerdocs#python) and [Javascript](http://www.datasciencetoolkit.org/developerdocs#javascript) interfaces. Available as a [self-contained VM](http://www.datasciencetoolkit.org/developerdocs#vmware) or [EC2 AMI](http://www.datasciencetoolkit.org/developerdocs#amazon) that you can deploy yourself.
+      
+      It's essentially a specialized Linux distribution, with a lot of useful data software pre-installed and exposing a simple interface. For full documentation, see [http://www.datasciencetoolkit.org/developerdocs](http://www.datasciencetoolkit.org/developerdocs).
+      
+      ### Credits
     
-    The Data Science Toolkit was assembled by [Pete Warden](http://twitter.com/petewarden/) and the source code is available at [http://github.com/petewarden/geodictapi](http://github.com/petewarden/datasciencetoolkit)
+      The Data Science Toolkit was assembled by [Pete Warden](http://twitter.com/petewarden/) and the source code is available at [http://github.com/petewarden/dstk](http://github.com/petewarden/dstk)
 
-    Country boundaries by [Thematic Mapping](http://thematicmapping.org).
+      Country boundaries by [Thematic Mapping](http://thematicmapping.org).
       
-    Contains Ordnance Survey data [© Crown copyright and database right 2010](http://www.ordnancesurvey.co.uk/oswebsite/opendata/licence/index.html).
+      Contains Ordnance Survey data [© Crown copyright and database right 2010](http://www.ordnancesurvey.co.uk/oswebsite/opendata/licence/index.html).
       
-    Irish boundaries by [Ben Raue](http://www.tallyroom.com.au/maps).
+      Irish boundaries by [Ben Raue](http://www.tallyroom.com.au/maps).
       
-    New Zealand boundaries from [Statistics NZ](http://www.stats.govt.nz).
+      New Zealand boundaries from [Statistics NZ](http://www.stats.govt.nz).
       
-    Worldwide states and provinces from [Natural Earth](http://naturalearthdata.com).
+      Worldwide states and provinces from [Natural Earth](http://naturalearthdata.com).
       
-    Using geocoding code from [Schuyler Erle](https://github.com/geocommons/geocoder).
-      
-    US neighborhood boundaries provided by [Zillow](http://www.zillow.com/howto/api/neighborhood-boundaries.htm) under a CC-SLA license.
+      US neighborhood boundaries provided by [Zillow](http://www.zillow.com/howto/api/neighborhood-boundaries.htm) under a CC-SLA license.
 
-    This product includes GeoLite data created by MaxMind, available from [http://www.maxmind.com/](http://www.maxmind.com/).
+      This product includes GeoLite data created by MaxMind, available from [http://www.maxmind.com/](http://www.maxmind.com/).
 
-    The [OpenStreetMap](http://openstreetmap.org) and [PostGIS](http://postgis.refractions.net/) projects have also provided some fantastic tools.
+      The [OpenStreetMap](http://openstreetmap.org) and [PostGIS](http://postgis.refractions.net/) projects have also provided some fantastic tools.
 
-    If you have any questions, comments, or suggestions, [email Pete](mailto:pete@petewarden.com)
+      Using geocoding code from [Schuyler Erle](https://github.com/geocommons/geocoder).
+      
+      Uses the [Ocropus project](http://code.google.com/p/ocropus/) for OCR on images, and [catdoc](http://wagner.pp.ru/~vitus/software/catdoc/) for parsing pre-XML Word and Excel documents
+      
+      Uses the [Hpricot](http://hpricot.com/) library for parsing HTML.
+
+      The [Boilerpipe](http://code.google.com/p/boilerpipe/) library is used to recognize and extract the main story text from documents.
+
+      Uses my Ruby port of Eamon Daly and Jon Orwant's original [GenderFromName Perl module](http://search.cpan.org/~edaly/Text-GenderFromName-0.32/GenderFromName.pm) to classify first names.
+
+      If you have any questions, comments, or suggestions, [email Pete](mailto:pete@petewarden.com)

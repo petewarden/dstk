@@ -1,6 +1,6 @@
 %html
   %head
-    %title GeodictAPI #{if @title then ' | '+@title else '' end}
+    %title Data Science Toolkit #{if @title then ' | '+@title else '' end}
     %link{:rel=>"stylesheet", :type=>"text/css", :href=>"/css/main.css"}
     %script{:src=>"/scripts/jquery.min.js", :type=>"text/javascript"}
     %script{:src=>"/scripts/jquery.dstk.js", :type=>"text/javascript"}
@@ -124,7 +124,12 @@
             $('<div>Worldwide states and provinces from <a href="http://naturalearthdata.com">Natural Earth</a></div>'),
             $('<div>Using geocoding code from <a href="https://github.com/geocommons/geocoder">Schuyler Erle</a></div>'),
             $('<div>US neighborhood boundaries provided by <a href="http://www.zillow.com/howto/api/neighborhood-boundaries.htm">Zillow</a></div>'),
-            $('<div>This product includes GeoLite data created by MaxMind, available from <a href="http://www.maxmind.com/">http://www.maxmind.com/</a></div>')
+            $('<div>This product includes GeoLite data created by MaxMind, available from <a href="http://www.maxmind.com/">http://www.maxmind.com/</a></div>'),
+            $('<div>Uses the <a href="http://code.google.com/p/ocropus/">Ocropus project</a> for OCR on images</div>'),
+            $('<div>Uses <a href="http://wagner.pp.ru/~vitus/software/catdoc/">catdoc</a> for parsing Word and Excel documents</div>'),
+            $('<div>Uses the <a href="http://hpricot.com/">hpricot</a> library for parsing HTML</div>'),
+            $('<div>Using the <a href="http://code.google.com/p/boilerpipe/">Boilerpipe</a> text-processing library</div>'),
+            $('<div>Using code adapted from the <a href="http://search.cpan.org/~edaly/Text-GenderFromName-0.32/GenderFromName.pm">GenderFromName</a> Perl module</div>')
           ],
           {
             fadeTime: 1000,

@@ -1,4 +1,4 @@
 # This file is used by Rack-based servers to start the application.
 
-require 'geodict_server'
+require 'dstk_server'
 run Sinatra::Application
