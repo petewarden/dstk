@@ -1392,6 +1392,8 @@
 			597D8D0613357C420042C251 /* PBXTextBookmark */ = 597D8D0613357C420042C251 /* PBXTextBookmark */;
 			597D8D0713357CDC0042C251 /* PBXTextBookmark */ = 597D8D0713357CDC0042C251 /* PBXTextBookmark */;
 			597D8D0813357CDC0042C251 /* PBXTextBookmark */ = 597D8D0813357CDC0042C251 /* PBXTextBookmark */;
+			597D8D0913357D100042C251 /* PBXTextBookmark */ = 597D8D0913357D100042C251 /* PBXTextBookmark */;
+			597D8D0A13357D100042C251 /* PBXTextBookmark */ = 597D8D0A13357D100042C251 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 5929E10413243EA700B81D2E /* Source Control */;
 		userBuildSettings = {
@@ -15113,9 +15115,9 @@
 	};
 	597D8CE2133561460042C251 /* text2people.rb */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {821, 2370}}";
-			sepNavSelRange = "{1068, 0}";
-			sepNavVisRange = "{382, 1843}";
+			sepNavIntBoundsRect = "{{0, 0}, {821, 2355}}";
+			sepNavSelRange = "{2603, 0}";
+			sepNavVisRange = "{944, 1764}";
 		};
 	};
 	597D8CE31335746F0042C251 /* PBXTextBookmark */ = {
@@ -15133,7 +15135,7 @@
 		fRef = 597D8CE2133561460042C251 /* text2people.rb */;
 		name = "text2people.rb: 1";
 		rLen = 0;
-		rLoc = 4821;
+		rLoc = 4826;
 		rType = 0;
 		vrLen = 1120;
 		vrLoc = 0;
@@ -15143,7 +15145,7 @@
 		fRef = 597D8CE2133561460042C251 /* text2people.rb */;
 		name = "text2people.rb: 95";
 		rLen = 0;
-		rLoc = 3435;
+		rLoc = 3440;
 		rType = 0;
 		vrLen = 886;
 		vrLoc = 3673;
@@ -15193,7 +15195,7 @@
 		fRef = 597D8CE2133561460042C251 /* text2people.rb */;
 		name = "text2people.rb: 155";
 		rLen = 0;
-		rLoc = 4594;
+		rLoc = 4599;
 		rType = 0;
 		vrLen = 896;
 		vrLoc = 3673;
@@ -15494,5 +15496,25 @@
 		rType = 0;
 		vrLen = 1843;
 		vrLoc = 382;
+	};
+	597D8D0913357D100042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 597D8C91133526740042C251 /* dstk.py */;
+		name = "dstk.py: 169";
+		rLen = 5;
+		rLoc = 4789;
+		rType = 0;
+		vrLen = 1341;
+		vrLoc = 4082;
+	};
+	597D8D0A13357D100042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 597D8CE2133561460042C251 /* text2people.rb */;
+		name = "text2people.rb: 73";
+		rLen = 0;
+		rLoc = 2603;
+		rType = 0;
+		vrLen = 1764;
+		vrLoc = 944;
 	};
 }

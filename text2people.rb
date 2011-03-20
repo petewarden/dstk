@@ -70,7 +70,7 @@ def text2people(text)
       remaining_words = [two_match[2]]
       match_length = two_match.length
     else
-      debug_log('offset='+offset)
+      debug_log('offset='+offset.to_s)
       debug_log('No match found on "'+current_text+'", skipping')
       offset += 1
       next
