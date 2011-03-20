@@ -1374,6 +1374,14 @@
 			597D8CF3133579CE0042C251 /* PBXTextBookmark */ = 597D8CF3133579CE0042C251 /* PBXTextBookmark */;
 			597D8CF4133579E00042C251 /* PBXTextBookmark */ = 597D8CF4133579E00042C251 /* PBXTextBookmark */;
 			597D8CF5133579E00042C251 /* PBXTextBookmark */ = 597D8CF5133579E00042C251 /* PBXTextBookmark */;
+			597D8CF713357B530042C251 /* PBXTextBookmark */ = 597D8CF713357B530042C251 /* PBXTextBookmark */;
+			597D8CF813357B530042C251 /* PBXTextBookmark */ = 597D8CF813357B530042C251 /* PBXTextBookmark */;
+			597D8CF913357B530042C251 /* PBXTextBookmark */ = 597D8CF913357B530042C251 /* PBXTextBookmark */;
+			597D8CFA13357B530042C251 /* PBXTextBookmark */ = 597D8CFA13357B530042C251 /* PBXTextBookmark */;
+			597D8CFB13357B530042C251 /* PBXTextBookmark */ = 597D8CFB13357B530042C251 /* PBXTextBookmark */;
+			597D8CFC13357B530042C251 /* PBXTextBookmark */ = 597D8CFC13357B530042C251 /* PBXTextBookmark */;
+			597D8CFD13357B740042C251 /* PBXTextBookmark */ = 597D8CFD13357B740042C251 /* PBXTextBookmark */;
+			597D8CFE13357B740042C251 /* PBXTextBookmark */ = 597D8CFE13357B740042C251 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 5929E10413243EA700B81D2E /* Source Control */;
 		userBuildSettings = {
@@ -1446,7 +1454,7 @@
 	5929E11A13243FB500B81D2E /* geodict_server.rb */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {821, 16935}}";
-			sepNavSelRange = "{1547, 0}";
+			sepNavSelRange = "{873, 0}";
 			sepNavVisRange = "{0, 1755}";
 			sepNavWindowFrame = "{{15, 493}, {1279, 680}}";
 		};
@@ -9706,7 +9714,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 267";
 		rLen = 0;
-		rLoc = 14769;
+		rLoc = 16325;
 		rType = 0;
 		vrLen = 1303;
 		vrLoc = 6997;
@@ -9746,7 +9754,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 255";
 		rLen = 0;
-		rLoc = 14769;
+		rLoc = 16325;
 		rType = 0;
 		vrLen = 1184;
 		vrLoc = 6342;
@@ -9766,7 +9774,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 240";
 		rLen = 0;
-		rLoc = 14769;
+		rLoc = 16325;
 		rType = 0;
 		vrLen = 1106;
 		vrLoc = 4490;
@@ -9806,7 +9814,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 205";
 		rLen = 0;
-		rLoc = 8377;
+		rLoc = 8681;
 		rType = 0;
 		vrLen = 1390;
 		vrLoc = 7037;
@@ -9826,7 +9834,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 213";
 		rLen = 0;
-		rLoc = 8527;
+		rLoc = 8831;
 		rType = 0;
 		vrLen = 1457;
 		vrLoc = 7097;
@@ -9846,7 +9854,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 246";
 		rLen = 0;
-		rLoc = 9388;
+		rLoc = 9692;
 		rType = 0;
 		vrLen = 1160;
 		vrLoc = 5983;
@@ -9866,7 +9874,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 230";
 		rLen = 0;
-		rLoc = 9032;
+		rLoc = 9336;
 		rType = 0;
 		vrLen = 1289;
 		vrLoc = 6850;
@@ -9886,7 +9894,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 310";
 		rLen = 0;
-		rLoc = 15711;
+		rLoc = 17318;
 		rType = 0;
 		vrLen = 1423;
 		vrLoc = 7152;
@@ -9906,7 +9914,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 251";
 		rLen = 0;
-		rLoc = 14769;
+		rLoc = 16325;
 		rType = 0;
 		vrLen = 1303;
 		vrLoc = 7451;
@@ -9926,7 +9934,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 268";
 		rLen = 0;
-		rLoc = 14769;
+		rLoc = 16325;
 		rType = 0;
 		vrLen = 1303;
 		vrLoc = 7430;
@@ -9946,7 +9954,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 256";
 		rLen = 0;
-		rLoc = 14769;
+		rLoc = 16325;
 		rType = 0;
 		vrLen = 1303;
 		vrLoc = 7429;
@@ -9966,7 +9974,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 255";
 		rLen = 0;
-		rLoc = 14769;
+		rLoc = 16325;
 		rType = 0;
 		vrLen = 1303;
 		vrLoc = 7443;
@@ -10006,7 +10014,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 254";
 		rLen = 0;
-		rLoc = 14769;
+		rLoc = 16325;
 		rType = 0;
 		vrLen = 1303;
 		vrLoc = 7494;
@@ -10026,7 +10034,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 254";
 		rLen = 0;
-		rLoc = 14769;
+		rLoc = 16325;
 		rType = 0;
 		vrLen = 1303;
 		vrLoc = 7494;
@@ -10046,7 +10054,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 254";
 		rLen = 0;
-		rLoc = 14769;
+		rLoc = 16325;
 		rType = 0;
 		vrLen = 1303;
 		vrLoc = 7494;
@@ -10066,7 +10074,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 254";
 		rLen = 0;
-		rLoc = 14769;
+		rLoc = 16325;
 		rType = 0;
 		vrLen = 1303;
 		vrLoc = 7494;
@@ -10086,7 +10094,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 254";
 		rLen = 0;
-		rLoc = 14769;
+		rLoc = 16325;
 		rType = 0;
 		vrLen = 1303;
 		vrLoc = 7494;
@@ -10106,7 +10114,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 254";
 		rLen = 0;
-		rLoc = 14769;
+		rLoc = 16325;
 		rType = 0;
 		vrLen = 1303;
 		vrLoc = 7494;
@@ -10156,7 +10164,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 254";
 		rLen = 0;
-		rLoc = 14769;
+		rLoc = 16325;
 		rType = 0;
 		vrLen = 1303;
 		vrLoc = 7494;
@@ -10196,7 +10204,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 254";
 		rLen = 0;
-		rLoc = 14769;
+		rLoc = 16325;
 		rType = 0;
 		vrLen = 1303;
 		vrLoc = 7494;
@@ -10236,7 +10244,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 254";
 		rLen = 0;
-		rLoc = 14769;
+		rLoc = 16325;
 		rType = 0;
 		vrLen = 1303;
 		vrLoc = 7494;
@@ -10256,7 +10264,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 305";
 		rLen = 0;
-		rLoc = 15627;
+		rLoc = 17234;
 		rType = 0;
 		vrLen = 1303;
 		vrLoc = 7494;
@@ -10416,7 +10424,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 305";
 		rLen = 0;
-		rLoc = 15627;
+		rLoc = 17234;
 		rType = 0;
 		vrLen = 1286;
 		vrLoc = 7494;
@@ -10476,7 +10484,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 237";
 		rLen = 0;
-		rLoc = 13552;
+		rLoc = 15108;
 		rType = 0;
 		vrLen = 1407;
 		vrLoc = 5847;
@@ -10516,7 +10524,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 237";
 		rLen = 0;
-		rLoc = 13552;
+		rLoc = 15108;
 		rType = 0;
 		vrLen = 1407;
 		vrLoc = 5847;
@@ -10536,7 +10544,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 237";
 		rLen = 0;
-		rLoc = 13552;
+		rLoc = 15108;
 		rType = 0;
 		vrLen = 1407;
 		vrLoc = 5847;
@@ -10576,7 +10584,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 325";
 		rLen = 0;
-		rLoc = 16135;
+		rLoc = 17742;
 		rType = 0;
 		vrLen = 1274;
 		vrLoc = 7784;
@@ -10596,7 +10604,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 310";
 		rLen = 0;
-		rLoc = 15683;
+		rLoc = 17290;
 		rType = 0;
 		vrLen = 1274;
 		vrLoc = 7784;
@@ -11656,7 +11664,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 308";
 		rLen = 0;
-		rLoc = 15627;
+		rLoc = 17234;
 		rType = 0;
 		vrLen = 1403;
 		vrLoc = 7456;
@@ -11686,7 +11694,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 150";
 		rLen = 0;
-		rLoc = 5239;
+		rLoc = 5543;
 		rType = 0;
 		vrLen = 1937;
 		vrLoc = 4523;
@@ -11706,7 +11714,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 300";
 		rLen = 0;
-		rLoc = 13552;
+		rLoc = 15108;
 		rType = 0;
 		vrLen = 1230;
 		vrLoc = 7316;
@@ -11726,7 +11734,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 299";
 		rLen = 0;
-		rLoc = 9488;
+		rLoc = 9792;
 		rType = 0;
 		vrLen = 1513;
 		vrLoc = 8069;
@@ -11926,7 +11934,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 187";
 		rLen = 0;
-		rLoc = 6875;
+		rLoc = 7179;
 		rType = 0;
 		vrLen = 1687;
 		vrLoc = 4968;
@@ -11946,7 +11954,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 187";
 		rLen = 0;
-		rLoc = 6875;
+		rLoc = 7179;
 		rType = 0;
 		vrLen = 1687;
 		vrLoc = 4968;
@@ -11966,7 +11974,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 187";
 		rLen = 0;
-		rLoc = 6875;
+		rLoc = 7179;
 		rType = 0;
 		vrLen = 1687;
 		vrLoc = 4968;
@@ -11986,7 +11994,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 187";
 		rLen = 0;
-		rLoc = 6875;
+		rLoc = 7179;
 		rType = 0;
 		vrLen = 1687;
 		vrLoc = 4968;
@@ -12006,7 +12014,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 198";
 		rLen = 0;
-		rLoc = 7210;
+		rLoc = 7514;
 		rType = 0;
 		vrLen = 1687;
 		vrLoc = 4968;
@@ -12603,7 +12611,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 198";
 		rLen = 0;
-		rLoc = 7210;
+		rLoc = 7514;
 		rType = 0;
 		vrLen = 1687;
 		vrLoc = 4968;
@@ -12633,7 +12641,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 392";
 		rLen = 0;
-		rLoc = 15683;
+		rLoc = 17290;
 		rType = 0;
 		vrLen = 1438;
 		vrLoc = 7654;
@@ -13513,7 +13521,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 198";
 		rLen = 0;
-		rLoc = 7210;
+		rLoc = 7514;
 		rType = 0;
 		vrLen = 1687;
 		vrLoc = 4968;
@@ -13523,7 +13531,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 331";
 		rLen = 0;
-		rLoc = 14340;
+		rLoc = 15896;
 		rType = 0;
 		vrLen = 1979;
 		vrLoc = 8552;
@@ -13543,7 +13551,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 415";
 		rLen = 0;
-		rLoc = 13276;
+		rLoc = 13580;
 		rType = 0;
 		vrLen = 2197;
 		vrLoc = 10909;
@@ -13563,7 +13571,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 410";
 		rLen = 0;
-		rLoc = 11905;
+		rLoc = 12209;
 		rType = 0;
 		vrLen = 1532;
 		vrLoc = 10772;
@@ -13583,7 +13591,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 551";
 		rLen = 0;
-		rLoc = 16530;
+		rLoc = 18137;
 		rType = 0;
 		vrLen = 1296;
 		vrLoc = 14846;
@@ -13603,7 +13611,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 551";
 		rLen = 0;
-		rLoc = 16530;
+		rLoc = 18137;
 		rType = 0;
 		vrLen = 1296;
 		vrLoc = 14846;
@@ -13653,7 +13661,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 551";
 		rLen = 0;
-		rLoc = 16530;
+		rLoc = 18137;
 		rType = 0;
 		vrLen = 1296;
 		vrLoc = 14846;
@@ -13673,7 +13681,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 551";
 		rLen = 0;
-		rLoc = 16530;
+		rLoc = 18137;
 		rType = 0;
 		vrLen = 1296;
 		vrLoc = 14846;
@@ -13693,7 +13701,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 551";
 		rLen = 0;
-		rLoc = 16530;
+		rLoc = 18137;
 		rType = 0;
 		vrLen = 1296;
 		vrLoc = 14846;
@@ -13713,7 +13721,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 350";
 		rLen = 0;
-		rLoc = 9841;
+		rLoc = 10145;
 		rType = 0;
 		vrLen = 1566;
 		vrLoc = 9134;
@@ -13733,7 +13741,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 465";
 		rLen = 0;
-		rLoc = 13477;
+		rLoc = 15033;
 		rType = 0;
 		vrLen = 2073;
 		vrLoc = 12263;
@@ -13753,7 +13761,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 566";
 		rLen = 0;
-		rLoc = 16679;
+		rLoc = 18286;
 		rType = 0;
 		vrLen = 1338;
 		vrLoc = 15115;
@@ -13809,7 +13817,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 566";
 		rLen = 0;
-		rLoc = 16691;
+		rLoc = 18298;
 		rType = 0;
 		vrLen = 1312;
 		vrLoc = 15115;
@@ -13829,7 +13837,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 442";
 		rLen = 0;
-		rLoc = 12781;
+		rLoc = 13085;
 		rType = 0;
 		vrLen = 1527;
 		vrLoc = 11792;
@@ -13849,7 +13857,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 442";
 		rLen = 0;
-		rLoc = 12781;
+		rLoc = 13085;
 		rType = 0;
 		vrLen = 1527;
 		vrLoc = 11792;
@@ -13889,7 +13897,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 442";
 		rLen = 0;
-		rLoc = 12781;
+		rLoc = 13085;
 		rType = 0;
 		vrLen = 1527;
 		vrLoc = 11792;
@@ -13909,7 +13917,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 366";
 		rLen = 0;
-		rLoc = 10418;
+		rLoc = 10722;
 		rType = 0;
 		vrLen = 1460;
 		vrLoc = 10034;
@@ -13955,7 +13963,7 @@
 		fRef = 597D8A7513314BB00042C251 /* dstk.py */;
 		name = "dstk.py: 494";
 		rLen = 0;
-		rLoc = 14560;
+		rLoc = 16116;
 		rType = 0;
 		vrLen = 2076;
 		vrLoc = 13282;
@@ -14349,9 +14357,9 @@
 	};
 	597D8C91133526740042C251 /* dstk.py */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {901, 8850}}";
-			sepNavSelRange = "{10026, 0}";
-			sepNavVisRange = "{3920, 1454}";
+			sepNavIntBoundsRect = "{{0, 0}, {810, 9240}}";
+			sepNavSelRange = "{16873, 0}";
+			sepNavVisRange = "{16097, 1452}";
 		};
 	};
 	597D8C92133526740042C251 /* file2text */ = {
@@ -14378,8 +14386,8 @@
 	597D8C95133526740042C251 /* install */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {617, 771}}";
-			sepNavSelRange = "{474, 0}";
-			sepNavVisRange = "{0, 1057}";
+			sepNavSelRange = "{669, 0}";
+			sepNavVisRange = "{0, 1142}";
 		};
 	};
 	597D8C96133526740042C251 /* ip2coordinates */ = {
@@ -14525,7 +14533,7 @@
 		fRef = 597D8C91133526740042C251 /* dstk.py */;
 		name = "dstk.py: 361";
 		rLen = 0;
-		rLoc = 10073;
+		rLoc = 10377;
 		rType = 0;
 		vrLen = 1552;
 		vrLoc = 9717;
@@ -14545,7 +14553,7 @@
 		fRef = 597D8C91133526740042C251 /* dstk.py */;
 		name = "dstk.py: 361";
 		rLen = 0;
-		rLoc = 10073;
+		rLoc = 10377;
 		rType = 0;
 		vrLen = 1545;
 		vrLoc = 9717;
@@ -14565,7 +14573,7 @@
 		fRef = 597D8C91133526740042C251 /* dstk.py */;
 		name = "dstk.py: 364";
 		rLen = 0;
-		rLoc = 10246;
+		rLoc = 10550;
 		rType = 0;
 		vrLen = 1636;
 		vrLoc = 9224;
@@ -14605,7 +14613,7 @@
 		fRef = 597D8C91133526740042C251 /* dstk.py */;
 		name = "dstk.py: 361";
 		rLen = 0;
-		rLoc = 10070;
+		rLoc = 10374;
 		rType = 0;
 		vrLen = 1625;
 		vrLoc = 9333;
@@ -14625,7 +14633,7 @@
 		fRef = 597D8C91133526740042C251 /* dstk.py */;
 		name = "dstk.py: 370";
 		rLen = 0;
-		rLoc = 10368;
+		rLoc = 10672;
 		rType = 0;
 		vrLen = 1624;
 		vrLoc = 9333;
@@ -14645,7 +14653,7 @@
 		fRef = 597D8C91133526740042C251 /* dstk.py */;
 		name = "dstk.py: 360";
 		rLen = 0;
-		rLoc = 10070;
+		rLoc = 10374;
 		rType = 0;
 		vrLen = 1628;
 		vrLoc = 9333;
@@ -14665,7 +14673,7 @@
 		fRef = 597D8C91133526740042C251 /* dstk.py */;
 		name = "dstk.py: 360";
 		rLen = 0;
-		rLoc = 10070;
+		rLoc = 10374;
 		rType = 0;
 		vrLen = 1628;
 		vrLoc = 9333;
@@ -14685,7 +14693,7 @@
 		fRef = 597D8C91133526740042C251 /* dstk.py */;
 		name = "dstk.py: 360";
 		rLen = 0;
-		rLoc = 10070;
+		rLoc = 10374;
 		rType = 0;
 		vrLen = 1628;
 		vrLoc = 9333;
@@ -14705,7 +14713,7 @@
 		fRef = 597D8C91133526740042C251 /* dstk.py */;
 		name = "dstk.py: 360";
 		rLen = 0;
-		rLoc = 10070;
+		rLoc = 10374;
 		rType = 0;
 		vrLen = 1628;
 		vrLoc = 9333;
@@ -14725,7 +14733,7 @@
 		fRef = 597D8C91133526740042C251 /* dstk.py */;
 		name = "dstk.py: 357";
 		rLen = 0;
-		rLoc = 10026;
+		rLoc = 10330;
 		rType = 0;
 		vrLen = 1454;
 		vrLoc = 3920;
@@ -15096,7 +15104,7 @@
 	597D8CE2133561460042C251 /* text2people.rb */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {691, 2070}}";
-			sepNavSelRange = "{1405, 0}";
+			sepNavSelRange = "{1942, 0}";
 			sepNavVisRange = "{1003, 1771}";
 		};
 	};
@@ -15286,6 +15294,93 @@
 		name = "geodict_server.rb: 41";
 		rLen = 0;
 		rLoc = 1547;
+		rType = 0;
+		vrLen = 1755;
+		vrLoc = 0;
+	};
+	597D8CF613357A260042C251 /* text2people */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {617, 771}}";
+			sepNavSelRange = "{35, 0}";
+			sepNavVisRange = "{0, 35}";
+		};
+	};
+	597D8CF713357B530042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 597D8CE2133561460042C251 /* text2people.rb */;
+		name = "text2people.rb: 52";
+		rLen = 0;
+		rLoc = 1942;
+		rType = 0;
+		vrLen = 1771;
+		vrLoc = 1003;
+	};
+	597D8CF813357B530042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 597D8CF613357A260042C251 /* text2people */;
+		name = "text2people: 3";
+		rLen = 0;
+		rLoc = 35;
+		rType = 0;
+		vrLen = 35;
+		vrLoc = 0;
+	};
+	597D8CF913357B530042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 597D8C95133526740042C251 /* install */;
+		name = "install: 24";
+		rLen = 0;
+		rLoc = 669;
+		rType = 0;
+		vrLen = 1142;
+		vrLoc = 0;
+	};
+	597D8CFA13357B530042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 597D8C91133526740042C251 /* dstk.py */;
+		name = "dstk.py: 357";
+		rLen = 0;
+		rLoc = 10330;
+		rType = 0;
+		vrLen = 1388;
+		vrLoc = 3986;
+	};
+	597D8CFB13357B530042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 597D8C91133526740042C251 /* dstk.py */;
+		name = "dstk.py: 186";
+		rLen = 0;
+		rLoc = 5195;
+		rType = 0;
+		vrLen = 1796;
+		vrLoc = 4789;
+	};
+	597D8CFC13357B530042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
+		name = "geodict_server.rb: 19";
+		rLen = 0;
+		rLoc = 873;
+		rType = 0;
+		vrLen = 1755;
+		vrLoc = 0;
+	};
+	597D8CFD13357B740042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 597D8C91133526740042C251 /* dstk.py */;
+		name = "dstk.py: 573";
+		rLen = 0;
+		rLoc = 16873;
+		rType = 0;
+		vrLen = 1452;
+		vrLoc = 16097;
+	};
+	597D8CFE13357B740042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E11A13243FB500B81D2E /* geodict_server.rb */;
+		name = "geodict_server.rb: 19";
+		rLen = 0;
+		rLoc = 873;
 		rType = 0;
 		vrLen = 1755;
 		vrLoc = 0;

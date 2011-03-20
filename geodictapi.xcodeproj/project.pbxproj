@@ -45,6 +45,7 @@
 		597D8C9A133526740042C251 /* text2sentences */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = text2sentences; path = python/text2sentences; sourceTree = "<group>"; };
 		597D8CC7133548CD0042C251 /* genderfromname.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = genderfromname.rb; sourceTree = "<group>"; };
 		597D8CE2133561460042C251 /* text2people.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = text2people.rb; sourceTree = "<group>"; };
+		597D8CF613357A260042C251 /* text2people */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = text2people; path = python/text2people; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -142,6 +143,7 @@
 				597D8C96133526740042C251 /* ip2coordinates */,
 				597D8C97133526740042C251 /* setup.py */,
 				597D8C98133526740042C251 /* street2coordinates */,
+				597D8CF613357A260042C251 /* text2people */,
 				597D8C99133526740042C251 /* text2places */,
 				597D8C9A133526740042C251 /* text2sentences */,
 			);

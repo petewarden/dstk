@@ -181,6 +181,17 @@ class DSTK:
     
     return response
 
+  def text2people(self, text):
+    
+    api_url = self.api_base+'/text2people'
+    api_body = text
+    response_string = urllib.urlopen(api_url, api_body).read()
+    response = json.loads(response_string)
+    
+    if 'error' in response:
+      raise Exception(response['error'])
+    
+    return response
 
 # We need to post files as multipart form data, and Python has no native function for
 # that, so these utility functions implement what we need.
@@ -471,6 +482,51 @@ def html2story_cli(dstk, options, inputs):
       output += "\n"
   return output
 
+def text2people_cli(dstk, options, inputs):
+
+  output = ''
+  
+  if options['showHeaders']:
+    row = ['first_name', 'surnames', 'title', 'gender', 'start_index', 'end_index', 'matched_string', 'file_name']
+    output += ','.join(row)+"\n"
+  options['showHeaders'] = False
+
+  if options['from_stdin']:
+    result = dstk.text2people("\n".join(inputs))
+    output += text2people_format(result, 'stdin')
+    return output
+
+  for file_name in inputs:
+    if os.path.isdir(file_name):
+      children = os.listdir(file_name)
+      full_children = []
+      for child in children:
+        full_children.append(os.path.join(file_name, child))
+      output += text2places_cli(dstk, options, full_children)
+    else:
+      file_data = get_file_or_url_contents(file_name)
+      result = dstk.text2people(file_data)
+      output += text2people_format(result, file_name)
+
+  return output
+
+def text2people_format(result, file_name):
+  output = ''
+  for info in result:
+
+    row = [info['first_name'], 
+      info['surnames'], 
+      info['title'],
+      info['gender'],
+      info['start_index'],
+      info['end_index'],
+      info['matched_string'],
+      file_name
+    ]
+    row_string = '","'.join(row)      
+    output += '"'+row_string+'"'+"\n"
+  return output
+
 def get_file_or_url_contents(file_name):
   if re.match(r'http://', file_name):
     file_data = urllib.urlopen(file_name).read()
@@ -514,6 +570,7 @@ if __name__ == '__main__':
     'text2sentences': { 'handler': text2sentences_cli },
     'html2text': { 'handler': html2text_cli },
     'html2story': { 'handler': html2story_cli },
+    'text2people': { 'handler': text2people_cli },
   }
   switches = {
     'api_base': True,
