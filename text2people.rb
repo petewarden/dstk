@@ -77,9 +77,6 @@ def text2people(text)
   
     title_match = match_title(first_word)
     first_name_match = match_first_name(first_word)
-
-    printf(STDERR, 'Found "'+full_match.to_s+'"'+"\n")
-    printf(STDERR, 'Testing "'+first_word+'"'+"\n")
     
     if !title_match and !first_name_match
       debug_log('"'+first_word+'" doesn\'t match a first name or title, skipping')

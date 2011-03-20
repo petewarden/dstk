@@ -28,6 +28,7 @@ import os
 import httplib
 import mimetypes
 import re
+import csv
 
 
 # This is the main interface class. You can see an example of it in use
@@ -246,12 +247,12 @@ def guess_content_type(filename):
 # command line client.
 
 
-def ip2coordinates_cli(dstk, options, inputs):
+def ip2coordinates_cli(dstk, options, inputs, output):
+
+  writer = csv.writer(sys.stdout)
 
   result = dstk.ip2coordinates(inputs)
   
-  output = ''
-
   if options['showHeaders']:
     for ip, info in result.items():
       if info is None:
@@ -259,7 +260,7 @@ def ip2coordinates_cli(dstk, options, inputs):
       row = ['ip_address']
       for key, value in info.items():
         row.append(str(key))
-      output += ','.join(row)+"\n"
+      writer.writerow(row)
       break
       
   for ip, info in result.items():
@@ -271,18 +272,16 @@ def ip2coordinates_cli(dstk, options, inputs):
     for key, value in info.items():
       row.append(str(value))
 
-    row_string = '","'.join(row)
-      
-    output += '"'+row_string+'"'+"\n"
+    writer.writerow(row)
     
-  return output
+  return
     
-def street2coordinates_cli(dstk, options, inputs):
+def street2coordinates_cli(dstk, options, inputs, output):
+
+  writer = csv.writer(sys.stdout)
 
   result = dstk.street2coordinates(inputs)
   
-  output = ''
-
   if options['showHeaders']:
     for ip, info in result.items():
       if info is None:
@@ -290,7 +289,7 @@ def street2coordinates_cli(dstk, options, inputs):
       row = ['address']
       for key, value in info.items():
         row.append(str(key))
-      output += ','.join(row)+"\n"
+      writer.writerow(row)
       break
 
   for ip, info in result.items():
@@ -302,19 +301,19 @@ def street2coordinates_cli(dstk, options, inputs):
     for key, value in info.items():
       row.append(str(value))
 
-    row_string = '","'.join(row)
-      
-    output += '"'+row_string+'"'+"\n"
+    writer.writerow(row)
     
-  return output
+  return
 
-def coordinates2politics_cli(dstk, options, inputs):
+def coordinates2politics_cli(dstk, options, inputs, output):
+
+  writer = csv.writer(output)
 
   coordinates_list = []
   for input in inputs:
     coordinates = input.split(',')
     if len(coordinates)!=2:
-      print 'You must enter coordinates as a series of comma-separated pairs, eg 37.76,-122.42'
+      output.write('You must enter coordinates as a series of comma-separated pairs, eg 37.76,-122.42')
       exit(-1)
     coordinates_list.append({
       'latitude': coordinates[0],
@@ -323,11 +322,9 @@ def coordinates2politics_cli(dstk, options, inputs):
 
   result = dstk.coordinates2politics(coordinates_list)
   
-  output = ''
-
   if options['showHeaders']:
     row = ['latitude', 'longitude', 'name', 'code', 'type', 'friendly_type']
-    output += ','.join(row)+"\n"
+    writer.writerow(row)
       
   for info in result:
 
@@ -342,13 +339,11 @@ def coordinates2politics_cli(dstk, options, inputs):
         politic['type'],
         politic['friendly_type'],
       ]
-      row_string = '","'.join(row)      
-      output += '"'+row_string+'"'+"\n"
+      writer.writerow(row)
     
-  return output
+  return
 
-def file2text_cli(dstk, options, inputs):
-  output = ''
+def file2text_cli(dstk, options, inputs, output):
   
   for file_name in inputs:
     if os.path.isdir(file_name):
@@ -356,28 +351,27 @@ def file2text_cli(dstk, options, inputs):
       full_children = []
       for child in children:
         full_children.append(os.path.join(file_name, child))
-      output += file2text_cli(dstk, options, full_children)
+      file2text_cli(dstk, options, full_children)
     else:
       file_data = get_file_or_url_contents(file_name)
       if options['showHeaders']:
-        output += '--File--: '+file_name+"\n"
-      output += dstk.file2text(file_name, file_data)
-      output += "\n"
-  return output
+        output.write('--File--: '+file_name+"\n")
+      output.write(dstk.file2text(file_name, file_data))
+  return
 
 def text2places_cli(dstk, options, inputs):
 
-  output = ''
+  writer = csv.writer(sys.stdout)
   
   if options['showHeaders']:
     row = ['latitude', 'longitude', 'name', 'type', 'start_index', 'end_index', 'matched_string', 'file_name']
-    output += ','.join(row)+"\n"
+    writer.writerow(row)
   options['showHeaders'] = False
 
   if options['from_stdin']:
     result = dstk.text2places("\n".join(inputs))
-    output += text2places_format(result, 'stdin')
-    return output
+    text2places_format(result, 'stdin', writer)
+    return
 
   for file_name in inputs:
     if os.path.isdir(file_name):
@@ -385,16 +379,15 @@ def text2places_cli(dstk, options, inputs):
       full_children = []
       for child in children:
         full_children.append(os.path.join(file_name, child))
-      output += text2places_cli(dstk, options, full_children)
+      text2places_cli(dstk, options, full_children, output)
     else:
       file_data = get_file_or_url_contents(file_name)
       result = dstk.text2places(file_data)
-      output += text2places_format(result, file_name)
+      text2places_format(result, file_name, writer)
 
-  return output
+  return
 
-def text2places_format(result, file_name):
-  output = ''
+def text2places_format(result, file_name, writer):
   for info in result:
 
     row = [info['latitude'], 
@@ -406,95 +399,90 @@ def text2places_format(result, file_name):
       info['matched_string'],
       file_name
     ]
-    row_string = '","'.join(row)      
-    output += '"'+row_string+'"'+"\n"
-  return output
+    writer.writerow(row)
+  return
 
-def html2text_cli(dstk, options, inputs):
+def html2text_cli(dstk, options, inputs, output):
 
   if options['from_stdin']:
     result = dstk.html2text("\n".join(inputs))
-    return result['text']
+    output.write(result['text'])
+    return
 
-  output = ''
-  
   for file_name in inputs:
     if os.path.isdir(file_name):
       children = os.listdir(file_name)
       full_children = []
       for child in children:
         full_children.append(os.path.join(file_name, child))
-      output += html2text_cli(dstk, options, full_children)
+      html2text_cli(dstk, options, full_children, output)
     else:
       file_data = get_file_or_url_contents(file_name)
       if options['showHeaders']:
-        output += '--File--: '+file_name+"\n"
+        output.write('--File--: '+file_name+"\n")
       result = dstk.html2text(file_data)
-      output += result['text']
-      output += "\n"
-  return output
+      output.write(result['text'])
+  return
 
-def text2sentences_cli(dstk, options, inputs):
+def text2sentences_cli(dstk, options, inputs, output):
 
   if options['from_stdin']:
     result = dstk.text2sentences("\n".join(inputs))
-    return result['sentences']
+    output.write(result['sentences'])
+    return
 
-  output = ''
-  
   for file_name in inputs:
     if os.path.isdir(file_name):
       children = os.listdir(file_name)
       full_children = []
       for child in children:
         full_children.append(os.path.join(file_name, child))
-      output += text2sentences_cli(dstk, options, full_children)
+      text2sentences_cli(dstk, options, full_children, output)
     else:
       file_data = get_file_or_url_contents(file_name)
       if options['showHeaders']:
-        output += '--File--: '+file_name+"\n"
+        output.write('--File--: '+file_name+"\n")
       result = dstk.text2sentences(file_data)
-      output += result['sentences']
-      output += "\n"
-  return output
+      output.write(result['sentences'])
 
-def html2story_cli(dstk, options, inputs):
+  return
+
+def html2story_cli(dstk, options, inputs, output):
 
   if options['from_stdin']:
     result = dstk.html2story("\n".join(inputs))
-    return result['story']
+    output.write(result['story'])
+    return
 
-  output = ''
-  
   for file_name in inputs:
     if os.path.isdir(file_name):
       children = os.listdir(file_name)
       full_children = []
       for child in children:
         full_children.append(os.path.join(file_name, child))
-      output += html2story_cli(dstk, options, full_children)
+      html2story_cli(dstk, options, full_children, output)
     else:
       file_data = get_file_or_url_contents(file_name)
       if options['showHeaders']:
-        output += '--File--: '+file_name+"\n"
+        output.write('--File--: '+file_name+"\n")
       result = dstk.html2story(file_data)
-      output += result['story']
-      output += "\n"
-  return output
-
-def text2people_cli(dstk, options, inputs):
-
-  output = ''
+      output.write(result['story'])
   
+  return
+
+def text2people_cli(dstk, options, inputs, output):
+
+  writer = csv.writer(sys.stdout)
+
   if options['showHeaders']:
-    row = ['first_name', 'surnames', 'title', 'gender', 'start_index', 'end_index', 'matched_string', 'file_name']
-    output += ','.join(row)+"\n"
+    row = ['matched_string', 'first_name', 'surnames', 'title', 'gender', 'start_index', 'end_index', 'file_name']
+    writer.writerow(row)
   options['showHeaders'] = False
 
   if options['from_stdin']:
     result = dstk.text2people("\n".join(inputs))
-    output += text2people_format(result, 'stdin')
-    return output
+    text2people_format(result, 'stdin', writer)
+    return
 
   for file_name in inputs:
     if os.path.isdir(file_name):
@@ -502,30 +490,29 @@ def text2people_cli(dstk, options, inputs):
       full_children = []
       for child in children:
         full_children.append(os.path.join(file_name, child))
-      output += text2places_cli(dstk, options, full_children)
+      text2places_cli(dstk, options, full_children, output)
     else:
       file_data = get_file_or_url_contents(file_name)
       result = dstk.text2people(file_data)
-      output += text2people_format(result, file_name)
+      text2people_format(result, file_name, writer)
 
-  return output
+  return
 
-def text2people_format(result, file_name):
-  output = ''
+def text2people_format(result, file_name, writer):
   for info in result:
 
-    row = [info['first_name'], 
+    row = [
+      info['matched_string'],
+      info['first_name'], 
       info['surnames'], 
       info['title'],
       info['gender'],
       str(info['start_index']),
       str(info['end_index']),
-      info['matched_string'],
       file_name
     ]
-    row_string = '","'.join(row)      
-    output += '"'+row_string+'"'+"\n"
-  return output
+    writer.writerow(row)
+  return
 
 def get_file_or_url_contents(file_name):
   if re.match(r'http://', file_name):
@@ -629,6 +616,4 @@ if __name__ == '__main__':
   
   dstk = DSTK(options)
   
-  result = command_info['handler'](dstk, options, inputs)
-  
-  print result.encode("utf-8")
+  command_info['handler'](dstk, options, inputs, sys.stdout)
