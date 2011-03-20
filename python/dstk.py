@@ -64,7 +64,7 @@ class DSTK:
       
   def check_version(self):
   
-    required_version = 130
+    required_version = 30
     
     api_url = self.api_base+'/info'
     
