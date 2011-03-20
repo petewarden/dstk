@@ -182,8 +182,9 @@
     // make API calls with.
     // By default it uses the datasciencetoolkit.org server, but if you
     // set up your own, you can just switch the URL in this constructor.
-    var dstk = $.DSTK();
-    //var dstk = $.DSTK({apiBase:'http://localhost:4567'});
+    // In this case, we're setting it to an empty string, so that it will
+    // use the current server.
+    var dstk = $.DSTK({apiBase:''});
 
     $('#uploadtext').click(function() {
       var text = $('#text').val();
