@@ -22,7 +22,11 @@ require 'rubygems' if RUBY_VERSION < '1.9'
 require 'genderfromname'
 
 def debug_log(message)
-  printf(STDERR, "%s\n" % message)
+  if !message
+    printf(STDERR, "Bogus message\n")
+  else
+    printf(STDERR, "%s\n" % message)
+  end
 end
 
 # This function scans through the text, and tries to pull out words that look like the
@@ -66,6 +70,7 @@ def text2people(text)
       remaining_words = [two_match[2]]
       match_length = two_match.length
     else
+      debug_log('offset='+offset)
       debug_log('No match found on "'+current_text+'", skipping')
       offset += 1
       next
