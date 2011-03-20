@@ -518,16 +518,16 @@
           } else if (gender=='f') {
             genderString = '- Female';
           } else {
-            genderString = '- ';
+            genderString = '';
           }
 
           var html = 
-            '<div>"'
+            '<div>'
             +matchedString
             +genderString
             +'</div>';
           
-          $('#results').append($(html));
+          $('#text2peopleresults').append($(html));
         }
       })
     });
