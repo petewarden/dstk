@@ -176,7 +176,7 @@ DSTK.prototype.makeTextCall = function(text, callback, method) {
   var apiUrl = this.apiBase+'/'+method;
   var apiSuffix = encodeURIComponent($.toJSON([text]));
 
-  if (apiSuffix.length<8000) {
+  if (apiSuffix.length<7500) {
     apiUrl += '/'+apiSuffix;
 
     $.ajax(apiUrl, {
