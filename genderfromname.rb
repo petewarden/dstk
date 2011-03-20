@@ -29,38 +29,43 @@ def gender_from_name(name, looseness=5)
 
   debug_log("Matching '"+name+"'")
 
-  confidence = -1
-  (0..looseness).each do |i|
-  
-    if i == 0
-      debug_log("\tone_only...")
-      gender = one_only(name)
-    elsif i == 1
-      debug_log("\teither_weight...")
-      gender = either_weight(name)
-    elsif i == 2
-      debug_log("\tone_only_metaphone...")
-      gender = one_only_metaphone(name)
-    elsif i == 3
-      debug_log("\teither_weight_metaphone...")
-      gender = either_weight_metaphone(name)
-    elsif i == 4
-      debug_log("\tv2_rules...")
-      gender = v2_rules(name)
-    elsif i == 5
-      debug_log("\tv1_rules...")
-      gender = v1_rules(name)
-    else
-      debug_log("Should never get here")
-    end
+  begin
 
-    confidence = i
+    confidence = -1
+    (0..looseness).each do |i|
     
-    if gender
-      debug_log("\t==> HIT ("+gender+")\n")
-      break
-    end
+      if i == 0
+        debug_log("\tone_only...")
+        gender = one_only(name)
+      elsif i == 1
+        debug_log("\teither_weight...")
+        gender = either_weight(name)
+      elsif i == 2
+        debug_log("\tone_only_metaphone...")
+        gender = one_only_metaphone(name)
+      elsif i == 3
+        debug_log("\teither_weight_metaphone...")
+        gender = either_weight_metaphone(name)
+      elsif i == 4
+        debug_log("\tv2_rules...")
+        gender = v2_rules(name)
+      elsif i == 5
+        debug_log("\tv1_rules...")
+        gender = v1_rules(name)
+      else
+        debug_log("Should never get here")
+      end
 
+      confidence = i
+      
+      if gender
+        debug_log("\t==> HIT ("+gender+")\n")
+        break
+      end
+
+    end
+  rescue
+    printf(STDERR, "Exception\n")
   end
     
   if !gender
@@ -72,7 +77,7 @@ def gender_from_name(name, looseness=5)
 end
 
 def dm(name)
-  Text::Metaphone.double_metaphone(name)
+  Text::Metaphone.double_metaphone(name)[0]
 end
 
 def one_only(name)
@@ -166,6 +171,10 @@ def one_only_metaphone(name)
 
     if meta_name == meta_list_name
       male_hit = weight
+      debug_log(name)
+      debug_log(list_name)
+      debug_log(meta_list_name)
+      debug_log(weight)
       debug_log("\tM: %s => %s => %s: %f\n" % name, list_name, meta_list_name, weight)
     end
   

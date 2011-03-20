@@ -22,10 +22,10 @@ require 'rubygems' if RUBY_VERSION < '1.9'
 require 'genderfromname'
 
 def debug_log(message)
-  if !message
-    printf(STDERR, "Bogus message\n")
-  else
+  begin
     printf(STDERR, "%s\n" % message.inspect)
+  rescue
+    printf(STDERR, "Error trying to print debug output")
   end
 end
 
@@ -70,8 +70,7 @@ def text2people(text)
       remaining_words = [two_match[2]]
       match_length = two_match.length
     else
-      debug_log('offset='+offset.to_s)
-      debug_log('No match found on "'+current_text+'", skipping')
+      debug_log('No match found, skipping')
       offset += 1
       next
     end
@@ -144,7 +143,6 @@ def match_title(word)
     'professor' => 'u',
     'colonel' => 'u',
     'major' => 'u',
-    'general' => 'u',
     'lieutenant' => 'u',
     'private' => 'u',
     'admiral' => 'u',
@@ -170,10 +168,18 @@ def match_title(word)
 end
 
 def match_first_name(word)
-  info = gender_from_name(word)
+  if word.length<2
+    return nil
+  end
+  
+  info = gender_from_name(word, 1)
   if !info
     return nil
   end
   
   { :gender => info[:gender] }  
 end
+
+text = open('../cruftstripper/test_data/inputs/news.bbc.co.uk.html').read()
+output = text2people(text)
+puts output.inspect
