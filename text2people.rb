@@ -49,7 +49,7 @@ def text2people(text)
       next
     end
     
-    current_text = text[offset..-1]
+    current_text = text[offset..(offset+300)]
     four_match = four_words.match(current_text)
     three_match = three_words.match(current_text)
     two_match = two_words.match(current_text)
