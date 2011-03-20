@@ -155,19 +155,32 @@
   
   #html2storyresults{:style=>"margin-top:30px;"}
 
+  %div{:style=>"margin-top:20px; font-size: 125%;"}
+    %h3 Text to People
+    API: 
+    %a{:href=>"developerdocs#text2people"} /text2people
+    %br
+    Spots text fragments that look like people's names or titles, and guesses their gender where possible.
+    %br
+  .try{:style=>"margin-top:20px; font-size: 125%;"}
+    Try it for yourself. Copy and paste your text into the box below to extract people's names.
+
+  %textarea#text2peopletext{:style=>"width: 800px; margin-top: 10px;"}
+
+  #uploadtext2people.button{:style=>"width:150px; font-size: 125%;"} Find Names
+  
+  #text2peopleresults{:style=>"margin-top:30px;"}
+
 
 %script{:src=>"/scripts/jquery.exptextarea.js", :type=>"text/javascript"}
 :javascript
   $(function() {
-    $('#text').expandingTextArea()
-    $('#ip2coordinatestext').expandingTextArea()
-    $('#street2coordinatestext').expandingTextArea()
-    $('#coordinates2politicstext').expandingTextArea()
-    $('#text2sentencestext').expandingTextArea()
-    $('#html2texttext').expandingTextArea()
-    $('#html2storytext').expandingTextArea()
+    $('textarea').expandingTextArea()
 
-    // Switch when testing locally
+    // This creates the Data Science Toolkit object we'll be using to 
+    // make API calls with.
+    // By default it uses the datasciencetoolkit.com server, but if you
+    // set up your own, you can just switch the URL in this constructor.
     var dstk = $.DSTK();
     //var dstk = $.DSTK({apiBase:'http://localhost:4567'});
 
@@ -466,6 +479,53 @@
         var html = result['story'].replace(/\n+/g, '<br/>');
         $('#html2storyresults').html(html);
       });
+    });
+
+    $('#uploadtext2people').click(function() {
+      var text = $('#text2peopletext').val();
+      if (text.length<1) {
+        $('#text2peopleresults').html("No text found in input box.");
+        return;
+      }
+
+      dstk.text2people(text, function(result) {
+        if (typeof result['error'] !== 'undefined') {
+          $('#text2peopleresults')
+          .text(result.error);
+          return;
+        }
+
+        $('#text2peopleresults').empty();
+
+        if (result.length<1) {
+          $('#text2peopleresults')
+          .text('No locations found');
+          return;
+        }
+
+        for (var resultIndex in result) {
+          var person = result[resultIndex];
+
+          var matchedString = person['matched_string'];
+          var gender = person['gender'];
+          var genderString;
+          if (gender=='m') {
+            genderString = '- Male';
+          } else if (gender=='f') {
+            genderString = '- Female';
+          } else {
+            genderString = '- ';
+          }
+
+          var html = 
+            '<div>"'
+            +matchedString
+            +genderString
+            +'</div>';
+          
+          $('#results').append($(html));
+        }
+      })
     });
 
   });

@@ -2,6 +2,18 @@
  * jQuery Data Science Toolkit Plugin
  * version: 1.20 (2011-03-15)
  *
+ * Example:
+ *   var dstk = $.DSTK();
+ *   var coordinates = dstk.street2coordinates('2543 Graystone Place, Simi Valley, CA 93065');
+ *
+ * This jQuery plugin is a simple way to access the Data Science Toolkit
+ * from Javascript. It's designed to work well cross-domain, using JSONP
+ * calls. The only restriction is that the text-handling calls can't take
+ * inputs of more than about 8k characters if going across domains, since
+ * they're limited to the length of a URL. You can work around this either
+ * by running your own copy of the server (it's available as a free VM and
+ * Amazon EC2 image) or just using a proxy from your domain.
+ * 
  * All code (C) Pete Warden, 2011
  *
  *    This program is free software: you can redistribute it and/or modify
@@ -20,6 +32,9 @@
  */
  
 (function($) {
+
+  // Call this to create a new Data Science Toolkit object, that you can then
+  // use to make API calls.
   $.DSTK = function(options) {
   
     if ((typeof options == 'undefined')||(options == null)) {
@@ -134,35 +149,28 @@ DSTK.prototype.coordinates2politics = function(coordinates, callback) {
 };
 
 DSTK.prototype.text2places = function(text, callback) {
-
-  var apiUrl = this.apiBase+'/text2places';
-  var apiSuffix = encodeURIComponent($.toJSON([text]));
-
-  if (apiSuffix.length<8000) {
-    apiUrl += '/'+apiSuffix;
-
-    $.ajax(apiUrl, {
-      success: callback,
-      dataType: 'jsonp',
-      crossDomain: true
-    });
-  } else {
-
-    $.ajax({
-      url: apiUrl,
-      data: text,
-      success: callback,
-      dataType: 'json',
-      type: 'POST',
-      crossDomain: true
-    });
-  
-  }
+  this.makeTextCall(text, callback, 'text2places');
 };
 
 DSTK.prototype.text2sentences = function(text, callback) {
+  this.makeTextCall(text, callback, 'text2sentences');
+};
 
-  var apiUrl = this.apiBase+'/text2sentences';
+DSTK.prototype.html2text = function(html, callback) {
+  this.makeTextCall(html, callback, 'html2text');
+};
+
+DSTK.prototype.html2story = function(html, callback) {
+  this.makeTextCall(html, callback, 'html2story');
+};
+
+DSTK.prototype.text2people = function(text, callback) {
+  this.makeTextCall(text, callback, 'text2people');
+};
+
+DSTK.prototype.makeTextCall(text, callback, method) {
+
+  var apiUrl = this.apiBase+'/'+method;
   var apiSuffix = encodeURIComponent($.toJSON([text]));
 
   if (apiSuffix.length<8000) {
@@ -178,60 +186,6 @@ DSTK.prototype.text2sentences = function(text, callback) {
     $.ajax({
       url: apiUrl,
       data: text,
-      success: callback,
-      dataType: 'json',
-      type: 'POST',
-      crossDomain: true
-    });
-  
-  }
-};
-
-DSTK.prototype.html2text = function(html, callback) {
-
-  var apiUrl = this.apiBase+'/html2text';
-  var apiSuffix = encodeURIComponent($.toJSON([html]));
-
-  if (apiSuffix.length<8000) {
-    apiUrl += '/'+apiSuffix;
-
-    $.ajax(apiUrl, {
-      success: callback,
-      dataType: 'jsonp',
-      crossDomain: true
-    });
-  } else {
-
-    $.ajax({
-      url: apiUrl,
-      data: html,
-      success: callback,
-      dataType: 'json',
-      type: 'POST',
-      crossDomain: true
-    });
-  
-  }
-};
-
-DSTK.prototype.html2story = function(html, callback) {
-
-  var apiUrl = this.apiBase+'/html2story';
-  var apiSuffix = encodeURIComponent($.toJSON([html]));
-
-  if (apiSuffix.length<8000) {
-    apiUrl += '/'+apiSuffix;
-
-    $.ajax(apiUrl, {
-      success: callback,
-      dataType: 'jsonp',
-      crossDomain: true
-    });
-  } else {
-
-    $.ajax({
-      url: apiUrl,
-      data: html,
       success: callback,
       dataType: 'json',
       type: 'POST',
