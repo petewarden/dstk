@@ -168,7 +168,7 @@ DSTK.prototype.text2people = function(text, callback) {
   this.makeTextCall(text, callback, 'text2people');
 };
 
-DSTK.prototype.makeTextCall(text, callback, method) {
+DSTK.prototype.makeTextCall = function(text, callback, method) {
 
   var apiUrl = this.apiBase+'/'+method;
   var apiSuffix = encodeURIComponent($.toJSON([text]));

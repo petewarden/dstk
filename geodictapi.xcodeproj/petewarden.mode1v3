@@ -276,8 +276,9 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>46</integer>
-									<integer>42</integer>
+									<integer>19</integer>
+									<integer>18</integer>
+									<integer>13</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -322,7 +323,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>dstk.py</string>
+										<string>jquery.dstk.js</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -330,11 +331,11 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>dstk.py</string>
+												<string>jquery.dstk.js</string>
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>597D8D6F1335BABE0042C251</string>
+												<string>597D8D751335C0960042C251</string>
 												<key>history</key>
 												<array>
 													<string>5929E12313244A2300B81D2E</string>
@@ -356,7 +357,6 @@
 													<string>597D8808132F17990042C251</string>
 													<string>597D8809132F17990042C251</string>
 													<string>597D885F133062410042C251</string>
-													<string>597D888B13306C390042C251</string>
 													<string>597D8AD71331DF350042C251</string>
 													<string>597D8BAF13341B930042C251</string>
 													<string>597D8BBC1334207E0042C251</string>
@@ -377,7 +377,8 @@
 													<string>597D8CF813357B530042C251</string>
 													<string>597D8CF913357B530042C251</string>
 													<string>597D8D39133583FB0042C251</string>
-													<string>597D8D3A133583FB0042C251</string>
+													<string>597D8D731335C0960042C251</string>
+													<string>597D8D741335C0960042C251</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -416,7 +417,7 @@
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>597D8D721335BABE0042C251</string>
+												<string>597D8D761335C0960042C251</string>
 												<key>history</key>
 												<array>
 													<string>5929E16113246ABF00B81D2E</string>

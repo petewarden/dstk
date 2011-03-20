@@ -1496,6 +1496,10 @@
 			597D8D701335BABE0042C251 /* PBXTextBookmark */ = 597D8D701335BABE0042C251 /* PBXTextBookmark */;
 			597D8D711335BABE0042C251 /* PBXTextBookmark */ = 597D8D711335BABE0042C251 /* PBXTextBookmark */;
 			597D8D721335BABE0042C251 /* PBXTextBookmark */ = 597D8D721335BABE0042C251 /* PBXTextBookmark */;
+			597D8D731335C0960042C251 /* PBXTextBookmark */ = 597D8D731335C0960042C251 /* PBXTextBookmark */;
+			597D8D741335C0960042C251 /* PBXTextBookmark */ = 597D8D741335C0960042C251 /* PBXTextBookmark */;
+			597D8D751335C0960042C251 /* PBXTextBookmark */ = 597D8D751335C0960042C251 /* PBXTextBookmark */;
+			597D8D761335C0960042C251 /* PBXTextBookmark */ = 597D8D761335C0960042C251 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 5929E10413243EA700B81D2E /* Source Control */;
 		userBuildSettings = {
@@ -8863,9 +8867,9 @@
 	};
 	597D884E133040030042C251 /* jquery.dstk.js */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {821, 6720}}";
-			sepNavSelRange = "{5479, 0}";
-			sepNavVisRange = "{4867, 1088}";
+			sepNavIntBoundsRect = "{{0, 0}, {754, 6585}}";
+			sepNavSelRange = "{4909, 0}";
+			sepNavVisRange = "{4233, 1143}";
 		};
 	};
 	597D8850133040030042C251 /* jquery.min.js */ = {
@@ -16643,6 +16647,46 @@
 		vrLoc = 1048;
 	};
 	597D8D721335BABE0042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
+		name = "welcome.haml: 495";
+		rLen = 0;
+		rLoc = 15835;
+		rType = 0;
+		vrLen = 1383;
+		vrLoc = 15264;
+	};
+	597D8D731335C0960042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 597D8C91133526740042C251 /* dstk.py */;
+		name = "dstk.py: 486";
+		rLen = 0;
+		rLoc = 13839;
+		rType = 0;
+		vrLen = 1601;
+		vrLoc = 13054;
+	};
+	597D8D741335C0960042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 597D884E133040030042C251 /* jquery.dstk.js */;
+		name = "jquery.dstk.js: 30";
+		rLen = 0;
+		rLoc = 1838;
+		rType = 0;
+		vrLen = 1780;
+		vrLoc = 0;
+	};
+	597D8D751335C0960042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 597D884E133040030042C251 /* jquery.dstk.js */;
+		name = "jquery.dstk.js: 171";
+		rLen = 0;
+		rLoc = 4909;
+		rType = 0;
+		vrLen = 1143;
+		vrLoc = 4233;
+	};
+	597D8D761335C0960042C251 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 495";
