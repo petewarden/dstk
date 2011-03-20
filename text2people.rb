@@ -22,7 +22,7 @@ require 'rubygems' if RUBY_VERSION < '1.9'
 require 'genderfromname'
 
 def debug_log(message)
-  printf(STDERR, message+"\n")
+  printf(STDERR, "%s\n" % message)
 end
 
 # This function scans through the text, and tries to pull out words that look like the
