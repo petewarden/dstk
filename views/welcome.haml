@@ -338,6 +338,10 @@
             var city = info['locality'];
             var street_address = info['street_address'];
             
+            if ($('#coordinatestopoliticstext').val()=='') {
+              $('#coordinatestopoliticstext').val(lat+','+lon);
+            }
+            
             html = 
               '<div>"'
               +address
