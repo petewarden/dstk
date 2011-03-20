@@ -66,16 +66,14 @@ def text2people(text)
       full_match = three_match    
     elsif two_match
       debug_log('Matched two words')
-      full_match = two_match    
+      first_word = two_match[1]
       remaining_words = [two_match[2]]
-      match_length = two_match.length
+      full_match = two_match    
     else
       debug_log('No match found, skipping')
       offset += 1
       next
     end
-
-    first_word = full_match[1]
   
     title_match = match_title(first_word)
     first_name_match = match_first_name(first_word)
@@ -193,6 +191,6 @@ def match_first_name(word)
   { :gender => info[:gender] }  
 end
 
-#text = open('../cruftstripper/test_data/inputs/cnn.com.html').read()
-#output = text2people(text)
-#puts output.inspect
+text = open('../cruftstripper/test_data/inputs/cnn.com.html').read()
+output = text2people(text)
+puts output.inspect
