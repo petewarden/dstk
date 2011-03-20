@@ -103,7 +103,7 @@ def text2people(text)
       surnames = remaining_words[0..-1].join(' ')
     end
   
-    matching_text = full_match.to_s
+    matched_string = full_match.to_s
     start_index = offset
     end_index = (offset + matching_text.length)
 
@@ -114,7 +114,7 @@ def text2people(text)
       :title => title,
       :first_name => first_name,
       :surnames => surnames,
-      :matching_text => matching_text,
+      :matched_string => matched_string,
       :start_index => start_index,
       :end_index => end_index
     })
@@ -179,3 +179,7 @@ def match_first_name(word)
   
   { :gender => info[:gender] }  
 end
+
+#text = open('../cruftstripper/test_data/inputs/cnn.com.html').read()
+#output = text2people(text)
+#puts output.inspect
