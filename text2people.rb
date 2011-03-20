@@ -177,7 +177,7 @@ def match_first_name(word)
     'Will' => true,
     'Asia' => true
   }
-  if blacklist.has_key(word)
+  if blacklist.has_key?(word)
     return nil
   end
   
