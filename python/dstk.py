@@ -518,8 +518,8 @@ def text2people_format(result, file_name):
       info['surnames'], 
       info['title'],
       info['gender'],
-      info['start_index'],
-      info['end_index'],
+      str(info['start_index']),
+      str(info['end_index']),
       info['matched_string'],
       file_name
     ]

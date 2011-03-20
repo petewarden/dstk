@@ -172,6 +172,15 @@ def match_first_name(word)
     return nil
   end
   
+  # A bit arbitrary, but these listed names show up in headlines a lot
+  blacklist = {
+    'Will' => true,
+    'Asia' => true
+  }
+  if blacklist.has_key(word)
+    return nil
+  end
+  
   info = gender_from_name(word, 1)
   if !info
     return nil
