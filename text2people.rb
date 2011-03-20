@@ -22,11 +22,11 @@ require 'rubygems' if RUBY_VERSION < '1.9'
 require 'genderfromname'
 
 def debug_log(message)
-  begin
-    printf(STDERR, "%s\n" % message.inspect)
-  rescue
-    printf(STDERR, "Error trying to print debug output")
-  end
+#  begin
+#    printf(STDERR, "%s\n" % message.inspect)
+#  rescue
+#    printf(STDERR, "Error trying to print debug output")
+#  end
 end
 
 # This function scans through the text, and tries to pull out words that look like the
@@ -108,6 +108,8 @@ def text2people(text)
     end_index = (offset + matched_string.length)
 
     offset = end_index
+  
+    printf(STDERR, 'Found "'+matched_string+'"'+"\n")
   
     result.push({
       :gender => gender,
