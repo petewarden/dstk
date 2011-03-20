@@ -105,7 +105,7 @@ def text2people(text)
   
     matched_string = full_match.to_s
     start_index = offset
-    end_index = (offset + matching_text.length)
+    end_index = (offset + matched_string.length)
 
     offset = end_index
   
