@@ -58,8 +58,7 @@
 function DSTK(options) {
     
   var defaultOptions = {
-//    apiBase: 'http://www.datasciencetoolkit.org',
-    apiBase: 'http://ec2-50-16-122-127.compute-1.amazonaws.com',
+    apiBase: 'http://www.datasciencetoolkit.org',
     checkVersion: true
   };
     
