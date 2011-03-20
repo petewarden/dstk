@@ -1506,6 +1506,8 @@
 			597D8D7A1335C2390042C251 /* PBXTextBookmark */ = 597D8D7A1335C2390042C251 /* PBXTextBookmark */;
 			597D8D7B1335C30A0042C251 /* PBXTextBookmark */ = 597D8D7B1335C30A0042C251 /* PBXTextBookmark */;
 			597D8D7C1335C30A0042C251 /* PBXTextBookmark */ = 597D8D7C1335C30A0042C251 /* PBXTextBookmark */;
+			597D8D7D1335C34A0042C251 /* PBXTextBookmark */ = 597D8D7D1335C34A0042C251 /* PBXTextBookmark */;
+			597D8D7E1335C34A0042C251 /* PBXTextBookmark */ = 597D8D7E1335C34A0042C251 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 5929E10413243EA700B81D2E /* Source Control */;
 		userBuildSettings = {
@@ -3354,9 +3356,9 @@
 	};
 	5929E1F313258C0500B81D2E /* welcome.haml */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {831, 7875}}";
-			sepNavSelRange = "{8762, 0}";
-			sepNavVisRange = "{7768, 1454}";
+			sepNavIntBoundsRect = "{{0, 0}, {831, 7920}}";
+			sepNavSelRange = "{8756, 0}";
+			sepNavVisRange = "{8179, 1321}";
 		};
 	};
 	5929E20313258DC800B81D2E /* PBXTextBookmark */ = {
@@ -3438,7 +3440,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 5";
 		rLen = 0;
-		rLoc = 16799;
+		rLoc = 16793;
 		rType = 0;
 		vrLen = 63;
 		vrLoc = 0;
@@ -3498,7 +3500,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 5";
 		rLen = 0;
-		rLoc = 16799;
+		rLoc = 16793;
 		rType = 0;
 		vrLen = 63;
 		vrLoc = 0;
@@ -3658,7 +3660,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 5";
 		rLen = 0;
-		rLoc = 16799;
+		rLoc = 16793;
 		rType = 0;
 		vrLen = 63;
 		vrLoc = 0;
@@ -3928,7 +3930,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 22";
 		rLen = 0;
-		rLoc = 16799;
+		rLoc = 16793;
 		rType = 0;
 		vrLen = 709;
 		vrLoc = 0;
@@ -4028,7 +4030,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 23";
 		rLen = 0;
-		rLoc = 16799;
+		rLoc = 16793;
 		rType = 0;
 		vrLen = 976;
 		vrLoc = 0;
@@ -4058,7 +4060,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 23";
 		rLen = 0;
-		rLoc = 16799;
+		rLoc = 16793;
 		rType = 0;
 		vrLen = 976;
 		vrLoc = 0;
@@ -4208,7 +4210,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 31";
 		rLen = 0;
-		rLoc = 16799;
+		rLoc = 16793;
 		rType = 0;
 		vrLen = 1159;
 		vrLoc = 0;
@@ -5592,7 +5594,7 @@
 		isa = PBXTextBookmark;
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 1";
-		rLen = 16799;
+		rLen = 16793;
 		rLoc = 0;
 		rType = 0;
 		vrLen = 2651;
@@ -5622,7 +5624,7 @@
 		isa = PBXTextBookmark;
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 1";
-		rLen = 16799;
+		rLen = 16793;
 		rLoc = 0;
 		rType = 0;
 		vrLen = 2651;
@@ -5633,7 +5635,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 101";
 		rLen = 0;
-		rLoc = 16799;
+		rLoc = 16793;
 		rType = 0;
 		vrLen = 1660;
 		vrLoc = 1556;
@@ -5653,7 +5655,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 101";
 		rLen = 0;
-		rLoc = 16799;
+		rLoc = 16793;
 		rType = 0;
 		vrLen = 1660;
 		vrLoc = 1556;
@@ -5693,7 +5695,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 101";
 		rLen = 0;
-		rLoc = 16799;
+		rLoc = 16793;
 		rType = 0;
 		vrLen = 2219;
 		vrLoc = 0;
@@ -6604,7 +6606,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 101";
 		rLen = 0;
-		rLoc = 16799;
+		rLoc = 16793;
 		rType = 0;
 		vrLen = 1604;
 		vrLoc = 1556;
@@ -8970,7 +8972,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 211";
 		rLen = 0;
-		rLoc = 9271;
+		rLoc = 9265;
 		rType = 0;
 		vrLen = 1426;
 		vrLoc = 6162;
@@ -9110,7 +9112,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 349";
 		rLen = 0;
-		rLoc = 14388;
+		rLoc = 14382;
 		rType = 0;
 		vrLen = 2325;
 		vrLoc = 0;
@@ -9390,7 +9392,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 309";
 		rLen = 0;
-		rLoc = 12986;
+		rLoc = 12980;
 		rType = 0;
 		vrLen = 1497;
 		vrLoc = 8950;
@@ -9410,7 +9412,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 301";
 		rLen = 0;
-		rLoc = 12751;
+		rLoc = 12745;
 		rType = 0;
 		vrLen = 1505;
 		vrLoc = 8950;
@@ -9430,7 +9432,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 301";
 		rLen = 0;
-		rLoc = 12751;
+		rLoc = 12745;
 		rType = 0;
 		vrLen = 1505;
 		vrLoc = 8950;
@@ -9450,7 +9452,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 301";
 		rLen = 0;
-		rLoc = 12751;
+		rLoc = 12745;
 		rType = 0;
 		vrLen = 1505;
 		vrLoc = 8950;
@@ -9470,7 +9472,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 301";
 		rLen = 0;
-		rLoc = 12751;
+		rLoc = 12745;
 		rType = 0;
 		vrLen = 1505;
 		vrLoc = 8950;
@@ -9490,7 +9492,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 301";
 		rLen = 0;
-		rLoc = 12751;
+		rLoc = 12745;
 		rType = 0;
 		vrLen = 1505;
 		vrLoc = 8950;
@@ -9510,7 +9512,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 301";
 		rLen = 0;
-		rLoc = 12751;
+		rLoc = 12745;
 		rType = 0;
 		vrLen = 1505;
 		vrLoc = 8950;
@@ -9530,7 +9532,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 301";
 		rLen = 0;
-		rLoc = 12751;
+		rLoc = 12745;
 		rType = 0;
 		vrLen = 1505;
 		vrLoc = 8950;
@@ -9610,7 +9612,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 172";
 		rLen = 0;
-		rLoc = 9109;
+		rLoc = 9103;
 		rType = 0;
 		vrLen = 1534;
 		vrLoc = 5779;
@@ -9630,7 +9632,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 172";
 		rLen = 0;
-		rLoc = 9109;
+		rLoc = 9103;
 		rType = 0;
 		vrLen = 1534;
 		vrLoc = 5779;
@@ -12545,7 +12547,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 455";
 		rLen = 0;
-		rLoc = 15561;
+		rLoc = 15555;
 		rType = 0;
 		vrLen = 1333;
 		vrLoc = 13528;
@@ -12725,7 +12727,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 458";
 		rLen = 0;
-		rLoc = 15565;
+		rLoc = 15559;
 		rType = 0;
 		vrLen = 1470;
 		vrLoc = 13524;
@@ -12785,7 +12787,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 429";
 		rLen = 0;
-		rLoc = 14631;
+		rLoc = 14625;
 		rType = 0;
 		vrLen = 1470;
 		vrLoc = 13524;
@@ -12795,7 +12797,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 457";
 		rLen = 0;
-		rLoc = 15512;
+		rLoc = 15506;
 		rType = 0;
 		vrLen = 1473;
 		vrLoc = 13524;
@@ -12815,7 +12817,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 457";
 		rLen = 0;
-		rLoc = 15512;
+		rLoc = 15506;
 		rType = 0;
 		vrLen = 1473;
 		vrLoc = 13524;
@@ -12835,7 +12837,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 457";
 		rLen = 0;
-		rLoc = 15512;
+		rLoc = 15506;
 		rType = 0;
 		vrLen = 1473;
 		vrLoc = 13524;
@@ -12855,7 +12857,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 457";
 		rLen = 0;
-		rLoc = 15512;
+		rLoc = 15506;
 		rType = 0;
 		vrLen = 1473;
 		vrLoc = 13524;
@@ -12875,7 +12877,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 457";
 		rLen = 0;
-		rLoc = 15512;
+		rLoc = 15506;
 		rType = 0;
 		vrLen = 1473;
 		vrLoc = 13524;
@@ -12895,7 +12897,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 429";
 		rLen = 0;
-		rLoc = 14631;
+		rLoc = 14625;
 		rType = 0;
 		vrLen = 1473;
 		vrLoc = 13524;
@@ -12905,7 +12907,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 457";
 		rLen = 0;
-		rLoc = 15510;
+		rLoc = 15504;
 		rType = 0;
 		vrLen = 1439;
 		vrLoc = 13568;
@@ -12925,7 +12927,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 444";
 		rLen = 0;
-		rLoc = 15122;
+		rLoc = 15116;
 		rType = 0;
 		vrLen = 1439;
 		vrLoc = 13568;
@@ -12945,7 +12947,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 444";
 		rLen = 0;
-		rLoc = 15122;
+		rLoc = 15116;
 		rType = 0;
 		vrLen = 1439;
 		vrLoc = 13568;
@@ -12965,7 +12967,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 444";
 		rLen = 0;
-		rLoc = 15122;
+		rLoc = 15116;
 		rType = 0;
 		vrLen = 1439;
 		vrLoc = 13568;
@@ -12985,7 +12987,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 444";
 		rLen = 0;
-		rLoc = 15122;
+		rLoc = 15116;
 		rType = 0;
 		vrLen = 1439;
 		vrLoc = 13568;
@@ -13005,7 +13007,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 444";
 		rLen = 0;
-		rLoc = 15122;
+		rLoc = 15116;
 		rType = 0;
 		vrLen = 1439;
 		vrLoc = 13568;
@@ -13025,7 +13027,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 444";
 		rLen = 0;
-		rLoc = 15122;
+		rLoc = 15116;
 		rType = 0;
 		vrLen = 1439;
 		vrLoc = 13568;
@@ -13045,7 +13047,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 444";
 		rLen = 0;
-		rLoc = 15122;
+		rLoc = 15116;
 		rType = 0;
 		vrLen = 1439;
 		vrLoc = 13568;
@@ -13065,7 +13067,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 444";
 		rLen = 0;
-		rLoc = 15122;
+		rLoc = 15116;
 		rType = 0;
 		vrLen = 1439;
 		vrLoc = 13568;
@@ -13085,7 +13087,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 444";
 		rLen = 0;
-		rLoc = 15122;
+		rLoc = 15116;
 		rType = 0;
 		vrLen = 1439;
 		vrLoc = 13568;
@@ -16657,7 +16659,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 495";
 		rLen = 0;
-		rLoc = 15987;
+		rLoc = 15981;
 		rType = 0;
 		vrLen = 1383;
 		vrLoc = 15264;
@@ -16697,7 +16699,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 495";
 		rLen = 0;
-		rLoc = 15987;
+		rLoc = 15981;
 		rType = 0;
 		vrLen = 1383;
 		vrLoc = 15264;
@@ -16717,7 +16719,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 343";
 		rLen = 0;
-		rLoc = 11653;
+		rLoc = 11647;
 		rType = 0;
 		vrLen = 1626;
 		vrLoc = 10462;
@@ -16737,7 +16739,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 342";
 		rLen = 0;
-		rLoc = 11607;
+		rLoc = 11601;
 		rType = 0;
 		vrLen = 1545;
 		vrLoc = 11009;
@@ -16757,9 +16759,29 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 242";
 		rLen = 0;
-		rLoc = 8762;
+		rLoc = 8756;
 		rType = 0;
 		vrLen = 1454;
 		vrLoc = 7768;
+	};
+	597D8D7D1335C34A0042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 597D884E133040030042C251 /* jquery.dstk.js */;
+		name = "jquery.dstk.js: 171";
+		rLen = 0;
+		rLoc = 4909;
+		rType = 0;
+		vrLen = 1798;
+		vrLoc = 6474;
+	};
+	597D8D7E1335C34A0042C251 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
+		name = "welcome.haml: 242";
+		rLen = 0;
+		rLoc = 8756;
+		rType = 0;
+		vrLen = 1321;
+		vrLoc = 8179;
 	};
 }
