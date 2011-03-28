@@ -450,16 +450,22 @@ def ips_list_from_string(ips_string)
   
 end
 
+# Keep a singleton accessor for the geocoder object, so we don't leak resources
+# Fix for https://github.com/petewarden/dstk/issues/4
+$geocoder_db = nil
+
 # Takes an array of postal addresses as input, and looks up their locations using
 # data from the US census
 def street2coordinates(addresses, callback=nil)
 
-  db = Geocoder::US::Database.new('../geocoderdata/geocoder.db', {:debug => false})
+  if !$geocoder_db
+    $geocoder_db = Geocoder::US::Database.new('../geocoderdata/geocoder.db', {:debug => false})
+  end
 
   output = {}
   addresses.each do |address|
     begin
-      locations = db.geocode(address, true)
+      locations = $geocoder_db.geocode(address, true)
       if locations and locations.length>0
         location = locations[0]
         info = {
