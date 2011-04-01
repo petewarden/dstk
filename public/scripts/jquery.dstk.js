@@ -170,6 +170,10 @@ DSTK.prototype.text2people = function(text, callback) {
   this.makeTextCall(text, callback, 'text2people');
 };
 
+DSTK.prototype.text2times = function(text, callback) {
+  this.makeTextCall(text, callback, 'text2times');
+};
+
 DSTK.prototype.makeTextCall = function(text, callback, method) {
 
   var apiUrl = this.apiBase+'/'+method;

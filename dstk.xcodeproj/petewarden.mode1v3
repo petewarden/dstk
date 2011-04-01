@@ -264,20 +264,14 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateExpansionKey</key>
 							<array>
 								<string>5929E0FE13243EA700B81D2E</string>
-								<string>5929E1E813258B3700B81D2E</string>
-								<string>5929E1E913258B3700B81D2E</string>
-								<string>5929E1EB13258B3700B81D2E</string>
-								<string>5929E1ED13258B3700B81D2E</string>
-								<string>597D8A7213314B920042C251</string>
-								<string>5929E14613245CB200B81D2E</string>
+								<string>596BF3A91340347100D42EE1</string>
 								<string>5929E1F013258C0500B81D2E</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>46</integer>
-									<integer>42</integer>
+									<integer>21</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -301,7 +295,7 @@
 							<real>186</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>191 281 1749 897 0 0 1920 1178 </string>
+						<string>171 281 1749 897 0 0 1920 1178 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -322,7 +316,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>dstk_server.rb</string>
+										<string>text2times.rb</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -330,11 +324,11 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>dstk_server.rb</string>
+												<string>text2times.rb</string>
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>596BF39F1340316000D42EE1</string>
+												<string>596BF42C1345075200D42EE1</string>
 												<key>history</key>
 												<array>
 													<string>5929E1BD1324BF6300B81D2E</string>
@@ -353,14 +347,11 @@
 													<string>5929E3D5132C496100B81D2E</string>
 													<string>597D8809132F17990042C251</string>
 													<string>597D885F133062410042C251</string>
-													<string>597D8AD71331DF350042C251</string>
 													<string>597D8BBC1334207E0042C251</string>
 													<string>597D8BD113342E750042C251</string>
 													<string>597D8CF713357B530042C251</string>
 													<string>597D8CF913357B530042C251</string>
-													<string>597D8D931335D4370042C251</string>
 													<string>597D8DC71335E4C90042C251</string>
-													<string>597D8DFE1336785D0042C251</string>
 													<string>597D8DFF1336785D0042C251</string>
 													<string>597D8E1713367CAB0042C251</string>
 													<string>597D8E53133821360042C251</string>
@@ -378,7 +369,11 @@
 													<string>597D8E5F133821360042C251</string>
 													<string>596BEDEA133D5E4A00D42EE1</string>
 													<string>596BF39D1340316000D42EE1</string>
-													<string>596BF39E1340316000D42EE1</string>
+													<string>596BF3AC13419AF300D42EE1</string>
+													<string>596BF3AD13419AF300D42EE1</string>
+													<string>596BF3AE13419AF300D42EE1</string>
+													<string>596BF3AF13419AF300D42EE1</string>
+													<string>596BF3B013419AF300D42EE1</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -392,7 +387,7 @@
 										<key>Frame</key>
 										<string>{{0, 0}, {666, 851}}</string>
 										<key>RubberWindowFrame</key>
-										<string>191 281 1749 897 0 0 1920 1178 </string>
+										<string>171 281 1749 897 0 0 1920 1178 </string>
 									</dict>
 									<key>Module</key>
 									<string>PBXNavigatorGroup</string>
@@ -405,7 +400,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20306471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>jquery.dstk.js</string>
+										<string>text2people.rb</string>
 										<key>PBXSplitModuleInNavigatorKey</key>
 										<dict>
 											<key>Split0</key>
@@ -413,11 +408,11 @@
 												<key>PBXProjectModuleGUID</key>
 												<string>1CE0B20406471E060097A5F4</string>
 												<key>PBXProjectModuleLabel</key>
-												<string>jquery.dstk.js</string>
+												<string>text2people.rb</string>
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>596BF3A01340316000D42EE1</string>
+												<string>596BF42D1345075200D42EE1</string>
 												<key>history</key>
 												<array>
 													<string>5929E16113246ABF00B81D2E</string>
@@ -454,10 +449,7 @@
 													<string>597D8CCD13355F190042C251</string>
 													<string>597D8CCF13355F190042C251</string>
 													<string>597D8CD113355F190042C251</string>
-													<string>597D8CE61335746F0042C251</string>
-													<string>597D8D1413357F080042C251</string>
 													<string>597D8D6A1335903E0042C251</string>
-													<string>597D8D701335BABE0042C251</string>
 													<string>597D8D8A1335C7D20042C251</string>
 													<string>597D8DD61335E7600042C251</string>
 													<string>597D8E031336785D0042C251</string>
@@ -465,7 +457,13 @@
 													<string>597D8E1E13367D020042C251</string>
 													<string>597D8E63133821360042C251</string>
 													<string>597D8E64133821360042C251</string>
-													<string>597D8E66133821360042C251</string>
+													<string>596BF3B213419AF300D42EE1</string>
+													<string>596BF3B313419AF300D42EE1</string>
+													<string>596BF3B413419AF300D42EE1</string>
+													<string>596BF3B513419AF300D42EE1</string>
+													<string>596BF3B713419AF300D42EE1</string>
+													<string>596BF3B813419AF300D42EE1</string>
+													<string>596BF3B913419AF300D42EE1</string>
 												</array>
 											</dict>
 											<key>SplitCount</key>
@@ -479,7 +477,7 @@
 										<key>Frame</key>
 										<string>{{671, 0}, {870, 851}}</string>
 										<key>RubberWindowFrame</key>
-										<string>191 281 1749 897 0 0 1920 1178 </string>
+										<string>171 281 1749 897 0 0 1920 1178 </string>
 									</dict>
 									<key>Module</key>
 									<string>PBXNavigatorGroup</string>
@@ -503,7 +501,7 @@
 								<key>Frame</key>
 								<string>{{0, 856}, {1541, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>191 281 1749 897 0 0 1920 1178 </string>
+								<string>171 281 1749 897 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -529,10 +527,10 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>596BEDC4133AE5FF00D42EE1</string>
+				<string>596BF3BB13419AF300D42EE1</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>596BEDC5133AE5FF00D42EE1</string>
-				<string>596BEDC6133AE5FF00D42EE1</string>
+				<string>596BF3BC13419AF300D42EE1</string>
+				<string>596BF3BD13419AF300D42EE1</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
@@ -675,7 +673,7 @@
 		<string>/Users/petewarden/Projects/dstk/dstk.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>191 281 1749 897 0 0 1920 1178 </string>
+	<string>171 281 1749 897 0 0 1920 1178 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -885,14 +883,12 @@
 							<key>Dock</key>
 							<array>
 								<dict>
-									<key>BecomeActive</key>
-									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
 										<string>1CDD528C0622207200134675</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>dstk_server.rb</string>
+										<string>text2people.rb</string>
 										<key>StatusBarVisibility</key>
 										<true/>
 									</dict>
@@ -913,6 +909,8 @@
 							<string>277pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -948,8 +946,8 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C530D57069F1CE1000CFCEE</string>
-				<string>596BF3A11340316000D42EE1</string>
-				<string>596BF3A21340316000D42EE1</string>
+				<string>596BF3BE13419AF300D42EE1</string>
+				<string>596BF3BF13419AF300D42EE1</string>
 				<string>1CDD528C0622207200134675</string>
 				<string>1CD0528E0623707200166675</string>
 			</array>

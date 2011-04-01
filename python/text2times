@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# See http://wiki.python.org/moin/PrintFails for the grisly story of why this is needed
+export PYTHONIOENCODING=utf-8
+
+dstk.py text2times "$@"

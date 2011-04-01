@@ -171,6 +171,22 @@
   
   #text2peopleresults{:style=>"margin-top:30px;"}
 
+  %div{:style=>"margin-top:20px; font-size: 125%;"}
+    %h3 Text to Times
+    API: 
+    %a{:href=>"/developerdocs#text2times"} /text2times
+    %br
+    Spots text fragments that look like times or dates, and converts them into a standard form.
+    %br
+  .try{:style=>"margin-top:20px; font-size: 125%;"}
+    Try it for yourself. Copy and paste your text into the box below to extract times and dates.
+
+  %textarea#text2timestext{:style=>"width: 800px; margin-top: 10px;"}
+
+  #uploadtext2times.button{:style=>"width:150px; font-size: 125%;"} Find Times
+  
+  #text2timesresults{:style=>"margin-top:30px;"}
+
 
 %script{:src=>"/scripts/jquery.exptextarea.js", :type=>"text/javascript"}
 :javascript
@@ -530,6 +546,46 @@
             +'</div>';
           
           $('#text2peopleresults').append($(html));
+        }
+      })
+    });
+
+    $('#uploadtext2times').click(function() {
+      var text = $('#text2timestext').val();
+      if (text.length<1) {
+        $('#text2timesresults').html("No text found in input box.");
+        return;
+      }
+
+      dstk.text2times(text, function(result) {
+        if (typeof result['error'] !== 'undefined') {
+          $('#text2timesresults')
+          .text(result.error);
+          return;
+        }
+
+        $('#text2timesresults').empty();
+
+        if (result.length<1) {
+          $('#text2timesresults')
+          .text('No times found');
+          return;
+        }
+
+        for (var resultIndex in result) {
+          var time = result[resultIndex];
+
+          var matchedString = time['matched_string'];
+          var timeString = time['time_string'];
+
+          var html = 
+            '<div>'
+            +matchedString
+            +' = '
+            +timeString
+            +'</div>';
+          
+          $('#text2timesresults').append($(html));
         }
       })
     });

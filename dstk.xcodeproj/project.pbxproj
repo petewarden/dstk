@@ -27,6 +27,7 @@
 		5929E1F313258C0500B81D2E /* welcome.haml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = welcome.haml; sourceTree = "<group>"; wrapsLines = 1; };
 		5929E30C1329AD7900B81D2E /* developerdocs.haml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = developerdocs.haml; sourceTree = "<group>"; wrapsLines = 1; };
 		596BF3AA1340347100D42EE1 /* bug_0004.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = bug_0004.py; sourceTree = "<group>"; };
+		596BF3AB1340402600D42EE1 /* text2times.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = text2times.rb; sourceTree = "<group>"; };
 		597D884E133040030042C251 /* jquery.dstk.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.dstk.js; sourceTree = "<group>"; };
 		597D884F133040030042C251 /* jquery.exptextarea.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.exptextarea.js; sourceTree = "<group>"; };
 		597D8850133040030042C251 /* jquery.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.min.js; sourceTree = "<group>"; };
@@ -47,6 +48,8 @@
 		597D8CF613357A260042C251 /* text2people */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = text2people; path = python/text2people; sourceTree = "<group>"; };
 		597D8E1213367B6F0042C251 /* dstk_server.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = dstk_server.rb; sourceTree = "<group>"; };
 		597D8E1313367BA40042C251 /* dstk_config.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = dstk_config.rb; sourceTree = "<group>"; };
+		59F0A27213455C8800098746 /* test_text2times.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = test_text2times.py; sourceTree = "<group>"; };
+		59F0A27313455E6F00098746 /* text2times */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = text2times; path = python/text2times; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -72,6 +75,7 @@
 				5929E11813243ECB00B81D2E /* testinput.txt */,
 				596BF3A91340347100D42EE1 /* tests */,
 				597D8CE2133561460042C251 /* text2people.rb */,
+				596BF3AB1340402600D42EE1 /* text2times.rb */,
 				5929E1F013258C0500B81D2E /* views */,
 			);
 			sourceTree = "<group>";
@@ -137,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				596BF3AA1340347100D42EE1 /* bug_0004.py */,
+				59F0A27213455C8800098746 /* test_text2times.py */,
 			);
 			path = tests;
 			sourceTree = "<group>";
@@ -156,6 +161,7 @@
 				597D8CF613357A260042C251 /* text2people */,
 				597D8C99133526740042C251 /* text2places */,
 				597D8C9A133526740042C251 /* text2sentences */,
+				59F0A27313455E6F00098746 /* text2times */,
 			);
 			name = python;
 			sourceTree = "<group>";

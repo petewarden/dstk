@@ -194,6 +194,18 @@ class DSTK:
     
     return response
 
+  def text2times(self, text):
+    
+    api_url = self.api_base+'/text2times'
+    api_body = text
+    response_string = urllib.urlopen(api_url, api_body).read()
+    response = json.loads(response_string)
+    
+    if 'error' in response:
+      raise Exception(response['error'])
+    
+    return response
+
 # We need to post files as multipart form data, and Python has no native function for
 # that, so these utility functions implement what we need.
 # See http://code.activestate.com/recipes/146306/ 
@@ -515,6 +527,49 @@ def text2people_format(result, file_name, writer):
     writer.writerow(row)
   return
 
+def text2times_cli(dstk, options, inputs, output):
+
+  writer = csv.writer(sys.stdout)
+
+  if options['showHeaders']:
+    row = ['matched_string', 'time_string', 'time_seconds', 'is_relative', 'start_index', 'end_index', 'file_name']
+    writer.writerow(row)
+  options['showHeaders'] = False
+
+  if options['from_stdin']:
+    result = dstk.text2times("\n".join(inputs))
+    text2times_format(result, 'stdin', writer)
+    return
+
+  for file_name in inputs:
+    if os.path.isdir(file_name):
+      children = os.listdir(file_name)
+      full_children = []
+      for child in children:
+        full_children.append(os.path.join(file_name, child))
+      text2times_cli(dstk, options, full_children, output)
+    else:
+      file_data = get_file_or_url_contents(file_name)
+      result = dstk.text2times(file_data)
+      text2times_format(result, file_name, writer)
+
+  return
+
+def text2times_format(result, file_name, writer):
+  for info in result:
+
+    row = [
+      info['matched_string'],
+      info['time_string'], 
+      info['time_seconds'], 
+      info['is_relative'],
+      str(info['start_index']),
+      str(info['end_index']),
+      file_name
+    ]
+    writer.writerow(row)
+  return
+
 def get_file_or_url_contents(file_name):
   if re.match(r'http://', file_name):
     file_data = urllib.urlopen(file_name).read()
@@ -536,6 +591,8 @@ def print_usage(message=''):
   print "  text2sentences        (parts of the text that look like proper sentences)"
   print "  html2text             (text version of the HTML document)"
   print "  html2story            (text version of the HTML with no boilerplate)"  
+  print "  text2people           (gender for people mentioned in unstructured text)"
+  print "  text2times            (times and dates mentioned in unstructured text)"
   print "If no inputs are specified, then standard input will be read and used"
   print "See http://www.datasciencetoolkit.org/developerdocs for more details"
   print "Examples:"
@@ -559,6 +616,7 @@ if __name__ == '__main__':
     'html2text': { 'handler': html2text_cli },
     'html2story': { 'handler': html2story_cli },
     'text2people': { 'handler': text2people_cli },
+    'text2times': { 'handler': text2times_cli },
   }
   switches = {
     'api_base': True,

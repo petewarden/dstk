@@ -46,6 +46,9 @@
     &nbsp;&nbsp;&nbsp;&nbsp;
     %a{:href=>"#text2people"} Text to People
     %br
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    %a{:href=>"#text2times"} Text to Times
+    %br
     %a{:href=>"#setup"} Setting up your own server
     %br
     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -431,6 +434,36 @@
       The text is passed in either as a JSON-encoded array in the remainder of the URL for a GET call, or in the raw body of the request for POST. The usual 8,000 character limit on GET URLs applies, so use POST for larger texts.
 
       This API uses my Ruby port of Eamon Daly and Jon Orwant's original [GenderFromName Perl module](http://search.cpan.org/~edaly/Text-GenderFromName-0.32/GenderFromName.pm) to classify first names.
+
+    %a{:name=>"text2times"}
+    :markdown
+      #### Text to Times
+      
+      Searches the input for strings that represent dates or times, and parses them into the standard form of a Ruby date/time string (eg "Mon Feb 01 11:00:00 -0800 2010") as well as seconds since Jan 1st 1970. It will attempt to guess the exact time for strings that are ambiguous, like "this Tuesday". Its guessing process is to look for a full date anywhere in the document, and calculate all relative times as offsets from the first date with a day, month and year it finds.
+      
+      For example, if the text was an email with "Monday Feb 1st 2010" in the content, and there was a reference to "this Tuesday", the service would guess that meant Tuesday Feb 2nd 2010. If there are no full dates at all, then the current time and date will be used as the base. Any relative dates are marked as "is_relative" in the results. It also figures out the span of time that the string covers, and puts this in seconds as "duration" within each result. 
+      
+      It's designed to avoid false positives, at the cost of missing some strings that might represent dates. "I'm taking Computer Science 2010" won't be marked as the year 2010, since there's not enough evidence that it's really representing a time and isn't just a reference number.
+      <hr>
+      `curl -d "02/01/2010-Meeting this Wednesday" "http://www.datasciencetoolkit.org/text2times"`
+      
+      `[{"start_index":1,"is_relative":false,"end_index":9,"time_seconds":1265011200.0,`
+      
+      `"matched_string":"2/01/2010","time_string":"Mon Feb 01 00:00:00 -0800 2010",`
+      
+      `"duration":86400},`
+      
+      `{"start_index":19,"is_relative":true,"end_index":32,"time_seconds":1265184000.0,`
+      
+      `"matched_string":"this Wednesday","time_string":"Wed Feb 03 00:00:00 -0800 2010",`
+      
+      `"duration":86400}]`
+            
+      <hr>
+
+      The text is passed in either as a JSON-encoded array in the remainder of the URL for a GET call, or in the raw body of the request for POST. The usual 8,000 character limit on GET URLs applies, so use POST for larger texts.
+
+      This API uses the [Chronic Ruby gem](https://github.com/mojombo/chronic/) to convert the strings it finds into times.
       
     %a{:name=>"setup"}
     :markdown

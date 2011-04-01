@@ -37,6 +37,7 @@ require File.join(cwd, 'geodict_lib')
 require File.join(cwd, 'dstk_config')
 require File.join(cwd, 'cruftstripper')
 require File.join(cwd, 'text2people')
+require File.join(cwd, 'text2times')
 
 enable :run
 
@@ -825,6 +826,7 @@ def boilerpipe(input_html)
   output
 end
 
+
 ########################################
 # Methods to directly serve up content #
 ########################################
@@ -1137,7 +1139,7 @@ get '/html2story/*' do
   make_json({:story => output_text}, callback)
 end
 
-# Pulls out interesting features like people's names, addresses, phone numbers, emails, dates and times
+# Pulls out strings that look like people's names
 post '/text2people' do
 
   # Pull in the raw data in the body of the request
@@ -1153,6 +1155,26 @@ get '/text2people/*' do
   text = JSON.parse(params['splat'][0])[0]
 
   results = text2people(text)
+
+  make_json(results, callback)
+end
+
+# Pulls out strings that look like times or dates
+post '/text2times' do
+
+  # Pull in the raw data in the body of the request
+  text = request.env['rack.input'].read
+
+  results = text2times(text)
+
+  make_json(results)
+end
+
+get '/text2times/*' do
+  callback = params[:callback]
+  text = JSON.parse(params['splat'][0])[0]
+
+  results = text2times(text)
 
   make_json(results, callback)
 end

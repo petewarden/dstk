@@ -41,3 +41,6 @@ ${COMMAND} ${CURRENT_DIR}'/html2story' ${INSTALL_DIR}/
 
 rm -f ${INSTALL_DIR}/text2people
 ${COMMAND} ${CURRENT_DIR}'/text2people' ${INSTALL_DIR}/
+
+rm -f ${INSTALL_DIR}/text2times
+${COMMAND} ${CURRENT_DIR}'/text2times' ${INSTALL_DIR}/
