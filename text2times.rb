@@ -22,8 +22,8 @@ require 'rubygems'
 
 require 'chronic'
 
-T2T_WHITESPACE = '[ \t.,;]+'
-SEPARATOR = '[:\-\/]'
+T2T_WHITESPACE = '(([ \t.,;]+)|^|$)'
+SEPARATOR = '(:|/|-|\\\|)'
 
 def re_string_union(list)
   '('+list.join('|')+')'
@@ -37,19 +37,21 @@ def re_string_separator_sequence(list)
   '('+list.join(SEPARATOR)+')'
 end
 
+def t2t_debug_log(message)
+  printf(STDERR, "%s\n" % message)
+end
+
 # The main entry point. This function takes an unstructured text string and returns a list of all the
 # fragments it could identify as dates, along with a Unix timestamp value for each of them.
 def text2times(text)
 
-  time = '('+T2T_WHITESPACE+')?'+
-    '(('+T2T_WHITESPACE+'at'+T2T_WHITESPACE+')?'+
+  time = '(('+T2T_WHITESPACE+'at'+T2T_WHITESPACE+')?'+
     '[012]?[0-9]'+
     '(:[0-9][0-9])?'+
     '(:[0-9][0-9])?'+
     '(('+T2T_WHITESPACE+')?(am|pm|AM|PM))?'+
     '(('+T2T_WHITESPACE+')?(GMT|PST|PT|MT|EST|ET|CT))?'+
-    '('+T2T_WHITESPACE+'on)?)'+
-    '('+T2T_WHITESPACE+')?'
+    '('+T2T_WHITESPACE+'on)?)'
 
   weekday = re_string_union([ 
     'Monday', 'Mon',
@@ -87,24 +89,25 @@ def text2times(text)
     'Twenty.Sixth', 'Twenty.Seventh', 'Twenty.Eighth', 'Twenty.Ninth', 'Thirtieth', 'Thirty.First'
   ])
 
-  monthnumber = '((\d)|(1[0-2]))'
+  monthnumber = '(0?(\d)|([1[0-2]))'
 
-  yearnumber = '((19|20)\d\d)'
-    
+  yearnumber = '((19|20)?\d\d)'
+      
   modifier = '('+re_string_union(['next', 'last', 'this', 'before', 'after'])+T2T_WHITESPACE+')?'
 
-  absolute_dates = modifier+re_string_union([
+  absolute_dates = T2T_WHITESPACE+'('+modifier+re_string_union([
     re_string_sequence([weekday, month, monthday, yearnumber]),         # Monday January 1st, 2011
     re_string_sequence([weekday, monthday, month, yearnumber]),         # Monday 1st January, 2011
     re_string_sequence([month, monthday, yearnumber]),                  # January 1st, 2011
     re_string_sequence([monthday, month, yearnumber]),                  # 1st January, 2011
+    re_string_sequence([month, yearnumber]),                            # January 2011
     re_string_separator_sequence([yearnumber, monthnumber, monthdaynum]),# 2010/01/31
     re_string_separator_sequence([yearnumber, monthdaynum, monthnumber]),# 2010/31/01
     re_string_separator_sequence([monthnumber, monthdaynum, yearnumber]),# 01/31/2010
     re_string_separator_sequence([monthdaynum, monthnumber, yearnumber]),# 31/01/2010
-  ])
+  ])+')'+T2T_WHITESPACE
   
-  all_dates = modifier+re_string_union([
+  all_dates = T2T_WHITESPACE+'('+modifier+re_string_union([
     re_string_sequence([weekday, month, monthday, yearnumber]),         # Monday January 1st, 2011
     re_string_sequence([weekday, monthday, month, yearnumber]),         # Monday 1st January, 2011
     re_string_sequence([weekday, month, monthday]),                     # Monday January 1st
@@ -113,18 +116,23 @@ def text2times(text)
     re_string_sequence([monthday, month, yearnumber]),                  # 1st January, 2011
     re_string_sequence([month, monthday]),                              # January 1st
     re_string_sequence([monthday, month]),                              # 1st January
+    re_string_sequence([month, yearnumber]),                            # January 2011
     re_string_sequence([month]),                                        # January
     re_string_sequence([weekday]),                                      # Monday
     re_string_separator_sequence([yearnumber, monthnumber, monthdaynum]),# 2010/01/31
     re_string_separator_sequence([yearnumber, monthdaynum, monthnumber]),# 2010/31/01
     re_string_separator_sequence([monthnumber, monthdaynum, yearnumber]),# 01/31/2010
     re_string_separator_sequence([monthdaynum, monthnumber, yearnumber]),# 31/01/2010
-  ])
-  
+  ])+')'+T2T_WHITESPACE
+    
   all_dates_re = Regexp.new(all_dates, Regexp::IGNORECASE)
   absolute_dates_re = Regexp.new(absolute_dates, Regexp::IGNORECASE)
-  time_prefix_re = Regexp.new(time+'$', Regexp::IGNORECASE)
-  time_suffix_re = Regexp.new('^'+time, Regexp::IGNORECASE)
+  time_prefix_re = Regexp.new(T2T_WHITESPACE+'('+time+')'+T2T_WHITESPACE+'?$', Regexp::IGNORECASE)
+  time_suffix_re = Regexp.new('^'+T2T_WHITESPACE+'?'+'('+time+')'+T2T_WHITESPACE, Regexp::IGNORECASE)
+
+  t2t_debug_log('all_dates = "'+all_dates+'"')
+  t2t_debug_log('time_prefix_re = "'+time_prefix_re.to_s+'"')
+  t2t_debug_log('time_suffix_re = "'+time_suffix_re.to_s+'"')
 
   to_remove = Regexp.new(re_string_union([
     '('+T2T_WHITESPACE+'on)',
@@ -144,18 +152,20 @@ def text2times(text)
       index += stride
       next
     end
+
+    t2t_debug_log('match = '+match.inspect)
       
-    start_index = index+match.begin(0)
-    end_index = (index+match.end(0)-1)
+    start_index = index+match.begin(3)
+    end_index = (index+match.end(3)-1)
 
     if start_index == 0
       time_prefix_match = false
     else
       prefix = text[index..(start_index-1)]
       time_prefix_match = time_prefix_re.match(prefix)
-      
-      puts '"'+prefix+'"'
-      puts time_prefix_match
+
+      t2t_debug_log('prefix = "'+prefix+'"')      
+      t2t_debug_log('time_prefix_match = '+time_prefix_match.inspect)
       
     end
   
@@ -164,33 +174,46 @@ def text2times(text)
     else
       suffix = text[(end_index+1)..(end_index+stride)]
       time_suffix_match = time_suffix_re.match(suffix)
+
+      t2t_debug_log('suffix = "'+suffix+'"')
+      t2t_debug_log('time_suffix_match = '+time_suffix_match.inspect)
+
     end
     
     if time_prefix_match
-      start_index = index+time_prefix_match.begin(2)
+      start_index = index+time_prefix_match.begin(3)
     elsif time_suffix_match
-      end_index = (end_index+time_suffix_match.end(2))
+      end_index = (end_index+time_suffix_match.end(3))
     end
     
     matched_string = text[start_index..end_index]
 
+    t2t_debug_log('matched_string = '+matched_string)
+
+    # Cleanup to work around fragments that confuse Chronic's parsing
     cleaned_string = matched_string.gsub(to_remove, '')
+    cleaned_string = matched_string.gsub(/(\d?\d)(st|nd|rd|th)/, '\1')
+    cleaned_string = matched_string.gsub(/(\d)\\(\d)/, '\1/\2')
+
+    t2t_debug_log('cleaned_string = '+cleaned_string)
 
     span = Chronic.parse(cleaned_string, {:guess => false})
   
     if !span
-      puts 'Failed with '+cleaned_string
+      t2t_debug_log('Failed to turn into a time - "'+cleaned_string+'"')
       index = [start_index, index].max + 1
       next
     end
+
+    t2t_debug_log('span = '+span.inspect)
   
     is_relative = !absolute_dates_re.match(matched_string)
   
     if !is_relative and !base_time
       base_time = span.begin
     end
-  
-    result.push({
+    
+    output = {
       :time_seconds => span.begin.to_f,
       :time_string => span.begin.to_s,
       :is_relative => is_relative,
@@ -198,9 +221,13 @@ def text2times(text)
       :matched_string => matched_string,
       :start_index => start_index,
       :end_index => end_index
-    })
+    }
+
+    t2t_debug_log('output = '+output.inspect)
+  
+    result.push(output)
     
-    index = [end_index, index+1].max
+    index = [end_index+1, index+1].max
   
   end
 
@@ -208,6 +235,10 @@ def text2times(text)
   if base_time
     
     result.each do |info|
+    
+      if !info[:isrelative]
+        next
+      end
       
       matched_string = info[:matched_string]
       cleaned_string = matched_string.gsub(to_remove, '')
