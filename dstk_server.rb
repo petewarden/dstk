@@ -56,7 +56,7 @@ end
 # Returns a JSON representation of the hash, optionally wrapped in a callback
 def make_json(hash, callback = nil)
 
-#  printf(STDERR, 'hash.inspect = "%s"', hash.inspect)
+  printf(STDERR, "hash.inspect = '%s'\n", hash.inspect)
 
   result = ''
   if callback
@@ -67,7 +67,7 @@ def make_json(hash, callback = nil)
     result += ');'
   end
 
-#  printf(STDERR, 'result = "%s"', result)
+  printf(STDERR, "result = '%s'\n", result)
   
   return result
 end
@@ -813,11 +813,11 @@ def boilerpipe(input_html)
 
   begin
 
-    tempfile = Tempfile.new('boilerpipe')
+    tempfile = File.open('/tmp/boiler.txt')#Tempfile.new('boilerpipe')
     tempfile << input_html
     tempfile_path = tempfile.path
 
-    printf(STDERR, 'tempfile_path="%s"', tempfile_path)
+    printf(STDERR, "tempfile_path='%s'\n", tempfile_path)
 
     bp = DSTKConfig::BOILERPIPE_FOLDER
     output = `java -cp #{bp}dist/boilerpipe-1.1-dev.jar:#{bp}lib/xerces-2.9.1.jar:#{bp}lib/nekohtml-1.9.13.jar:#{bp}src/ BoilerpipeCLI < #{tempfile_path}`
