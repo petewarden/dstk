@@ -820,7 +820,7 @@ def boilerpipe(input_html)
     printf(STDERR, "tempfile_path='%s'\n", tempfile_path)
 
     bp = DSTKConfig::BOILERPIPE_FOLDER
-    output = `java -cp #{bp}dist/boilerpipe-1.1-dev.jar:#{bp}lib/xerces-2.9.1.jar:#{bp}lib/nekohtml-1.9.13.jar:#{bp}src/ BoilerpipeCLI < #{tempfile_path}`
+    output = `java -cp #{bp}dist/boilerpipe-1.1-dev.jar:#{bp}lib/xerces-2.9.1.jar:#{bp}lib/nekohtml-1.9.13.jar:#{bp}src/ BoilerpipeCLI < #{tempfile_path} > /tmp/foo.txt`
 
     exit_code = $?.to_i
     if exit_code != 0
