@@ -536,8 +536,8 @@ def coordinates2politics(locations, callback=nil)
   result = []
   locations.each do |location|
 
-    lat = location['latitude']
-    lon = location['longitude']
+    lat = location[:latitude]
+    lon = location[:longitude]
     
     point_string = 'setsrid(makepoint('+PGconn.escape(lon)+', '+PGconn.escape(lat)+'), 4326)'
 
