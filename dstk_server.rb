@@ -56,7 +56,7 @@ end
 # Returns a JSON representation of the hash, optionally wrapped in a callback
 def make_json(hash, callback = nil)
 
-  printf(STDERR, 'hash.inspect = "%s"', hash.inspect)
+#  printf(STDERR, 'hash.inspect = "%s"', hash.inspect)
 
   result = ''
   if callback
@@ -67,7 +67,7 @@ def make_json(hash, callback = nil)
     result += ');'
   end
 
-  printf(STDERR, 'result = "%s"', result)
+#  printf(STDERR, 'result = "%s"', result)
   
   return result
 end
