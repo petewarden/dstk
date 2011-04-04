@@ -817,6 +817,8 @@ def boilerpipe(input_html)
     tempfile << input_html
     tempfile_path = tempfile.path
 
+    printf(STDERR, 'tempfile_path="%s"', tempfile_path)
+
     bp = DSTKConfig::BOILERPIPE_FOLDER
     output = `java -cp #{bp}dist/boilerpipe-1.1-dev.jar:#{bp}lib/xerces-2.9.1.jar:#{bp}lib/nekohtml-1.9.13.jar:#{bp}src/ BoilerpipeCLI < #{tempfile_path}`
 
