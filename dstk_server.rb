@@ -639,7 +639,11 @@ def locations_list_from_string(locations_string, callback=nil)
   # Do a bit of trickery to handle both JSON-encoded and single addresses
   first_character = locations_string[0].chr
   if first_character == '['
-    result = JSON.parse(locations_string)
+    list = JSON.parse(locations_string)
+    result = []
+    list.each do |item|
+      result.push({ :latitude => item[0], :longitude => item[1]})
+    end
   else
     coordinates = locations_string.split(',')
     if coordinates.length != 2

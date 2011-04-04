@@ -111,12 +111,9 @@ class DSTK:
     
   def coordinates2politics(self, coordinates):
     
-    if not isinstance(coordinates, (list, tuple)):
-      coordinates = [coordinates]
-  
     api_url = self.api_base+'/coordinates2politics'
     api_body = json.dumps(coordinates)
-    print api_body
+    print 'api_body='+api_body
     response_string = urllib.urlopen(api_url, api_body).read()
     response = json.loads(response_string)
     
@@ -326,10 +323,7 @@ def coordinates2politics_cli(dstk, options, inputs, output):
     if len(coordinates)!=2:
       output.write('You must enter coordinates as a series of comma-separated pairs, eg 37.76,-122.42')
       exit(-1)
-    coordinates_list.append({
-      'latitude': coordinates[0],
-      'longitude': coordinates[1],
-    })
+    coordinates_list.append([coordinates[0], coordinates[1]])
 
   result = dstk.coordinates2politics(coordinates_list)
   
