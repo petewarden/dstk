@@ -813,7 +813,7 @@ def boilerpipe(input_html)
 
   begin
 
-    tempfile = File.open('/tmp/boiler.txt')#Tempfile.new('boilerpipe')
+    tempfile = Tempfile.new('boilerpipe')
     tempfile << input_html
     tempfile_path = tempfile.path
 
