@@ -47,9 +47,9 @@ def text2times(text)
 
   time = '(('+T2T_WHITESPACE+'at'+T2T_WHITESPACE+')?'+
     '[012]?[0-9]'+
+    '((:[0-9][0-9])|(('+T2T_WHITESPACE+')?(am|pm)))'+
     '(:[0-9][0-9])?'+
-    '(:[0-9][0-9])?'+
-    '(('+T2T_WHITESPACE+')?(am|pm|AM|PM))?'+
+    '(('+T2T_WHITESPACE+')?(am|pm))?'+
     '(('+T2T_WHITESPACE+')?(GMT|PST|PT|MT|EST|ET|CT))?'+
     '('+T2T_WHITESPACE+'on)?)'
 
@@ -192,8 +192,8 @@ def text2times(text)
 
     # Cleanup to work around fragments that confuse Chronic's parsing
     cleaned_string = matched_string.gsub(to_remove, '')
-    cleaned_string = matched_string.gsub(/(\d?\d)(st|nd|rd|th)/, '\1')
-    cleaned_string = matched_string.gsub(/(\d)\\(\d)/, '\1/\2')
+    cleaned_string = cleaned_string.gsub(/(\d?\d)(st|nd|rd|th)/, '\1')
+    cleaned_string = cleaned_string.gsub(/(\d)\\(\d)/, '\1/\2')
 
     t2t_debug_log('cleaned_string = '+cleaned_string)
 
@@ -236,7 +236,7 @@ def text2times(text)
     
     result.each do |info|
     
-      if !info[:isrelative]
+      if !info[:is_relative]
         next
       end
       
