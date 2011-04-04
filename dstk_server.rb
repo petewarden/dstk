@@ -655,6 +655,8 @@ def locations_list_from_string(locations_string, callback=nil)
     result = [{ :latitude => coordinates[0], :longitude => coordinates[1] }] 
   end
   
+  printf(STDERR, "result.inspect='%s'\n", result.inspect)
+  
   result
 end
 
