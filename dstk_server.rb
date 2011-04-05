@@ -636,8 +636,6 @@ def locations_list_from_string(locations_string, callback=nil)
       'json', 500, callback)
   end
 
-  printf(STDERR, "locations_list_from_string('%s')\n", locations_string)
-
   # Do a bit of trickery to handle both JSON-encoded and single addresses
   first_character = locations_string[0].chr
   if first_character == '['
@@ -654,8 +652,6 @@ def locations_list_from_string(locations_string, callback=nil)
     end
     result = [{ :latitude => coordinates[0], :longitude => coordinates[1] }] 
   end
-  
-  printf(STDERR, "result.inspect='%s'\n", result.inspect)
   
   result
 end

@@ -113,7 +113,6 @@ class DSTK:
     
     api_url = self.api_base+'/coordinates2politics'
     api_body = json.dumps(coordinates)
-    print 'api_body='+api_body
     response_string = urllib.urlopen(api_url, api_body).read()
     response = json.loads(response_string)
     
