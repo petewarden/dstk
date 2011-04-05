@@ -402,10 +402,7 @@
       var coordinatesObjects = [];
       for (var index in coordinatesList) {
         var coordinates = coordinatesList[index].split(',');
-        var coordinatesObject = {
-          latitude: coordinates[0],
-          longitude: coordinates[1]
-        }
+        var coordinatesObject = [coordinates[0],coordinates[1]]
         coordinatesObjects.push(coordinatesObject);
       }
       
