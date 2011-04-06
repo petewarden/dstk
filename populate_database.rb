@@ -24,7 +24,7 @@ def load_cities(conn)
         lat FLOAT,
         lon FLOAT,
         last_word VARCHAR(32),
-        PRIMARY KEY (city, country));')
+        PRIMARY KEY (city, country, region_code));')
   conn.exec('CREATE INDEX city_last_word_index ON cities(last_word)')
   
   file_name = DSTKConfig::SOURCE_FOLDER+'worldcitiespop.csv'
