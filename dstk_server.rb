@@ -653,8 +653,8 @@ def coordinates2politics(locations, callback=nil)
               output.push({
                 :name => nhs_code,
                 :code => nhs_code,
-                :type => 'postal_code',
-                :friendly_type => 'postal code'
+                :type => 'uk_nhs_area',
+                :friendly_type => 'nhs area'
               })
 
               output.push({
