@@ -611,6 +611,63 @@ def coordinates2politics(locations, callback=nil)
           
           end
         
+        elsif country_code == 'eng' or country_code == 'sct' or country_code == 'wls'
+        
+          distance = 0.01
+          uk_hashes = nil
+          while distance < 1.0 and !uk_hashes do
+        
+            uk_select = 'SELECT postcode,country_code,nhs_region_code,nhs_code,county_code,district_code,ward_code,location'+
+              ' FROM "uk_postcodes" WHERE ST_DWithin('+
+              point_string+
+              ', location, '+
+              distance.to_s+
+              ') ORDER BY ST_Distance('+
+              point_string+
+              ', location) LIMIT 1;'
+
+              uk_hashes = select_as_hashes(conn, uk_select)
+              
+              distance *= 2
+          end
+
+          if uk_hashes
+          
+            uk_hashes.each do |uk_hash|
+              postal_code = uk_hash['postcode']
+              nhs_code = uk_hash['nhs_region_code']+uk_hash['nhs_code']
+              ward_code = uk_hash['county_code']+uk_hash['district_code']+uk_hash['ward_code'] 
+              
+              ward_select = 'SELECT * FROM uk_ward_names WHERE ward_code=\''+ward_code+'\';'
+              ward_hashes = select_as_hashes(conn, ward_select)
+              ward_info = ward_hashes[0]
+              ward_name = ward_info['name']
+              
+              output.push({
+                :name => postal_code,
+                :code => postal_code,
+                :type => 'postal_code',
+                :friendly_type => 'postal code'
+              })
+
+              output.push({
+                :name => nhs_code,
+                :code => nhs_code,
+                :type => 'postal_code',
+                :friendly_type => 'postal code'
+              })
+
+              output.push({
+                :name => ward_name,
+                :code => ward_code,
+                :type => 'admin10',
+                :friendly_type => 'council ward'
+              })
+          
+            end
+          
+          end
+        
         end
       
       end

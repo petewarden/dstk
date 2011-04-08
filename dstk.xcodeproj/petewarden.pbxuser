@@ -156,16 +156,16 @@
 	};
 	5929E11213243ECB00B81D2E /* geodict_lib.rb */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {733, 9135}}";
-			sepNavSelRange = "{786, 374}";
-			sepNavVisRange = "{286, 2125}";
+			sepNavIntBoundsRect = "{{0, 0}, {929, 9495}}";
+			sepNavSelRange = "{1083, 0}";
+			sepNavVisRange = "{14240, 1436}";
 		};
 	};
 	5929E11613243ECB00B81D2E /* populate_database.rb */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {732, 3600}}";
-			sepNavSelRange = "{4378, 0}";
-			sepNavVisRange = "{1924, 363}";
+			sepNavIntBoundsRect = "{{0, 0}, {691, 3555}}";
+			sepNavSelRange = "{459, 0}";
+			sepNavVisRange = "{0, 1211}";
 		};
 	};
 	5929E11813243ECB00B81D2E /* testinput.txt */ = {
@@ -290,16 +290,16 @@
 	};
 	5929E1F213258C0500B81D2E /* layout.haml */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {907, 2250}}";
-			sepNavSelRange = "{900, 0}";
-			sepNavVisRange = "{694, 414}";
+			sepNavIntBoundsRect = "{{0, 0}, {1300, 2055}}";
+			sepNavSelRange = "{5143, 4}";
+			sepNavVisRange = "{4918, 1301}";
 		};
 	};
 	5929E1F313258C0500B81D2E /* welcome.haml */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {617, 7905}}";
-			sepNavSelRange = "{4815, 0}";
-			sepNavVisRange = "{4024, 1859}";
+			sepNavIntBoundsRect = "{{0, 0}, {907, 9000}}";
+			sepNavSelRange = "{13597, 20}";
+			sepNavVisRange = "{13242, 514}";
 		};
 	};
 	5929E20313258DC800B81D2E /* PBXTextBookmark */ = {
@@ -436,9 +436,9 @@
 	};
 	5929E30C1329AD7900B81D2E /* developerdocs.haml */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {617, 7530}}";
-			sepNavSelRange = "{21976, 0}";
-			sepNavVisRange = "{17178, 2543}";
+			sepNavIntBoundsRect = "{{0, 0}, {821, 7575}}";
+			sepNavSelRange = "{23943, 0}";
+			sepNavVisRange = "{23165, 2910}";
 		};
 	};
 	5929E37C1329E80F00B81D2E /* geoip_record_lookup_test.rb */ = {
@@ -701,7 +701,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 408";
 		rLen = 0;
-		rLoc = 21976;
+		rLoc = 22056;
 		rType = 0;
 		vrLen = 2543;
 		vrLoc = 17178;
@@ -725,9 +725,9 @@
 	};
 	596BF3AB1340402600D42EE1 /* text2times.rb */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {929, 2325}}";
-			sepNavSelRange = "{965, 0}";
-			sepNavVisRange = "{1932, 3092}";
+			sepNavIntBoundsRect = "{{0, 0}, {929, 3915}}";
+			sepNavSelRange = "{5237, 0}";
+			sepNavVisRange = "{2843, 3171}";
 		};
 	};
 	596BF3AC13419AF300D42EE1 /* PBXTextBookmark */ = {
@@ -745,7 +745,7 @@
 		fRef = 597D8E1213367B6F0042C251 /* dstk_server.rb */;
 		name = "dstk_server.rb: 464";
 		rLen = 0;
-		rLoc = 14349;
+		rLoc = 14350;
 		rType = 0;
 		vrLen = 1571;
 		vrLoc = 13699;
@@ -775,7 +775,7 @@
 		fRef = 596BF3AB1340402600D42EE1 /* text2times.rb */;
 		name = "text2times.rb: 141";
 		rLen = 0;
-		rLoc = 7408;
+		rLoc = 8309;
 		rType = 0;
 		vrLen = 1822;
 		vrLoc = 0;
@@ -859,7 +859,7 @@
 		fRef = 596BF3AB1340402600D42EE1 /* text2times.rb */;
 		name = "text2times.rb: 26";
 		rLen = 0;
-		rLoc = 960;
+		rLoc = 966;
 		rType = 0;
 		vrLen = 3092;
 		vrLoc = 1932;
@@ -886,9 +886,9 @@
 	};
 	597D884E133040030042C251 /* jquery.dstk.js */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {821, 5550}}";
-			sepNavSelRange = "{2479, 0}";
-			sepNavVisRange = "{1343, 1488}";
+			sepNavIntBoundsRect = "{{0, 0}, {821, 5955}}";
+			sepNavSelRange = "{5036, 0}";
+			sepNavVisRange = "{3645, 1344}";
 		};
 	};
 	597D8850133040030042C251 /* jquery.min.js */ = {
@@ -1025,9 +1025,9 @@
 	};
 	597D8C91133526740042C251 /* dstk.py */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {901, 9315}}";
-			sepNavSelRange = "{1400, 0}";
-			sepNavVisRange = "{433, 1481}";
+			sepNavIntBoundsRect = "{{0, 0}, {901, 10230}}";
+			sepNavSelRange = "{11711, 0}";
+			sepNavVisRange = "{11071, 1377}";
 		};
 	};
 	597D8C92133526740042C251 /* file2text */ = {
@@ -1053,9 +1053,9 @@
 	};
 	597D8C95133526740042C251 /* install */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {821, 819}}";
-			sepNavSelRange = "{381, 0}";
-			sepNavVisRange = "{0, 1225}";
+			sepNavIntBoundsRect = "{{0, 0}, {821, 794}}";
+			sepNavSelRange = "{810, 0}";
+			sepNavVisRange = "{0, 1313}";
 		};
 	};
 	597D8C96133526740042C251 /* ip2coordinates */ = {
@@ -1273,7 +1273,7 @@
 		fRef = 5929E1F313258C0500B81D2E /* welcome.haml */;
 		name = "welcome.haml: 501";
 		rLen = 0;
-		rLoc = 16096;
+		rLoc = 16648;
 		rType = 0;
 		vrLen = 1344;
 		vrLoc = 15473;
@@ -1320,16 +1320,16 @@
 	};
 	597D8E1213367B6F0042C251 /* dstk_server.rb */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1090, 18015}}";
-			sepNavSelRange = "{1566, 0}";
-			sepNavVisRange = "{588, 1407}";
+			sepNavIntBoundsRect = "{{0, 0}, {821, 18000}}";
+			sepNavSelRange = "{15194, 0}";
+			sepNavVisRange = "{14344, 1477}";
 		};
 	};
 	597D8E1313367BA40042C251 /* dstk_config.rb */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {732, 930}}";
-			sepNavSelRange = "{1615, 0}";
-			sepNavVisRange = "{1392, 327}";
+			sepNavIntBoundsRect = "{{0, 0}, {617, 810}}";
+			sepNavSelRange = "{1097, 7}";
+			sepNavVisRange = "{23, 1699}";
 		};
 	};
 	597D8E1713367CAB0042C251 /* PBXTextBookmark */ = {
@@ -1347,7 +1347,7 @@
 		fRef = 5929E30C1329AD7900B81D2E /* developerdocs.haml */;
 		name = "developerdocs.haml: 80";
 		rLen = 0;
-		rLoc = 2729;
+		rLoc = 2809;
 		rType = 0;
 		vrLen = 2529;
 		vrLoc = 1452;
@@ -1359,7 +1359,7 @@
 		rLen = 0;
 		rLoc = 1620;
 		rType = 0;
-		vrLen = 1645;
+		vrLen = 1644;
 		vrLoc = 78;
 	};
 	597D8E53133821360042C251 /* PBXTextBookmark */ = {
@@ -1514,9 +1514,16 @@
 	};
 	59F0A27213455C8800098746 /* test_text2times.py */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {821, 819}}";
-			sepNavSelRange = "{98, 0}";
-			sepNavVisRange = "{0, 98}";
+			sepNavIntBoundsRect = "{{0, 0}, {1419, 1335}}";
+			sepNavSelRange = "{6373, 0}";
+			sepNavVisRange = "{674, 6212}";
+		};
+	};
+	59F0A27313455E6F00098746 /* text2times */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {621, 819}}";
+			sepNavSelRange = "{148, 0}";
+			sepNavVisRange = "{0, 153}";
 		};
 	};
 }

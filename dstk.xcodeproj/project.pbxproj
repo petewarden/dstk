@@ -50,6 +50,7 @@
 		597D8E1313367BA40042C251 /* dstk_config.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = dstk_config.rb; sourceTree = "<group>"; };
 		59F0A27213455C8800098746 /* test_text2times.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = test_text2times.py; sourceTree = "<group>"; };
 		59F0A27313455E6F00098746 /* text2times */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = text2times; path = python/text2times; sourceTree = "<group>"; };
+		59F0A286134E961F00098746 /* loadukpostcodes.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = loadukpostcodes.sql; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -71,6 +72,7 @@
 				5929E1E813258B3700B81D2E /* public */,
 				597D8A7213314B920042C251 /* python */,
 				5929E1E5132576FA00B81D2E /* readme.asciidoc */,
+				59F0A285134E961F00098746 /* sql */,
 				5929E14613245CB200B81D2E /* test_suite */,
 				5929E11813243ECB00B81D2E /* testinput.txt */,
 				596BF3A91340347100D42EE1 /* tests */,
@@ -164,6 +166,14 @@
 				59F0A27313455E6F00098746 /* text2times */,
 			);
 			name = python;
+			sourceTree = "<group>";
+		};
+		59F0A285134E961F00098746 /* sql */ = {
+			isa = PBXGroup;
+			children = (
+				59F0A286134E961F00098746 /* loadukpostcodes.sql */,
+			);
+			path = sql;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
