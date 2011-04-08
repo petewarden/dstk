@@ -156,3 +156,6 @@ javac -cp ../dist/boilerpipe-1.1-dev.jar boilerpipe.java
 (To start from snapshot, run
 ec2-run-instances ami-9e7d8ff7 -t m1.large -z us-east-1d
 )
+
+cd ~/sources/dstk/
+psql -U postgres -d reversegeo -f sql/loadukpostcodes.sql

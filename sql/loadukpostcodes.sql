@@ -18,7 +18,7 @@ COPY uk_postcodes ( postcode, latitude, longitude, country_code, nhs_region_code
   
 SELECT AddGeometryColumn('uk_postcodes', 'location', 4326, 'POINT', 2);
 
-UPDATE uk_postcodes SET location = ST_SetSRID(ST_POINT(longitude,latitude),4326));
+UPDATE uk_postcodes SET location = setsrid(makepoint(longitude,latitude),4326));
 
 CREATE INDEX uk_postcodes_location ON uk_postcodes USING GIST ( location );
 
