@@ -20,6 +20,10 @@
 
 require 'rubygems'
 
+# A horrible hack to work around my problems getting the Geocoder to install as a gem
+$LOAD_PATH.unshift '../geocoder/lib'
+require 'geocoder/us/database'
+
 # Keep a singleton accessor for the geocoder object, so we don't leak resources
 # Fix for https://github.com/petewarden/dstk/issues/4
 $geocoder_db = nil

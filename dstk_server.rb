@@ -38,6 +38,7 @@ require File.join(cwd, 'dstk_config')
 require File.join(cwd, 'cruftstripper')
 require File.join(cwd, 'text2people')
 require File.join(cwd, 'text2times')
+require File.join(cwd, 'street2coordinates')
 
 enable :run
 
