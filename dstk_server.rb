@@ -27,10 +27,6 @@ require 'hpricot'
 require 'htmlentities'
 require 'tempfile'
 
-# A horrible hack to work around my problems getting the Geocoder to install as a gem
-$LOAD_PATH.unshift '../geocoder/lib'
-require 'geocoder/us/database'
-
 # Some hackiness to include the library script, even if invoked from another directory
 cwd = File.expand_path(File.dirname(__FILE__))
 require File.join(cwd, 'geodict_lib')
@@ -973,9 +969,9 @@ get '/street2coordinates/*' do
         'json', 500, callback)
     end
 
-    addresses_list = addresses_list_from_string(addresses_string)
+    addresses_list = addresses_list_from_string(addresses_string, callback)
 
-    output = street2coordinates(addresses_list, callback)
+    output = street2coordinates(addresses_list)
     result = make_json(output, callback)
     result
   rescue
