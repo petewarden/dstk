@@ -164,7 +164,7 @@
 	5929E11613243ECB00B81D2E /* populate_database.rb */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {691, 3555}}";
-			sepNavSelRange = "{459, 0}";
+			sepNavSelRange = "{521, 0}";
 			sepNavVisRange = "{0, 1211}";
 		};
 	};
@@ -1524,6 +1524,13 @@
 			sepNavIntBoundsRect = "{{0, 0}, {621, 819}}";
 			sepNavSelRange = "{148, 0}";
 			sepNavVisRange = "{0, 153}";
+		};
+	};
+	59F0A286134E961F00098746 /* loadukpostcodes.sql */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {929, 794}}";
+			sepNavSelRange = "{947, 125}";
+			sepNavVisRange = "{0, 1072}";
 		};
 	};
 }

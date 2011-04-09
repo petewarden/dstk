@@ -452,54 +452,6 @@ def ips_list_from_string(ips_string)
   
 end
 
-# Keep a singleton accessor for the geocoder object, so we don't leak resources
-# Fix for https://github.com/petewarden/dstk/issues/4
-$geocoder_db = nil
-
-# Takes an array of postal addresses as input, and looks up their locations using
-# data from the US census
-def street2coordinates(addresses, callback=nil)
-
-  if !$geocoder_db
-    $geocoder_db = Geocoder::US::Database.new('../geocoderdata/geocoder.db', {:debug => false})
-  end
-
-  output = {}
-  addresses.each do |address|
-    begin
-      locations = $geocoder_db.geocode(address, true)
-      if locations and locations.length>0
-        location = locations[0]
-        info = {
-          :latitude => location[:lat],
-          :longitude => location[:lon],
-          :country_code => 'US',
-          :country_code3 => 'USA',
-          :country_name => 'United States',
-          :region => location[:state],
-          :locality => location[:city],
-          :street_address => location[:number]+' '+location[:street],
-          :street_number => location[:number],
-          :street_name => location[:street],
-          :confidence => location[:score],
-          :fips_county => location[:fips_county]
-        }
-      else
-        info = nil
-      end
-    rescue
-      printf(STDERR, $!.inspect + $@.inspect + "\n")
-      info = nil
-    end
-    output[address] = info
-  end
-  
-  result = make_json(output, callback)
-  
-  return result
-
-end
-
 # Takes either a JSON-encoded string or single address, and produces a Ruby array
 def addresses_list_from_string(addresses_string, callback=nil)
 
@@ -999,7 +951,9 @@ post '/street2coordinates' do
     end
     addresses_list = addresses_list_from_string(addresses_string)
 
-    street2coordinates(addresses_list)
+    output = street2coordinates(addresses_list)
+    result = make_json(output)
+    result
   rescue
     fatal_error('street2coordinates error: '+$!.inspect + $@.inspect, 'json', 500)
   end
@@ -1018,9 +972,11 @@ get '/street2coordinates/*' do
         'json', 500, callback)
     end
 
-    addresses_list = addresses_list_from_string(addresses_string, callback)
+    addresses_list = addresses_list_from_string(addresses_string)
 
-    street2coordinates(addresses_list, callback)
+    output = street2coordinates(addresses_list, callback)
+    result = make_json(output, callback)
+    result
   rescue
     fatal_error('street2coordinates error: '+$!.inspect + $@.inspect, 'json', 500, callback)
   end
