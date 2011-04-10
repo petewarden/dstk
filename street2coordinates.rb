@@ -481,9 +481,8 @@ end
 # Does the actual conversion of the UK address string into coordinates
 def geocode_uk_address(address, conn)
 
-  tokens = address.split(Regexp.new(S2C_WHITESPACE))
-  
-  clean_address = tokens.join(' ')
+  whitespace_re = Regexp.new(S2C_WHITESPACE)
+  clean_address = address.replace(whitespace_re, ' ')
 
   printf(STDERR, "clean_address='%s'", clean_address.inspect)
 
