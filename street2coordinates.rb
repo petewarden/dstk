@@ -485,8 +485,12 @@ def geocode_uk_address(address, conn)
   
   clean_address = tokens.join(' ')
 
+  printf(STDERR, "clean_address='%s'", clean_address.inspect)
+
   post_code_re = Regexp.new('([A-Z][A-Z]?[0-9R][0-9A-Z]?) ?([0-9][A-Z]{2})')
+  printf(STDERR, "post_code_re='%s'", post_code_re.inspect)
   post_code_match = post_code_re.match(clean_address)
+  printf(STDERR, "post_code_match='%s'", post_code_match.inspect)
   if post_code_match
   
     first_part = post_code_match[1].to_s
