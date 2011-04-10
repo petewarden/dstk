@@ -31,9 +31,13 @@
   .tryip2coordinates{:style=>"margin-top:20px; font-size: 125%;"}
     Try it for yourself. Copy and paste some addresses into the box below to see what locations it finds.
 
-  %textarea#street2coordinatestext{:style=>"width: 800px; margin-top: 10px;"}
+  %textarea#street2coordinatestext{:style=>"width: 600px; margin-top: 10px; float: left;"}
 
-  #uploadstreet2coordinatestext.button{:style=>"width:150px; font-size: 125%;"} Locate Addresses
+  %form{:target=>"_new", :action=>"/file2method", :method=>"post", :enctype=>"multipart/form-data", :display=>"inline"}
+    %input#street2coordinatesfile{:type=>"file", :name=>"inputfile", :style=>"width:120px; margin-top: 10px;"}
+    %input{:type=>"hidden", :name=>"method", :value=>"street2coordinates"}
+    %br
+    %input#uploadstreet2coordinatestext.button{:type=>"submit", :value=>"Locate Addresses", :style=>"width:150px; height:35px; font-size: 125%;"}
   
   #street2coordinatesresults{:style=>"margin-top:30px;"}  
 
@@ -324,10 +328,12 @@
 
     // Handle the street address test console
     $('#uploadstreet2coordinatestext').click(function() {
+      var file = $('#street2coordinatesfile').val();
+      alert('file="'+file+'"');
       var text = $('#street2coordinatestext').val();
       if (text.length<1) {
         $('#street2coordinatesresults').html("No text found in input box.");
-        return;
+        return false;
       }
 
       addresses = text.split("\n");
@@ -387,6 +393,7 @@
         }
       });
     
+      return false;
     });
 
     // Handle the reverse geocoding test console

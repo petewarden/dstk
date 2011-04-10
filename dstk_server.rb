@@ -867,6 +867,88 @@ get '/about' do
 
 end
 
+# Looks like an API method, but isn't. We need this to make file uploading simpler, since there's
+# no way to access the contents of a user file on the client side. This is purely a convenience
+# function for the front-end though, don't write any external code relying on its existence!
+post '/file2method' do
+
+  # Pull out the data we were given
+  unless params[:inputfile] &&
+    (tmpfile = params[:inputfile][:tempfile]) &&
+    (name = params[:inputfile][:filename]) &&
+    (content_type = params[:inputfile][:type])
+    fatal_error('Something went wrong with the file uploading', 'json', 500)
+  end
+  
+  method = params[:method]
+  
+  tmpfile_name = tmpfile.path()
+
+  file_data = tmpfile.read
+  input_array = file_data.split("\n")
+  
+  if method == 'street2coordinates'
+    output = street2coordinates(input_array)
+    result = [[
+      'input', 
+      'latitude', 
+      'longitude', 
+      'country_code', 
+      'country_code3', 
+      'country_name',
+      'region',
+      'locality',
+      'street_address',
+      'street_number',
+      'street_name',
+      'confidence',
+      'fips_county',
+    ]]
+    if output and output.length > 0
+    
+      output.each do |input, info|
+      
+        result.push([
+          input,
+          info[:latitude],
+          info[:longitude],
+          info[:country_code],
+          info[:country_code3],
+          info[:country_name],
+          info[:region],
+          info[:locality],
+          info[:street_address],
+          info[:street_number],
+          info[:street_name],
+          info[:confidence],
+          info[:fips_county],
+        ])
+        
+      end
+
+      text = CSV.generate do |csv|
+        result.each do |row|
+          csv << row
+        end
+      end
+      
+    end
+  else
+    fatal_error('Method I don\'t know: "'+method+'"', 'json', 500)  
+  end
+
+  if !text
+    fatal_error('Error when converting file to text', 'json', 500)
+  end
+
+  attachment(name+'.csv')
+  content_type('text/csv')
+
+  text
+
+
+end
+
 ########################################
 # API entry points                     #
 ########################################
