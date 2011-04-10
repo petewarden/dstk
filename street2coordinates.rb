@@ -488,12 +488,12 @@ def geocode_uk_address(address, conn)
   whitespace_re = Regexp.new(S2C_WHITESPACE)
   clean_address = address.gsub(whitespace_re, ' ')
 
-  s2d_debug_log("clean_address='%s'" % clean_address.inspect)
+  s2c_debug_log("clean_address='%s'" % clean_address.inspect)
 
   post_code_re = Regexp.new('( |^)([A-Z][A-Z]?[0-9R][0-9A-Z]?) ?([0-9][A-Z]{2})( |$)')
-  s2d_debug_log("post_code_re='%s'" % post_code_re.inspect)
+  s2c_debug_log("post_code_re='%s'" % post_code_re.inspect)
   post_code_match = post_code_re.match(clean_address)
-  s2d_debug_log("post_code_match='%s'" % post_code_match.inspect)
+  s2c_debug_log("post_code_match='%s'" % post_code_match.inspect)
   if post_code_match
   
     clean_address = clean_address[0..post_code_match.begin(0)]
@@ -512,7 +512,7 @@ def geocode_uk_address(address, conn)
 
     post_code_hashes = select_as_hashes(conn, post_code_select)
 
-    s2d_debug_log("post_code_hashes='%s'" % post_code_hashes.inspect)
+    s2c_debug_log("post_code_hashes='%s'" % post_code_hashes.inspect)
   
     if post_code_hashes and post_code_hashes.length>0
     
@@ -520,9 +520,9 @@ def geocode_uk_address(address, conn)
 
       district_code = post_code_info['county_code']+post_code_info['district_code']
       district_select = 'SELECT * FROM uk_district_names WHERE district_code=\''+district_code+'\';'
-      s2d_debug_log("district_select='%s'" % district_select.inspect)
+      s2c_debug_log("district_select='%s'" % district_select.inspect)
       district_hashes = select_as_hashes(conn, district_select)
-      s2d_debug_log("district_hashes='%s'" % district_hashes.inspect)
+      s2c_debug_log("district_hashes='%s'" % district_hashes.inspect)
       district_info = district_hashes[0]
       district_name = district_info['name']
       
@@ -553,7 +553,7 @@ def geocode_uk_address(address, conn)
 
   clean_address.gsub!(/ (U\.?K\.?|United Kingdom|Great Britain|England|Scotland|Wales)$/, '')
 
-  s2d_debug_log("clean_address='%s'" % clean_address.inspect)
+  s2c_debug_log("clean_address='%s'" % clean_address.inspect)
   
   # See if we can break up the address into obvious street and other sections
   street_markers_list = [
@@ -584,7 +584,7 @@ def geocode_uk_address(address, conn)
 
   street_parts_re = Regexp.new('^(.+'+street_marker+')(.*)')
   street_parts_match = street_parts_re.match(clean_address)
-  s2d_debug_log("street_parts_match='%s'" % street_parts_match.inspect)
+  s2c_debug_log("street_parts_match='%s'" % street_parts_match.inspect)
   if street_parts_match
     street_part = street_parts_match[1]
     cleaned_address = street_parts_match[3]
@@ -610,7 +610,7 @@ def geocode_uk_address(address, conn)
   
   cleaned_parts = cleaned_address.strip.split(' ').reverse
 
-  s2d_debug_log("cleaned_parts='%s'" % cleaned_parts.inspect)
+  s2c_debug_log("cleaned_parts='%s'" % cleaned_parts.inspect)
 
   parts_count = [cleaned_parts.length, 4].min
   
@@ -619,18 +619,18 @@ def geocode_uk_address(address, conn)
     candidate_name = cleaned_parts[0..parts_count].reverse.join(' ')
     parts_count -= 1
 
-    s2d_debug_log("candidate_name='%s'" % candidate_name)
+    s2c_debug_log("candidate_name='%s'" % candidate_name)
 
     location_select = 'SELECT name,place'+
       ',ST_Y(way::geometry) as latitude, ST_X(way::geometry) AS longitude'+
       ' FROM "uk_osm_point" WHERE name=\''+candidate_name+'\';'
 
-    s2d_debug_log("location_select='%s'" % location_select.inspect)
+    s2c_debug_log("location_select='%s'" % location_select.inspect)
 
     location_hashes = select_as_hashes(conn, location_select)
   
     if !location_hashes or location_hashes.length == 0
-      s2d_debug_log("No matches found for '%s'" % candidate_name)
+      s2c_debug_log("No matches found for '%s'" % candidate_name)
       next
     end
   
@@ -643,7 +643,7 @@ def geocode_uk_address(address, conn)
       
       # If we don't recognize this place type, skip it
       if !place_ranking.has_key?(place)
-        s2d_debug_log("Unknown place '%s' found for '%s'" % place, candidate_name)
+        s2c_debug_log("Unknown place '%s' found for '%s'" % place, candidate_name)
         next
       end
       
@@ -655,7 +655,7 @@ def geocode_uk_address(address, conn)
         # If this candidate is more generic than a previous one we've found, ignore it
         old_confidence = info[:confidence]
         if candidate_confidence<old_confidence
-          s2d_debug_log("Low confidence '%d' found for '%s'" % candidate_confidence, candidate_name)
+          s2c_debug_log("Low confidence '%d' found for '%s'" % candidate_confidence, candidate_name)
           next
         end
       
@@ -680,7 +680,7 @@ def geocode_uk_address(address, conn)
   
     # No valid locations with valid place types were found, so move along
     if candidate_hashes.length == 0
-      s2d_debug_log("No valid matches found for '%s'" % candidate_name)
+      s2c_debug_log("No valid matches found for '%s'" % candidate_name)
       next
     end
     
@@ -721,7 +721,7 @@ def geocode_uk_address(address, conn)
         info[:locality] = name
       end
 
-      s2d_debug_log("Updating info to '%s' for '%s'" % info, candidate_name)
+      s2c_debug_log("Updating info to '%s' for '%s'" % info, candidate_name)
   
     end
     
