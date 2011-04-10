@@ -528,7 +528,9 @@ def geocode_uk_address(address, conn)
       
       ward_code = district_code+post_code_info['ward_code']
       ward_select = 'SELECT * FROM uk_ward_names WHERE ward_code=\''+ward_code+'\';'
+      s2c_debug_log("ward_select='%s'" % ward_select.inspect)
       ward_hashes = select_as_hashes(conn, ward_select)
+      s2c_debug_log("ward_hashes='%s'" % ward_hashes.inspect)
       ward_info = ward_hashes[0]
       ward_name = ward_info['name']
       
