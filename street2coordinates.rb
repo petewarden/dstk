@@ -616,7 +616,7 @@ def geocode_uk_address(address, conn)
   
   while parts_count > 0 do
   
-    candidate_name = cleaned_parts[0..parts_count].reverse.join(' ')
+    candidate_name = cleaned_parts[0..(parts_count-1)].reverse.join(' ')
     parts_count -= 1
 
     s2c_debug_log("candidate_name='%s'" % candidate_name)
