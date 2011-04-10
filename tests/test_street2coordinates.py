@@ -38,6 +38,7 @@ test_input = [
   '23 Churton Street, London. SW1V 2LY',
   '72 Eccleston Square, London. SW1V 1PJ',
   '91 Tachbrook Street, London. SW1V 2QA',
+  '11 MEADOW LN, OVER, CAMBRIDGE CB24 5NF',
 ]
 
 expected_output = {
@@ -70,6 +71,7 @@ expected_output = {
   "6 Cathedral Walk Cardinal Place, London. SW1E 5JH": {"confidence": 9, "street_number": "6", "locality": "St James's", "street_name": "Cardinal Place", "longitude": "-0.2177927", "country_code3": "GBR", "country_name": "United Kingdom", "fips_county": None, "country_code": "UK", "latitude": "51.4645664", "region": "Westminster", "street_address": "6 Cardinal Place"}, 
   "269 Fulwood Rd, S10. S10 3BD": {"confidence": 9, "street_number": "269", "locality": "Broomhill", "street_name": "Fulwood Road", "longitude": "-1.50146255148811", "country_code3": "GBR", "country_name": "United Kingdom", "fips_county": None, "country_code": "UK", "latitude": "53.3773528827613", "region": "Sheffield", "street_address": "269 Fulwood Road"}, 
   "139-143 Milton Road, Cambridge. CB4 1XE": {"confidence": 9, "street_number": "139", "locality": "West Chesterton", "street_name": "Milton Road", "longitude": "0.133951984546466", "country_code3": "GBR", "country_name": "United Kingdom", "fips_county": None, "country_code": "UK", "latitude": "52.220486593745", "region": "Cambridge", "street_address": "139 Milton Road"}, 
+  "11 MEADOW LN, OVER, CAMBRIDGE CB24 5NF": {"confidence": 9, "street_number": "11", "locality": "Willingham and Over", "street_name": "Meadow Lane", "longitude": "0.0202307", "country_code3": "GBR", "country_name": "United Kingdom", "fips_county": None, "country_code": "UK", "latitude": "52.3168159", "region": "South Cambridgeshire", "street_address": "11 Meadow Lane"},
   "261-263 Newmarket Road, Cambridge. CB5 8JE": {"confidence": 9, "street_number": "261", "locality": "Abbey", "street_name": "Newmarket Road", "longitude": "0.146200079031848", "country_code3": "GBR", "country_name": "United Kingdom", "fips_county": None, "country_code": "UK", "latitude": "52.2106264426397", "region": "Cambridge", "street_address": "261 Newmarket Road"}
 }
 
