@@ -575,9 +575,9 @@ def coordinates2politics(locations, callback=nil)
               point_string+
               ', location) LIMIT 1;'
 
-              uk_hashes = select_as_hashes(conn, uk_select)
+            uk_hashes = select_as_hashes(conn, uk_select)
               
-              distance *= 2
+            distance *= 2
           end
 
           if uk_hashes

@@ -159,3 +159,5 @@ ec2-run-instances ami-9e7d8ff7 -t m1.large -z us-east-1d
 
 cd ~/sources/dstk/
 psql -U postgres -d reversegeo -f sql/loadukpostcodes.sql
+
+osm2pgsql -U postgres -d reversegeo -p uk_osm -S ../osm2pgsql/default.style ../dstkdata/uk_osm.osm.bz2 -l
