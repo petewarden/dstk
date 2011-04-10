@@ -804,15 +804,24 @@ def geocode_uk_address(address, conn)
       info[:latitude] = top_candidate['latitude']
       info[:longitude] = top_candidate['longitude']
       info[:confidence] = [info[:confidence], 8].max
+      info[:street_name] = top_candidate['name']
+
+      # Remove the matched parts
+      street_parts.shift(parts_count+1)
+      unrecognized_street = street_parts.reverse.join(' ')
+      
+      street_number = /\d+[a-z]?/i.match(unrecognized_street)
+      if street_number
+        info[:street_number] = street_number.to_s
+        info[:street_address] = info[:street_number]+' '+info[:street_name]
+      end
 
       s2c_debug_log("Updating info to '%s' for '%s'" % [info.inspect, candidate_name])
     
-      # Remove the matched parts and stop looking for streets
-      street_parts.shift(parts_count+1)
+      # We've found a street, so stop looking
       break
     end
 
-    unrecognized_street = street_parts.reverse.join(' ')
     
     s2c_debug_log("unrecognized_street='%s'" % unrecognized_street)    
   
