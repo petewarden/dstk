@@ -485,7 +485,7 @@ def geocode_uk_address(address, conn)
   
   clean_address = tokens.join(' ')
 
-  post_code_re = RegExp.new('([A-Z][A-Z]?[0-9R][0-9A-Z]?) ?([0-9][A-Z]{2})')
+  post_code_re = Regexp.new('([A-Z][A-Z]?[0-9R][0-9A-Z]?) ?([0-9][A-Z]{2})')
   post_code_match = post_code_re.match(clean_address)
   if post_code_match
   
