@@ -660,15 +660,7 @@ def geocode_uk_address(address, conn)
       candidate_confidence = place_ranking[place]
     
       # We've already found a place, so use that as a reference
-      if info
-      
-        # If this candidate is more generic than a previous one we've found, ignore it
-        old_confidence = info[:confidence]
-        if candidate_confidence<old_confidence
-          s2c_debug_log("Low confidence '%d' found for '%s'" % [candidate_confidence, candidate_name])
-          next
-        end
-      
+      if info      
         # Get an approximate distance measure. This is pretty distorted, but workable
         # as a scoring mechanism
         delta_lat = info[:latitude].to_f-location_hash['latitude'].to_f
