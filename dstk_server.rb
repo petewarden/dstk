@@ -26,6 +26,7 @@ require 'active_support/secure_random'
 require 'hpricot'
 require 'htmlentities'
 require 'tempfile'
+require 'csv'
 
 # Some hackiness to include the library script, even if invoked from another directory
 cwd = File.expand_path(File.dirname(__FILE__))
