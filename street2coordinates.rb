@@ -490,7 +490,7 @@ def geocode_uk_address(address, conn)
 
   s2c_debug_log("clean_address='%s'" % clean_address.inspect)
 
-  post_code_re = Regexp.new('( |^)([A-Z][A-Z]?[0-9R][0-9A-Z]?) ?([0-9][A-Z]{2})( |$)')
+  post_code_re = Regexp.new('( |^)([A-Z][A-Z]?[0-9R][0-9A-Z]?) ?([0-9][A-Z]{2})( |$)', Regexp::IGNORECASE)
   s2c_debug_log("post_code_re='%s'" % post_code_re.inspect)
   post_code_match = post_code_re.match(clean_address)
   s2c_debug_log("post_code_match='%s'" % post_code_match.inspect)
@@ -553,7 +553,7 @@ def geocode_uk_address(address, conn)
     
   end
 
-  clean_address.gsub!(/ (U\.?K\.?|United Kingdom|Great Britain|England|Scotland|Wales) *$/, '')
+  clean_address.gsub!(/ (U\.?K\.?|United Kingdom|Great Britain|England|Scotland|Wales) *$/i, '')
 
   s2c_debug_log("clean_address='%s'" % clean_address.inspect)
   
@@ -585,7 +585,7 @@ def geocode_uk_address(address, conn)
   
   street_marker = '('+street_markers_list.join('|')+')'
 
-  street_parts_re = Regexp.new('^(.+'+street_marker+')(.*)')
+  street_parts_re = Regexp.new('^(.*[a-z]+.*'+street_marker+')(.*)', Regexp::IGNORECASE)
   street_parts_match = street_parts_re.match(clean_address)
   s2c_debug_log("street_parts_match='%s'" % street_parts_match.inspect)
   if street_parts_match
@@ -750,6 +750,7 @@ def geocode_uk_address(address, conn)
   # If we found a general location, see if we can narrow it down using the street
   if info and street_string and street_string.length > 0
   
+    street_string = canonicalize_street_string(street_string)
     street_parts = street_string.strip.split(' ').reverse
 
     s2c_debug_log("street_parts='%s'" % street_parts.inspect)
@@ -817,10 +818,35 @@ def geocode_uk_address(address, conn)
       break
     end
 
-    
     s2c_debug_log("unrecognized_street='%s'" % unrecognized_street)    
   
   end
 
   info
+end
+
+def canonicalize_street_string(street_string)
+
+  output = street_string
+
+  abbreviation_mappings = {
+    'Street' => ['St'],
+    'Drive' => ['Dr'],
+    'Avenue' => ['Ave', 'Av'],
+    'Court' => ['Ct'],
+    'Road' => ['Rd'],
+    'Lane' => ['Ln'],
+    'Place' => ['Pl'],
+    'Boulevard' => ['Blvd'],
+    'Highway' => ['Hwy'],
+  }
+  
+  abbreviation_mappings.each do |canonical, abbreviations|
+  
+    abbreviations_re = Regexp.new('^(.*[a-z]+.*)('+abbreviations.join('|')+')([^a-z]*)$', Regexp::IGNORECASE)
+    output.gsub!(abbreviations_re, '\1'+canonical+'\3')
+  
+  end
+
+  output
 end
