@@ -482,7 +482,7 @@ end
 def geocode_uk_address(address, conn)
 
   whitespace_re = Regexp.new(S2C_WHITESPACE)
-  clean_address = address.replace(whitespace_re, ' ')
+  clean_address = address.gsub(whitespace_re, ' ')
 
   printf(STDERR, "clean_address='%s'", clean_address.inspect)
 
