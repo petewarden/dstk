@@ -644,7 +644,7 @@ def geocode_uk_address(address, conn)
       
       # If we don't recognize this place type, skip it
       if !place_ranking.has_key?(place)
-        s2c_debug_log("Unknown place '%s' found for '%s'" % place, candidate_name)
+        s2c_debug_log("Unknown place '%s' found for '%s'" % [place, candidate_name])
         next
       end
       
@@ -656,7 +656,7 @@ def geocode_uk_address(address, conn)
         # If this candidate is more generic than a previous one we've found, ignore it
         old_confidence = info[:confidence]
         if candidate_confidence<old_confidence
-          s2c_debug_log("Low confidence '%d' found for '%s'" % candidate_confidence, candidate_name)
+          s2c_debug_log("Low confidence '%d' found for '%s'" % [candidate_confidence, candidate_name])
           next
         end
       
@@ -722,7 +722,7 @@ def geocode_uk_address(address, conn)
         info[:locality] = name
       end
 
-      s2c_debug_log("Updating info to '%s' for '%s'" % info, candidate_name)
+      s2c_debug_log("Updating info to '%s' for '%s'" % [info.inspect, candidate_name])
   
     end
     
