@@ -929,7 +929,7 @@ post '/file2method' do
 
       text = ''
       result.each do |row|
-        text << CSV.generate_line(row)
+        text << CSV.generate_line(row) + "\n"
       end
       
     end
