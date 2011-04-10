@@ -512,7 +512,7 @@ def geocode_uk_address(address, conn)
     
       post_code_info = post_code_hashes[0]
 
-      district_code = post_code_info['district_code']
+      district_code = post_code_info['county_code']+post_code_info['district_code']
       district_select = 'SELECT * FROM uk_district_names WHERE district_code=\''+district_code+'\';'
       district_hashes = select_as_hashes(conn, district_select)
       district_info = district_hashes[0]
