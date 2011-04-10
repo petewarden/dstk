@@ -764,12 +764,12 @@ def geocode_uk_address(address, conn)
     while street_parts.length > 0 do
     
       if parts_count < 1
-        unrecognized_token = place_parts.shift(1)
+        unrecognized_token = street_parts.shift(1)
         s2c_debug_log("unrecognized_token '%s'" % unrecognized_token)
-        parts_count = [place_parts.length, 4].min
+        parts_count = [street_parts.length, 4].min
       end
     
-      candidate_name = place_parts[0..(parts_count-1)].reverse.join(' ')
+      candidate_name = street_parts[0..(parts_count-1)].reverse.join(' ')
       parts_count -= 1
 
       s2c_debug_log("candidate_name='%s'" % candidate_name)
