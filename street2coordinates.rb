@@ -578,6 +578,7 @@ def geocode_uk_address(address, conn)
     'Blvd',
     'Highway',
     'Hwy',
+    'Crescent',
   ]
   
   street_marker = '('+street_markers_list.join('|')+')'
