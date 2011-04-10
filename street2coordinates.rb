@@ -235,7 +235,7 @@ def looks_like_us_address(address)
   
   state_names = '('+state_names_list.join('|')+')'
   
-  zip_code = '\d\d\d\d\d'
+  zip_code = '\d\d\d\d\d(-\d\d\d\d)?'
   
   state_zip_suffix_re = Regexp.new(S2C_WHITESPACE+state_names+'('+S2C_WHITESPACE+zip_code+')?'+S2C_WHITESPACE+'?$', Regexp::IGNORECASE)
   
@@ -609,12 +609,20 @@ def geocode_uk_address(address, conn)
   }
   
   cleaned_parts = cleaned_address.strip.split(' ').reverse
+  unrecognized_parts = []
 
   s2c_debug_log("cleaned_parts='%s'" % cleaned_parts.inspect)
 
   parts_count = [cleaned_parts.length, 4].min
   
-  while parts_count > 0 do
+  while cleaned_parts.length > 0 do
+  
+    if parts_count < 1
+      unrecognized_token = cleaned_parts.shift(1)
+      s2c_debug_log("unrecognized_token '%s'" % unrecognized_token)
+      unrecognized_parts.push(unrecognized_token)
+      parts_count = [cleaned_parts.length, 4].min
+    end
   
     candidate_name = cleaned_parts[0..(parts_count-1)].reverse.join(' ')
     parts_count -= 1
@@ -731,8 +739,13 @@ def geocode_uk_address(address, conn)
     # Remove the matched parts, and start matching anew on the remainder
     cleaned_parts.shift(parts_count+1)
     parts_count = [cleaned_parts.length, 4].min
-  
+    unrecognized_parts = []  
+
   end
+
+  unrecognized_prefix = unrecognized_parts.join(' ')
+  
+  s2c_debug_log("unrecognized_prefix='%s'" % unrecognized_prefix)
 
   info
 end
