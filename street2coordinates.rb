@@ -499,9 +499,8 @@ def geocode_uk_address(address, conn)
     clean_address = clean_address[0..post_code_match.begin(0)]
   
     first_part = post_code_match[2].to_s
-    if first_part.length == 3
-      first_part += ' '
-    end
+    # Right-pad it with spaces to match the database format
+    first_part += (4-first_part.length) * ' '
     second_part = post_code_match[3].to_s
     
     full_post_code = first_part+second_part
