@@ -551,7 +551,7 @@ def geocode_uk_address(address, conn)
     
   end
 
-  clean_address.gsub!(/ (U\.?K\.?|United Kingdom|Great Britain|England|Scotland|Wales)$/, '')
+  clean_address.gsub!(/ (U\.?K\.?|United Kingdom|Great Britain|England|Scotland|Wales) *$/, '')
 
   s2c_debug_log("clean_address='%s'" % clean_address.inspect)
   
