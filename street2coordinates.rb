@@ -502,6 +502,8 @@ def geocode_uk_address(address, conn)
       ' FROM "uk_postcodes" WHERE postcode=\''+full_post_code+'\' LIMIT 1;'
 
     post_code_hashes = select_as_hashes(conn, uk_select)
+
+    printf(STDERR, "'%s'", post_code_hashes.inspect)
   
     if post_code_hashes and post_code_hashes.length>0
     
