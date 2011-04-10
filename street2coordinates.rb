@@ -779,7 +779,7 @@ def geocode_uk_address(address, conn)
 
       distance = 0.1
       road_select = 'SELECT name'+
-        ',ST_Y(ST_line_interpolate_point(way,ST_line_locate_point(way,'+point_string+')):geometry) AS latitude,'+
+        ',ST_Y(ST_line_interpolate_point(way,ST_line_locate_point(way,'+point_string+'))::geometry) AS latitude,'+
         ' ST_X(ST_line_interpolate_point(way,ST_line_locate_point(way,'+point_string+'))::geometry) AS longitude'+
         ' FROM "uk_osm_line" WHERE name=\''+candidate_name+'\''+
         ' AND ST_DWithin('+
