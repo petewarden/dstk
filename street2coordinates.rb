@@ -520,7 +520,7 @@ def geocode_uk_address(address, conn)
       district_info = district_hashes[0]
       district_name = district_info['name']
       
-      ward_code = post_code_info['ward_code']
+      ward_code = district_code+post_code_info['ward_code']
       ward_select = 'SELECT * FROM uk_ward_names WHERE ward_code=\''+ward_code+'\';'
       ward_hashes = select_as_hashes(conn, ward_select)
       ward_info = ward_hashes[0]
