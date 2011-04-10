@@ -744,9 +744,79 @@ def geocode_uk_address(address, conn)
 
   end
 
-  unrecognized_prefix = unrecognized_parts.join(' ')
+  unrecognized_prefix = unrecognized_parts.reverse.join(' ')
   
   s2c_debug_log("unrecognized_prefix='%s'" % unrecognized_prefix)
+  
+  if !street_string
+    street_string = unrecognized_prefix.strip
+  end
+  
+  # If we found a general location, see if we can narrow it down using the street
+  if info and street_string and street_string.length > 0
+  
+    street_parts = street_string.strip.split(' ').reverse
+
+    s2c_debug_log("street_parts='%s'" % street_parts.inspect)
+
+    parts_count = [street_parts.length, 4].min
+    
+    while street_parts.length > 0 do
+    
+      if parts_count < 1
+        unrecognized_token = place_parts.shift(1)
+        s2c_debug_log("unrecognized_token '%s'" % unrecognized_token)
+        parts_count = [place_parts.length, 4].min
+      end
+    
+      candidate_name = place_parts[0..(parts_count-1)].reverse.join(' ')
+      parts_count -= 1
+
+      s2c_debug_log("candidate_name='%s'" % candidate_name)
+      s2c_debug_log("parts_count='%d'" % parts_count)
+
+      point_string = 'setsrid(makepoint('+PGconn.escape(info[:longitude])+', '+PGconn.escape(info[:latitude])+'), 4326)'
+
+      distance = 0.1
+      road_select = 'SELECT name'+
+        ',ST_Y(ST_line_interpolate_point(way,ST_line_locate_point(way,'+point_string+')):geometry) AS latitude,'+
+        ' ST_X(ST_line_interpolate_point(way,ST_line_locate_point(way,'+point_string+'))::geometry) AS longitude'+
+        ' FROM "uk_osm_line" WHERE name=\''+candidate_name+'\''+
+        ' AND ST_DWithin('+
+        point_string+
+        ', way, '+
+        distance.to_s+
+        ') ORDER BY ST_Distance('+
+        point_string+
+        ', way) LIMIT 1;'
+
+      s2c_debug_log("road_select='%s'" % road_select.inspect)
+
+      road_hashes = select_as_hashes(conn, road_select)
+    
+      if !road_hashes or road_hashes.length == 0
+        s2c_debug_log("No matches found for '%s'" % candidate_name)
+        next
+      end
+    
+      top_candidate = road_hashes[0]
+        
+      info[:latitude] = top_candidate['latitude']
+      info[:longitude] = top_candidate['longitude']
+      info[:confidence] = [info[:confidence], 8].max
+
+      s2c_debug_log("Updating info to '%s' for '%s'" % [info.inspect, candidate_name])
+    
+      # Remove the matched parts and stop looking for streets
+      street_parts.shift(parts_count+1)
+      break
+    end
+
+    unrecognized_street = street_parts.reverse.join(' ')
+    
+    s2c_debug_log("unrecognized_street='%s'" % unrecognized_street)    
+  
+  end
 
   info
 end
