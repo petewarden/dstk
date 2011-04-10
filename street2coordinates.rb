@@ -662,8 +662,8 @@ def geocode_uk_address(address, conn)
       
         # Get an approximate distance measure. This is pretty distorted, but workable
         # as a scoring mechanism
-        delta_lat = info[:latitude]-location_hash['latitude']
-        delta_lon = info[:longitude]-location_hash['longitude']
+        delta_lat = info[:latitude].to_f-location_hash['latitude'].to_f
+        delta_lon = info[:longitude].to_f-location_hash['longitude'].to_f
         score = (delta_lat*delta_lat) + (delta_lon*delta_lon)
       else
         score = place_ranking[place]
