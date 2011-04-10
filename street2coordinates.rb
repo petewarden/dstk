@@ -620,6 +620,7 @@ def geocode_uk_address(address, conn)
     parts_count -= 1
 
     s2c_debug_log("candidate_name='%s'" % candidate_name)
+    s2c_debug_log("parts_count='%d'" % parts_count)
 
     location_select = 'SELECT name,place'+
       ',ST_Y(way::geometry) as latitude, ST_X(way::geometry) AS longitude'+
