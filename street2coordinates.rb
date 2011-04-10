@@ -500,7 +500,7 @@ def geocode_uk_address(address, conn)
   
     first_part = post_code_match[2].to_s
     # Right-pad it with spaces to match the database format
-    first_part += (4-first_part.length) * ' '
+    first_part += (4-first_part.length) * " "
     second_part = post_code_match[3].to_s
     
     full_post_code = first_part+second_part
