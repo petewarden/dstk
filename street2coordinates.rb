@@ -486,17 +486,19 @@ def geocode_uk_address(address, conn)
 
   printf(STDERR, "clean_address='%s'\n", clean_address.inspect)
 
-  post_code_re = Regexp.new('([A-Z][A-Z]?[0-9R][0-9A-Z]?) ?([0-9][A-Z]{2})')
+  post_code_re = Regexp.new('( |^)([A-Z][A-Z]?[0-9R][0-9A-Z]?) ?([0-9][A-Z]{2})( |$)')
   printf(STDERR, "post_code_re='%s'\n", post_code_re.inspect)
   post_code_match = post_code_re.match(clean_address)
   printf(STDERR, "post_code_match='%s'\n", post_code_match.inspect)
   if post_code_match
   
-    first_part = post_code_match[1].to_s
+    clean_address = clean_address[0..post_code_match[0].begin]
+  
+    first_part = post_code_match[2].to_s
     if first_part.length == 3
       first_part += ' '
     end
-    second_part = post_code_match[2].to_s
+    second_part = post_code_match[3].to_s
     
     full_post_code = first_part+second_part
   
@@ -544,6 +546,11 @@ def geocode_uk_address(address, conn)
     end
     
   end
+
+  clean_address.gsub!(/ (U\.?K\.?|United Kingdom|Great Britain|England|Scotland|Wales)$/, '')
+
+  printf(STDERR, "clean_address='%s'\n", clean_address.inspect)
+  
 
   info
 end
