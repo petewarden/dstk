@@ -675,6 +675,7 @@ def geocode_uk_address(address, conn)
         :longitude => location_hash['longitude'],
         :place => place,
         :score => score,
+        :confidence => candidate_confidence,
       })
       
     end
@@ -713,6 +714,7 @@ def geocode_uk_address(address, conn)
       
       info[:latitude] = top_candidate[:latitude]
       info[:longitude] = top_candidate[:longitude]
+      info[:confidence] = candidate_confidence
 
       name = top_candidate[:name]
       place = top_candidate[:place]
