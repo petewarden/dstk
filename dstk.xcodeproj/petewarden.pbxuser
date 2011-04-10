@@ -726,8 +726,8 @@
 	596BF3AB1340402600D42EE1 /* text2times.rb */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {929, 3645}}";
-			sepNavSelRange = "{6166, 0}";
-			sepNavVisRange = "{5639, 1440}";
+			sepNavSelRange = "{1035, 0}";
+			sepNavVisRange = "{0, 1711}";
 		};
 	};
 	596BF3AC13419AF300D42EE1 /* PBXTextBookmark */ = {
@@ -1529,7 +1529,7 @@
 	59F0A286134E961F00098746 /* loadukpostcodes.sql */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {929, 794}}";
-			sepNavSelRange = "{805, 0}";
+			sepNavSelRange = "{865, 0}";
 			sepNavVisRange = "{0, 1226}";
 		};
 	};
@@ -1538,6 +1538,13 @@
 			sepNavIntBoundsRect = "{{0, 0}, {726, 7635}}";
 			sepNavSelRange = "{11080, 0}";
 			sepNavVisRange = "{10667, 2139}";
+		};
+	};
+	59F0A29213525B4C00098746 /* test_street2coordinates.py */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1412, 1575}}";
+			sepNavSelRange = "{737, 0}";
+			sepNavVisRange = "{0, 2667}";
 		};
 	};
 }

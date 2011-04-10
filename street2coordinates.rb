@@ -641,7 +641,7 @@ def geocode_uk_address(address, conn)
 
     location_select = 'SELECT name,place'+
       ',ST_Y(way::geometry) as latitude, ST_X(way::geometry) AS longitude'+
-      ' FROM "uk_osm_point" WHERE name=\''+candidate_name+'\';'
+      ' FROM "uk_osm_point" WHERE lower(name)=lower(\''+candidate_name+'\');'
 
     s2c_debug_log("location_select='%s'" % location_select.inspect)
 
@@ -782,7 +782,7 @@ def geocode_uk_address(address, conn)
       road_select = 'SELECT name'+
         ',ST_Y(ST_line_interpolate_point(way,ST_line_locate_point(way,'+point_string+'))::geometry) AS latitude,'+
         ' ST_X(ST_line_interpolate_point(way,ST_line_locate_point(way,'+point_string+'))::geometry) AS longitude'+
-        ' FROM "uk_osm_line" WHERE name=\''+candidate_name+'\''+
+        ' FROM "uk_osm_line" WHERE lower(name)=lower(\''+candidate_name+'\')'+
         ' AND ST_DWithin('+
         point_string+
         ', way, '+
