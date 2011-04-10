@@ -546,7 +546,9 @@ def geocode_uk_address(address, conn)
         :confidence => 9,
         :fips_county => nil
       }
-          
+
+      s2c_debug_log("Updating info to '%s' for '%s'" % [info.inspect, full_post_code)
+            
     end
     
   end
