@@ -328,12 +328,15 @@
 
     // Handle the street address test console
     $('#uploadstreet2coordinatestext').click(function() {
-      var file = $('#street2coordinatesfile').val();
-      alert('file="'+file+'"');
       var text = $('#street2coordinatestext').val();
       if (text.length<1) {
-        $('#street2coordinatesresults').html("No text found in input box.");
-        return false;
+        var file = $('#street2coordinatesfile').val();
+        if ((typeof file !== 'undefined') && (file !== null)) {
+          return true;
+        } else {
+          $('#street2coordinatesresults').html("No text found in input box.");
+          return false;
+        }
       }
 
       addresses = text.split("\n");
