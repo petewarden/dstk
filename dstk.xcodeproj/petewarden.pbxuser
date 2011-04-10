@@ -725,9 +725,9 @@
 	};
 	596BF3AB1340402600D42EE1 /* text2times.rb */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {929, 3915}}";
-			sepNavSelRange = "{5237, 0}";
-			sepNavVisRange = "{2843, 3171}";
+			sepNavIntBoundsRect = "{{0, 0}, {929, 3645}}";
+			sepNavSelRange = "{6166, 0}";
+			sepNavVisRange = "{5639, 1440}";
 		};
 	};
 	596BF3AC13419AF300D42EE1 /* PBXTextBookmark */ = {
@@ -745,7 +745,7 @@
 		fRef = 597D8E1213367B6F0042C251 /* dstk_server.rb */;
 		name = "dstk_server.rb: 464";
 		rLen = 0;
-		rLoc = 14350;
+		rLoc = 13807;
 		rType = 0;
 		vrLen = 1571;
 		vrLoc = 13699;
@@ -842,7 +842,7 @@
 		fRef = 597D8E1213367B6F0042C251 /* dstk_server.rb */;
 		name = "dstk_server.rb: 44";
 		rLen = 0;
-		rLoc = 1603;
+		rLoc = 1493;
 		rType = 0;
 		vrLen = 1407;
 		vrLoc = 588;
@@ -1074,8 +1074,8 @@
 	};
 	597D8C98133526740042C251 /* street2coordinates */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {621, 819}}";
-			sepNavSelRange = "{129, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {621, 771}}";
+			sepNavSelRange = "{161, 0}";
 			sepNavVisRange = "{0, 161}";
 		};
 	};
@@ -1320,9 +1320,9 @@
 	};
 	597D8E1213367B6F0042C251 /* dstk_server.rb */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {821, 18000}}";
-			sepNavSelRange = "{15194, 0}";
-			sepNavVisRange = "{14344, 1477}";
+			sepNavIntBoundsRect = "{{0, 0}, {999, 16725}}";
+			sepNavSelRange = "{1027, 0}";
+			sepNavVisRange = "{0, 1758}";
 		};
 	};
 	597D8E1313367BA40042C251 /* dstk_config.rb */ = {
@@ -1529,8 +1529,15 @@
 	59F0A286134E961F00098746 /* loadukpostcodes.sql */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {929, 794}}";
-			sepNavSelRange = "{947, 125}";
-			sepNavVisRange = "{0, 1072}";
+			sepNavSelRange = "{805, 0}";
+			sepNavVisRange = "{0, 1226}";
+		};
+	};
+	59F0A2891351062800098746 /* street2coordinates.rb */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {726, 7635}}";
+			sepNavSelRange = "{11080, 0}";
+			sepNavVisRange = "{10667, 2139}";
 		};
 	};
 }
