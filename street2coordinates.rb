@@ -686,7 +686,7 @@ def geocode_uk_address(address, conn)
       next
     end
     
-    sorted_candidates = candidate_hashes.sort do |a,b| b[:score]<=>a[:score] end
+    sorted_candidates = candidate_hashes.sort do |a,b| a[:score]<=>b[:score] end
 
     top_candidate = sorted_candidates[0]
     
