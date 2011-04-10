@@ -492,7 +492,7 @@ def geocode_uk_address(address, conn)
   printf(STDERR, "post_code_match='%s'\n", post_code_match.inspect)
   if post_code_match
   
-    clean_address = clean_address[0..post_code_match[0].begin]
+    clean_address = clean_address[0..post_code_match.begin(0)]
   
     first_part = post_code_match[2].to_s
     if first_part.length == 3
