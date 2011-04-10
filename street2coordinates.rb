@@ -579,6 +579,9 @@ def geocode_uk_address(address, conn)
     'Highway',
     'Hwy',
     'Crescent',
+    'Row',
+    'Rw',
+    'Mews',
   ]
   
   street_marker = '('+street_markers_list.join('|')+')'
@@ -837,6 +840,7 @@ def canonicalize_street_string(street_string)
     'Place' => ['Pl'],
     'Boulevard' => ['Blvd'],
     'Highway' => ['Hwy'],
+    'Row' => ['Rw'],
   }
   
   abbreviation_mappings.each do |canonical, abbreviations|
