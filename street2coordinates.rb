@@ -484,12 +484,12 @@ def geocode_uk_address(address, conn)
   whitespace_re = Regexp.new(S2C_WHITESPACE)
   clean_address = address.gsub(whitespace_re, ' ')
 
-  printf(STDERR, "clean_address='%s'", clean_address.inspect)
+  printf(STDERR, "clean_address='%s'\n", clean_address.inspect)
 
   post_code_re = Regexp.new('([A-Z][A-Z]?[0-9R][0-9A-Z]?) ?([0-9][A-Z]{2})')
-  printf(STDERR, "post_code_re='%s'", post_code_re.inspect)
+  printf(STDERR, "post_code_re='%s'\n", post_code_re.inspect)
   post_code_match = post_code_re.match(clean_address)
-  printf(STDERR, "post_code_match='%s'", post_code_match.inspect)
+  printf(STDERR, "post_code_match='%s'\n", post_code_match.inspect)
   if post_code_match
   
     first_part = post_code_match[1].to_s
@@ -504,9 +504,9 @@ def geocode_uk_address(address, conn)
       ',ST_Y(location::geometry) as latitude, ST_X(location::geometry) AS longitude'+
       ' FROM "uk_postcodes" WHERE postcode=\''+full_post_code+'\' LIMIT 1;'
 
-    post_code_hashes = select_as_hashes(conn, uk_select)
+    post_code_hashes = select_as_hashes(conn, post_code_select)
 
-    printf(STDERR, "'%s'", post_code_hashes.inspect)
+    printf(STDERR, "post_code_hashes='%s'\n", post_code_hashes.inspect)
   
     if post_code_hashes and post_code_hashes.length>0
     
