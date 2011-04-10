@@ -516,7 +516,7 @@ def geocode_uk_address(address, conn)
       district_select = 'SELECT * FROM uk_district_names WHERE district_code=\''+district_code+'\';'
       printf(STDERR, "district_select='%s'\n", district_select.inspect)
       district_hashes = select_as_hashes(conn, district_select)
-      printf(STDERR, "district_hashes='%s'\n", post_code_hashes.inspect)
+      printf(STDERR, "district_hashes='%s'\n", district_hashes.inspect)
       district_info = district_hashes[0]
       district_name = district_info['name']
       
