@@ -729,7 +729,7 @@ def geocode_uk_address(address, conn)
     end
     
     # Remove the matched parts, and start matching anew on the remainder
-    cleaned_parts.unshift!(parts_count+1)
+    cleaned_parts.shift(parts_count+1)
     parts_count = [cleaned_parts.length, 4].min
   
   end
