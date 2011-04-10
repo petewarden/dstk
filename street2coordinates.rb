@@ -510,6 +510,8 @@ def geocode_uk_address(address, conn)
       ',ST_Y(location::geometry) as latitude, ST_X(location::geometry) AS longitude'+
       ' FROM "uk_postcodes" WHERE postcode=\''+full_post_code+'\' LIMIT 1;'
 
+    s2c_debug_log("post_code_select='%s'" % post_code_select)
+
     post_code_hashes = select_as_hashes(conn, post_code_select)
 
     s2c_debug_log("post_code_hashes='%s'" % post_code_hashes.inspect)
