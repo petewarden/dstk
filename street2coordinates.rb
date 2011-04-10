@@ -586,10 +586,11 @@ def geocode_uk_address(address, conn)
   street_parts_match = street_parts_re.match(clean_address)
   s2c_debug_log("street_parts_match='%s'" % street_parts_match.inspect)
   if street_parts_match
-    street_part = street_parts_match[1]
-    cleaned_address = street_parts_match[3]
+    street_string = street_parts_match[1]
+    place_string = street_parts_match[3]
   else
-    street_part = nil
+    street_string = nil
+    place_string = clean_address
   end
   
   # Now try to extract the village/town/county parts
@@ -608,23 +609,23 @@ def geocode_uk_address(address, conn)
     'farm' => 6,
   }
   
-  cleaned_parts = cleaned_address.strip.split(' ').reverse
+  place_parts = place_string.strip.split(' ').reverse
   unrecognized_parts = []
 
-  s2c_debug_log("cleaned_parts='%s'" % cleaned_parts.inspect)
+  s2c_debug_log("place_parts='%s'" % place_parts.inspect)
 
-  parts_count = [cleaned_parts.length, 4].min
+  parts_count = [place_parts.length, 4].min
   
-  while cleaned_parts.length > 0 do
+  while place_parts.length > 0 do
   
     if parts_count < 1
-      unrecognized_token = cleaned_parts.shift(1)
+      unrecognized_token = place_parts.shift(1)
       s2c_debug_log("unrecognized_token '%s'" % unrecognized_token)
       unrecognized_parts.push(unrecognized_token)
-      parts_count = [cleaned_parts.length, 4].min
+      parts_count = [place_parts.length, 4].min
     end
   
-    candidate_name = cleaned_parts[0..(parts_count-1)].reverse.join(' ')
+    candidate_name = place_parts[0..(parts_count-1)].reverse.join(' ')
     parts_count -= 1
 
     s2c_debug_log("candidate_name='%s'" % candidate_name)
@@ -737,8 +738,8 @@ def geocode_uk_address(address, conn)
     end
     
     # Remove the matched parts, and start matching anew on the remainder
-    cleaned_parts.shift(parts_count+1)
-    parts_count = [cleaned_parts.length, 4].min
+    place_parts.shift(parts_count+1)
+    parts_count = [place_parts.length, 4].min
     unrecognized_parts = []  
 
   end
