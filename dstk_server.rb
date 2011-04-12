@@ -960,6 +960,8 @@ post '/file2method' do
       input_array.push({:latitude => row[latitude_index], :longitude => row[longitude_index]})    
     end
 
+    printf(STDERR, "input_array='%s'\n", input_array.inspect)
+
     output = coordinates2politics(input_array)
     result = [[
       'latitude', 
