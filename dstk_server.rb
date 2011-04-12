@@ -885,10 +885,9 @@ post '/file2method' do
   
   tmpfile_name = tmpfile.path()
 
-  file_data = tmpfile.read
-  input_array = file_data.split("\n")
-  
   if method == 'street2coordinates'
+    file_data = tmpfile.read
+    input_array = file_data.split("\n")
     output = street2coordinates(input_array)
     result = [[
       'input', 
@@ -927,12 +926,73 @@ post '/file2method' do
         
       end
 
-      text = ''
-      result.each do |row|
-        text << CSV.generate_line(row) + "\n"
-      end
-      
     end
+
+    text = ''
+    result.each do |row|
+      text << CSV.generate_line(row) + "\n"
+    end
+      
+  elsif method == 'coordinates2politics'
+
+    reader = CSV.open(tmpfile_name, "r")
+    header = reader.shift
+    
+    input_array = []
+    latitude_index = nil
+    longitude_index = nil
+    header.each_with_index do |value, index|
+      lower_value = value.downcase
+      if lower_value == 'latitude' or lower_value == 'lat'
+        latitude_index = index
+      end
+      if lower_value == 'longitude' or lower_value == 'lon' or lower_value == 'long' or lower_value == 'lng'
+        longitude_index = index
+      end
+    end
+    if !latitude_index or !longitude_index
+      latitude_index = 0
+      longitude_index = 1
+      input_array.push({:latitude => header[latitude_index], :longitude => header[longitude_index]})    
+    end
+    
+    reader.each do |row|
+      input_array.push({:latitude => row[latitude_index], :longitude => row[longitude_index]})    
+    end
+
+    output = street2coordinates(input_array)
+    result = [[
+      'latitude', 
+      'longitude', 
+      'name', 
+      'code', 
+      'type',
+      'friendly_type',
+    ]]
+    if output and output.length > 0
+    
+      output.each do |info|
+      
+        location = info[:location]
+        politics = info[:politics]
+      
+        result.push([
+          location[:latitude],
+          location[:longitude],
+          politics[:name],
+          politics[:code],
+          politics[:type],
+          politics[:friendly_type],
+        ])
+        
+      end      
+    end
+
+    text = ''
+    result.each do |row|
+      text << CSV.generate_line(row) + "\n"
+    end
+  
   else
     fatal_error('Method I don\'t know: "'+method+'"', 'json', 500)  
   end
