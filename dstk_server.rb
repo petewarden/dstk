@@ -972,9 +972,13 @@ post '/file2method' do
     if output and output.length > 0
     
       output.each do |info|
-      
+            
         location = info[:location]
-        politics = info[:politics]
+        if info[:politics]
+          politics = info[:politics]
+        else
+          politics = {:name => '', :code => '', :type => '', :friendly_type => ''}
+        end
       
         result.push([
           location[:latitude],
