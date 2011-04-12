@@ -631,8 +631,8 @@ def coordinates2politics(locations, callback=nil)
   
   end
 
-  make_json(result, callback)
-
+  result
+  
 end
 
 # Takes either a JSON-encoded string or single address, and produces a Ruby array
@@ -1141,7 +1141,9 @@ post '/coordinates2politics' do
 
     locations_list = locations_list_from_string(locations_string)
 
-    coordinates2politics(locations_list)
+    result = coordinates2politics(locations_list)
+
+    make_json(result)
 
   rescue
     fatal_error('coordinates2politics error: '+$!.inspect + $@.inspect, 'json', 500)
@@ -1163,7 +1165,10 @@ get '/coordinates2politics/*' do
     
     locations_list = locations_list_from_string(locations_string, callback)
 
-    coordinates2politics(locations_list, callback)
+    result = coordinates2politics(locations_list, callback)
+
+    make_json(result, callback)
+
 #  rescue
 #    fatal_error('coordinates2politics error: '+$!.inspect + $@.inspect, 'json', 500, callback)
 #  end
