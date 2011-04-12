@@ -977,19 +977,23 @@ post '/file2method' do
             
         location = info[:location]
         if info[:politics]
-          politics = info[:politics]
+          politics_list = info[:politics]
         else
-          politics = {:name => '', :code => '', :type => '', :friendly_type => ''}
+          politics_list = []
         end
       
-        result.push([
-          location[:latitude],
-          location[:longitude],
-          politics[:name],
-          politics[:code],
-          politics[:type],
-          politics[:friendly_type],
-        ])
+        politics_list.each do |politics|
+        
+          result.push([
+            location[:latitude],
+            location[:longitude],
+            politics[:name],
+            politics[:code],
+            politics[:type],
+            politics[:friendly_type],
+          ])
+        
+        end
         
       end      
     end
