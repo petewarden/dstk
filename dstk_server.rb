@@ -960,7 +960,7 @@ post '/file2method' do
       input_array.push({:latitude => row[latitude_index], :longitude => row[longitude_index]})    
     end
 
-    output = street2coordinates(input_array)
+    output = coordinates2politics(input_array)
     result = [[
       'latitude', 
       'longitude', 
