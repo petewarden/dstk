@@ -68,10 +68,14 @@
   .trycoordinates2politics{:style=>"margin-top:20px; font-size: 125%;"}
     Try it for yourself. Copy and paste some coordinates into the box below to see what it finds.
 
-  %textarea#coordinates2politicstext{:style=>"width: 800px; margin-top: 10px;"} 37.769456,-122.429128
+  %textarea#coordinates2politicstext{:style=>"width: 600px; margin-top: 10px;"} 37.769456,-122.429128
 
-  #uploadcoordinates2politicstext.button{:style=>"width:150px; font-size: 125%;"} Find
-  
+  %form{:target=>"_new", :action=>"/file2method", :method=>"post", :enctype=>"multipart/form-data", :display=>"inline"}
+    %input#street2coordinatesfile{:type=>"file", :name=>"inputfile", :style=>"width:120px; margin-top: 10px;"}
+    %input{:type=>"hidden", :name=>"method", :value=>"coordinates2politics"}
+    %br
+    %input#uploadcoordinates2politicstext.button{:type=>"submit", :value=>"Find", :style=>"width:150px; height:35px; font-size: 125%;"}
+
   #coordinates2politicsresults{:style=>"margin-top:30px;"}  
 
   %div{:style=>"margin-top:20px; font-size: 125%;"}
@@ -402,9 +406,16 @@
     // Handle the reverse geocoding test console
     $('#uploadcoordinates2politicstext').click(function() {
       var text = $('#coordinates2politicstext').val();
-      if (text.length<1) {
+      var file = $('#coordinates2politicsfile').val();
+      var hasFile = ((typeof file !== 'undefined') && (file !== null));
+      var isDefaultText = (text=='37.769456,-122.429128')
+      var isEmptyText = (text.length<1)
+      
+      if (hasFile && (isDefaultText||isEmptyText)) {
+        return true;
+      } else if (isEmptyText) {
         $('#coordinates2politicsresults').html("No text found in input box.");
-        return;
+        return false;
       }
 
       coordinatesList = text.split("\n");
@@ -469,6 +480,8 @@
           $('#coordinates2politicsresults').append($(html));
         }
       })
+      
+      return false;
     });
     
     $('#uploadtext2sentences').click(function() {
