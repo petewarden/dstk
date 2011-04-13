@@ -1028,6 +1028,10 @@ post '/file2method' do
     
       output.each do |input, info|
       
+        if !info
+          next
+        end
+      
         result.push([
           input,
           info[:latitude],
@@ -1039,6 +1043,7 @@ post '/file2method' do
           info[:locality],
           info[:dma_code],
           info[:area_code],
+          info[:postal_code],
         ])
         
       end
