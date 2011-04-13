@@ -1001,19 +1001,23 @@ post '/file2method' do
   elsif method == 'ip2coordinates'
     file_data = tmpfile.read
     input_lines = file_data.split("\n")
-    input_array = []
+    ip_array = []
     input_lines.each do |line|
 
       ip_match = /[12]?\d?\d\.[12]?\d?\d\.[12]?\d?\d\.[12]?\d?\d/.match(line)
       if ip_match
-        input_array.push(ip_match.to_s)
+        ip_array.push(ip_match.to_s)
       end
       
     end
 
-    output = ip2coordinates(input_array)
+    ip_hash = Hash.new(0)
+    ip_array.each { |ip| ip_hash[ip] += 1 }
+
+    output = ip2coordinates(ip_hash.keys)
     result = [[
       'input', 
+      'value',
       'latitude', 
       'longitude', 
       'country_code', 
@@ -1034,6 +1038,7 @@ post '/file2method' do
       
         result.push([
           input,
+          ip_hash[input],
           info[:latitude],
           info[:longitude],
           info[:country_code],
