@@ -433,10 +433,7 @@ def ip2coordinates(ips, callback=nil)
     output[ip] = info
   end
   
-  result = make_json(output, callback)
-  
-  return result
-
+  output
 end
 
 # Takes a possibly JSON-encoded or comma-separated string, and splits into IPs
@@ -960,8 +957,6 @@ post '/file2method' do
       input_array.push({:latitude => row[latitude_index], :longitude => row[longitude_index]})    
     end
 
-    printf(STDERR, "input_array='%s'\n", input_array.inspect)
-
     output = coordinates2politics(input_array)
     result = [[
       'latitude', 
@@ -996,6 +991,58 @@ post '/file2method' do
         end
         
       end      
+    end
+
+    text = ''
+    result.each do |row|
+      text << CSV.generate_line(row) + "\n"
+    end
+
+  elsif method == 'ip2coordinates'
+    file_data = tmpfile.read
+    input_lines = file_data.split("\n")
+    input_array = []
+    input_lines.each do |line|
+
+      ip_match = /[12]?\d?\d\.[12]?\d?\d\.[12]?\d?\d\.[12]?\d?\d\/.match(line)
+      if ip_match
+        input_array.push(ip_match.to_s)
+      end
+      
+    end
+
+    output = ip2coordinates(input_array)
+    result = [[
+      'input', 
+      'latitude', 
+      'longitude', 
+      'country_code', 
+      'country_code3', 
+      'country_name',
+      'region',
+      'locality',
+      'dma_code',
+      'area_code',
+    ]]
+    if output and output.length > 0
+    
+      output.each do |input, info|
+      
+        result.push([
+          input,
+          info[:latitude],
+          info[:longitude],
+          info[:country_code],
+          info[:country_code3],
+          info[:country_name],
+          info[:region],
+          info[:locality],
+          info[:dma_code],
+          info[:area_code],
+        ])
+        
+      end
+
     end
 
     text = ''
@@ -1070,7 +1117,9 @@ post '/ip2coordinates' do
   end
   ips_list = ips_list_from_string(ips_string)
 
-  ip2coordinates(ips_list)
+  output = ip2coordinates(ips_list)
+  
+  make_json(output)
 end
 
 # The GET interface for the IP address to location lookup
@@ -1085,7 +1134,9 @@ get '/ip2coordinates/:ips' do
 
   ips_list = ips_list_from_string(ips_string)
 
-  ip2coordinates(ips_list, callback)
+  output = ip2coordinates(ips_list, callback)
+  
+  make_json(output, callback)
 end
 
 # The POST interface for the street address to location lookup

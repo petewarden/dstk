@@ -109,9 +109,13 @@
   .tryip2coordinates{:style=>"margin-top:20px; font-size: 125%;"}
     Try it for yourself. Copy and paste some IP addresses into the box below to see what locations it finds.
 
-  %textarea#ip2coordinatestext{:style=>"width: 800px; margin-top: 10px;"} 67.169.73.113
+  %textarea#ip2coordinatestext{:style=>"width: 600px; margin-top: 10px; float:left;"} 67.169.73.113
 
-  #uploadip2coordinates.button{:style=>"width:150px; font-size: 125%;"} Locate IPs
+  %form{:target=>"_new", :action=>"/file2method", :method=>"post", :enctype=>"multipart/form-data", :display=>"inline"}
+    %input#ip2coordinatesfile{:type=>"file", :name=>"inputfile", :style=>"width:120px; margin-top: 10px;"}
+    %input{:type=>"hidden", :name=>"method", :value=>"ip2coordinates"}
+    %br
+    %input#uploadip2coordinates.button{:type=>"submit", :value=>"Locate IPs", :style=>"width:150px; height:35px; font-size: 125%;"}
   
   #ip2coordinatesresults{:style=>"margin-top:30px;"}
 
@@ -267,9 +271,16 @@
     // Handle the IP lookup test console
     $('#uploadip2coordinates').click(function() {
       var text = $('#ip2coordinatestext').val();
-      if (text.length<1) {
+      var file = $('#ip2coordinatesfile').val();
+      var hasFile = ((typeof file !== 'undefined') && (file !== null));
+      var isDefaultText = (text=='67.169.73.113')
+      var isEmptyText = (text.length<1)
+      
+      if (hasFile && (isDefaultText||isEmptyText)) {
+        return true;
+      } else if (isEmptyText) {
         $('#ip2coordinatesresults').html("No text found in input box.");
-        return;
+        return false;
       }
 
       text = text.replace("\n", ",");
