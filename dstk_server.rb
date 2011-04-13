@@ -1004,7 +1004,7 @@ post '/file2method' do
     input_array = []
     input_lines.each do |line|
 
-      ip_match = /[12]?\d?\d\.[12]?\d?\d\.[12]?\d?\d\.[12]?\d?\d\/.match(line)
+      ip_match = /[12]?\d?\d\.[12]?\d?\d\.[12]?\d?\d\.[12]?\d?\d/.match(line)
       if ip_match
         input_array.push(ip_match.to_s)
       end
