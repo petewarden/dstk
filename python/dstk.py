@@ -257,8 +257,16 @@ def guess_content_type(filename):
 def ip2coordinates_cli(dstk, options, inputs, output):
 
   writer = csv.writer(sys.stdout)
+  
+  input_ips = []
+  for input_line in inputs:
+    ip_match = re.match(r'[12]?\d?\d\.[12]?\d?\d\.[12]?\d?\d\.[12]?\d?\d', input_line)
+    if ip_match is not None:
+      input_ips.append(ip_match.group(0))
+    else:
+      print 'No match'
 
-  result = dstk.ip2coordinates(inputs)
+  result = dstk.ip2coordinates(input_ips)
   
   if options['showHeaders']:
     for ip, info in result.items():
