@@ -6,7 +6,10 @@
     %a{:href=>"#usage"} Usage
     %br
     &nbsp;&nbsp;&nbsp;&nbsp;
-    %a{:href=>"#commandline"} Command Line
+    %a{:href=>"#commandline"} Command Line on OS X and Linux
+    %br
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    %a{:href=>"#commandlinewindows"} Command Line on Windows
     %br
     &nbsp;&nbsp;&nbsp;&nbsp;
     %a{:href=>"#python"} Python
@@ -73,7 +76,7 @@
 
     %a{:name=>"commandline"}
     :markdown
-      #### Command Line
+      #### Command Line on OS X and Linux
       Download [python_tools.zip](/python_tools.zip), extract into a new folder, `cd` into it and run `./install`
       
       This will create a set of scripts you can run directly from the command line, like this:
@@ -103,6 +106,47 @@
        `export DSTK_API_BASE=http://example.com` 
     %br
        
+    %a{:name=>"commandlinewindows"}
+    :markdown
+      #### Command Line on Windows
+      Because Windows doesn't come with Python installed by default, you'll need to go through a few extra steps:
+      
+      Go to [http://www.python.org/download/releases/](http://www.python.org/download/releases/) and follow the link starting with 2.6 (for example in April 2011, that's [2.6.6](http://www.python.org/download/releases/2.6.6/)).
+      
+      Click on the "Windows x86 MSI Installer" link. (If you're technically savvy, and know you have a 64 bit PC, you can choose "Windows X86-64 MSI Installer", but if you're in doubt, stick with the standard one.)
+      
+      The file should now be downloading. Once it has finished, run it and an installer should start up. Click "Next" to choose the default options, and then end with "Finish" once it's done.
+      
+      Open up a DOS prompt by going to "All Programs"->"Accessories"->"Command Prompt" from the Start Menu.
+      
+      Type the command below to make sure Python has been installed. 
+      
+      `C:\Python26\python.exe`
+      
+      If it works, you'll see some text followed by a prompt. Type the command `exit()` to leave this mode.
+      
+      ![DOS Prompt Screenshot](/images/windowsshot1.png)
+
+      Download [python_tools.zip](/python_tools.zip), extract into a new folder and `cd` into it from the DOS prompt. 
+      
+      On my machine the default location is `C:\Users\Administrators\Downloads\python_tools.zip`, I can unzip it by double-clicking that archive in the file view and selecting "Extract All Files", and then to enter the new directory I type `cd C:\Users\Administrators\Downloads\python_tools` into the DOS prompt. The exact directories will vary depending on your user name and which version of Windows you're running.
+      
+      To make sure the Toolkit interface was installed correctly, run this command:
+      
+      `C:\Python26\python.exe python\dstk.py`
+      
+      You should see a help message appear showing the options that you can pass into the script.
+      
+      To run something useful, you need to put the name of the command you want at the end of this, along with some data to analyze. For example, you could retrieve information about an IP address like this:
+      
+      `C:\Python26\python.exe python\dstk.py ip2coordinates 67.169.73.113`
+
+      ![DOS Prompt Screenshot](/images/windowsshot2.png)
+
+      You can now run all of the commands as described in the [Unix section](#commandline), by adding the `C:\Python26\python.exe python\dstk.py` part at the start of each line. You can get rid of that extra typing by adding Python to your command path and installing [Cygwin](http://www.cygwin.com/), but that's not required.
+
+    %br
+
     %a{:name=>"python"}
     :markdown
       #### Python
