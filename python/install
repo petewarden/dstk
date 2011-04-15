@@ -7,8 +7,8 @@ pushd `dirname $0` > /dev/null
 CURRENT_DIR=`pwd`
 popd > /dev/null
 
-COMMAND="ln -s "
-#COMMAND="cp "
+#COMMAND="ln -s "
+COMMAND="cp "
 
 INSTALL_DIR=/usr/bin
 
