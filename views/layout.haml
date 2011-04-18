@@ -24,7 +24,7 @@
         =" | "
         %a{:href=>"/about"} About
       
-      #footer_byline
+      .footer_byline
 
     :javascript
 
@@ -116,21 +116,28 @@
       }(jQuery));
 
       $(function() {
-        $('#footer_byline').staticfade([
-            $('<div>Country boundaries by <a href="http://thematicmapping.org/">Thematic Mapping</a></div>'),
-            $('<div>Contains Ordnance Survey data <a href="http://www.ordnancesurvey.co.uk/oswebsite/opendata/licence/index.html">© Crown copyright and database right 2010</a></div>'),
-            $('<div>Irish boundaries by <a href="http://www.tallyroom.com.au/maps">Ben Raue</a></div>'),
-            $('<div>New Zealand boundaries from <a href="http://www.stats.govt.nz/">Statistics NZ</a>, converted using <a href="http://www.koordinates.com">Koordinates</a></div>'),
-            $('<div>Worldwide states and provinces from <a href="http://naturalearthdata.com">Natural Earth</a></div>'),
-            $('<div>Using geocoding code from <a href="https://github.com/geocommons/geocoder">Schuyler Erle</a></div>'),
-            $('<div>US neighborhood boundaries provided by <a href="http://www.zillow.com/howto/api/neighborhood-boundaries.htm">Zillow</a></div>'),
-            $('<div>This product includes GeoLite data created by MaxMind, available from <a href="http://www.maxmind.com/">http://www.maxmind.com/</a></div>'),
-            $('<div>Uses the <a href="http://code.google.com/p/ocropus/">Ocropus project</a> for OCR on images</div>'),
-            $('<div>Uses <a href="http://wagner.pp.ru/~vitus/software/catdoc/">catdoc</a> for parsing Word and Excel documents</div>'),
-            $('<div>Uses the <a href="http://hpricot.com/">hpricot</a> library for parsing HTML</div>'),
-            $('<div>Using the <a href="http://code.google.com/p/boilerpipe/">Boilerpipe</a> text-processing library</div>'),
-            $('<div>Using code adapted from the <a href="http://search.cpan.org/~edaly/Text-GenderFromName-0.32/GenderFromName.pm">GenderFromName</a> Perl module</div>')
-          ],
+        var bylineElements = [
+          $('<div>Using geocoding code from <a href="http://www.geoiq.com/">GeoIQ</a> and <a href="https://github.com/geocommons/geocoder">Schuyler Erle</a></div>'),
+          $('<div>Country boundaries by <a href="http://thematicmapping.org/">Thematic Mapping</a></div>'),
+          $('<div>Contains Ordnance Survey data <a href="http://www.ordnancesurvey.co.uk/oswebsite/opendata/licence/index.html">© Crown copyright and database right 2010</a></div>'),
+          $('<div>Irish boundaries by <a href="http://www.tallyroom.com.au/maps">Ben Raue</a></div>'),
+          $('<div>New Zealand boundaries from <a href="http://www.stats.govt.nz/">Statistics NZ</a>, converted using <a href="http://www.koordinates.com">Koordinates</a></div>'),
+          $('<div>Worldwide states and provinces from <a href="http://naturalearthdata.com">Natural Earth</a></div>'),
+          $('<div>US neighborhood boundaries provided by <a href="http://www.zillow.com/howto/api/neighborhood-boundaries.htm">Zillow</a></div>'),
+          $('<div>This product includes GeoLite data created by MaxMind, available from <a href="http://www.maxmind.com/">http://www.maxmind.com/</a></div>'),
+          $('<div>Uses the <a href="http://code.google.com/p/ocropus/">Ocropus project</a> for OCR on images</div>'),
+          $('<div>Uses <a href="http://wagner.pp.ru/~vitus/software/catdoc/">catdoc</a> for parsing Word and Excel documents</div>'),
+          $('<div>Uses the <a href="http://hpricot.com/">hpricot</a> library for parsing HTML</div>'),
+          $('<div>Using the <a href="http://code.google.com/p/boilerpipe/">Boilerpipe</a> text-processing library</div>'),
+          $('<div>Using code adapted from the <a href="http://search.cpan.org/~edaly/Text-GenderFromName-0.32/GenderFromName.pm">GenderFromName</a> Perl module</div>')
+        ];
+        $('.footer_byline').staticfade(bylineElements,
+          {
+            fadeTime: 1000,
+            holdTime: 5000
+          }
+        );
+        $('.header_byline').staticfade(bylineElements,
           {
             fadeTime: 1000,
             holdTime: 5000
