@@ -28,10 +28,10 @@ unzip ec2-ami-tools.zip
 sudo mv ec2-ami-tools-1.3-66634 /opt/
 wget http://s3.amazonaws.com/ec2-downloads/ec2-api-tools.zip
 sudo unzip -d /opt/ ec2-api-tools.zip
-export PATH=$PATH:/opt/ec2-api-tools-1.4.1.2/bin
-export EC2_HOME=/opt/ec2-api-tools-1.4.1.2/
+export PATH=$PATH:/opt/ec2-api-tools-1.4.2.4/bin
+export EC2_HOME=/opt/ec2-api-tools-1.4.2.4/
 export JAVA_HOME=/usr
 sudo aptitude install openjdk-6-jre-headless
 
 ec2-create-snapshot vol-* --private-key /tmp/pk-*.pem -C /tmp/cert-*.pem
-ec2-register --snapshot snap-* --description "This GeodictAPI Server image is a turnkey system for geodata processing - see http://geodictapi.com/ for more details" --name "GeodictAPI 1.00" --kernel aki-6a0cf803 --private-key /tmp/pk-*.pem -C /tmp/cert-*.pem --architecture x86_64
+ec2-register --snapshot snap-* --description "This Data Science Toolkit image is a turnkey system for data processing - see http://www.datasciencetoolkit.org/ for more details" --name "DSTK 0.35" --kernel aki-6a0cf803 --private-key /tmp/pk-*.pem -C /tmp/cert-*.pem --architecture x86_64

@@ -163,3 +163,8 @@ psql -U postgres -d reversegeo -f sql/loadukpostcodes.sql
 osm2pgsql -U postgres -d reversegeo -p uk_osm -S ../osm2pgsql/default.style ../dstkdata/uk_osm.osm.bz2 -l
 
 psql -U postgres -d reversegeo -f sql/buildukindexes.sql
+
+// End of version 0.35
+(To start from snapshot, run
+ec2-run-instances ami-f6e11d9f -t m1.large -z us-east-1d
+)
