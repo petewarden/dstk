@@ -274,7 +274,7 @@
     $('#uploadip2coordinates').click(function() {
       var text = $('#ip2coordinatestext').val();
       var file = $('#ip2coordinatesfile').val();
-      var hasFile = ((typeof file !== 'undefined') && (file !== null));
+      var hasFile = ((typeof file !== 'undefined') && (file !== null) && (file!==''));
       var isDefaultText = (text=='67.169.73.113')
       var isEmptyText = (text.length<1)
       
@@ -348,7 +348,7 @@
       var text = $('#street2coordinatestext').val();
       if (text.length<1) {
         var file = $('#street2coordinatesfile').val();
-        if ((typeof file !== 'undefined') && (file !== null)) {
+        if ((typeof file !== 'undefined') && (file !== null) && (file != '')) {
           return true;
         } else {
           $('#street2coordinatesresults').html("No text found in input box.");
@@ -420,7 +420,7 @@
     $('#uploadcoordinates2politicstext').click(function() {
       var text = $('#coordinates2politicstext').val();
       var file = $('#coordinates2politicsfile').val();
-      var hasFile = ((typeof file !== 'undefined') && (file !== null));
+      var hasFile = ((typeof file !== 'undefined') && (file !== null) && (file!==''));
       var isDefaultText = (text=='37.769456,-122.429128')
       var isEmptyText = (text.length<1)
       
