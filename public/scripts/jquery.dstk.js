@@ -1,6 +1,6 @@
 /*
  * jQuery Data Science Toolkit Plugin
- * version: 0.30 (2011-03-20)
+ * version: 0.35 (2011-04-17)
  *
  * Example:
  *   var dstk = $.DSTK();
@@ -83,7 +83,7 @@ function DSTK(options) {
 
 DSTK.prototype.checkVersion = function() {
 
-  var requiredVersion = 30;
+  var requiredVersion = 35;
 
   var apiUrl = this.apiBase+'/info';
   
