@@ -39,6 +39,8 @@ test_input = [
   '72 Eccleston Square, London. SW1V 1PJ',
   '91 Tachbrook Street, London. SW1V 2QA',
   '11 MEADOW LN, OVER, CAMBRIDGE CB24 5NF',
+  '5874 Sailing Hawk Ave Santa Rosa CA',
+  '5874 Sailing Hawk Ave Santa Rosa California',  
 ]
 
 expected_output = {

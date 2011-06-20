@@ -296,7 +296,7 @@ def is_city(conn, text, text_starting_index, previous_result)
       end
       
       if region_code
-        select += " AND region_code='"+region_code.downcase+"'"
+        select += " AND region_code='"+region_code.upcase.strip+"'"
       end
 
       # There may be multiple cities with the same name, so pick the one with the largest population
@@ -309,6 +309,7 @@ def is_city(conn, text, text_starting_index, previous_result)
         name = hash['city'].downcase
         name_map[name] = hash
       end
+
     else
       current_word = pulled_word+' '+current_word
     end
@@ -333,7 +334,7 @@ def is_city(conn, text, text_starting_index, previous_result)
     if current_index < 0
       break
     end
-    
+
   end
     
   if !found_row
@@ -401,7 +402,7 @@ def is_region(cursor, text, text_starting_index, previous_result)
         all_candidate_dicts.each do |possible_dict|
           candidate_country = possible_dict['country_code']
           if candidate_country.downcase() == country_code.downcase():
-            candidate_dicts.append(possible_dict)
+            candidate_dicts << possible_dict
           end
         end
       else
@@ -454,6 +455,7 @@ def is_region(cursor, text, text_starting_index, previous_result)
   end
 
   region_code = found_row['region_code']
+
   lat = found_row['lat']
   lon = found_row['lon']
                 

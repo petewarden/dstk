@@ -48,6 +48,7 @@
 		597D8CF613357A260042C251 /* text2people */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = text2people; path = python/text2people; sourceTree = "<group>"; };
 		597D8E1213367B6F0042C251 /* dstk_server.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = dstk_server.rb; sourceTree = "<group>"; };
 		597D8E1313367BA40042C251 /* dstk_config.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = dstk_config.rb; sourceTree = "<group>"; };
+		59C2BE9713AFEE0700759133 /* test_text2places.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = test_text2places.py; sourceTree = "<group>"; };
 		59F0A27213455C8800098746 /* test_text2times.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = test_text2times.py; sourceTree = "<group>"; };
 		59F0A27313455E6F00098746 /* text2times */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = text2times; path = python/text2times; sourceTree = "<group>"; };
 		59F0A286134E961F00098746 /* loadukpostcodes.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = loadukpostcodes.sql; sourceTree = "<group>"; };
@@ -148,6 +149,7 @@
 			children = (
 				596BF3AA1340347100D42EE1 /* bug_0004.py */,
 				59F0A29213525B4C00098746 /* test_street2coordinates.py */,
+				59C2BE9713AFEE0700759133 /* test_text2places.py */,
 				59F0A27213455C8800098746 /* test_text2times.py */,
 			);
 			path = tests;
