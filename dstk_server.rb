@@ -352,7 +352,7 @@ def placemaker_api_call(params)
       doc['referenceList'].push({ 'reference' => {
         'woeIds' => location[:woeid],
         'placeReferenceId' => (index+1),
-        'placeIds' => index,
+        'placeIds' => index.to_s,
         'start' => location[:start_index],
         'end' => location[:end_index],
         'isPlaintextMarker' => 1,
