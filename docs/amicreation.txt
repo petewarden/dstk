@@ -8,6 +8,11 @@ sudo mkdir /mnt/ebs
 sudo mount /dev/sdf /mnt/ebs
 sudo rm -rf /var/log/apache2/*
 history -c
+sudo rm -rf ~/.ssh/authorized_keys
+sudo rm -rf /etc/ssh/ssh_host_dsa_key
+sudo rm -rf /etc/ssh/ssh_host_dsa_key.pub
+sudo rm -rf /etc/ssh/ssh_host_rsa_key
+sudo rm -rf /etc/ssh/ssh_host_rsa_key.pub
 sudo rsync -a --delete --progress -x / /mnt/ebs
 sudo sed -i "s/^\/dev\/sdb/#\/dev\/sdb/" /mnt/ebs/etc/fstab
 sudo mknod /mnt/ebs/dev/console c 5 1
