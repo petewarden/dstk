@@ -461,6 +461,11 @@ def geocode_us_address(address)
   locations = $geocoder_db.geocode(address, true)
   if locations and locations.length>0
     location = locations[0]
+    if location[:number] and location[:street]
+      street_address = location[:number]+' '+location[:street]
+    else
+      street_address = ''
+    end
     info = {
       :latitude => location[:lat],
       :longitude => location[:lon],
@@ -469,7 +474,7 @@ def geocode_us_address(address)
       :country_name => 'United States',
       :region => location[:state],
       :locality => location[:city],
-      :street_address => location[:number]+' '+location[:street],
+      :street_address => street_address,
       :street_number => location[:number],
       :street_name => location[:street],
       :confidence => location[:score],
