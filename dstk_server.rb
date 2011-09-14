@@ -386,6 +386,13 @@ def text2places(text, callback=nil)
     matched_string = text[match_start_index..match_end_index]
 
     location = found_tokens[0]
+    
+    if location[:code]
+      code = location[:code]
+    else
+      code = ''
+    end
+    
     output_locations.push({
       :type => location[:type],
       :name => location[:matched_string],
@@ -393,7 +400,8 @@ def text2places(text, callback=nil)
       :longitude => location[:lon].to_s,
       :start_index => location[:start_index].to_s,
       :end_index => location[:end_index].to_s,
-      :matched_string => matched_string
+      :matched_string => matched_string,
+      :code => code
     })
   end
 
