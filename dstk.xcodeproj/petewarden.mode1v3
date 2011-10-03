@@ -331,7 +331,7 @@
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>5922FDEC143A605D00CCF097</string>
+												<string>5922FDEE143A609B00CCF097</string>
 												<key>history</key>
 												<array>
 													<string>5929E1BD1324BF6300B81D2E</string>
@@ -425,7 +425,7 @@
 												<key>_historyCapacity</key>
 												<integer>0</integer>
 												<key>bookmark</key>
-												<string>5922FDED143A605D00CCF097</string>
+												<string>5922FDEF143A609B00CCF097</string>
 												<key>history</key>
 												<array>
 													<string>5929E16113246ABF00B81D2E</string>
@@ -688,6 +688,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>1C530D57069F1CE1000CFCEE</string>
 		<string>/Users/petewarden/Projects/dstk/dstk.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -906,7 +907,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CDD528C0622207200134675</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>dstk_server.rb</string>
+										<string></string>
 										<key>StatusBarVisibility</key>
 										<true/>
 									</dict>
@@ -964,8 +965,8 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C530D57069F1CE1000CFCEE</string>
-				<string>59C4BEA614216E5B00FC6CE4</string>
-				<string>59C4BEA714216E5B00FC6CE4</string>
+				<string>5922FDF0143A609B00CCF097</string>
+				<string>5922FDF1143A609B00CCF097</string>
 				<string>1CDD528C0622207200134675</string>
 				<string>1CD0528E0623707200166675</string>
 			</array>
