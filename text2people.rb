@@ -150,7 +150,7 @@ def match_title(word)
     'cto' => 'u',
     'king' => 'm',
     'prince' => 'm',
-    'princess' => 'm',
+    'princess' => 'f',
   }
 
   title = word.downcase
