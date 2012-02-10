@@ -47,39 +47,43 @@ function convert_unemployment_file($input_file_name, $output_file_name, $bla_to_
             
         $first_part = $input_parts[0];
 
-        $series_code = substr($first_part, 0, 5);
-        if (($series_code!=='LAUCN')&&
-            ($series_code!=='LAUPS')&&
-            ($series_code!=='LAUCT')&&
-            ($series_code!=='LAUPA'))
-        {
-//            error_log('Bad series code found: '.$series_code);
-            continue;
-        }
-
+        $series_type = substr($first_part, 0, 2);
+        $seasonal = substr($first_part, 2, 1);
+        $series_code = substr($first_part, 3, 2);
         $bla_code = substr($first_part, 5, 5);
-            
         $value_type = substr($first_part, 11, 2);
-
         $area_type = substr($first_part, 13, 1);
+
+        if ($series_type !== 'LA') {
+          error_log('Bad series type found: '.$series_type);
+          continue;
+        }
+        
+        if ($seasonal !== 'U') {
+          continue; // Only use the unadjusted figures
+        }
 
         if (!isset($bla_to_fips[$bla_code]))
         {
-//            error_log("Missing FIPS code for $bla_code");
-            $fips_code = $bla_code;
+            error_log("Missing FIPS code for $bla_code");
+            continue;
         }
         else
         {
-            $info_list = $bla_to_fips[$bla_code];
-            $fips_code = null;
-            foreach ($info_list as $fips_info)
-            {
-                $full_series_code = 'LAU'.$fips_info['series_code'];
-                if (empty($fips_code)||
-                    ($full_series_code==$series_code))
-                    $fips_code = $fips_info['fips_code'];
+          $info_list = $bla_to_fips[$bla_code];
+          $fips_code = null;
+          foreach ($info_list as $fips_info) {
+            $full_series_code = 'LAU'.;
+            if ($fips_info['series_code'] == $series_code) {
+              $fips_code = $fips_info['fips_code'];
             }
-            
+          }
+          
+          if (empty($fips_code)) {
+            error_log("No matching code found for $seriescode, $bla_code");
+            continue;
+          }
+          
         }
         
         if ($remove_duplicate_series)
@@ -108,7 +112,7 @@ function convert_unemployment_file($input_file_name, $output_file_name, $bla_to_
         }
         
         if (!empty($area_type) && ($area_type !== 'F')) {
-          error_log('Bad area type found: '.$area_type);
+//          error_log('Bad area type found: '.$area_type);
           continue;
         }
         
