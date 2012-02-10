@@ -26,7 +26,7 @@ function convert_unemployment_file($input_file_name, $output_file_name, $bla_to_
     $input_file_handle = fopen($input_file_name, "r") or die("Couldn't open $input_file_name\n");
     $output_file_handle = fopen($output_file_name, "w") or die("Couldn't open $output_file_name\n");
 
-    fwrite($output_file_handle, '"state_code","county_code","time","value"'."\n");
+    fwrite($output_file_handle, '"state_code","county_code","year","month","value"'."\n");
 
     $remove_duplicate_series = false;
     $found_codes_for_area = array();
@@ -99,10 +99,7 @@ function convert_unemployment_file($input_file_name, $output_file_name, $bla_to_
         }
             
         $year = (int)($input_parts[1]);
-        
-        if ($year<2005)
-            continue;
-        
+                
         $month_string = $input_parts[2];
         $month_code = substr($month_string, 0, 1);
         if ($month_code!=='M')
@@ -122,7 +119,8 @@ function convert_unemployment_file($input_file_name, $output_file_name, $bla_to_
         $output_parts = array(
             $state_code,
             $county_code,
-            $time_string,
+            $year,
+            $month_value,
             $unemployment_percentage,
         );
         

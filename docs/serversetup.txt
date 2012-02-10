@@ -172,7 +172,7 @@ ec2-run-instances ami-f6e11d9f -t m1.large -z us-east-1d
 sudo aptitude update
 sudo aptitude safe-upgrade -y
 sudo aptitude full-upgrade -y
-sudo aptitude install -y ncftp
+sudo aptitude install -y ncftp php5-cli
 
 cd ~/sources
 
@@ -196,7 +196,7 @@ git pull origin master
 
 cd ~/sources/dstk
 git pull origin master
-./createblatofips.php -f test_data/unemployment/90s-fips.txt -b test_data/unemployment/la.area -o test_data/unemployment/blatofips.csv
-cat test_data/unemployment/la.data.* | ./unemploymenttocsv.php -o test_data/unemployment/county_percentages.csv -b test_data/unemployment/blatofips.csv
+php/createblatofips.php -f ../dstkdata/90s-fips.txt -b ../blsdata/la.area -o ../blsdata/blatofips.csv
+cat ../blsdata/la.data.* | php/unemploymenttocsv.php -o ../blsdata/county_percentages.csv -b ../blsdata/blatofips.csv
 
 
