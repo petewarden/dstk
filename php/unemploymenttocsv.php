@@ -59,7 +59,7 @@ function convert_unemployment_file($input_file_name, $output_file_name, $bla_to_
 
         $bla_code = substr($first_part, 5, 5);
             
-        $value_type = substr($first_part, 11, 3);
+        $value_type = substr($first_part, 11, 2);
 
         $area_type = substr($first_part, 13, 1);
 
