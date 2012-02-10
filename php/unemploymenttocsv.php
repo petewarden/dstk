@@ -101,7 +101,7 @@ function convert_unemployment_file($input_file_name, $output_file_name, $bla_to_
           '006' => 'Labor force',
         );
 
-        if (!in_array($value_name_mapping, $value_type))
+        if (!in_array($value_type, $value_name_mapping))
         {
 //            error_log('Bad value type found: '.$value_type);
             continue;
