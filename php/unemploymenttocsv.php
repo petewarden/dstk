@@ -73,7 +73,6 @@ function convert_unemployment_file($input_file_name, $output_file_name, $bla_to_
           $info_list = $bla_to_fips[$bla_code];
           $fips_code = null;
           foreach ($info_list as $fips_info) {
-            $full_series_code = 'LAU'.;
             if ($fips_info['series_code'] == $series_code) {
               $fips_code = $fips_info['fips_code'];
             }
