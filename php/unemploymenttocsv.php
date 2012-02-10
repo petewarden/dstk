@@ -59,7 +59,7 @@ function convert_unemployment_file($input_file_name, $output_file_name, $bla_to_
 
         $bla_code = substr($first_part, 5, 5);
             
-        $value_type = substr($first_part, 10, 3);
+        $value_type = substr($first_part, 11, 3);
 
         $area_type = substr($first_part, 13, 1);
 
@@ -95,10 +95,10 @@ function convert_unemployment_file($input_file_name, $output_file_name, $bla_to_
         $county_code = substr($fips_code, 2, 3);
 
         $value_name_mapping = array(
-          '003' => 'Unemployment rate',
-          '004' => 'Unemployment',
-          '005' => 'Employment',
-          '006' => 'Labor force',
+          '03' => 'Unemployment rate',
+          '04' => 'Unemployment',
+          '05' => 'Employment',
+          '06' => 'Labor force',
         );
 
         if (!isset($value_name_mapping[$value_type]))
@@ -107,7 +107,7 @@ function convert_unemployment_file($input_file_name, $output_file_name, $bla_to_
             continue;
         }
         
-        if (!empty($area_type) && (area_type !== 'F')) {
+        if (!empty($area_type) && ($area_type !== 'F')) {
           error_log('Bad area type found: '.$area_type);
           continue;
         }
