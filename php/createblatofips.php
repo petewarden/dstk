@@ -210,7 +210,7 @@ function match_bla_to_fips($input_file_name, $output_file_name, $fips_definition
             continue;
       
         // Only look at counties or county-equivalents
-        $area_type_code = $input_parts[0];
+        $area_type_code = strip($input_parts[0]);
         if ($area_type_code !== 'F') {
           continue;
         }
