@@ -50,7 +50,7 @@ function convert_unemployment_file($input_file_name, $output_file_name, $bla_to_
         $series_type = substr($first_part, 0, 2);
         $seasonal = substr($first_part, 2, 1);
         $series_code = substr($first_part, 3, 2);
-        $bla_code = substr($first_part, 5, 5);
+        $bla_code = substr($first_part, 5, 6);
         $value_type = substr($first_part, 11, 2);
         $area_type = substr($first_part, 13, 1);
 
@@ -79,7 +79,7 @@ function convert_unemployment_file($input_file_name, $output_file_name, $bla_to_
           }
           
           if (empty($fips_code)) {
-            error_log("No matching code found for $seriescode, $bla_code");
+            error_log("No matching code found for $series_code, $bla_code");
             continue;
           }
           

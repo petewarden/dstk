@@ -217,7 +217,7 @@ function match_bla_to_fips($input_file_name, $output_file_name, $fips_definition
 
         $area_code = $input_parts[1];
         $series_code = substr($area_code, 0, 2);
-        $bla_code = substr($area_code, 2, 5);
+        $bla_code = substr($area_code, 2, 6);
         
         $area_text = $input_parts[2];
         $area_text = trim($area_text);
