@@ -26,6 +26,12 @@
 		5929E1F213258C0500B81D2E /* layout.haml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = layout.haml; sourceTree = "<group>"; };
 		5929E1F313258C0500B81D2E /* welcome.haml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = welcome.haml; sourceTree = "<group>"; wrapsLines = 1; };
 		5929E30C1329AD7900B81D2E /* developerdocs.haml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = developerdocs.haml; sourceTree = "<group>"; wrapsLines = 1; };
+		5950FA5E14E51EA600361BF2 /* amicreation.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = amicreation.txt; sourceTree = "<group>"; };
+		5950FA5F14E51EA600361BF2 /* downloadcensus.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = downloadcensus.txt; sourceTree = "<group>"; };
+		5950FA6014E51EA600361BF2 /* serversetup.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = serversetup.txt; sourceTree = "<group>"; };
+		5950FA6214E5254100361BF2 /* createblatofips.php */ = {isa = PBXFileReference; lastKnownFileType = text.script.php; path = createblatofips.php; sourceTree = "<group>"; };
+		5950FA6314E5254100361BF2 /* unemploymenttocsv.php */ = {isa = PBXFileReference; lastKnownFileType = text.script.php; path = unemploymenttocsv.php; sourceTree = "<group>"; };
+		5950FA6414E525A700361BF2 /* cliargs.php */ = {isa = PBXFileReference; lastKnownFileType = text.script.php; path = cliargs.php; sourceTree = "<group>"; };
 		596BF3AA1340347100D42EE1 /* bug_0004.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = bug_0004.py; sourceTree = "<group>"; };
 		596BF3AB1340402600D42EE1 /* text2times.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = text2times.rb; sourceTree = "<group>"; };
 		597D884E133040030042C251 /* jquery.dstk.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.dstk.js; sourceTree = "<group>"; };
@@ -63,6 +69,7 @@
 			children = (
 				5929E11B13243FBE00B81D2E /* config.ru */,
 				597D8BAE13340F3E0042C251 /* cruftstripper.rb */,
+				5950FA5D14E51EA600361BF2 /* docs */,
 				597D8E1313367BA40042C251 /* dstk_config.rb */,
 				597D8E1213367B6F0042C251 /* dstk_server.rb */,
 				5929E11013243ECB00B81D2E /* Gemfile */,
@@ -72,6 +79,7 @@
 				5929E11213243ECB00B81D2E /* geodict_lib.rb */,
 				5929E11413243ECB00B81D2E /* gpl.txt */,
 				5929E11513243ECB00B81D2E /* largetestinput.txt */,
+				5950FA6114E5254100361BF2 /* php */,
 				5929E11613243ECB00B81D2E /* populate_database.rb */,
 				5929E1E813258B3700B81D2E /* public */,
 				597D8A7213314B920042C251 /* python */,
@@ -142,6 +150,26 @@
 				5929E1F313258C0500B81D2E /* welcome.haml */,
 			);
 			path = views;
+			sourceTree = "<group>";
+		};
+		5950FA5D14E51EA600361BF2 /* docs */ = {
+			isa = PBXGroup;
+			children = (
+				5950FA5E14E51EA600361BF2 /* amicreation.txt */,
+				5950FA5F14E51EA600361BF2 /* downloadcensus.txt */,
+				5950FA6014E51EA600361BF2 /* serversetup.txt */,
+			);
+			path = docs;
+			sourceTree = "<group>";
+		};
+		5950FA6114E5254100361BF2 /* php */ = {
+			isa = PBXGroup;
+			children = (
+				5950FA6414E525A700361BF2 /* cliargs.php */,
+				5950FA6214E5254100361BF2 /* createblatofips.php */,
+				5950FA6314E5254100361BF2 /* unemploymenttocsv.php */,
+			);
+			path = php;
 			sourceTree = "<group>";
 		};
 		596BF3A91340347100D42EE1 /* tests */ = {

@@ -168,3 +168,35 @@ psql -U postgres -d reversegeo -f sql/buildukindexes.sql
 (To start from snapshot, run
 ec2-run-instances ami-f6e11d9f -t m1.large -z us-east-1d
 )
+
+sudo aptitude update
+sudo aptitude safe-upgrade -y
+sudo aptitude full-upgrade -y
+sudo aptitude install -y ncftp
+
+cd ~/sources
+
+mkdir blsdata
+cd blsdata
+ncftp ftp://ftp.bls.gov/pub/time.series/la/
+get la.area
+get la.data.1*
+get la.data.2*
+get la.data.3*
+get la.data.4*
+get la.data.5*
+get la.data.6*
+get la.data.7*
+get la.data.8*
+get la.data.9*
+exit
+
+cd ~/sources/dstkdata
+git pull origin master
+
+cd ~/sources/dstk
+git pull origin master
+./createblatofips.php -f test_data/unemployment/90s-fips.txt -b test_data/unemployment/la.area -o test_data/unemployment/blatofips.csv
+cat test_data/unemployment/la.data.* | ./unemploymenttocsv.php -o test_data/unemployment/county_percentages.csv -b test_data/unemployment/blatofips.csv
+
+
