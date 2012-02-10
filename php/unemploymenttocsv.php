@@ -134,7 +134,6 @@ function convert_unemployment_file($input_file_name, $output_file_name, $bla_to_
         $unemployment_percentage = (float)($input_parts[3]);
         
         $output_parts = array(
-            $first_part,
             $state_code,
             $county_code,
             $year,
