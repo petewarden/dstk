@@ -103,11 +103,12 @@ function convert_unemployment_file($input_file_name, $output_file_name, $bla_to_
 
         if (!in_array($value_type, $value_name_mapping))
         {
-//            error_log('Bad value type found: '.$value_type);
+            error_log('Bad value type found: '.$value_type);
             continue;
         }
         
         if (!empty($area_type) && (area_type !== 'F')) {
+          error_log('Bad area type found: '.$area_type);
           continue;
         }
         
