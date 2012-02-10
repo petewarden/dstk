@@ -26,7 +26,7 @@ function convert_unemployment_file($input_file_name, $output_file_name, $bla_to_
     $input_file_handle = fopen($input_file_name, "r") or die("Couldn't open $input_file_name\n");
     $output_file_handle = fopen($output_file_name, "w") or die("Couldn't open $output_file_name\n");
 
-    fwrite($output_file_handle, '"state_code","county_code","year","month","value_type","value"'."\n");
+    fwrite($output_file_handle, '"state_code","county_code","year","month","value_type","seasonal","value"'."\n");
 
     $remove_duplicate_series = false;
     $found_codes_for_area = array();
@@ -59,10 +59,6 @@ function convert_unemployment_file($input_file_name, $output_file_name, $bla_to_
           continue;
         }
         
-        if ($seasonal !== 'U') {
-          continue; // Only use the unadjusted figures
-        }
-
         if (!isset($bla_to_fips[$bla_code]))
         {
 //            error_log("Missing FIPS code for $bla_code");
@@ -139,6 +135,7 @@ function convert_unemployment_file($input_file_name, $output_file_name, $bla_to_
             $year,
             $month_value,
             $value_type,
+            $seasonal,
             $unemployment_percentage,
         );
         
