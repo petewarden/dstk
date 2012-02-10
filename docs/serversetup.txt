@@ -185,11 +185,16 @@ get la.data.2*
 get la.data.3*
 get la.data.4*
 get la.data.5*
-get la.data.6*
 get la.data.7*
 get la.data.8*
 get la.data.9*
 exit
+mkdir states
+mv la.data.1.CurrentS states
+mv la.data.2.AllStatesU states
+mv la.data.3.AllStatesS states
+rm -rf la.data.4.RegionDivisionU 
+rm -rf la.data.5.RegionDivisionS
 
 cd ~/sources/dstkdata
 git pull origin master

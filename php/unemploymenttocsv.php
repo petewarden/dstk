@@ -26,7 +26,7 @@ function convert_unemployment_file($input_file_name, $output_file_name, $bla_to_
     $input_file_handle = fopen($input_file_name, "r") or die("Couldn't open $input_file_name\n");
     $output_file_handle = fopen($output_file_name, "w") or die("Couldn't open $output_file_name\n");
 
-    fwrite($output_file_handle, '"state_code","county_code","year","month","value"'."\n");
+    fwrite($output_file_handle, '"state_code","county_code","year","month","value_type","value"'."\n");
 
     $remove_duplicate_series = false;
     $found_codes_for_area = array();
@@ -61,6 +61,8 @@ function convert_unemployment_file($input_file_name, $output_file_name, $bla_to_
             
         $value_type = substr($first_part, 10, 3);
 
+        $area_type = substr($first_part, 13, 1);
+
         if (!isset($bla_to_fips[$bla_code]))
         {
 //            error_log("Missing FIPS code for $bla_code");
@@ -91,13 +93,24 @@ function convert_unemployment_file($input_file_name, $output_file_name, $bla_to_
 
         $state_code = substr($fips_code, 0, 2);
         $county_code = substr($fips_code, 2, 3);
-                
-        if ($value_type!=='003')
+
+        $value_name_mapping = array(
+          '003' => 'Unemployment rate',
+          '004' => 'Unemployment',
+          '005' => 'Employment',
+          '006' => 'Labor force',
+        );
+
+        if (!in_array($value_name_mapping, $value_type))
         {
 //            error_log('Bad value type found: '.$value_type);
             continue;
         }
-            
+        
+        if (!empty($area_type) && (area_type !== 'F')) {
+          continue;
+        }
+        
         $year = (int)($input_parts[1]);
                 
         $month_string = $input_parts[2];
@@ -117,10 +130,12 @@ function convert_unemployment_file($input_file_name, $output_file_name, $bla_to_
         $unemployment_percentage = (float)($input_parts[3]);
         
         $output_parts = array(
+            $first_part,
             $state_code,
             $county_code,
             $year,
             $month_value,
+            $value_type,
             $unemployment_percentage,
         );
         
