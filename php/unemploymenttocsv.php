@@ -55,7 +55,7 @@ function convert_unemployment_file($input_file_name, $output_file_name, $bla_to_
         $area_type = substr($first_part, 13, 1);
 
         if ($series_type !== 'LA') {
-          error_log('Bad series type found: '.$series_type);
+//          error_log('Bad series type found: '.$series_type);
           continue;
         }
         
