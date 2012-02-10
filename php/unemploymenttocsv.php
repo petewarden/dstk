@@ -65,7 +65,7 @@ function convert_unemployment_file($input_file_name, $output_file_name, $bla_to_
 
         if (!isset($bla_to_fips[$bla_code]))
         {
-            error_log("Missing FIPS code for $bla_code");
+//            error_log("Missing FIPS code for $bla_code");
             continue;
         }
         else
@@ -79,7 +79,7 @@ function convert_unemployment_file($input_file_name, $output_file_name, $bla_to_
           }
           
           if (empty($fips_code)) {
-            error_log("No matching code found for $series_code, $bla_code");
+//            error_log("No matching code found for $series_code, $bla_code");
             continue;
           }
           
