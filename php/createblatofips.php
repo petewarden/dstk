@@ -199,6 +199,7 @@ function match_bla_to_fips($input_file_name, $output_file_name, $fips_definition
     $blacklisted_blas = array(
       'PA240050' => true, // Baltimore city
       'PS290350' => true, // St. Louis city
+      'CN515150' => true, // Bedford city, VA
     );
 
     fwrite($output_file_handle, '"bla_code","fips_code","series_code","description"'."\n");
