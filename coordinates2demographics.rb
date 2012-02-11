@@ -46,7 +46,7 @@ def coordinates2demographics(locations, callback=nil)
     
     location = politics_result[:location]
     politics = politics_result[:politics]
-    demographics = []
+    demographics = {}
     
     code_for_type = {}
     politics.each do |area|
