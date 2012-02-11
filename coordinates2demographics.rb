@@ -70,7 +70,7 @@ def coordinates2demographics(locations, callback=nil)
           value_type = unemployment_hash['value_type']
           value = unemployment_hash['value']
           value_name = ValueTypeToName[value_type]
-          county_unemployment[value_name] = [year, month, value]
+          county_unemployment[value_name] << [year, month, value]
         end
         demographics[:county_unemployment] = county_unemployment
       end
