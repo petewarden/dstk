@@ -731,16 +731,19 @@
           if (demographics == null) {
             html += "NA";
           } else {
-            for (var valueName in demographics) {
-              html += valueName+':<br>';
-              var series = demographics[valueName];
-              for (var seriesIndex in series) {
-                var entry = series[seriesIndex];
-                var year = entry[0];
-                var month = entry[1];
-                var value = entry[2];
-              
-                html += '('+year+', '+month+', '+value+') ';
+            for (var partName in demographics) {
+              html += partName+':<br>';
+              var part = demographics[partName];
+              for (var valueName in part) {
+                html += '&nbsp;'+seriesName+':<br>';
+                var series = part[valueName];
+                for (var seriesIndex in series) {
+                  var entry = series[seriesIndex];
+                  var year = entry[0];
+                  var month = entry[1];
+                  var value = entry[2];
+                  html += '('+year+', '+month+', '+value+') ';
+                }
               }
             }
           }
