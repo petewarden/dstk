@@ -175,7 +175,6 @@ sudo aptitude full-upgrade -y
 sudo aptitude install -y ncftp php5-cli
 
 cd ~/sources
-
 mkdir blsdata
 cd blsdata
 ncftp ftp://ftp.bls.gov/pub/time.series/la/
@@ -203,5 +202,6 @@ cd ~/sources/dstk
 git pull origin master
 php/createblatofips.php -f ../dstkdata/90s-fips.txt -b ../blsdata/la.area -o ../blsdata/blatofips.csv
 cat ../blsdata/la.data.* | php/unemploymenttocsv.php -o ../blsdata/county_percentages.csv -b ../blsdata/blatofips.csv
-
+psql -U postgres -d reversegeo -f sql/loadcountyunemployment.sql
+touch tmp/restart.txt
 
