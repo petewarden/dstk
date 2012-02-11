@@ -178,6 +178,7 @@ function match_bla_to_fips($input_file_name, $output_file_name, $fips_definition
     $input_file_handle = fopen($input_file_name, "r") or die("Couldn't open $input_file_name\n");
     $output_file_handle = fopen($output_file_name, "w") or die("Couldn't open $output_file_name\n");
 
+    // Cases where the names differ slightly between the FIPS and BLS descriptions
     $fixups = array(
         'laporte, in' => 'la porte, in',
         'lasalle, il' => 'la salle, il',
@@ -191,6 +192,12 @@ function match_bla_to_fips($input_file_name, $output_file_name, $fips_definition
 //        'desoto, fl' => 'de soto, fl',
         'de baca, nm' => 'debaca, nm',
         'mckean, pa' => 'mc kean, pa',
+    );
+
+    // These are cities that were (apparently) mistakenly marked as county-equivalent, despite
+    // being inside true counties that are also included. Keep a list, so we can skip them.
+    $blacklisted_blas = array(
+      'PA240050' => true,
     );
 
     fwrite($output_file_handle, '"bla_code","fips_code","series_code","description"'."\n");
@@ -219,6 +226,11 @@ function match_bla_to_fips($input_file_name, $output_file_name, $fips_definition
         $area_code = $input_parts[1];
         $series_code = substr($area_code, 0, 2);
         $bla_code = substr($area_code, 2, 6);
+        
+        if (isset($blacklisted_blas[$series_code.$bla_code])) {
+          error_log("Blacklisted code '${$series_code.$bla_code}' skipped");
+          continue;
+        }
         
         $area_text = $input_parts[2];
         $area_text = trim($area_text);

@@ -32,6 +32,7 @@
 		5950FA6214E5254100361BF2 /* createblatofips.php */ = {isa = PBXFileReference; lastKnownFileType = text.script.php; path = createblatofips.php; sourceTree = "<group>"; };
 		5950FA6314E5254100361BF2 /* unemploymenttocsv.php */ = {isa = PBXFileReference; lastKnownFileType = text.script.php; path = unemploymenttocsv.php; sourceTree = "<group>"; };
 		5950FA6414E525A700361BF2 /* cliargs.php */ = {isa = PBXFileReference; lastKnownFileType = text.script.php; path = cliargs.php; sourceTree = "<group>"; };
+		5950FA6514E6410900361BF2 /* loadcountyunemployment.sql */ = {isa = PBXFileReference; lastKnownFileType = text; path = loadcountyunemployment.sql; sourceTree = "<group>"; };
 		596BF3AA1340347100D42EE1 /* bug_0004.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = bug_0004.py; sourceTree = "<group>"; };
 		596BF3AB1340402600D42EE1 /* text2times.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = text2times.rb; sourceTree = "<group>"; };
 		597D884E133040030042C251 /* jquery.dstk.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.dstk.js; sourceTree = "<group>"; };
@@ -207,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				59F0A293135265BF00098746 /* buildukindexes.sql */,
+				5950FA6514E6410900361BF2 /* loadcountyunemployment.sql */,
 				59F0A286134E961F00098746 /* loadukpostcodes.sql */,
 			);
 			path = sql;
