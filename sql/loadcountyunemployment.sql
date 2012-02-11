@@ -19,4 +19,4 @@ COPY us_county_unemployment ( state_code, county_code, year, month, value_type, 
  FROM '/home/ubuntu/sources/blsdata/county_percentages.csv'
  WITH DELIMITER AS ',' CSV HEADER;
  
-CREATE INDEX us_county_unemployment_state_county ON us_county_unemployment USING ( state_code, county_code );
+CREATE INDEX us_county_unemployment_state_county ON us_county_unemployment (state_code, county_code);
