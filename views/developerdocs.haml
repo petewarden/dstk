@@ -52,6 +52,9 @@
     &nbsp;&nbsp;&nbsp;&nbsp;
     %a{:href=>"#text2times"} Text to Times
     %br
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    %a{:href=>"#coordinates2demographics"} Coordinates to Demographics
+    %br
     %a{:href=>"#setup"} Setting up your own server
     %br
     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -509,9 +512,9 @@
 
       This API uses the [Chronic Ruby gem](https://github.com/mojombo/chronic/) to convert the strings it finds into times.
       
-    %a{:name=>"coordinates2politics"}
+    %a{:name=>"coordinates2demographics"}
     :markdown
-      #### Coordinates to Politics
+      #### Coordinates to Demographics
       
       This API takes either a single string representing a comma-separated pair of latitude/longitude coordinates, or a JSON-encoded array of objects containing two keys, one for latitude and one for longitude. It returns a JSON array containing an object for every input location. The location member holds the coordinates that were queried, and politics holds an array of countries, states, provinces, cities, constituencies and neighborhoods that the point lies within, in the same format as coordinates2politics. There's a third component called demographics that contains information about the population and economy at that location. Currently only unemployment time series for US counties is returned. Here's an example:
       <hr>

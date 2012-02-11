@@ -718,13 +718,13 @@
               var type = politic['friendly_type'];
               
               html += 
-                '('
-                +name
-                +', '
-                +code
-                +', '
-                +type
-                +') ';
+                '('+
+                name+
+                ', '+
+                code+
+                ', '+
+                type+
+                ') ';
               }
           }
 
@@ -738,16 +738,16 @@
                 var entry = series[seriesIndex];
                 var year = entry[0];
                 var month = entry[1];
-                var value = entry[3];
+                var value = entry[2];
               
                 html += 
-                  '('
-                  +year
-                  +', '
-                  +month
-                  +', '
-                  +value
-                  +') ';
+                  '('+
+                  year+
+                  ', '+
+                  month+
+                  ', '+
+                  value+
+                  ') ';
               }
             }
           }
