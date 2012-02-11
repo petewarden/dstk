@@ -3,4 +3,4 @@
 # See http://wiki.python.org/moin/PrintFails for the grisly story of why this is needed
 export PYTHONIOENCODING=utf-8
 
-dstk.py coordinates2politics "$@"
+dstk.py coordinates2demographics "$@"

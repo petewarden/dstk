@@ -509,6 +509,47 @@
 
       This API uses the [Chronic Ruby gem](https://github.com/mojombo/chronic/) to convert the strings it finds into times.
       
+    %a{:name=>"coordinates2politics"}
+    :markdown
+      #### Coordinates to Politics
+      
+      This API takes either a single string representing a comma-separated pair of latitude/longitude coordinates, or a JSON-encoded array of objects containing two keys, one for latitude and one for longitude. It returns a JSON array containing an object for every input location. The location member holds the coordinates that were queried, and politics holds an array of countries, states, provinces, cities, constituencies and neighborhoods that the point lies within, in the same format as coordinates2politics. There's a third component called demographics that contains information about the population and economy at that location. Currently only unemployment time series for US counties is returned. Here's an example:
+      <hr>
+      `curl "http://www.datasciencetoolkit.org/coordinates2demographics/37.769456%2c-122.429128"`
+      
+      `[{"location":{"latitude":"37.769456","longitude":"-122.429128"},"politics":[`
+      
+      `{"type":"admin2","code":"usa","friendly_type":"country","name":"United States"},`
+      
+      `{"type":"admin4","code":"us06","friendly_type":"state","name":"California"},`
+      
+      `{"type":"admin6","code":"06_075","friendly_type":"county","name":"San Francisco"},`
+      
+      `{"type":"admin5","code":"06_67000","friendly_type":"city","name":"San Francisco"},`
+      
+      `{"type":"constituency","code":"06_08","friendly_type":"constituency","name":"Eighth district, CA"}],`
+      
+      `"demographics":{"county_unemployment":{"unemployment_rate":` 
+
+      `["1990","1","3.7"],`
+      
+      `["1990","2","3.4"],`
+      
+      `...`
+      
+      `}]`
+      <hr>
+
+      To combat errors caused by lack of precision, there's a small amount of fuzziness built into the algorithm, so that points that lie very close to borders get information on both possible areas they could be within.
+      
+      To call the API, you can make either a GET or a POST request to `/coordinates2demographics`. If you make a GET request, then you need to pass in the locations in the suffix of the URL, as above.
+
+      Using GET you can also pass in a callback parameter in the URL, making it possible to run this as a JSONP cross-domain request. You can see this method in action if you view source on the home page of this server.
+      
+      You can also make a POST request passing in the locations in the body of the request. This is useful if you have very large arrays of locations you need to process, since you won't hit any URL size limits.
+
+      This API relies on data gathered by the US Bureau of Labor services. For information on how to update it if you run your own server, see serversetup.txt for the FTP site you can download the data from, and the commands you'll need to run to process it.
+
     %a{:name=>"setup"}
     :markdown
       ### Setting up your own server

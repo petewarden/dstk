@@ -64,7 +64,7 @@ class DSTK:
       
   def check_version(self):
   
-    required_version = 35
+    required_version = 40
     
     api_url = self.api_base+'/info'
     
@@ -194,6 +194,18 @@ class DSTK:
     
     api_url = self.api_base+'/text2times'
     api_body = text
+    response_string = urllib.urlopen(api_url, api_body).read()
+    response = json.loads(response_string)
+    
+    if 'error' in response:
+      raise Exception(response['error'])
+    
+    return response
+
+  def coordinates2demographics(self, coordinates):
+    
+    api_url = self.api_base+'/coordinates2demographics'
+    api_body = json.dumps(coordinates)
     response_string = urllib.urlopen(api_url, api_body).read()
     response = json.loads(response_string)
     

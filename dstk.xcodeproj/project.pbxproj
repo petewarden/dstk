@@ -35,6 +35,7 @@
 		5950FA6514E6410900361BF2 /* loadcountyunemployment.sql */ = {isa = PBXFileReference; lastKnownFileType = text; path = loadcountyunemployment.sql; sourceTree = "<group>"; };
 		5950FA6614E65B6600361BF2 /* coordinates2demographics.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = coordinates2demographics.rb; sourceTree = "<group>"; };
 		5950FA6714E65BBB00361BF2 /* coordinates2politics.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = coordinates2politics.rb; sourceTree = "<group>"; };
+		5950FA6814E66AA900361BF2 /* coordinates2demographics */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = coordinates2demographics; path = python/coordinates2demographics; sourceTree = "<group>"; };
 		596BF3AA1340347100D42EE1 /* bug_0004.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = bug_0004.py; sourceTree = "<group>"; };
 		596BF3AB1340402600D42EE1 /* text2times.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = text2times.rb; sourceTree = "<group>"; };
 		597D884E133040030042C251 /* jquery.dstk.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.dstk.js; sourceTree = "<group>"; };
@@ -191,6 +192,7 @@
 		597D8A7213314B920042C251 /* python */ = {
 			isa = PBXGroup;
 			children = (
+				5950FA6814E66AA900361BF2 /* coordinates2demographics */,
 				597D8C90133526740042C251 /* coordinates2politics */,
 				597D8C91133526740042C251 /* dstk.py */,
 				597D8C92133526740042C251 /* file2text */,
