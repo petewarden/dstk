@@ -229,7 +229,7 @@
   .trycoordinates2demographics{:style=>"margin-top:20px; font-size: 125%;"}
     Try it for yourself. Copy and paste some coordinates into the box below to see what it finds.
 
-  %textarea#coordinates2demographicstext{:style=>"width: 800px; margin-top: 10px; float:left;"} 37.769456,-122.429128
+  %textarea#coordinates2demographicstext{:style=>"width: 800px; margin-top: 10px;"} 37.769456,-122.429128
 
   #uploadcoordinates2demographics.button{:style=>"width:150px; font-size: 125%;"} Find
 
@@ -744,6 +744,7 @@
                   var value = entry[2];
                   html += '('+year+', '+month+', '+value+') ';
                 }
+                html += '<br>';
               }
             }
           }
