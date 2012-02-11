@@ -197,7 +197,8 @@ function match_bla_to_fips($input_file_name, $output_file_name, $fips_definition
     // These are cities that were (apparently) mistakenly marked as county-equivalent, despite
     // being inside true counties that are also included. Keep a list, so we can skip them.
     $blacklisted_blas = array(
-      'PA240050' => true,
+      'PA240050' => true, // Baltimore city
+      'PS290350' => true, // St. Louis city
     );
 
     fwrite($output_file_handle, '"bla_code","fips_code","series_code","description"'."\n");
