@@ -1,4 +1,3 @@
--- See http://www.spatialdbadvisor.com/postgis_tips_tricks/118/loading point data from a csv file in postgis
 
 CREATE TABLE us_county_unemployment(
  state_code CHAR(2),
@@ -9,6 +8,12 @@ CREATE TABLE us_county_unemployment(
  value FLOAT,
  PRIMARY KEY(state_code, county_code, year, month, value_type)
 );
+
+-- If you hit duplicated primary key errors on this load, there's probably a few cities mistakenly
+-- categorised as counties in the la.area file. You can fix this by adding the full codes of the
+-- city versions to $blacklisted_blas in createblatofips.php and re-running the csv creation.
+-- To detect duplicates, run this: 
+-- sed 's/[0-9]\{1,\},//' ../blsdata/blatofips.csv | sort | uniq -d
 
 COPY us_county_unemployment ( state_code, county_code, year, month, value_type, value )
  FROM '/home/ubuntu/sources/blsdata/county_percentages.csv'
