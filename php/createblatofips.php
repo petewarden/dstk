@@ -151,7 +151,9 @@ function load_90s_fips_definitions($file_name, $do_normalize=false)
         $description = trim($description);
 
         $postal_code = $state_postal_codes[$state_code];
-        $description .= ', '.$postal_code;
+        if ($postal_code !== 'DC') {
+          $description .= ', '.$postal_code;
+        }
 
         if ($do_normalize)
         {
@@ -202,6 +204,8 @@ function match_bla_to_fips($input_file_name, $output_file_name, $fips_definition
       'CN515150' => true, // Bedford city, VA
       'CN516200' => true, // Franklin city, VA
       'PA510400' => true, // Roanoke city, VA
+      'CN516000' => true, // Fairfax city, VA
+      'PA510300' => true, // Richmond city, VA
     );
 
     fwrite($output_file_handle, '"bla_code","fips_code","series_code","description"'."\n");
