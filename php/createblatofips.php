@@ -228,7 +228,7 @@ function match_bla_to_fips($input_file_name, $output_file_name, $fips_definition
         $bla_code = substr($area_code, 2, 6);
         
         if (isset($blacklisted_blas[$series_code.$bla_code])) {
-          error_log("Blacklisted code '${$series_code.$bla_code}' skipped");
+          error_log("Blacklisted code '$series_code$bla_code' skipped");
           continue;
         }
         
