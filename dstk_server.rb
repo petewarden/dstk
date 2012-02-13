@@ -983,15 +983,16 @@ post '/ip2coordinates' do
 end
 
 # The GET interface for the IP address to location lookup
-get '/ip2coordinates/:ips' do
+get '/ip2coordinates/:ips?' do
 
   callback = params[:callback]
   ips_string = params[:ips]
   if !ips_string
-    fatal_error('You need to place the IP addresses as a comma-separated list as part of the URL', 
-      'json', 500, callback)
+    # This is a special case. If you pass in an empty string, use the IP address of the requesting
+    # client, since javascript callers may not have access to it themselves.
+    client_ip_address = @env.has_key?("HTTP_X_FORWARDED_FOR") ? @env["HTTP_X_FORWARDED_FOR"] : @env["REMOTE_ADDR"]
+    ips_string = '["' + client_ip_address + '"]'
   end
-
   ips_list = ips_list_from_string(ips_string)
 
   output = ip2coordinates(ips_list, callback)
