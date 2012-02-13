@@ -969,6 +969,12 @@ post '/ip2coordinates' do
     fatal_error('You need to place the IP addresses as a comma-separated list inside the POST body', 
       'json', 500, nil)
   end
+  # This is a special case. If you pass in an empty string, use the IP address of the requesting
+  # client, since javascript callers may not have access to it themselves.
+  if ips_string.length == 0
+    client_ip_address = @env.has_key?("HTTP_X_FORWARDED_FOR") ? @env["HTTP_X_FORWARDED_FOR"] : @env["REMOTE_ADDR"]
+    ips_string = '["' + client_ip_address + '"]'
+  end
   ips_list = ips_list_from_string(ips_string)
 
   output = ip2coordinates(ips_list)
