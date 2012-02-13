@@ -987,7 +987,7 @@ get '/ip2coordinates/:ips?' do
 
   callback = params[:callback]
   ips_string = params[:ips]
-  if !ips_string
+  if !ips_string or ips_string == '""'
     # This is a special case. If you pass in an empty string, use the IP address of the requesting
     # client, since javascript callers may not have access to it themselves.
     client_ip_address = @env.has_key?("HTTP_X_FORWARDED_FOR") ? @env["HTTP_X_FORWARDED_FOR"] : @env["REMOTE_ADDR"]
