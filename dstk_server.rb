@@ -489,8 +489,12 @@ def locations_list_from_string(locations_string, callback=nil)
   if first_character == '['
     list = JSON.parse(locations_string)
     result = []
-    list.each do |item|
-      result.push({ :latitude => item[0], :longitude => item[1]})
+    if (list.length == 2) and (list[0].is_a?(Numeric))
+      result.push({ :latitude => list[0], :longitude => list[1]})
+    else
+      list.each do |item|
+        result.push({ :latitude => item[0], :longitude => item[1]})
+      end
     end
   else
     coordinates = locations_string.split(',')
