@@ -632,3 +632,47 @@ $token_sequences = [
   [ :LOCATION_WORD, :REGION ], # Regions and cities are too common as words to use without additional evidence
   [ :LOCATION_WORD, :CITY ]
 ]
+
+if __FILE__ == $0
+
+  require 'json'
+
+  test_text = <<-TEXT
+Spain 
+Italy
+Bulgaria
+Foofofofof
+New Zealand
+Barcelona, Spain
+Wellington New Zealand
+I've been working on the railroad, all the live-long day! The quick brown fox jumped over the lazy dog in Alabama
+I'm mentioning Los Angeles here, but without California or CA right after it, it won't be detected. If I talk about living in Wisconsin on the other hand, that 'in' gives the algorithm extra evidence it's actually a location.
+It should still pick up more qualified names like Amman Jordan or Atlanta, Georgia though!
+Dallas, TX or New York, NY
+TEXT
+
+  puts "Analyzing '#{test_text}'"
+  puts "Found locations:"
+
+  locations = find_locations_in_text(test_text)  
+  locations.each_with_index do |location_info, index|
+    found_tokens = location_info[:found_tokens]
+    match_start_index = found_tokens[0][:start_index]
+    match_end_index = found_tokens[found_tokens.length-1][:end_index]
+    matched_string = test_text[match_start_index..match_end_index]
+    location = found_tokens[0]
+    result = {
+      'type' => location[:type],
+      'name' => location[:matched_string],
+      'latitude' => location[:lat].to_s,
+      'longitude' => location[:lon].to_s,
+      'start_index' => location[:start_index].to_s,
+      'end_index' => location[:end_index].to_s,
+      'matched_string' => matched_string,
+      'country' => location[:country_code],
+    }
+    puts result.to_json
+  end
+
+end
+
