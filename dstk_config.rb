@@ -51,4 +51,7 @@ module DSTKConfig
   # The home of the Boilerplate framework
   BOILERPIPE_FOLDER = '../boilerpipe/boilerpipe-core/'
 
+  # The location of the TIGER/Line database used by the US address geocoder
+  GEOCODER_DB_FILE = '../geocoderdata/geocoder2011.db'
+
 end

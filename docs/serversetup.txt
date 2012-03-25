@@ -166,13 +166,14 @@ psql -U postgres -d reversegeo -f sql/buildukindexes.sql
 
 // End of version 0.35
 (To start from snapshot, run
-ec2-run-instances ami-f6e11d9f -t m1.large -z us-east-1d
+ec2-run-instances ami-f6e11d9f -t m1.large -z us-east-1d --block-device-mapping /dev/sda1=:100:false
 )
+sudo resize2fs /dev/sda1
 
 sudo aptitude update
 sudo aptitude safe-upgrade -y
 sudo aptitude full-upgrade -y
-sudo aptitude install -y ncftp php5-cli
+sudo aptitude install -y ncftp lftp php5-cli
 
 cd ~/sources
 mkdir blsdata
@@ -194,6 +195,27 @@ mv la.data.2.AllStatesU states
 mv la.data.3.AllStatesS states
 rm -rf la.data.4.RegionDivisionU 
 rm -rf la.data.5.RegionDivisionS
+
+# Build the latest Tiger/Line data for US address lookups
+cd ~/sources
+mkdir tigerdata
+cd ~/sources/tigerdata
+lftp ftp2.census.gov:/geo/tiger/TIGER2011/EDGES
+mirror --parallel=5 .
+cd ../FEATNAMES
+mirror --parallel=5 .
+cd ../ADDR
+mirror --parallel=5 .
+exit
+cd ..
+rm -rf geocoder
+git clone git://github.com/geocommons/geocoder.git
+cd geocommons
+make
+sudo make install
+cd build
+./tiger_import ../../geocoderdata/geocoder2011.db ../../tigerdata/
+
 
 cd ~/sources/dstkdata
 git pull origin master

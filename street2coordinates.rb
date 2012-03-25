@@ -45,7 +45,7 @@ end
 def street2coordinates(addresses)
 
   if !$geocoder_db
-    $geocoder_db = Geocoder::US::Database.new('../geocoderdata/geocoder.db', {:debug => false})
+    $geocoder_db = Geocoder::US::Database.new(DSTKConfig::GEOCODER_DB_FILE, {:debug => false})
   end
 
   conn = PGconn.connect(DSTKConfig::HOST, DSTKConfig::PORT, '', '', DSTKConfig::REVERSE_GEO_DATABASE, DSTKConfig::USER, DSTKConfig::PASSWORD)
