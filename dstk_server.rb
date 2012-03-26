@@ -60,7 +60,7 @@ def make_json(hash, callback = nil)
   if callback
     result += callback+'('
   end
-  result += hash.to_json
+  result += JSON.pretty_generate(hash)
   if callback
     result += ');'
   end
@@ -1268,7 +1268,6 @@ get '/text2times/*' do
 end
 
 get '/maps/api/geocode/:format' do
-  callback = params[:callback]
   result = google_geocoder_api_call(params)
   make_json(result, callback)
 end
