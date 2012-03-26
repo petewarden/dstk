@@ -43,9 +43,17 @@
     API: 
     %a{:href=>"/developerdocs#street2coordinates"} /street2coordinates
     %br
-    Street Address to Location calculates the latitude/longitude coordinates for a postal address. 
+    Street Address to Location calculates the latitude/longitude coordinates for a postal address. Are you currently using Google's geocoding API and want to switch? Just replace maps.googleapis.com in your calls with the address of your own server running the DSTK, and your client code should work without changes. For example:
     %br
-    Currently restricted to the US and UK.
+    %a{:href=>"http://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=false"}
+      http://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=false
+    %br
+    just becomes
+    %br
+    %a{:href=>"http://www.datasciencetoolkit.org/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=false"}
+      http://www.datasciencetoolkit.org/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=false
+    %br
+    Currently only the US and UK have street-level detail.
     %br
 
   .tryip2coordinates{:style=>"margin-top:20px; font-size: 125%;"}
