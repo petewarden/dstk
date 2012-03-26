@@ -44,6 +44,3 @@ ${COMMAND} ${CURRENT_DIR}'/text2people' ${INSTALL_DIR}/
 
 rm -f ${INSTALL_DIR}/text2times
 ${COMMAND} ${CURRENT_DIR}'/text2times' ${INSTALL_DIR}/
-
-rm -f ${INSTALL_DIR}/coordinates2demographics
-${COMMAND} ${CURRENT_DIR}'/coordinates2demographics' ${INSTALL_DIR}/

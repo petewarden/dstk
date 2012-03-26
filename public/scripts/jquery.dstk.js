@@ -174,22 +174,6 @@ DSTK.prototype.text2times = function(text, callback) {
   this.makeTextCall(text, callback, 'text2times');
 };
 
-DSTK.prototype.coordinates2demographics = function(coordinates, callback) {
-
-  if (typeof coordinates.length == 'undefined') {
-    coordinates = [coordinates];
-  }
-
-  var apiUrl = this.apiBase+'/coordinates2demographics';
-  apiUrl += '/'+encodeURIComponent($.toJSON(coordinates));
-
-  $.ajax(apiUrl, {
-    success: callback,
-    dataType: 'jsonp',
-    crossDomain: true
-  });
-};
-
 DSTK.prototype.makeTextCall = function(text, callback, method) {
 
   var apiUrl = this.apiBase+'/'+method;

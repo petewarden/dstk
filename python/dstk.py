@@ -202,18 +202,6 @@ class DSTK:
     
     return response
 
-  def coordinates2demographics(self, coordinates):
-    
-    api_url = self.api_base+'/coordinates2demographics'
-    api_body = json.dumps(coordinates)
-    response_string = urllib.urlopen(api_url, api_body).read()
-    response = json.loads(response_string)
-    
-    if 'error' in response:
-      raise Exception(response['error'])
-    
-    return response
-
 # We need to post files as multipart form data, and Python has no native function for
 # that, so these utility functions implement what we need.
 # See http://code.activestate.com/recipes/146306/ 

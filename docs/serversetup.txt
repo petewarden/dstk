@@ -173,28 +173,7 @@ sudo resize2fs /dev/sda1
 sudo aptitude update
 sudo aptitude safe-upgrade -y
 sudo aptitude full-upgrade -y
-sudo aptitude install -y ncftp lftp php5-cli
-
-cd ~/sources
-mkdir blsdata
-cd blsdata
-ncftp ftp://ftp.bls.gov/pub/time.series/la/
-get la.area
-get la.data.1*
-get la.data.2*
-get la.data.3*
-get la.data.4*
-get la.data.5*
-get la.data.7*
-get la.data.8*
-get la.data.9*
-exit
-mkdir states
-mv la.data.1.CurrentS states
-mv la.data.2.AllStatesU states
-mv la.data.3.AllStatesS states
-rm -rf la.data.4.RegionDivisionU 
-rm -rf la.data.5.RegionDivisionS
+sudo aptitude install -y lftp php5-cli
 
 # Build the latest Tiger/Line data for US address lookups
 cd ~/sources
@@ -209,21 +188,30 @@ mirror --parallel=5 .
 exit
 cd ..
 rm -rf geocoder
+rm -rf geocoderdata/geocoder.db
 git clone git://github.com/geocommons/geocoder.git
 cd geocommons
 make
 sudo make install
 cd build
 ./tiger_import ../../geocoderdata/geocoder2011.db ../../tigerdata/
+cd ..
+bin/rebuild_metaphones ../geocoderdata/geocoder2011.db
+chmod +x build/build_indexes 
+build/build_indexes ../geocoderdata/geocoder2011.db
+rm -rf ../tigerdata
 
+cd ~/sources
+git clone git://github.com/luislavena/sqlite3-ruby.git
+cd sqlite3-ruby
+ruby setup.rb config
+ruby setup.rb setup
+sudo ruby setup.rb install
 
 cd ~/sources/dstkdata
 git pull origin master
 
 cd ~/sources/dstk
 git pull origin master
-php/createblatofips.php -f ../dstkdata/90s-fips.txt -b ../blsdata/la.area -o ../blsdata/blatofips.csv
-cat ../blsdata/la.data.* | php/unemploymenttocsv.php -o ../blsdata/county_percentages.csv -b ../blsdata/blatofips.csv
-psql -U postgres -d reversegeo -f sql/loadcountyunemployment.sql
 touch tmp/restart.txt
 

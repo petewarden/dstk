@@ -37,7 +37,6 @@ require File.join(cwd, 'text2people')
 require File.join(cwd, 'text2times')
 require File.join(cwd, 'street2coordinates')
 require File.join(cwd, 'coordinates2politics')
-require File.join(cwd, 'coordinates2demographics')
 
 enable :run
 
@@ -1086,53 +1085,6 @@ get '/coordinates2politics/*' do
     locations_list = locations_list_from_string(locations_string, callback)
 
     result = coordinates2politics(locations_list, callback)
-
-    make_json(result, callback)
-
-#  rescue
-#    fatal_error('coordinates2politics error: '+$!.inspect + $@.inspect, 'json', 500, callback)
-#  end
-
-end
-
-# The POST interface for the location to demographic information lookup
-post '/coordinates2demographics' do
-  begin
-    # Pull in the raw data in the body of the request
-    locations_string = request.env['rack.input'].read
-    
-    if !locations_string
-      fatal_error('You need to place the latitude/longitude coordinates as a JSON-encoded array inside the POST body', 
-        'json', 500, nil)
-    end
-
-    locations_list = locations_list_from_string(locations_string)
-
-    result = coordinates2demographics(locations_list)
-
-    make_json(result)
-
-  rescue
-    fatal_error('coordinates2demographics error: '+$!.inspect + $@.inspect, 'json', 500)
-  end
-
-end
-
-# The GET interface for the location to demographic information lookup
-get '/coordinates2demographics/*' do
-
-  callback = params[:callback]
-
-#  begin
-    locations_string = params['splat'][0]
-    if !locations_string
-      fatal_error('You need to place the latitude/longitude coordinates as a JSON-encoded array as part of the URL', 
-        'json', 500, callback)
-    end
-    
-    locations_list = locations_list_from_string(locations_string, callback)
-
-    result = coordinates2demographics(locations_list, callback)
 
     make_json(result, callback)
 
