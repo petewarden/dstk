@@ -1269,6 +1269,6 @@ end
 
 get '/maps/api/geocode/:format' do
   callback = params[:callback]
-  result = emulate_google_geocoder(params)
+  result = google_geocoder_api_call(params)
   make_json(results, callback)
 end
