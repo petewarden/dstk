@@ -68,7 +68,7 @@ def google_geocoder_api_call(params)
           address_components = [
             {
               'long_name' => location[:matched_string],
-              'short_name' => location[:code],
+              'short_name' => location[:code].strip,
               'types' => [ 'administrative_area_level_1', 'political' ],
             },
             {
