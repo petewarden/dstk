@@ -62,6 +62,21 @@ def google_geocoder_api_call(params)
               'types' => [ 'country', 'political' ],
             },
           ]
+        elsif type == :REGION
+          bounding_range = 1.0
+          type_name = 'administrative_area_level_1'
+          address_components = [
+            {
+              'long_name' => location[:matched_string],
+              'short_name' => location[:matched_string],
+              'types' => [ 'administrative_area_level_1', 'political' ],
+            },
+            {
+              'long_name' => location[:country_code],
+              'short_name' => location[:country_code],
+              'types' => [ 'country', 'political' ],
+            },
+          ]
         else
           bounding_range = 5.0
           type_name = 'country'
