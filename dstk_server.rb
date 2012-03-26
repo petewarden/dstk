@@ -1268,5 +1268,7 @@ get '/text2times/*' do
 end
 
 get '/maps/api/geocode/:format' do
-  emulate_google_geocoder(params)
+  callback = params[:callback]
+  result = emulate_google_geocoder(params)
+  make_json(results, callback)
 end
