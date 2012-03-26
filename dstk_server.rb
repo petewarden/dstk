@@ -1268,6 +1268,7 @@ get '/text2times/*' do
 end
 
 get '/maps/api/geocode/:format' do
+  callback = params[:callback]
   result = google_geocoder_api_call(params)
   make_json(result, callback)
 end
