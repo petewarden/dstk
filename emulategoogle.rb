@@ -36,7 +36,9 @@ def google_geocoder_api_call(params)
     found = street2coordinates([address])
     info = found[address]
     if !info
-      locations = find_locations_in_text('at '+address.capitalize)
+      capitalized_address = address.split(' ').select {|word| word.capitalize! || word }.join(' ')
+      location_string = 'at '+capitalized_address
+      locations = find_locations_in_text(location_string)
       locations.each_with_index do |location_info, index|
         found_tokens = location_info[:found_tokens]
         match_start_index = found_tokens[0][:start_index]

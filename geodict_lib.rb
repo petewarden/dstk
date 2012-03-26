@@ -351,11 +351,13 @@ def is_city(conn, text, text_starting_index, previous_result)
                                       
   lat = found_row['lat']
   lon = found_row['lon']
+  country_code = found_row['country'].downcase
                 
   current_result[:found_tokens].unshift( {
     :type => :CITY,
     :lat => lat,
     :lon => lon,
+    :country_code => country_code,
     :matched_string => current_word,
     :start_index => (current_index+1),
     :end_index => word_end_index 
@@ -458,12 +460,14 @@ def is_region(cursor, text, text_starting_index, previous_result)
 
   lat = found_row['lat']
   lon = found_row['lon']
+  country_code = found_row['country_code'].downcase
                 
   current_result[:found_tokens].unshift( {
     :type => :REGION,
     :code => region_code,
     :lat => lat,
     :lon => lon,
+    :country_code => country_code,
     :matched_string => current_word,
     :start_index => (current_index+1),
     :end_index=> word_end_index 
