@@ -92,7 +92,7 @@ def coordinates2politics(locations, callback=nil)
         
         end
         
-        # Look in the neighborhoods and unemployment tables if we're in the US
+        # Look in the neighborhoods table if we're in the US
         if country_code == 'usa'
           neighborhood_select = 'SELECT name,city,state FROM "neighborhoods_polygon" WHERE ST_DWithin('+point_string+', way, 0.0001);'
 

@@ -1,6 +1,6 @@
 /*
  * jQuery Data Science Toolkit Plugin
- * version: 0.35 (2011-04-17)
+ * version: 0.40 (2011-03-23)
  *
  * Example:
  *   var dstk = $.DSTK();

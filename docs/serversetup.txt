@@ -208,10 +208,9 @@ ruby setup.rb config
 ruby setup.rb setup
 sudo ruby setup.rb install
 
-cd ~/sources/dstkdata
-git pull origin master
 
 cd ~/sources/dstk
 git pull origin master
+./populate_database.rb
 touch tmp/restart.txt
 

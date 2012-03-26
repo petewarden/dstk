@@ -57,6 +57,7 @@
 		597D8E1213367B6F0042C251 /* dstk_server.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = dstk_server.rb; sourceTree = "<group>"; };
 		597D8E1313367BA40042C251 /* dstk_config.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = dstk_config.rb; sourceTree = "<group>"; };
 		59C2BE9713AFEE0700759133 /* test_text2places.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = test_text2places.py; sourceTree = "<group>"; };
+		59E3237B152013E8008D2635 /* emulategoogle.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = emulategoogle.rb; sourceTree = "<group>"; };
 		59F0A27213455C8800098746 /* test_text2times.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = test_text2times.py; sourceTree = "<group>"; };
 		59F0A27313455E6F00098746 /* text2times */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = text2times; path = python/text2times; sourceTree = "<group>"; };
 		59F0A286134E961F00098746 /* loadukpostcodes.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = loadukpostcodes.sql; sourceTree = "<group>"; };
@@ -75,6 +76,7 @@
 				5950FA5D14E51EA600361BF2 /* docs */,
 				597D8E1313367BA40042C251 /* dstk_config.rb */,
 				597D8E1213367B6F0042C251 /* dstk_server.rb */,
+				59E3237B152013E8008D2635 /* emulategoogle.rb */,
 				5929E11013243ECB00B81D2E /* Gemfile */,
 				597D8CC7133548CD0042C251 /* genderfromname.rb */,
 				5929E11913243F0400B81D2E /* geodict_cli.rb */,

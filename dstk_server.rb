@@ -37,6 +37,7 @@ require File.join(cwd, 'text2people')
 require File.join(cwd, 'text2times')
 require File.join(cwd, 'street2coordinates')
 require File.join(cwd, 'coordinates2politics')
+require File.join(cwd, 'emulategoogle')
 
 enable :run
 
@@ -1264,4 +1265,8 @@ get '/text2times/*' do
   results = text2times(text)
 
   make_json(results, callback)
+end
+
+get '/maps/api/geocode/:format' do
+  emulate_google_geocoder(params)
 end
