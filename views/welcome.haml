@@ -43,20 +43,12 @@
     API: 
     %a{:href=>"/developerdocs#street2coordinates"} /street2coordinates
     %br
-    Street Address to Location calculates the latitude/longitude coordinates for a postal address. Are you currently using Google's geocoding API and want to switch? Just replace maps.googleapis.com in your calls with the address of your own server running the DSTK, and your client code should work without changes. For example:
-    %br
-    %a{:href=>"http://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=false"}
-      http://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=false
-    %br
-    just becomes
-    %br
-    %a{:href=>"http://www.datasciencetoolkit.org/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=false"}
-      http://www.datasciencetoolkit.org/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=false
+    Street Address to Location calculates the latitude/longitude coordinates for a postal address.
     %br
     Currently only the US and UK have street-level detail.
     %br
 
-  .tryip2coordinates{:style=>"margin-top:20px; font-size: 125%;"}
+  .trystreet2coordinates{:style=>"margin-top:20px; font-size: 125%;"}
     Try it for yourself. Copy and paste some addresses into the box below to see what locations it finds.
 
   %textarea#street2coordinatestext{:style=>"width: 600px; margin-top: 10px; float: left;"}
@@ -68,6 +60,39 @@
     %input#uploadstreet2coordinatestext.button{:type=>"submit", :value=>"Locate Addresses", :style=>"width:150px; height:35px; font-size: 125%;"}
   
   #street2coordinatesresults{:style=>"margin-top:30px;"}  
+
+  %div{:style=>"margin-top:20px; font-size: 125%;"}
+    %h3 Google-style Geocoder
+    API: 
+    %a{:href=>"/developerdocs#googlestylegeocoder"} /maps/api/geocode/json
+    %br
+    Are you currently using Google's geocoding API and want to switch? Replace maps.googleapis.com with the address of a DSTK server and your code should work without changes. For example:
+    %br
+    %a{:href=>"http://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=1600+Amphitheatre+Parkway,+Mountain+View,+CA"}
+      http://maps.googleapis.com/maps/api/geocode/json?sensor=false
+      %br
+      &address=1600+Amphitheatre+Parkway,+Mountain+View,+CA
+    %br
+    just becomes
+    %br
+    %a{:href=>"http://www.datasciencetoolkit.org/maps/api/geocode/json?sensor=false&address=1600+Amphitheatre+Parkway,+Mountain+View,+CA"}
+      http://www.datasciencetoolkit.org/maps/api/geocode/json?sensor=false
+      %br
+      &address=1600+Amphitheatre+Parkway,+Mountain+View,+CA
+    %br
+    Reverse geocoding is not supported through this interface, but 
+    %a{:href=>"/developerdocs#coordinates2politics"}coordinates2politics
+    may be useful as an open alternative. XML output is not supported, only JSON and JSONP.
+
+  .trygooglestylegeocoder{:style=>"margin-top:20px; font-size: 125%;"}
+    Try it for yourself. Enter an address into the box below to see what locations it finds.
+
+  %form#googlestylegeocoderform
+    %input#googlestylegeocodertext{:style=>"width: 600px; margin-top: 10px; float: left;", :value=>"1600 Amphitheatre Parkway, Mountain View, CA"}
+    
+    %input#uploadgooglestylegeocodertext.button{:type=>"submit", :value=>"Locate Addresses", :style=>"width:150px; height:35px; font-size: 125%;"}
+
+  #googlestylegeocoderresults{:style=>"margin-top:30px;"}  
 
   %div{:style=>"margin-top:20px; font-size: 125%;"}
     %h3 File to Text
@@ -438,6 +463,32 @@
           
           $('#street2coordinatesresults').append($(html));
         }
+      });
+    
+      return false;
+    });
+
+    // Handle the Google-style geocoder test console
+    $('#googlestylegeocoderform').submit(function() {
+      var text = $('#googlestylegeocodertext').val();
+      if (text.length<1) {
+        $('#googlestylegeocoderresults').html("No text found in input box.");
+        return false;
+      }
+
+      dstk.googlestylegeocoder(text, function(result) {
+      
+        if ((typeof result['results'] === 'undefined') ||
+            (result['results'].length == 0)) {
+          $('#googlestylegeocoderresults')
+          .text('No results found');
+          return;
+        }
+
+        $('#googlestylegeocoderresults').empty()
+        
+        var jsonString = $.toJSON(result['results']);
+        $('#googlestylegeocoderresults').text(jsonString);
       });
     
       return false;

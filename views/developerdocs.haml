@@ -32,6 +32,9 @@
     %a{:href=>"#street2coordinates"} Street Address to Coordinates
     %br
     &nbsp;&nbsp;&nbsp;&nbsp;
+    %a{:href=>"#googlestylegeocoder"} Google-style geocoder
+    %br
+    &nbsp;&nbsp;&nbsp;&nbsp;
     %a{:href=>"#coordinates2politics"} Coordinates to Politics
     %br
     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -352,6 +355,54 @@
       
       This API uses data from the US Census and <a href="http://www.openstreetmap.org">OpenStreetMap</a>, along with code from <a href="http://www.geoiq.com/">GeoIQ</a> and[Schuyler Erle](https://github.com/geocommons/geocoder).
 
+    %a{:name=>"googlestylegeocoder"}
+    :markdown
+      #### Google-style geocoder
+      
+      This emulates <a href="https://developers.google.com/maps/documentation/geocoding/">Google's geocoding API</a>. It's designed to take the same arguments and return the same data structure as their service, to make it easy to port existing code. It's very similar in functionality to <a href="#street2coordinates">street2coordinates</a>, taking a string representing a place or address, and converting it into structured data about the position of that location.
+      Here's an example:
+      <hr>
+      `curl "http://www.datasciencetoolkit.org/maps/api/geocode/json?sensor=false&address=1600+Amphitheatre+Parkway,+Mountain+View,+CA"`
+      
+      `{"results": [{`
+      
+      `"types": ["street_address"],`
+      
+      `"formatted_address": "1600 Amphitheatre Parkway, Mountain View, CA",`
+      
+      `"geometry": {`
+      
+      `  "location": {"lat": 37.42382, "lng": -122.08999},`
+      
+      `      "location_type": "ROOFTOP",`
+      
+      `      "viewport": {`
+      
+      `        "southwest": {"lat": 37.42282, "lng": -122.09099},`
+      
+      `        "northeast": {"lat": 37.42482, "lng": -122.08899} }},`
+      
+      `"address_components":[{"types": ["street_number"],"long_name": "1600","short_name": "1600"},`
+      
+      `  {"types": ["route"],"long_name": "Amphitheatre Pkwy","short_name": "Amphitheatre Pkwy"},`
+      
+      `  {"types": ["locality","political"],"long_name": "Mountain View","short_name": "Mountain View"},`
+      
+      `  {"types": ["administrative_area_level_1","political"],"long_name": "CA","short_name": "CA"},`
+      
+      `  {"types": ["country","political"],"long_name": "United States","short_name": "US"}]}],`
+      
+      `"status": "OK"}`
+
+      <hr>
+
+      To call the API, you can make a GET request to `/maps/api/geocode/json`. You pass in the address you're querying for as a parameter in the URL as shown above. Other parameters that Google requires (like sensor or your API key) are accepted but ignored.
+
+      You can pass in a callback parameter in the URL, making it possible to run this as a JSONP cross-domain request. You can see this method in action if you view source on the home page of this server.
+      
+      Reverse geocoding (getting information about what's located at particular coordinates) and XML output formats are not supported.
+      
+      This API uses data from the US Census and <a href="http://www.openstreetmap.org">OpenStreetMap</a>, along with code from <a href="http://www.geoiq.com/">GeoIQ</a> and[Schuyler Erle](https://github.com/geocommons/geocoder).
 
     %a{:name=>"coordinates2politics"}
     :markdown

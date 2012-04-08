@@ -208,9 +208,12 @@ ruby setup.rb config
 ruby setup.rb setup
 sudo ruby setup.rb install
 
-
 cd ~/sources/dstk
 git pull origin master
 ./populate_database.rb
 touch tmp/restart.txt
 
+# Fix for postgres crashes, 
+sudo sed -i "s/shared_buffers = [0-9A-Za-z]*/shared_buffers = 512MB/" /etc/postgresql/8.4/main/postgresql.conf
+sudo sysctl -w kernel.shmmax=556870912
+sudo /etc/init.d/postgresql-8.4 restart

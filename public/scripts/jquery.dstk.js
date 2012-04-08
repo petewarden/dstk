@@ -174,6 +174,16 @@ DSTK.prototype.text2times = function(text, callback) {
   this.makeTextCall(text, callback, 'text2times');
 };
 
+DSTK.prototype.googlestylegeocoder = function(address, callback) {
+  var apiUrl = this.apiBase+'/maps/api/geocode/json';
+  apiUrl += '?address='+encodeURIComponent(address);
+  $.ajax(apiUrl, {
+    success: callback,
+    dataType: 'jsonp',
+    crossDomain: true
+  });
+};
+
 DSTK.prototype.makeTextCall = function(text, callback, method) {
 
   var apiUrl = this.apiBase+'/'+method;
