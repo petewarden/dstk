@@ -34,9 +34,11 @@ sudo bundle install
 sudo gem install passenger
 sudo passenger-install-apache2-module
 
-sudo bash -c 'echo "LoadModule passenger_module /usr/lib/ruby/gems/1.8/gems/passenger-3.0.4/ext/apache2/mod_passenger.so" > /etc/apache2/mods-enabled/passenger.load'
-sudo bash -c 'echo "PassengerRoot /usr/lib/ruby/gems/1.8/gems/passenger-3.0.4" > /etc/apache2/mods-enabled/passenger.conf'
+sudo bash -c 'echo "LoadModule passenger_module /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11/ext/apache2/mod_passenger.so" > /etc/apache2/mods-enabled/passenger.load'
+sudo bash -c 'echo "PassengerRoot /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11" > /etc/apache2/mods-enabled/passenger.conf'
 sudo bash -c 'echo "PassengerRuby /usr/bin/ruby1.8" >> /etc/apache2/mods-enabled/passenger.conf'
+
+[vagrant - sudo ln -s /home/vagrant /home/ubuntu]
 
 sudo bash -c 'echo "
   <VirtualHost *:80>
@@ -57,6 +59,9 @@ sudo ln -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/re
 
 sudo /etc/init.d/apache2 restart
 
+[vagrant - sudo gem install postgres -v '0.7.9.2008.01.28']
+[vagrant - sudo gem uninstall postgres -v '>0.7.9.2008.01.28']
+
 ./populate_database.rb
 
 // End of version 1.00
@@ -72,7 +77,7 @@ wget "http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz"
 gunzip GeoLiteCity.dat.gz
 wget "http://geolite.maxmind.com/download/geoip/api/c/GeoIP.tar.gz"
 tar xzvf GeoIP.tar.gz
-cd GeoIP-1.4.6/
+cd GeoIP-1.4.8/
 ./configure
 make
 sudo make install
@@ -166,7 +171,7 @@ psql -U postgres -d reversegeo -f sql/buildukindexes.sql
 
 // End of version 0.35
 (To start from snapshot, run
-ec2-run-instances ami-f6e11d9f -t m1.large -z us-east-1d --block-device-mapping /dev/sda1=:100:false
+ec2-run-instances ami-f6e11d9f -t m1.large -z us-east-1d --block-device-mapping /dev/sda1=:32:false
 )
 sudo resize2fs /dev/sda1
 
@@ -174,6 +179,12 @@ sudo aptitude update
 sudo aptitude safe-upgrade -y
 sudo aptitude full-upgrade -y
 sudo aptitude install -y lftp php5-cli
+
+rm -rf geocoder
+git clone git://github.com/geocommons/geocoder.git
+cd geocoder
+make
+sudo make install
 
 # Build the latest Tiger/Line data for US address lookups
 cd ~/sources
@@ -187,19 +198,15 @@ cd ../ADDR
 mirror --parallel=5 .
 exit
 cd ..
-rm -rf geocoder
 rm -rf geocoderdata/geocoder.db
-git clone git://github.com/geocommons/geocoder.git
-cd geocommons
-make
-sudo make install
-cd build
+cd geocoder/build
 ./tiger_import ../../geocoderdata/geocoder2011.db ../../tigerdata/
 cd ..
 bin/rebuild_metaphones ../geocoderdata/geocoder2011.db
 chmod +x build/build_indexes 
 build/build_indexes ../geocoderdata/geocoder2011.db
 rm -rf ../tigerdata
+
 
 cd ~/sources
 git clone git://github.com/luislavena/sqlite3-ruby.git
@@ -216,4 +223,5 @@ touch tmp/restart.txt
 # Fix for postgres crashes, 
 sudo sed -i "s/shared_buffers = [0-9A-Za-z]*/shared_buffers = 512MB/" /etc/postgresql/8.4/main/postgresql.conf
 sudo sysctl -w kernel.shmmax=556870912
+sudo bash -c 'echo "kernel.shmmax=556870912" >> /etc/sysctl.conf'
 sudo /etc/init.d/postgresql-8.4 restart
