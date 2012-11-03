@@ -225,3 +225,11 @@ sudo sed -i "s/shared_buffers = [0-9A-Za-z]*/shared_buffers = 512MB/" /etc/postg
 sudo sysctl -w kernel.shmmax=556870912
 sudo bash -c 'echo "kernel.shmmax=556870912" >> /etc/sysctl.conf'
 sudo /etc/init.d/postgresql-8.4 restart
+
+// End of version 0.40
+
+sudo bash -c 'echo "vm.overcommit_memory=2" >> /etc/sysctl.conf'
+
+sudo nano /etc/postgresql/8.4/main/
+max_connections = 200
+

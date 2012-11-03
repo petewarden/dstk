@@ -45,13 +45,23 @@ def coordinates2politics(locations, callback=nil)
     lat = location[:latitude]
     lon = location[:longitude]
     
-    point_string = 'setsrid(makepoint('+PGconn.escape(lon.to_s)+', '+PGconn.escape(lat.to_s)+'), 4326)'
-
-    country_select = 'SELECT name,country_code FROM "world_countries_polygon" WHERE ST_DWithin('+point_string+', way, 0.1);'
-
-    country_hashes = select_as_hashes(conn, country_select)
-
-    if !country_hashes or country_hashes.length == 0
+    lat_s = PGconn.escape(lat.to_s)
+    lon_s = PGconn.escape(lon.to_s)
+    
+    if !lat_s or lat_s.length == 0 or !lon_s or lon_s.length == 0
+      is_valid = false
+    end
+    
+    if is_valid
+      point_string = 'setsrid(makepoint(' + lon_s + ', ' + lat_s +'), 4326)'
+      country_select = 'SELECT name,country_code FROM "world_countries_polygon" WHERE ST_DWithin('+point_string+', way, 0.1);'
+      country_hashes = select_as_hashes(conn, country_select)
+      if !country_hashes or country_hashes.length == 0
+        is_valid = false
+      end
+    end
+    
+    if !is_valid
       output = nil
     else
     
@@ -193,7 +203,7 @@ end
 
 if __FILE__ == $0
   
-  locations = [ {:latitude => 37.769456, :longitude => -122.429128} ]
+  locations = [ {:latitude => "37.769456", :longitude => "-122.429128"} ]
   $stderr.puts "locations=#{JSON.pretty_generate(locations)}"
   politics = coordinates2politics(locations)
   $stderr.puts "politics=#{JSON.pretty_generate(politics)}"
