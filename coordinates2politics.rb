@@ -48,11 +48,11 @@ def coordinates2politics(locations, callback=nil)
     lat_s = PGconn.escape(lat.to_s)
     lon_s = PGconn.escape(lon.to_s)
     
+    is_valid = true
     if !lat_s or lat_s.length == 0 or !lon_s or lon_s.length == 0
       is_valid = false
     end
     
-    is_valid = true
     if is_valid
       point_string = 'setsrid(makepoint(' + lon_s + ', ' + lat_s +'), 4326)'
       country_select = 'SELECT name,country_code FROM "world_countries_polygon" WHERE ST_DWithin('+point_string+', way, 0.1);'
