@@ -33,11 +33,32 @@ TypeToFriendly = {
   'admin8' => 'city'  
 }
 
+def get_reverse_geo_db_connection
+  if !Thread.current['reverse_geo_db_connection']
+    Thread.current['reverse_geo_db_connection'] = PGconn.connect(DSTKConfig::HOST,
+      DSTKConfig::PORT,
+      '',
+      '',
+      DSTKConfig::REVERSE_GEO_DATABASE,
+      DSTKConfig::USER,
+      DSTKConfig::PASSWORD)
+  end
+  Thread.current['reverse_geo_db_connection']
+end
+
+def close_analytics_db_connection
+  if Thread.current['reverse_geo_db_connection']
+    Thread.current['reverse_geo_db_connection'].close
+    Thread.current['reverse_geo_db_connection'] = nil
+  end
+end
+
+
 # Takes an array of coordinates as input, and looks up what political areas they lie
 # within
 def coordinates2politics(locations, callback=nil)
 
-  conn = PGconn.connect(DSTKConfig::HOST, DSTKConfig::PORT, '', '', DSTKConfig::REVERSE_GEO_DATABASE, DSTKConfig::USER, DSTKConfig::PASSWORD)
+  conn = get_reverse_geo_db_connection
 
   result = []
   locations.each do |location|
