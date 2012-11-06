@@ -502,20 +502,17 @@ end
 # Utility functions
 
 def get_database_connection
-
-#  begin
-    conn = PGconn.connect(DSTKConfig::HOST, DSTKConfig::PORT, '', '', DSTKConfig::DATABASE, DSTKConfig::USER, DSTKConfig::PASSWORD)
-    if $DEBUG
-      fd = open("/tmp/trace.out","w")
-      conn.trace(fd)
-    end 
-#  rescue PGError
-#    printf(STDERR, "Error connecting to database\n")
-#    exit(1)
-#  end  
-
-  return conn
-
+  if !Thread.current['geodict_db_connection']
+    Thread.current['geodict_db_connection'] = PGconn.connect(
+      DSTKConfig::HOST,
+      DSTKConfig::PORT,
+      '',
+      '',
+      DSTKConfig::DATABASE,
+      DSTKConfig::USER,
+      DSTKConfig::PASSWORD)
+  end
+  Thread.current['geodict_db_connection']
 end
 
 # Characters to ignore when pulling out words
