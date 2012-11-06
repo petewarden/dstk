@@ -609,6 +609,25 @@ def select_as_hashes(conn, select)
 
 end
 
+def get_reverse_geo_db_connection
+  if !Thread.current['reverse_geo_db_connection']
+    Thread.current['reverse_geo_db_connection'] = PGconn.connect(DSTKConfig::HOST,
+      DSTKConfig::PORT,
+      '',
+      '',
+      DSTKConfig::REVERSE_GEO_DATABASE,
+      DSTKConfig::USER,
+      DSTKConfig::PASSWORD)
+  end
+  Thread.current['reverse_geo_db_connection']
+end
+
+def close_analytics_db_connection
+  if Thread.current['reverse_geo_db_connection']
+    Thread.current['reverse_geo_db_connection'].close
+    Thread.current['reverse_geo_db_connection'] = nil
+  end
+end
 
 # Types of locations we'll be looking for
 $token_definitions = {

@@ -48,7 +48,7 @@ def street2coordinates(addresses)
     $geocoder_db = Geocoder::US::Database.new(DSTKConfig::GEOCODER_DB_FILE, {:debug => false})
   end
 
-  conn = PGconn.connect(DSTKConfig::HOST, DSTKConfig::PORT, '', '', DSTKConfig::REVERSE_GEO_DATABASE, DSTKConfig::USER, DSTKConfig::PASSWORD)
+  conn = get_reverse_geo_db_connection
 
   default_country = guess_top_country_for_list(addresses)
 
