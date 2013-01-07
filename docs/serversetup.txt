@@ -179,6 +179,14 @@ sudo aptitude update
 sudo aptitude safe-upgrade -y
 sudo aptitude full-upgrade -y
 sudo aptitude install -y lftp php5-cli
+# If the lftp package won't install, try building from source:
+#sudo aptitude install gnutls
+#curl -O "http://ftp.yar.ru/pub/source/lftp/lftp-4.4.0.tar.gz"
+#tar xzf lftp-4.4.0.tar.gz
+#cd lftp-4.4.0/
+#./configure
+#make
+#sudo make install
 
 rm -rf geocoder
 git clone git://github.com/geocommons/geocoder.git
