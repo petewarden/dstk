@@ -45,7 +45,17 @@ end
 def street2coordinates(addresses)
 
   if !$geocoder_db
-    $geocoder_db = Geocoder::US::Database.new(DSTKConfig::GEOCODER_DB_FILE, {:debug => false})
+    db_file = nil
+    DSTKConfig::GEOCODER_DB_FILES.each do |file|
+      if File.exists(file)
+        db_file = file
+        break
+      end
+    end
+    if !db_file
+      raise "street2coordinates(): Couldn't find any geocoder database files"
+    end
+    $geocoder_db = Geocoder::US::Database.new(db_file, {:debug => false})
   end
 
   conn = get_reverse_geo_db_connection

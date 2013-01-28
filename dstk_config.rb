@@ -52,6 +52,7 @@ module DSTKConfig
   BOILERPIPE_FOLDER = '../boilerpipe/boilerpipe-core/'
 
   # The location of the TIGER/Line database used by the US address geocoder
-  GEOCODER_DB_FILE = '../geocoderdata/geocoder2012.db'
+  # For backwards compatibility, look for any of these versions, starting with the first
+  GEOCODER_DB_FILES = ['../geocoderdata/geocoder2012.db', '../geocoderdata/geocoder2011.db']
 
 end
