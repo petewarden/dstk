@@ -574,6 +574,16 @@
 
     %a{:name=>"vagrant"}
     :markdown
-      [Vagrant](http://www.vagrantup.com/) is a free and easy way to run VMs on your local machine. Once you've [set up the base software](http://docs.vagrantup.com/v1/docs/getting-started/index.html), you can run */vagrant box add dstk http://static.datasciencetoolkit.org/dstk_0.41.box/* to download the DSTK image. The VM is almost 5GB, because of the large amount of geographical data included locally, so you'll need a good connection. Then create a new directory, run */vagrant init/* and then /*vagrant up*/ and you should have a local copy of the toolkit accessible at http://localhost:8080.
+      [Vagrant](http://www.vagrantup.com/) is a free and easy way to run VMs on your local machine. Once you've [set up the base software](http://docs.vagrantup.com/v1/docs/getting-started/index.html), you can run
+      
+      `vagrant box add dstk http://static.datasciencetoolkit.org/dstk_0.41.box`
+        
+      to download the DSTK image. The VM is almost 5GB, because of the large amount of geographical data included locally, so you'll need a good connection. Then create a new directory, run 
+      
+      `vagrant init`
+      
+      `vagrant up`
+      
+      and you should have a local copy of the toolkit accessible at http://localhost:8080.
 
       If you want to roll your own server from source on an in-house machine, or on another hosting provider, docs/ec2setup.txt in the [github repository](http://github.com/petewarden/dstk) contains instructions on the exact steps I took to create that image starting from a clean Ubuntu 12.04 installation.
