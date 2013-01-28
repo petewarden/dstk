@@ -28,7 +28,6 @@
 		5929E30C1329AD7900B81D2E /* developerdocs.haml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = developerdocs.haml; sourceTree = "<group>"; wrapsLines = 1; };
 		5950FA5E14E51EA600361BF2 /* amicreation.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = amicreation.txt; sourceTree = "<group>"; };
 		5950FA5F14E51EA600361BF2 /* downloadcensus.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = downloadcensus.txt; sourceTree = "<group>"; };
-		5950FA6014E51EA600361BF2 /* serversetup.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = serversetup.txt; sourceTree = "<group>"; };
 		5950FA6214E5254100361BF2 /* createblatofips.php */ = {isa = PBXFileReference; lastKnownFileType = text.script.php; path = createblatofips.php; sourceTree = "<group>"; };
 		5950FA6314E5254100361BF2 /* unemploymenttocsv.php */ = {isa = PBXFileReference; lastKnownFileType = text.script.php; path = unemploymenttocsv.php; sourceTree = "<group>"; };
 		5950FA6414E525A700361BF2 /* cliargs.php */ = {isa = PBXFileReference; lastKnownFileType = text.script.php; path = cliargs.php; sourceTree = "<group>"; };
@@ -56,6 +55,8 @@
 		597D8CF613357A260042C251 /* text2people */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = text2people; path = python/text2people; sourceTree = "<group>"; };
 		597D8E1213367B6F0042C251 /* dstk_server.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = dstk_server.rb; sourceTree = "<group>"; };
 		597D8E1313367BA40042C251 /* dstk_config.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = dstk_config.rb; sourceTree = "<group>"; };
+		59B8B61516B48B6C00AD55FC /* vagrantsetup.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = vagrantsetup.txt; sourceTree = "<group>"; };
+		59B8B61616B65D4600AD55FC /* ec2setup.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ec2setup.txt; sourceTree = "<group>"; };
 		59C2BE9713AFEE0700759133 /* test_text2places.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = test_text2places.py; sourceTree = "<group>"; };
 		59E3237B152013E8008D2635 /* emulategoogle.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = emulategoogle.rb; sourceTree = "<group>"; };
 		59F0A27213455C8800098746 /* test_text2times.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = test_text2times.py; sourceTree = "<group>"; };
@@ -162,7 +163,8 @@
 			children = (
 				5950FA5E14E51EA600361BF2 /* amicreation.txt */,
 				5950FA5F14E51EA600361BF2 /* downloadcensus.txt */,
-				5950FA6014E51EA600361BF2 /* serversetup.txt */,
+				59B8B61616B65D4600AD55FC /* ec2setup.txt */,
+				59B8B61516B48B6C00AD55FC /* vagrantsetup.txt */,
 			);
 			path = docs;
 			sourceTree = "<group>";

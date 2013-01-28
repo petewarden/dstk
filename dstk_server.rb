@@ -22,11 +22,17 @@ require 'sinatra'
 require 'json'
 require 'net/geoip'
 require 'postgres'
-require 'active_support/secure_random'
 require 'hpricot'
 require 'htmlentities'
 require 'tempfile'
 require 'csv'
+# Rails deprecated the old ActiveSupport secure_random, so fall back to the
+# standard library version if it's not present
+begin
+  require 'active_support/secure_random'
+rescue LoadError
+  require 'securerandom'
+end
 
 # Some hackiness to include the library script, even if invoked from another directory
 cwd = File.expand_path(File.dirname(__FILE__))

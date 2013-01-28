@@ -1,0 +1,164 @@
+Start with AMI # ami-3fec7956 (Ubuntu 12.04), 32GB
+(ec2-run-instances ami-3fec7956 -t m1.large --region us-east-1 -z us-east-1d --block-device-mapping /dev/sda1=:32:false)
+
+sudo aptitude update
+sudo aptitude safe-upgrade -y
+sudo aptitude full-upgrade -y
+sudo aptitude install -y build-essential apache2 apache2.2-common apache2-mpm-prefork apache2-utils libexpat1 ssl-cert postgresql libpq-dev ruby1.8-dev ruby1.8 ri1.8 rdoc1.8 irb1.8 libreadline-ruby1.8 libruby1.8 libopenssl-ruby sqlite3 libsqlite3-ruby1.8 git-core libcurl4-openssl-dev apache2-prefork-dev libapr1-dev libaprutil1-dev subversion postgresql-9.1-postgis autoconf libtool libxml2-dev libbz2-1.0 libbz2-dev libgeos-dev proj-bin libproj-dev ocropus pdftohtml catdoc unzip ant openjdk-6-jdk lftp php5-cli rubygems flex
+
+sudo sed -i "s/ident/trust/" /etc/postgresql/9.1/main/pg_hba.conf
+sudo sed -i "s/md5/trust/" /etc/postgresql/9.1/main/pg_hba.conf
+sudo sed -i "s/peer/trust/" /etc/postgresql/9.1/main/pg_hba.conf
+sudo /etc/init.d/postgresql restart
+createdb -U postgres geodict
+
+mkdir ~/sources
+cd ~/sources
+git clone git://github.com/petewarden/dstk.git
+git clone git://github.com/petewarden/dstkdata.git
+cd dstk
+sudo gem install bundler
+sudo bundle install
+
+sudo gem install passenger
+sudo passenger-install-apache2-module
+
+sudo bash -c 'echo "LoadModule passenger_module /var/lib/gems/1.8/gems/passenger-3.0.19/ext/apache2/mod_passenger.so"  > /etc/apache2/mods-enabled/passenger.load'
+sudo bash -c 'echo "PassengerRoot /var/lib/gems/1.8/gems/passenger-3.0.19" > /etc/apache2/mods-enabled/passenger.conf'
+sudo bash -c 'echo "PassengerRuby /usr/bin/ruby1.8" >> /etc/apache2/mods-enabled/passenger.conf'
+
+sudo bash -c 'echo "
+  <VirtualHost *:80>
+      ServerName www.yourhost.com
+      DocumentRoot /home/ubuntu/sources/dstk/public
+      RewriteEngine On
+      RewriteCond %{HTTP_HOST} ^datasciencetoolkit.org$ [NC]
+      RewriteRule ^(.*)$ http://www.datasciencetoolkit.org$1 [R=301,L]
+      RewriteCond %{HTTP_HOST} ^datasciencetoolkit.com$ [NC]
+      RewriteRule ^(.*)$ http://www.datasciencetoolkit.com$1 [R=301,L]
+      <Directory /home/ubuntu/sources/dstk/public>
+         AllowOverride all
+         Options -MultiViews
+      </Directory>
+   </VirtualHost>
+" > /etc/apache2/sites-enabled/000-default'
+sudo ln -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/rewrite.load
+
+sudo /etc/init.d/apache2 restart
+
+sudo gem install postgres -v '0.7.9.2008.01.28'
+sudo gem uninstall postgres -v '>0.7.9.2008.01.28'
+
+./populate_database.rb
+
+cd ~/sources
+mkdir maxmind
+cd maxmind
+wget "http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz"
+gunzip GeoLiteCity.dat.gz
+wget "http://geolite.maxmind.com/download/geoip/api/c/GeoIP.tar.gz"
+tar xzvf GeoIP.tar.gz
+cd GeoIP-1.4.8/
+libtoolize -f
+./configure
+make
+sudo make install
+cd ..
+svn checkout svn://rubyforge.org/var/svn/net-geoip/trunk net-geoip
+cd net-geoip/
+ruby ext/extconf.rb 
+make
+sudo make install
+
+cd ~/sources
+wget http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.11.tar.gz
+tar -xvzf libiconv-1.11.tar.gz
+cd libiconv-1.11
+./configure --prefix=/usr/local/libiconv
+make
+sudo make install
+sudo ln -s /usr/local/libiconv/lib/libiconv.so.2 /usr/lib/libiconv.so.2
+
+createdb -U postgres postgis_template
+createlang -U postgres plpgsql postgis_template
+psql -U postgres -d postgis_template -f /usr/share/postgresql/9.1/contrib/postgis-1.5/postgis.sql
+psql -U postgres -d postgis_template -f /usr/share/postgresql/9.1/contrib/postgis-1.5/spatial_ref_sys.sql
+psql -U postgres -d postgis_template -f /usr/share/postgresql/9.1/contrib/postgis_comments.sql
+createdb -U postgres -T postgis_template reversegeo
+
+cd ~/sources
+git clone git://github.com/petewarden/osm2pgsql
+cd osm2pgsql/
+./autogen.sh
+sed -i 's/version = BZ2_bzlibVersion();//' configure
+sed -i 's/version = zlibVersion();//' configure
+./configure
+make
+sudo make install
+cd ..
+
+osm2pgsql -U postgres -d reversegeo -p world_countries -S osm2pgsql/styles/world_countries.style dstkdata/world_countries.osm -l
+osm2pgsql -U postgres -d reversegeo -p admin_areas -S osm2pgsql/styles/admin_areas.style dstkdata/admin_areas.osm -l
+osm2pgsql -U postgres -d reversegeo -p neighborhoods -S osm2pgsql/styles/neighborhoods.style dstkdata/neighborhoods.osm -l
+
+cd ~/sources
+git clone git://github.com/petewarden/boilerpipe
+cd boilerpipe/boilerpipe-core/
+ant
+cd src
+javac -cp ../dist/boilerpipe-1.1-dev.jar boilerpipe.java
+
+cd ~/sources/dstk/
+psql -U postgres -d reversegeo -f sql/loadukpostcodes.sql
+
+osm2pgsql -U postgres -d reversegeo -p uk_osm -S ../osm2pgsql/default.style ../dstkdata/uk_osm.osm.bz2 -l
+
+psql -U postgres -d reversegeo -f sql/buildukindexes.sql
+
+cd ~/sources
+git clone git://github.com/geocommons/geocoder.git
+cd geocoder
+make
+sudo make install
+
+# Build the latest Tiger/Line data for US address lookups
+cd ~/sources
+mkdir tigerdata
+cd ~/sources/tigerdata
+lftp ftp2.census.gov:/geo/tiger/TIGER2012/EDGES
+mirror --parallel=5 .
+cd ../FEATNAMES
+mirror --parallel=5 .
+cd ../ADDR
+mirror --parallel=5 .
+exit
+cd ..
+cd geocoder/build
+mkdir ../../geocoderdata/
+./tiger_import ../../geocoderdata/geocoder2012.db ../../tigerdata/
+cd ..
+bin/rebuild_metaphones ../geocoderdata/geocoder2012.db
+chmod +x build/build_indexes 
+build/build_indexes ../geocoderdata/geocoder2012.db
+
+cd ~/sources
+git clone git://github.com/luislavena/sqlite3-ruby.git
+cd sqlite3-ruby
+ruby setup.rb config
+ruby setup.rb setup
+sudo ruby setup.rb install
+
+cd ~/sources/geocoder
+bin/rebuild_metaphones ../geocoderdata/geocoder2012.db
+chmod +x build/build_indexes 
+build/build_indexes ../geocoderdata/geocoder2012.db
+rm -rf ../tigerdata
+
+# Fix for postgres crashes, 
+sudo sed -i "s/shared_buffers = [0-9A-Za-z]*/shared_buffers = 512MB/" /etc/postgresql/9.1/main/postgresql.conf
+sudo sysctl -w kernel.shmmax=576798720
+sudo bash -c 'echo "kernel.shmmax=576798720" >> /etc/sysctl.conf'
+sudo bash -c 'echo "vm.overcommit_memory=2" >> /etc/sysctl.conf'
+sudo sed -i "s/max_connections = 100/max_connections = 200/" /etc/postgresql/9.1/main/postgresql.conf
+sudo /etc/init.d/postgresql restart
+

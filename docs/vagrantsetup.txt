@@ -1,29 +1,37 @@
-Start with AMI # ami-da0cf8b3 (Ubuntu 10.04)
+Install VirtualBox and Vagrant
+mkdir dstk_vagrant
+cd dstk_vagrant
+vagrant box add precise64 http://files.vagrantup.com/precise64.box
+vagrant init precise64
+(In VirtualBox, make sure the base memory is at least 8192MB)
+sed -i "bak" "s/^.*config\.vm\.forward_port 80, 8080$/  config.vm.forward_port 80, 8080/" Vagrantfile
+vagrant up
+vagrant ssh
 
 sudo aptitude update
 sudo aptitude safe-upgrade -y
+(press space on /dev/sda if there's a grub setup screen)
 sudo aptitude full-upgrade -y
 sudo aptitude install -y build-essential apache2 apache2.2-common apache2-mpm-prefork apache2-utils libexpat1 ssl-cert postgresql libpq-dev ruby1.8-dev ruby1.8 ri1.8 rdoc1.8 irb1.8 libreadline-ruby1.8 libruby1.8 libopenssl-ruby sqlite3 libsqlite3-ruby1.8 git-core libcurl4-openssl-dev apache2-prefork-dev libapr1-dev libaprutil1-dev
 
-sudo sed -i "s/ident/trust/" /etc/postgresql/8.4/main/pg_hba.conf
-sudo sed -i "s/md5/trust/" /etc/postgresql/8.4/main/pg_hba.conf
-sudo /etc/init.d/postgresql-8.4 restart
+sudo apt-get install linux-headers-$(uname -r) -y
+sudo /etc/init.d/vboxadd setup
+
+sudo sed -i "s/ident/trust/" /etc/postgresql/9.1/main/pg_hba.conf
+sudo sed -i "s/md5/trust/" /etc/postgresql/9.1/main/pg_hba.conf
+sudo sed -i "s/peer/trust/" /etc/postgresql/9.1/main/pg_hba.conf
+sudo /etc/init.d/postgresql restart
 createdb -U postgres geodict
 
-sudo ln -s /usr/bin/ruby1.8 /usr/bin/ruby
-sudo ln -s /usr/bin/ri1.8 /usr/bin/ri
-sudo ln -s /usr/bin/rdoc1.8 /usr/bin/rdoc
-sudo ln -s /usr/bin/irb1.8 /usr/bin/irb
-mkdir ~/sources
-cd ~/sources
-wget http://rubyforge.org/frs/download.php/74388/rubygems-1.6.1.tgz
-tar xzvf rubygems-1.6.1.tgz
-cd rubygems-1.6.1/
-sudo ruby setup.rb
-sudo ln -s /usr/bin/gem1.8 /usr/bin/gem
+sudo mv /usr/bin/ruby /usr/bin/ruby.original
+sudo mv /usr/bin/irb /usr/bin/irb.original
+sudo ln -s /opt/vagrant_ruby/bin/ruby /usr/bin/ruby
+sudo ln -s /opt/vagrant_ruby/bin/irb /usr/bin/irb
+
 sudo gem update --system
 sudo gem update
 
+mkdir ~/sources
 cd ~/sources
 git clone git://github.com/petewarden/dstk.git
 git clone git://github.com/petewarden/dstkdata.git
@@ -34,11 +42,11 @@ sudo bundle install
 sudo gem install passenger
 sudo passenger-install-apache2-module
 
-sudo bash -c 'echo "LoadModule passenger_module /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11/ext/apache2/mod_passenger.so" > /etc/apache2/mods-enabled/passenger.load'
-sudo bash -c 'echo "PassengerRoot /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11" > /etc/apache2/mods-enabled/passenger.conf'
-sudo bash -c 'echo "PassengerRuby /usr/bin/ruby1.8" >> /etc/apache2/mods-enabled/passenger.conf'
+sudo bash -c 'echo "LoadModule passenger_module /opt/vagrant_ruby/lib/ruby/gems/1.8/gems/passenger-3.0.19/ext/apache2/mod_passenger.so" > /etc/apache2/mods-enabled/passenger.load'
+sudo bash -c 'echo "PassengerRoot /opt/vagrant_ruby/lib/ruby/gems/1.8/gems/passenger-3.0.19" > /etc/apache2/mods-enabled/passenger.conf'
+sudo bash -c 'echo "PassengerRuby /opt/vagrant_ruby/bin/ruby" >> /etc/apache2/mods-enabled/passenger.conf'
 
-[vagrant - sudo ln -s /home/vagrant /home/ubuntu]
+sudo ln -s /home/vagrant /home/ubuntu
 
 sudo bash -c 'echo "
   <VirtualHost *:80>
@@ -59,16 +67,10 @@ sudo ln -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/re
 
 sudo /etc/init.d/apache2 restart
 
-[vagrant - sudo gem install postgres -v '0.7.9.2008.01.28']
-[vagrant - sudo gem uninstall postgres -v '>0.7.9.2008.01.28']
+sudo gem install postgres -v '0.7.9.2008.01.28'
+sudo gem uninstall postgres -v '>0.7.9.2008.01.28'
 
 ./populate_database.rb
-
-// End of version 1.00
-(To start from snapshot of this point, run
-ec2-run-instances --block-device-mapping /dev/sda1=:16 ami-fcec1e95 -t m1.large -z us-east-1d
-sudo resize2fs /dev/sda1
-)
 
 cd ~/sources
 mkdir maxmind
@@ -83,13 +85,11 @@ make
 sudo make install
 cd ..
 sudo aptitude install subversion -y
-svn checkout svn://rubyforge.org/var/svn/net-geoip/trunk net-geoip
+svn checkout http://net-geoip.rubyforge.org/svn/trunk/ net-geoip
 cd net-geoip/
 ruby ext/extconf.rb 
 make
 sudo make install
-
-// End of version 1.05
 
 cd ~/sources
 wget http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.11.tar.gz
@@ -100,32 +100,14 @@ make
 sudo make install
 sudo ln -s /usr/local/libiconv/lib/libiconv.so.2 /usr/lib/libiconv.so.2
 
-[10.10 - sudo aptitude install flex]
-cd ~/sources
-git clone git://github.com/petewarden/geocoder.git
-cd geocoder/
-make
-sudo make install
+sudo aptitude install flex -y
 
-cd /tmp
-wget "http://static.openheatmap.com/geocoder.db"
-mv geocoder.db geocoder.db.gz
-gunzip geocoder.db.gz
-mkdir ~/sources/geocoderdata
-mv geocoder.db ~/sources/geocoderdata
-
-// End of version 1.10
-(To start from snapshot of this point, run
-ec2-run-instances --block-device-mapping /dev/sda1=:32 ami-7ac53713 -t m1.large -z us-east-1d
-sudo resize2fs /dev/sda1
-)
-
-sudo aptitude install postgresql-8.4-postgis
+sudo aptitude install -y postgresql-9.1-postgis
 createdb -U postgres postgis_template
 createlang -U postgres plpgsql postgis_template
-psql -U postgres -d postgis_template -f /usr/share/postgresql/8.4/contrib/postgis.sql
-psql -U postgres -d postgis_template -f /usr/share/postgresql/8.4/contrib/spatial_ref_sys.sql
-psql -U postgres -d postgis_template -f /usr/share/postgresql/8.4/contrib/postgis_comments.sql
+psql -U postgres -d postgis_template -f /usr/share/postgresql/9.1/contrib/postgis-1.5/postgis.sql
+psql -U postgres -d postgis_template -f /usr/share/postgresql/9.1/contrib/postgis-1.5/spatial_ref_sys.sql
+psql -U postgres -d postgis_template -f /usr/share/postgresql/9.1/contrib/postgis_comments.sql
 createdb -U postgres -T postgis_template reversegeo
 
 cd ~/sources
@@ -133,6 +115,8 @@ git clone git://github.com/petewarden/osm2pgsql
 cd osm2pgsql/
 sudo aptitude install autoconf libtool libxml2-dev libbz2-1.0 libbz2-dev libgeos-dev proj-bin libproj-dev -y
 ./autogen.sh
+sed -i 's/version = BZ2_bzlibVersion();//' configure
+sed -i 's/version = zlibVersion();//' configure
 ./configure
 make
 sudo make install
@@ -142,12 +126,6 @@ osm2pgsql -U postgres -d reversegeo -p world_countries -S osm2pgsql/styles/world
 osm2pgsql -U postgres -d reversegeo -p admin_areas -S osm2pgsql/styles/admin_areas.style dstkdata/admin_areas.osm -l
 osm2pgsql -U postgres -d reversegeo -p neighborhoods -S osm2pgsql/styles/neighborhoods.style dstkdata/neighborhoods.osm -l
 
-// End of version 1.20
-(To start from snapshot of this point, run
-ec2-run-instances ami-f639cb9f -t m1.large -z us-east-1d
-)
-
-sudo aptitude update
 sudo aptitude install -y ocropus pdftohtml catdoc unzip ant openjdk-6-jdk
 
 cd ~/sources
@@ -157,11 +135,6 @@ ant
 cd src
 javac -cp ../dist/boilerpipe-1.1-dev.jar boilerpipe.java
 
-// End of version 1.30
-(To start from snapshot, run
-ec2-run-instances ami-9e7d8ff7 -t m1.large -z us-east-1d
-)
-
 cd ~/sources/dstk/
 psql -U postgres -d reversegeo -f sql/loadukpostcodes.sql
 
@@ -169,26 +142,9 @@ osm2pgsql -U postgres -d reversegeo -p uk_osm -S ../osm2pgsql/default.style ../d
 
 psql -U postgres -d reversegeo -f sql/buildukindexes.sql
 
-// End of version 0.35
-(To start from snapshot, run
-ec2-run-instances ami-f6e11d9f -t m1.large -z us-east-1d --block-device-mapping /dev/sda1=:32:false
-)
-sudo resize2fs /dev/sda1
-
-sudo aptitude update
-sudo aptitude safe-upgrade -y
-sudo aptitude full-upgrade -y
 sudo aptitude install -y lftp php5-cli
-# If the lftp package won't install, try building from source:
-#sudo aptitude install gnutls
-#curl -O "http://ftp.yar.ru/pub/source/lftp/lftp-4.4.0.tar.gz"
-#tar xzf lftp-4.4.0.tar.gz
-#cd lftp-4.4.0/
-#./configure
-#make
-#sudo make install
 
-rm -rf geocoder
+cd ~/sources
 git clone git://github.com/geocommons/geocoder.git
 cd geocoder
 make
@@ -198,7 +154,7 @@ sudo make install
 cd ~/sources
 mkdir tigerdata
 cd ~/sources/tigerdata
-lftp ftp2.census.gov:/geo/tiger/TIGER2011/EDGES
+lftp ftp2.census.gov:/geo/tiger/TIGER2012/EDGES
 mirror --parallel=5 .
 cd ../FEATNAMES
 mirror --parallel=5 .
@@ -206,15 +162,9 @@ cd ../ADDR
 mirror --parallel=5 .
 exit
 cd ..
-rm -rf geocoderdata/geocoder.db
 cd geocoder/build
-./tiger_import ../../geocoderdata/geocoder2011.db ../../tigerdata/
-cd ..
-bin/rebuild_metaphones ../geocoderdata/geocoder2011.db
-chmod +x build/build_indexes 
-build/build_indexes ../geocoderdata/geocoder2011.db
-rm -rf ../tigerdata
-
+mkdir ../../geocoderdata/
+./tiger_import ../../geocoderdata/geocoder2012.db ../../tigerdata/
 
 cd ~/sources
 git clone git://github.com/luislavena/sqlite3-ruby.git
@@ -223,21 +173,16 @@ ruby setup.rb config
 ruby setup.rb setup
 sudo ruby setup.rb install
 
-cd ~/sources/dstk
-git pull origin master
-./populate_database.rb
-touch tmp/restart.txt
+cd ~/sources/geocoder
+bin/rebuild_metaphones ../geocoderdata/geocoder2012.db
+chmod +x build/build_indexes 
+build/build_indexes ../geocoderdata/geocoder2012.db
+rm -rf ../tigerdata
 
-# Fix for postgres crashes, 
-sudo sed -i "s/shared_buffers = [0-9A-Za-z]*/shared_buffers = 512MB/" /etc/postgresql/8.4/main/postgresql.conf
-sudo sysctl -w kernel.shmmax=556870912
-sudo bash -c 'echo "kernel.shmmax=556870912" >> /etc/sysctl.conf'
-sudo /etc/init.d/postgresql-8.4 restart
-
-// End of version 0.40
-
+# Fix for postgres crashes,
+sudo sed -i "s/shared_buffers = [0-9A-Za-z]*/shared_buffers = 512MB/" /etc/postgresql/9.1/main/postgresql.conf
+sudo sysctl -w kernel.shmmax=576798720
+sudo bash -c 'echo "kernel.shmmax=576798720" >> /etc/sysctl.conf'
 sudo bash -c 'echo "vm.overcommit_memory=2" >> /etc/sysctl.conf'
-
-sudo nano /etc/postgresql/8.4/main/
-max_connections = 200
-
+sudo sed -i "s/max_connections = 100/max_connections = 200/" /etc/postgresql/9.1/main/postgresql.conf
+sudo /etc/init.d/postgresql restart
