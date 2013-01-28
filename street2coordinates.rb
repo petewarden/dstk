@@ -47,7 +47,7 @@ def street2coordinates(addresses)
   if !$geocoder_db
     db_file = nil
     DSTKConfig::GEOCODER_DB_FILES.each do |file|
-      if File.exists(file)
+      if File.exists?(file)
         db_file = file
         break
       end
