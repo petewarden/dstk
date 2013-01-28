@@ -136,10 +136,6 @@ cd ..
 cd geocoder/build
 mkdir ../../geocoderdata/
 ./tiger_import ../../geocoderdata/geocoder2012.db ../../tigerdata/
-cd ..
-bin/rebuild_metaphones ../geocoderdata/geocoder2012.db
-chmod +x build/build_indexes 
-build/build_indexes ../geocoderdata/geocoder2012.db
 
 cd ~/sources
 git clone git://github.com/luislavena/sqlite3-ruby.git
