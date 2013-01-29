@@ -34,6 +34,7 @@ def find_locations_in_text(text)
 
   setup_countries_cache(cursor)
   setup_regions_cache(cursor)
+  setup_postal_codes_cache(cursor)
   
   # This loop goes through the text string in *reverse* order. Since locations in English are typically
   # described with the broadest category last, preceded by more and more specific designations towards
@@ -44,8 +45,9 @@ def find_locations_in_text(text)
     lower_word = current_word.downcase
     could_be_country = $countries_cache.has_key?(lower_word)
     could_be_region = $regions_cache.has_key?(lower_word)
-      
-    if not could_be_country and not could_be_region
+    could_be_postal_code = $postal_codes_cache.has_key?(lower_word)
+    
+    if not could_be_country and not could_be_region and not could_be_postal_code
       current_index = pulled_index
       next
     end
@@ -154,6 +156,23 @@ def setup_regions_cache(conn)
       $regions_cache[last_word] = []
     end
     $regions_cache[last_word].push(hash)
+  end
+
+end
+
+$postal_codes_cache = {}
+
+def setup_postal_codes_cache(conn)
+
+  select = 'SELECT * FROM postal_codes'
+  hashes = select_as_hashes(conn, select)
+    
+  hashes.each do |hash|
+    last_word = hash['last_word'].downcase
+    if !$postal_codes_cache.has_key?(last_word)
+      $postal_codes_cache[last_word] = []
+    end
+    $postal_codes_cache[last_word].push(hash)
   end
 
 end
@@ -392,7 +411,7 @@ def is_region(cursor, text, text_starting_index, previous_result)
     if current_word == ''
       current_word = pulled_word
       word_end_index = (text_starting_index-end_skipped)
-            
+      
       last_word = pulled_word.downcase
       if !$regions_cache.has_key?(last_word)
         break
@@ -461,7 +480,7 @@ def is_region(cursor, text, text_starting_index, previous_result)
   lat = found_row['lat']
   lon = found_row['lon']
   country_code = found_row['country_code'].downcase
-                
+
   current_result[:found_tokens].unshift( {
     :type => :REGION,
     :code => region_code,
@@ -500,7 +519,147 @@ def is_location_word(cursor, text, text_starting_index, previous_result)
 end
 
 def is_postal_code(cursor, text, text_starting_index, previous_result)
-  return nil
+  # Narrow down the search by country, if we already have it
+  country_code = nil
+  if previous_result
+    found_tokens = previous_result[:found_tokens]
+    found_tokens.each do |found_token|
+      type = found_token[:type]
+      if type == :COUNTRY
+        country_code = found_token[:code]
+      end
+    end
+  end
+    
+  current_word = ''
+  current_index = text_starting_index
+  pulled_word_count = 0
+  found_rows = nil
+  while pulled_word_count < DSTKConfig::WORD_MAX do
+    pulled_word, current_index, end_skipped = pull_word_from_end(text, current_index)
+    pulled_word_count += 1
+    if current_word == ''
+      current_word = pulled_word
+      word_end_index = (text_starting_index-end_skipped)
+            
+      last_word = pulled_word.downcase
+      if !$postal_codes_cache.has_key?(last_word)
+        break
+      end
+      
+      all_candidate_dicts = $postal_codes_cache[last_word]
+      if country_code
+        candidate_dicts = []
+        all_candidate_dicts.each do |possible_dict|
+          candidate_country = possible_dict['country_code']
+          if candidate_country.downcase() == country_code.downcase():
+            candidate_dicts << possible_dict
+          end
+        end
+      else
+        candidate_dicts = all_candidate_dicts
+      end
+      
+      name_map = {}
+      candidate_dicts.each do |candidate_dict|
+        name = candidate_dict['postal_code'].downcase
+        if !name_map[name] then name_map[name] = [] end
+        name_map[name] << candidate_dict
+      end
+      
+    else
+      current_word = pulled_word+' '+current_word
+    end
+    
+    if current_word == ''
+      return nil
+    end
+
+    if current_word[0].chr =~ /[a-z]/
+      next
+    end
+
+    name_key = current_word.downcase
+    if name_map.has_key?(name_key)
+      found_rows = name_map[name_key]
+    end
+    
+    if found_rows
+      break
+    end
+    
+    if current_index < 0
+      break
+    end
+    
+  end
+    
+  if !found_rows
+    return nil
+  end
+  
+  # Confirm the postal code against the country suffix, or the region prefix
+  found_row = nil
+  if country_code
+    found_rows.each do |row|
+      if row['country_code'] == country_code
+        found_row = row
+        break
+      end
+    end
+  else
+    region_result = is_region(cursor, text, current_index, nil)
+    if !region_result
+      return nil
+    end
+    region_token = region_result[:found_tokens][0]
+    current_index = region_token[:start_index]-1
+    current_word = region_token[:matched_string] + ' ' + current_word
+    region_code = region_token[:region_code]
+    found_rows.each do |row|
+      if row[:region_code] == region_code
+        # Give US ZIPs priority if there's a clash
+        if !found_row or row[:country_code] != 'US'
+          found_row = row
+        end
+      end
+    end
+  end
+  
+  if !found_row
+    return nil
+  end
+  
+  if !previous_result
+    current_result = {
+      :found_tokens => [],
+    }
+  else
+    current_result = previous_result
+  end
+
+  region_code = found_row['region_code']
+
+  lat = found_row['lat']
+  lon = found_row['lon']
+  country_code = found_row['country_code'].downcase
+  region_code = found_row['region_code'].downcase
+  postal_code = found_row['postal_code'].downcase
+    
+  current_result[:found_tokens].unshift( {
+    :type => :POSTAL_CODE,
+    :code => postal_code,
+    :lat => lat,
+    :lon => lon,
+    :region_code => region_code,
+    :country_code => country_code,
+    :matched_string => current_word,
+    :start_index => (current_index+1),
+    :end_index=> word_end_index 
+  })
+    
+  return current_result
+
 end
 
 # Utility functions
@@ -656,6 +815,7 @@ $token_sequences = [
   [ :CITY, :REGION ],
   [ :REGION, :COUNTRY ],
   [ :POSTAL_CODE, :COUNTRY ],
+  [ :POSTAL_CODE],
   [ :COUNTRY ],
   [ :LOCATION_WORD, :REGION ], # Regions and cities are too common as words to use without additional evidence
   [ :LOCATION_WORD, :CITY ]
@@ -678,6 +838,7 @@ I'm mentioning Los Angeles here, but without California or CA right after it, it
 It should still pick up more qualified names like Amman Jordan or Atlanta, Georgia though!
 Dallas, TX or New York, NY
 It should now pick up Queensland, Australia, or even NSW, Australia!
+Postal codes like QLD 4002, CA 93065, or even 94117, USA are supported too.
 TEXT
 
   puts "Analyzing '#{test_text}'"

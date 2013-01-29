@@ -285,11 +285,92 @@ def load_non_us_regions(conn)
 
   end
 
-end    
+end
+
+def load_postal_codes(conn)
+  begin
+    conn.exec('DROP TABLE postal_codes')
+  rescue
+    # ignore errors here
+  end
+
+  conn.exec('CREATE TABLE postal_codes (
+    postal_code VARCHAR(64),
+    region_code CHAR(4),
+    country_code CHAR(2),
+    lat FLOAT,
+    lon FLOAT,
+    last_word VARCHAR(32))')
+  
+  postal_codes = {}
+
+  file_name = DSTKConfig::SOURCE_FOLDER+'geonames_postalcodes.tsv'
+  File.foreach(file_name) do |line|    
+    row = line.split("\t")
+    country_code = row[0]
+    postal_code = row[1]
+    place_name = row[2]
+    admin_name1 = row[3]
+    admin_code1 = row[4]
+    admin_name2 = row[5]
+    admin_code2 = row[6]
+    admin_name3 = row[7]
+    admin_code3 = row[8]
+    lat_string = row[9]
+    lon_string = row[10]
+    accuracy = row[11]
+
+    if !postal_code or postal_code == '' then next end
+    if !admin_code1 or admin_code1 == '' then next end
+    if !lat_string or lat_string == '' then next end
+    if !lon_string or lon_string == '' then next end
+    
+    key = country_code + '*' + postal_code
+    if !postal_codes[key]
+      postal_codes[key] = {
+        'postal_code' => postal_code,
+        'region_code' => admin_code1,
+        'country_code' => country_code,
+        'coordinates' => []
+      }
+    end
+    postal_codes[key]['coordinates'] << {'lat' => lat_string.to_f, 'lon' => lon_string.to_f}
+  end
+
+  postal_codes.each do |key, info|
+
+    postal_code = info['postal_code']
+    region_code = info['region_code']
+    country_code = info['country_code']
+    coordinates = info['coordinates']
+    last_word, index, skipped = pull_word_from_end(postal_code, postal_code.length-1, false)
+
+    lat = 0.0
+    lon = 0.0
+    coordinates.each do |position|
+      lat += position['lat']
+      lon += position['lon']
+    end
+    lat = (lat / coordinates.length)
+    lon = (lon / coordinates.length)
+    
+    sql = "INSERT INTO postal_codes (postal_code, region_code, country_code, lat, lon, last_word)
+      values ("+
+      "'"+PGconn.escape(postal_code)+"'"+
+      ", '"+PGconn.escape(region_code)+"'"+
+      ", '"+PGconn.escape(country_code)+"'"+
+      ", '"+PGconn.escape(lat.to_s)+"'"+
+      ", '"+PGconn.escape(lon.to_s)+"'"+
+      ", '"+PGconn.escape(last_word)+"')"
+    conn.exec(sql)
+
+  end
+
+end
 
 conn = get_database_connection()
 
 load_cities(conn)
 load_countries(conn)
 load_regions(conn)
-
+load_postal_codes(conn)
