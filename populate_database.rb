@@ -154,13 +154,19 @@ def load_regions(conn)
   
   conn.exec('CREATE TABLE regions (
     region VARCHAR(64),
-    PRIMARY KEY(region),
     region_code CHAR(4),
     country_code CHAR(2),
     lat FLOAT,
     lon FLOAT,
     last_word VARCHAR(32))')
-  conn.exec('CREATE INDEX region_last_word_index ON regions(last_word)')
+
+  load_us_regions(conn)
+
+  load_non_us_regions(conn)
+  
+end
+
+def load_us_regions(conn)
 
   us_state_positions = {}
 
@@ -224,7 +230,62 @@ def load_regions(conn)
   end
 
 end
+
+def load_non_us_regions(conn)
+
+  have_loaded_region = {}
+
+  file_name = DSTKConfig::SOURCE_FOLDER+'geonames_postalcodes.tsv'
+  File.foreach(file_name) do |line|    
+    row = line.split("\t")
+    country_code = row[0]
+    postal_code = row[1]
+    place_name = row[2]
+    admin_name1 = row[3]
+    admin_code1 = row[4]
+    admin_name2 = row[5]
+    admin_code2 = row[6]
+    admin_name3 = row[7]
+    admin_code3 = row[8]
+    lat = row[9]
+    lon = row[10]
+    accuracy = row[11]
+
+    if country_code == 'US' then next end
+    if !admin_name1 or admin_name1 == '' then next end
+    if !admin_code1 or admin_code1 == '' then next end
+    if !lat or lat == '' then next end
+    if !lon or lon == '' then next end
     
+    key = admin_name1 + '_' + country_code
+    if have_loaded_region[key]
+      next
+    end
+    have_loaded_region[key] = true
+    
+    state_names_list = [admin_name1, admin_code1]
+        
+    state_names_list.each do |state_name|
+    
+      state_name.strip!
+          
+      last_word, index, skipped = pull_word_from_end(state_name, state_name.length-1, false)
+      
+      sql = "INSERT INTO regions (region, region_code, country_code, lat, lon, last_word)
+        values ("+
+        "'"+PGconn.escape(state_name)+"'"+
+        ", '"+PGconn.escape(admin_code1)+"'"+
+        ", '"+PGconn.escape(country_code)+"'"+
+        ", '"+PGconn.escape(lat.to_s)+"'"+
+        ", '"+PGconn.escape(lon.to_s)+"'"+
+        ", '"+PGconn.escape(last_word)+"')"
+      conn.exec(sql)
+
+    end
+
+  end
+
+end    
 
 conn = get_database_connection()
 

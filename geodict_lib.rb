@@ -499,6 +499,10 @@ def is_location_word(cursor, text, text_starting_index, previous_result)
 
 end
 
+def is_postal_code(cursor, text, text_starting_index, previous_result)
+  return nil
+end
+
 # Utility functions
 
 def get_database_connection
@@ -516,7 +520,7 @@ def get_database_connection
 end
 
 # Characters to ignore when pulling out words
-WHITESPACE = " \t'\",.-/\n\r<>".split(//).to_set
+WHITESPACE = " \t'\",.-/\n\r<>!?".split(//).to_set
 
 $tokenized_words = {}
 
@@ -639,6 +643,9 @@ $token_definitions = {
   },
   :LOCATION_WORD => {
     :match_function => :is_location_word
+  },
+  :POSTAL_CODE => {
+    :match_function => :is_postal_code
   }
 }
 
@@ -648,6 +655,7 @@ $token_sequences = [
   [ :CITY, :COUNTRY ],
   [ :CITY, :REGION ],
   [ :REGION, :COUNTRY ],
+  [ :POSTAL_CODE, :COUNTRY ],
   [ :COUNTRY ],
   [ :LOCATION_WORD, :REGION ], # Regions and cities are too common as words to use without additional evidence
   [ :LOCATION_WORD, :CITY ]
@@ -669,6 +677,7 @@ I've been working on the railroad, all the live-long day! The quick brown fox ju
 I'm mentioning Los Angeles here, but without California or CA right after it, it won't be detected. If I talk about living in Wisconsin on the other hand, that 'in' gives the algorithm extra evidence it's actually a location.
 It should still pick up more qualified names like Amman Jordan or Atlanta, Georgia though!
 Dallas, TX or New York, NY
+It should now pick up Queensland, Australia, or even NSW, Australia!
 TEXT
 
   puts "Analyzing '#{test_text}'"
