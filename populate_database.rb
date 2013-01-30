@@ -366,6 +366,8 @@ def load_postal_codes(conn)
 
   end
 
+  conn.exec('CREATE INDEX postal_codes_last_word_index ON postal_codes(last_word)')
+
 end
 
 conn = get_database_connection()

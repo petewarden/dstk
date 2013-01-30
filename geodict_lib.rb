@@ -34,7 +34,6 @@ def find_locations_in_text(text)
 
   setup_countries_cache(cursor)
   setup_regions_cache(cursor)
-  setup_postal_codes_cache(cursor)
   
   # This loop goes through the text string in *reverse* order. Since locations in English are typically
   # described with the broadest category last, preceded by more and more specific designations towards
@@ -45,9 +44,8 @@ def find_locations_in_text(text)
     lower_word = current_word.downcase
     could_be_country = $countries_cache.has_key?(lower_word)
     could_be_region = $regions_cache.has_key?(lower_word)
-    could_be_postal_code = $postal_codes_cache.has_key?(lower_word)
     
-    if not could_be_country and not could_be_region and not could_be_postal_code
+    if not could_be_country and not could_be_region
       current_index = pulled_index
       next
     end
@@ -156,23 +154,6 @@ def setup_regions_cache(conn)
       $regions_cache[last_word] = []
     end
     $regions_cache[last_word].push(hash)
-  end
-
-end
-
-$postal_codes_cache = {}
-
-def setup_postal_codes_cache(conn)
-
-  select = 'SELECT * FROM postal_codes'
-  hashes = select_as_hashes(conn, select)
-    
-  hashes.each do |hash|
-    last_word = hash['last_word'].downcase
-    if !$postal_codes_cache.has_key?(last_word)
-      $postal_codes_cache[last_word] = []
-    end
-    $postal_codes_cache[last_word].push(hash)
   end
 
 end
@@ -543,22 +524,14 @@ def is_postal_code(cursor, text, text_starting_index, previous_result)
       word_end_index = (text_starting_index-end_skipped)
             
       last_word = pulled_word.downcase
-      if !$postal_codes_cache.has_key?(last_word)
-        break
-      end
+
+      select = "SELECT * FROM postal_codes WHERE last_word='"+pulled_word.downcase+"'"
       
-      all_candidate_dicts = $postal_codes_cache[last_word]
       if country_code
-        candidate_dicts = []
-        all_candidate_dicts.each do |possible_dict|
-          candidate_country = possible_dict['country_code']
-          if candidate_country.downcase() == country_code.downcase():
-            candidate_dicts << possible_dict
-          end
-        end
-      else
-        candidate_dicts = all_candidate_dicts
+        select += " AND country_code='"+country_code.upcase+"'"
       end
+
+      candidate_dicts = select_as_hashes(cursor, select)
       
       name_map = {}
       candidate_dicts.each do |candidate_dict|
@@ -815,7 +788,6 @@ $token_sequences = [
   [ :CITY, :REGION ],
   [ :REGION, :COUNTRY ],
   [ :POSTAL_CODE, :COUNTRY ],
-  [ :POSTAL_CODE],
   [ :COUNTRY ],
   [ :LOCATION_WORD, :REGION ], # Regions and cities are too common as words to use without additional evidence
   [ :LOCATION_WORD, :CITY ]
@@ -838,7 +810,7 @@ I'm mentioning Los Angeles here, but without California or CA right after it, it
 It should still pick up more qualified names like Amman Jordan or Atlanta, Georgia though!
 Dallas, TX or New York, NY
 It should now pick up Queensland, Australia, or even NSW, Australia!
-Postal codes like QLD 4002, CA 93065, or even 94117, USA are supported too.
+Postal codes like QLD 4002, Australia, or CA 94117, USA are supported too.
 TEXT
 
   puts "Analyzing '#{test_text}'"
