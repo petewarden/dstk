@@ -1,18 +1,40 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    activesupport (3.2.11)
+      i18n (~> 0.6)
+      multi_json (~> 1.0)
+    bluecloth (2.2.0)
     choice (0.1.4)
+    chronic (0.9.0)
+    haml (3.1.7)
+    hpricot (0.8.6)
+    htmlentities (4.3.1)
+    i18n (0.6.1)
     json (1.5.1)
+    levenshtein (0.2.2)
+    multi_json (1.5.0)
+    postgres (0.7.9.2008.01.28)
     rack (1.2.1)
     sinatra (1.2.0)
       rack (~> 1.1)
-      tilt (< 2.0, >= 1.2.2)
+      tilt (>= 1.2.2, < 2.0)
+    text (1.2.1)
     tilt (1.2.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
+  bluecloth
   choice
+  chronic
+  haml
+  hpricot
+  htmlentities
   json
+  levenshtein
+  postgres (= 0.7.9.2008.01.28)
   sinatra
+  text

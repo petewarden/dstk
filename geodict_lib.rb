@@ -571,7 +571,7 @@ def is_postal_code(cursor, text, text_starting_index, previous_result)
     return nil
   end
   
-  # Confirm the postal code against the country suffix, or the region prefix
+  # Confirm the postal code against the country suffix
   found_row = nil
   if country_code
     found_rows.each do |row|
@@ -580,22 +580,22 @@ def is_postal_code(cursor, text, text_starting_index, previous_result)
         break
       end
     end
-  else
-    region_result = is_region(cursor, text, current_index, nil)
-    if !region_result
-      return nil
-    end
+  end
+
+  if !found_row
+    return nil
+  end
+
+  # Also pull in the prefixed region, if there is one
+  region_result = is_region(cursor, text, current_index, nil)
+  if region_result
+    $stderr.puts "Found region #{region_result}"
     region_token = region_result[:found_tokens][0]
-    current_index = region_token[:start_index]-1
-    current_word = region_token[:matched_string] + ' ' + current_word
-    region_code = region_token[:region_code]
-    found_rows.each do |row|
-      if row[:region_code] == region_code
-        # Give US ZIPs priority if there's a clash
-        if !found_row or row[:country_code] != 'US'
-          found_row = row
-        end
-      end
+    region_code = region_token[:code]
+    if found_row['region_code'] == region_code
+      $stderr.puts "Found row #{found_row}"
+      current_index = region_token[:start_index]-1
+      current_word = region_token[:matched_string] + ' ' + current_word
     end
   end
   
@@ -832,6 +832,7 @@ TEXT
       'end_index' => location[:end_index].to_s,
       'matched_string' => matched_string,
       'country' => location[:country_code],
+      'code' => location[:code],
     }
     puts result.to_json
   end
