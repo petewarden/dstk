@@ -17,6 +17,9 @@
     &nbsp;&nbsp;&nbsp;&nbsp;
     %a{:href=>"#javascript"} Javascript
     %br
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    %a{:href=>"#rlanguage"} R Language
+    %br
     %a{:href=>"#api"} API
     %br
     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -211,6 +214,12 @@
       `var dstk = $.DSTK({apiBase:'http://example.com'});`
 
     %br
+
+    %a{:name=>"rlanguage"}
+    :markdown
+      #### R Language
+      
+      You can use the toolkit from R by grabbing [the package from CRAN](http://cran.r-project.org/web/packages/RDSTK/index.html). Big thanks go to [Ryan Elmore](http://twitter.com/rtelmore) and Andrew Heiss for putting this together.     
 
     %a{:name=>"api"}
     :markdown
@@ -584,6 +593,6 @@
       
       `vagrant up`
       
-      and you should have a local copy of the toolkit accessible at http://localhost:8080.
+      and you should have a local copy of the toolkit accessible at http://localhost:8080. `vagrant ssh` will give you shell access, or the username and password are both 'vagrant' if you need to log in through VirtualBox's GUI.
 
       If you want to roll your own server from source on an in-house machine, or on another hosting provider, docs/ec2setup.txt in the [github repository](http://github.com/petewarden/dstk) contains instructions on the exact steps I took to create that image starting from a clean Ubuntu 12.04 installation.
