@@ -525,8 +525,10 @@ def is_postal_code(cursor, text, text_starting_index, previous_result)
             
       last_word = pulled_word.downcase
 
-      select = "SELECT * FROM postal_codes WHERE last_word='"+pulled_word.downcase+"'"
-      
+      select = "SELECT * FROM postal_codes"
+      select += " WHERE last_word='"+pulled_word.downcase+"'"
+      select += " OR last_word='"+pulled_word.upcase+"'"
+
       if country_code
         select += " AND country_code='"+country_code.upcase+"'"
       end
@@ -810,7 +812,7 @@ I'm mentioning Los Angeles here, but without California or CA right after it, it
 It should still pick up more qualified names like Amman Jordan or Atlanta, Georgia though!
 Dallas, TX or New York, NY
 It should now pick up Queensland, Australia, or even NSW, Australia!
-Postal codes like QLD 4002, Australia, or CA 94117, USA are supported too.
+Postal codes like QLD 4002, Australia, QC H3W, Canada or CA 94117, USA are supported too.
 TEXT
 
   puts "Analyzing '#{test_text}'"
