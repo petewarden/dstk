@@ -525,7 +525,7 @@ def geocode_uk_address(address, conn)
 
     s2c_debug_log("post_code_select='%s'" % post_code_select)
 
-    post_code_hashes = select_as_hashes(conn, post_code_select)
+    post_code_hashes = select_as_hashes(conn, post_code_select, 'reverse_geo_db_connection')
 
     s2c_debug_log("post_code_hashes='%s'" % post_code_hashes.inspect)
   
@@ -536,7 +536,7 @@ def geocode_uk_address(address, conn)
       district_code = post_code_info['county_code']+post_code_info['district_code']
       district_select = 'SELECT * FROM uk_district_names WHERE district_code=\''+district_code+'\';'
       s2c_debug_log("district_select='%s'" % district_select.inspect)
-      district_hashes = select_as_hashes(conn, district_select)
+      district_hashes = select_as_hashes(conn, district_select, 'reverse_geo_db_connection')
       s2c_debug_log("district_hashes='%s'" % district_hashes.inspect)
       district_info = district_hashes[0]
       district_name = district_info['name']
@@ -544,7 +544,7 @@ def geocode_uk_address(address, conn)
       ward_code = district_code+post_code_info['ward_code']
       ward_select = 'SELECT * FROM uk_ward_names WHERE ward_code=\''+ward_code+'\';'
       s2c_debug_log("ward_select='%s'" % ward_select.inspect)
-      ward_hashes = select_as_hashes(conn, ward_select)
+      ward_hashes = select_as_hashes(conn, ward_select, 'reverse_geo_db_connection')
       s2c_debug_log("ward_hashes='%s'" % ward_hashes.inspect)
       ward_info = ward_hashes[0]
       ward_name = ward_info['name']
@@ -660,7 +660,7 @@ def geocode_uk_address(address, conn)
 
     s2c_debug_log("location_select='%s'" % location_select.inspect)
 
-    location_hashes = select_as_hashes(conn, location_select)
+    location_hashes = select_as_hashes(conn, location_select, 'reverse_geo_db_connection')
   
     if !location_hashes or location_hashes.length == 0
       s2c_debug_log("No matches found for '%s'" % candidate_name)
@@ -808,7 +808,7 @@ def geocode_uk_address(address, conn)
 
       s2c_debug_log("road_select='%s'" % road_select.inspect)
 
-      road_hashes = select_as_hashes(conn, road_select)
+      road_hashes = select_as_hashes(conn, road_select, 'reverse_geo_db_connection')
     
       if !road_hashes or road_hashes.length == 0
         s2c_debug_log("No matches found for '%s'" % candidate_name)

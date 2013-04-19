@@ -712,7 +712,7 @@ def get_hash_from_row(fields, row)
 end
 
 # Returns the results of the SQL select statement as associative arrays/hashes
-def select_as_hashes(conn, select)
+def select_as_hashes(conn, select, connection_name = 'geodict_db_connection')
 
   begin
 
@@ -738,7 +738,7 @@ def select_as_hashes(conn, select)
   rescue PGError
     printf(STDERR, conn.error)
     conn.close
-    Thread.current['geodict_db_connection'] = nil
+    Thread.current[connection_name] = nil
     exit(1)
   end  
 
@@ -757,13 +757,6 @@ def get_reverse_geo_db_connection
       DSTKConfig::PASSWORD)
   end
   Thread.current['reverse_geo_db_connection']
-end
-
-def close_analytics_db_connection
-  if Thread.current['reverse_geo_db_connection']
-    Thread.current['reverse_geo_db_connection'].close
-    Thread.current['reverse_geo_db_connection'] = nil
-  end
 end
 
 # Types of locations we'll be looking for
