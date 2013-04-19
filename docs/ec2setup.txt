@@ -26,6 +26,7 @@ sudo passenger-install-apache2-module
 sudo bash -c 'echo "LoadModule passenger_module /var/lib/gems/1.8/gems/passenger-3.0.19/ext/apache2/mod_passenger.so"  > /etc/apache2/mods-enabled/passenger.load'
 sudo bash -c 'echo "PassengerRoot /var/lib/gems/1.8/gems/passenger-3.0.19" > /etc/apache2/mods-enabled/passenger.conf'
 sudo bash -c 'echo "PassengerRuby /usr/bin/ruby1.8" >> /etc/apache2/mods-enabled/passenger.conf'
+sudo bash -c 'echo "PassengerMaxPoolSize 3" >> /etc/apache2/mods-enabled/passenger.conf'
 
 sudo bash -c 'echo "
   <VirtualHost *:80>

@@ -737,6 +737,8 @@ def select_as_hashes(conn, select)
     
   rescue PGError
     printf(STDERR, conn.error)
+    conn.close
+    Thread.current['geodict_db_connection'] = nil
     exit(1)
   end  
 
