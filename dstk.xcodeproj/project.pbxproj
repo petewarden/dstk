@@ -58,6 +58,8 @@
 		59B8B61516B48B6C00AD55FC /* vagrantsetup.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = vagrantsetup.txt; sourceTree = "<group>"; };
 		59B8B61616B65D4600AD55FC /* ec2setup.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ec2setup.txt; sourceTree = "<group>"; };
 		59C2BE9713AFEE0700759133 /* test_text2places.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = test_text2places.py; sourceTree = "<group>"; };
+		59D0BE0B17247F32007AAE04 /* simplegeo2postcodes.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = simplegeo2postcodes.rb; sourceTree = "<group>"; };
+		59D0BE0C172492E1007AAE04 /* createpostcodes.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = createpostcodes.rb; sourceTree = "<group>"; };
 		59E3237B152013E8008D2635 /* emulategoogle.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = emulategoogle.rb; sourceTree = "<group>"; };
 		59F0A27213455C8800098746 /* test_text2times.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = test_text2times.py; sourceTree = "<group>"; };
 		59F0A27313455E6F00098746 /* text2times */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = text2times; path = python/text2times; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				5929E11B13243FBE00B81D2E /* config.ru */,
 				5950FA6714E65BBB00361BF2 /* coordinates2politics.rb */,
 				597D8BAE13340F3E0042C251 /* cruftstripper.rb */,
+				59D0BE0A17247F02007AAE04 /* dataconversion */,
 				5950FA5D14E51EA600361BF2 /* docs */,
 				597D8E1313367BA40042C251 /* dstk_config.rb */,
 				597D8E1213367B6F0042C251 /* dstk_server.rb */,
@@ -208,6 +211,15 @@
 				59F0A27313455E6F00098746 /* text2times */,
 			);
 			name = python;
+			sourceTree = "<group>";
+		};
+		59D0BE0A17247F02007AAE04 /* dataconversion */ = {
+			isa = PBXGroup;
+			children = (
+				59D0BE0C172492E1007AAE04 /* createpostcodes.rb */,
+				59D0BE0B17247F32007AAE04 /* simplegeo2postcodes.rb */,
+			);
+			path = dataconversion;
 			sourceTree = "<group>";
 		};
 		59F0A285134E961F00098746 /* sql */ = {

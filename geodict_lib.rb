@@ -22,6 +22,9 @@ require 'set'
 # Some hackiness to include the library script, even if invoked from another directory
 require File.join(File.expand_path(File.dirname(__FILE__)), 'dstk_config')
 
+# Global holder for the database connections
+$connections = {}
+
 # The main entry point. This function takes an unstructured text string and returns a list of all the
 # fragments it could identify as locations, together with lat/lon positions
 def find_locations_in_text(text)
@@ -640,17 +643,22 @@ end
 # Utility functions
 
 def get_database_connection
-  if !Thread.current['geodict_db_connection']
-    Thread.current['geodict_db_connection'] = PGconn.connect(
-      DSTKConfig::HOST,
-      DSTKConfig::PORT,
-      '',
-      '',
-      DSTKConfig::DATABASE,
-      DSTKConfig::USER,
-      DSTKConfig::PASSWORD)
+  begin
+    Thread.critical = true
+    if !$connections['geodict_db_connection']
+      $connections['geodict_db_connection'] = PGconn.connect(
+        DSTKConfig::HOST,
+        DSTKConfig::PORT,
+        '',
+        '',
+        DSTKConfig::DATABASE,
+        DSTKConfig::USER,
+        DSTKConfig::PASSWORD)
+    end
+  ensure
+    Thread.critical = false
   end
-  Thread.current['geodict_db_connection']
+  $connections['geodict_db_connection']
 end
 
 # Characters to ignore when pulling out words
@@ -715,6 +723,7 @@ end
 def select_as_hashes(conn, select, connection_name = 'geodict_db_connection')
 
   begin
+    Thread.critical = true
 
     res = conn.exec('BEGIN')
     res.clear
@@ -738,8 +747,10 @@ def select_as_hashes(conn, select, connection_name = 'geodict_db_connection')
   rescue PGError
     printf(STDERR, conn.error)
     conn.close
-    Thread.current[connection_name] = nil
+    $connections[connection_name] = nil
     exit(1)
+  ensure
+    Thread.critical = false
   end  
 
   return result
@@ -747,16 +758,21 @@ def select_as_hashes(conn, select, connection_name = 'geodict_db_connection')
 end
 
 def get_reverse_geo_db_connection
-  if !Thread.current['reverse_geo_db_connection']
-    Thread.current['reverse_geo_db_connection'] = PGconn.connect(DSTKConfig::HOST,
-      DSTKConfig::PORT,
-      '',
-      '',
-      DSTKConfig::REVERSE_GEO_DATABASE,
-      DSTKConfig::USER,
-      DSTKConfig::PASSWORD)
+  begin
+    Thread.critical = true
+    if !$connections['reverse_geo_db_connection']
+      $connections['reverse_geo_db_connection'] = PGconn.connect(DSTKConfig::HOST,
+        DSTKConfig::PORT,
+        '',
+        '',
+        DSTKConfig::REVERSE_GEO_DATABASE,
+        DSTKConfig::USER,
+        DSTKConfig::PASSWORD)
+    end
+  ensure
+    Thread.critical = false
   end
-  Thread.current['reverse_geo_db_connection']
+  $connections['reverse_geo_db_connection']
 end
 
 # Types of locations we'll be looking for

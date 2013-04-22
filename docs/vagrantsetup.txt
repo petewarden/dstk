@@ -46,7 +46,7 @@ sudo bash -c 'echo "LoadModule passenger_module /opt/vagrant_ruby/lib/ruby/gems/
 sudo bash -c 'echo "PassengerRoot /opt/vagrant_ruby/lib/ruby/gems/1.8/gems/passenger-3.0.19" > /etc/apache2/mods-enabled/passenger.conf'
 sudo bash -c 'echo "PassengerRuby /opt/vagrant_ruby/bin/ruby" >> /etc/apache2/mods-enabled/passenger.conf'
 sudo bash -c 'echo "PassengerMaxPoolSize 3" >> /etc/apache2/mods-enabled/passenger.conf'
-sudo sed -i "s/MaxRequestsPerChild[ \t][ \t]*[0-9][0-9]*/MaxRequestsPerChild 100/" /etc/apache2/apache2.conf
+sudo sed -i "s/MaxRequestsPerChild[ \t][ \t]*[0-9][0-9]*/MaxRequestsPerChild 5/" /etc/apache2/apache2.conf
 
 sudo ln -s /home/vagrant /home/ubuntu
 

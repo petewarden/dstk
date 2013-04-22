@@ -19,6 +19,9 @@ module DSTKConfig
   # The location of the source data to be loaded into your database
   SOURCE_FOLDER = '../dstkdata/'
 
+  # The file system root of the projects
+  DSTK_ROOT = File.expand_path(File.dirname(__FILE__))
+
   # Your MySQL user credentials
   USER = 'postgres'
   PASSWORD = ''
