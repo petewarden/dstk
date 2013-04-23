@@ -801,6 +801,8 @@ $token_sequences = [
   [ :CITY, :REGION ],
   [ :REGION, :COUNTRY ],
   [ :POSTAL_CODE, :COUNTRY ],
+  [ :POSTAL_CODE, :REGION, :COUNTRY ],
+  [ :POSTAL_CODE, :CITY, :COUNTRY ],
   [ :COUNTRY ],
   [ :LOCATION_WORD, :REGION ], # Regions and cities are too common as words to use without additional evidence
   [ :LOCATION_WORD, :CITY ]
