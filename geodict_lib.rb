@@ -825,7 +825,7 @@ I'm mentioning Los Angeles here, but without California or CA right after it, it
 It should still pick up more qualified names like Amman Jordan or Atlanta, Georgia though!
 Dallas, TX or New York, NY
 It should now pick up Queensland, Australia, or even NSW, Australia!
-Postal codes like QLD 4002, Australia, QC H3W, Canada or CA 94117, USA are supported too.
+Postal codes like QLD 4002, Australia, QC H3W, Canada, 2608 Lillehammer, Norway, or CA 94117, USA are supported too.
 TEXT
 
   puts "Analyzing '#{test_text}'"
