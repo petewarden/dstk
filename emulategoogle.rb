@@ -44,6 +44,8 @@ def google_geocoder_api_call(params)
         match_start_index = found_tokens[0][:start_index]
         match_end_index = found_tokens[found_tokens.length-1][:end_index]
         location = get_most_specific_token(found_tokens)
+        country_code = location[:country_code]
+        country_name = get_country_name_from_code(country_code)
         lat = location[:lat].to_f
         lon = location[:lon].to_f
         type = location[:type]
@@ -55,11 +57,6 @@ def google_geocoder_api_call(params)
               'long_name' => location[:matched_string],
               'short_name' => location[:matched_string],
               'types' => [ 'locality', 'political' ],
-            },
-            {
-              'long_name' => location[:country_code],
-              'short_name' => location[:country_code],
-              'types' => [ 'country', 'political' ],
             },
           ]
         elsif type == :POSTAL_CODE
@@ -88,12 +85,6 @@ def google_geocoder_api_call(params)
               'short_name' => location[:region_code].strip,
               'types' => [ 'administrative_area_level_1', 'political' ],
             }
-          address_components <<
-            {
-              'long_name' => location[:country_code],
-              'short_name' => location[:country_code],
-              'types' => [ 'country', 'political' ],
-            }
         elsif type == :REGION
           bounding_range = 1.0
           type_name = 'administrative_area_level_1'
@@ -103,23 +94,18 @@ def google_geocoder_api_call(params)
               'short_name' => location[:code].strip,
               'types' => [ 'administrative_area_level_1', 'political' ],
             },
-            {
-              'long_name' => location[:country_code],
-              'short_name' => location[:country_code],
-              'types' => [ 'country', 'political' ],
-            },
           ]
         else
           bounding_range = 5.0
           type_name = 'country'
-          address_components = [
-            {
-              'long_name' => location[:matched_string],
-              'short_name' => location[:code],
-              'types' => [ 'country', 'political' ],
-            },
-          ]
+          address_components = []
         end
+        address_components <<
+          {
+            'long_name' => country_name,
+            'short_name' => location[:code],
+            'types' => [ 'country', 'political' ],
+          }
         result = {
           'address_components' => address_components,
           'geometry' => {

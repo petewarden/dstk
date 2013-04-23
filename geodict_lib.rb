@@ -161,6 +161,19 @@ def setup_regions_cache(conn)
 
 end
 
+# Translates a two-letter country code into a readable name
+def get_country_name_from_code(country_code)
+  cursor = get_database_connection()
+  setup_countries_cache(cursor)
+  result = country_code
+  $countries_cache.each do |last_word, row|
+    if row['country_code'] == country_code
+      result = row['country']
+    end
+  end
+  result
+end
+
 # Matches the current fragment against our database of countries
 def is_country(conn, text, text_starting_index, previous_result)
         
