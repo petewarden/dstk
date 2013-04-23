@@ -594,11 +594,9 @@ def is_postal_code(cursor, text, text_starting_index, previous_result)
   # Also pull in the prefixed region, if there is one
   region_result = is_region(cursor, text, current_index, nil)
   if region_result
-    $stderr.puts "Found region #{region_result}"
     region_token = region_result[:found_tokens][0]
     region_code = region_token[:code]
     if found_row['region_code'] == region_code
-      $stderr.puts "Found row #{found_row}"
       current_index = region_token[:start_index]-1
       current_word = region_token[:matched_string] + ' ' + current_word
     end
@@ -719,6 +717,21 @@ def get_hash_from_row(fields, row)
 
 end
 
+# Returns the most specific token from the array
+def get_most_specific_token(tokens)
+  if !tokens then return nil end
+  result = nil
+  result_priority = nil
+  tokens.each do |token|
+    priority = $token_priorities[token[:type]]
+    if !result or result_priority > priority
+      result = token
+      result_priority = priority
+    end
+  end
+  result
+end
+
 # Returns the results of the SQL select statement as associative arrays/hashes
 def select_as_hashes(conn, select, connection_name = 'geodict_db_connection')
 
@@ -797,16 +810,25 @@ $token_definitions = {
 # Particular sequences of those location words that give us more confidence they're actually describing
 # a place in the text, and aren't coincidental names (eg 'New York Times')
 $token_sequences = [
+  [ :POSTAL_CODE, :REGION, :COUNTRY ],
+  [ :REGION, :POSTAL_CODE, :COUNTRY ],
+  [ :POSTAL_CODE, :CITY, :COUNTRY ],
+  [ :POSTAL_CODE, :COUNTRY ],
   [ :CITY, :COUNTRY ],
   [ :CITY, :REGION ],
   [ :REGION, :COUNTRY ],
-  [ :POSTAL_CODE, :COUNTRY ],
-  [ :POSTAL_CODE, :REGION, :COUNTRY ],
-  [ :POSTAL_CODE, :CITY, :COUNTRY ],
   [ :COUNTRY ],
   [ :LOCATION_WORD, :REGION ], # Regions and cities are too common as words to use without additional evidence
   [ :LOCATION_WORD, :CITY ]
 ]
+
+# Location identifiers in order of decreasing specificity
+$token_priorities = {
+ :POSTAL_CODE => 0,
+ :CITY => 1,
+ :REGION => 2,
+ :COUNTRY => 3,
+}
 
 if __FILE__ == $0
 
@@ -834,10 +856,10 @@ TEXT
   locations = find_locations_in_text(test_text)  
   locations.each_with_index do |location_info, index|
     found_tokens = location_info[:found_tokens]
+    location = get_most_specific_token(found_tokens)
     match_start_index = found_tokens[0][:start_index]
     match_end_index = found_tokens[found_tokens.length-1][:end_index]
     matched_string = test_text[match_start_index..match_end_index]
-    location = found_tokens[0]
     result = {
       'type' => location[:type],
       'name' => location[:matched_string],
