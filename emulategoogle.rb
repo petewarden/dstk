@@ -103,7 +103,7 @@ def google_geocoder_api_call(params)
         address_components <<
           {
             'long_name' => country_name,
-            'short_name' => location[:code],
+            'short_name' => country_code,
             'types' => [ 'country', 'political' ],
           }
         result = {
