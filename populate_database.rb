@@ -296,7 +296,7 @@ def load_postal_codes(conn)
 
   conn.exec('CREATE TABLE postal_codes (
     postal_code VARCHAR(64),
-    region_code CHAR(4),
+    region_code VARCHAR(64),
     country_code CHAR(2),
     lat FLOAT,
     lon FLOAT,
