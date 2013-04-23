@@ -166,9 +166,11 @@ def get_country_name_from_code(country_code)
   cursor = get_database_connection()
   setup_countries_cache(cursor)
   result = country_code
-  $countries_cache.each do |last_word, row|
-    if row['country_code'] == country_code
-      result = row['country']
+  $countries_cache.each do |last_word, countries|
+    countries.each do |row|
+      if row['country_code'] == country_code
+        result = row['country']
+      end
     end
   end
   result
