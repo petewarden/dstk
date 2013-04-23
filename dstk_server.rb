@@ -939,6 +939,7 @@ get '/info' do
 
   callback = params[:callback]
 
+  content_type 'application/json'
   make_json({:version => DSTKConfig::API_VERSION}, callback)
 
 end
@@ -989,6 +990,7 @@ post '/ip2coordinates' do
 
   output = ip2coordinates(ips_list)
   
+  content_type 'application/json'
   make_json(output)
 end
 
@@ -1007,6 +1009,7 @@ get '/ip2coordinates/:ips?' do
 
   output = ip2coordinates(ips_list, callback)
   
+  content_type 'application/json'
   make_json(output, callback)
 end
 
@@ -1023,6 +1026,7 @@ post '/street2coordinates' do
     addresses_list = addresses_list_from_string(addresses_string)
 
     output = street2coordinates(addresses_list)
+    content_type 'application/json'
     result = make_json(output)
     result
   rescue
@@ -1046,6 +1050,7 @@ get '/street2coordinates/*' do
     addresses_list = addresses_list_from_string(addresses_string, callback)
 
     output = street2coordinates(addresses_list)
+    content_type 'application/json'
     result = make_json(output, callback)
     result
   rescue
@@ -1069,6 +1074,7 @@ post '/coordinates2politics' do
 
     result = coordinates2politics(locations_list)
 
+    content_type 'application/json'
     make_json(result)
 
   rescue
@@ -1181,6 +1187,7 @@ post '/text2sentences' do
 
   output_text = strip_nonsentences(text)
   
+  content_type 'application/json'
   make_json({:sentences => output_text})
 end
 
@@ -1190,6 +1197,7 @@ get '/text2sentences/*' do
 
   output_text = strip_nonsentences(text)
   
+  content_type 'application/json'
   make_json({:sentences => output_text}, callback)
 end
 
@@ -1201,6 +1209,7 @@ post '/html2text' do
 
   output_text = html2text(text)
   
+  content_type 'application/json'
   make_json({:text => output_text})
 end
 
@@ -1210,6 +1219,7 @@ get '/html2text/*' do
 
   output_text = html2text(text)
   
+  content_type 'application/json'
   make_json({:text => output_text}, callback)
 end
 
@@ -1221,6 +1231,7 @@ post '/html2story' do
 
   output_text = boilerpipe(text)
   
+  content_type 'application/json'
   make_json({:story => output_text})
 end
 
@@ -1230,6 +1241,7 @@ get '/html2story/*' do
 
   output_text = boilerpipe(text)
   
+  content_type 'application/json'
   make_json({:story => output_text}, callback)
 end
 
@@ -1241,6 +1253,7 @@ post '/text2people' do
 
   results = text2people(text)
 
+  content_type 'application/json'
   make_json(results)
 end
 
@@ -1250,6 +1263,7 @@ get '/text2people/*' do
 
   results = text2people(text)
 
+  content_type 'application/json'
   make_json(results, callback)
 end
 
@@ -1261,6 +1275,7 @@ post '/text2times' do
 
   results = text2times(text)
 
+  content_type 'application/json'
   make_json(results)
 end
 
@@ -1270,11 +1285,13 @@ get '/text2times/*' do
 
   results = text2times(text)
 
+  content_type 'application/json'
   make_json(results, callback)
 end
 
 get '/maps/api/geocode/:format' do
   callback = params[:callback]
   result = google_geocoder_api_call(params)
+  content_type 'application/json'
   make_json(result, callback)
 end
