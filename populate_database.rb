@@ -306,6 +306,9 @@ def load_postal_codes(conn)
 
   [DSTKConfig::SOURCE_FOLDER+'geonames_postalcodes.tsv',
     DSTKConfig::SOURCE_FOLDER+'crawled_postalcodes.tsv'].each do |file_name|
+
+    $stderr.puts "Starting load of '#{file_name}'"
+
     File.foreach(file_name) do |line|
       row = line.split("\t")
       country_code = row[0]
@@ -339,6 +342,8 @@ def load_postal_codes(conn)
     end
   end
 
+  $stderr.puts "Starting to add postal codes to the database"
+
   postal_codes.each do |key, info|
 
     postal_code = info['postal_code']
@@ -368,7 +373,11 @@ def load_postal_codes(conn)
 
   end
 
+  $stderr.puts "Finished adding postal codes to the database"
+
   conn.exec('CREATE INDEX postal_codes_last_word_index ON postal_codes(last_word)')
+
+  $stderr.puts "Finished database index for postal codes"
 
 end
 
