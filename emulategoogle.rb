@@ -43,7 +43,7 @@ def google_geocoder_api_call(params)
         found_tokens = location_info[:found_tokens]
         match_start_index = found_tokens[0][:start_index]
         match_end_index = found_tokens[found_tokens.length-1][:end_index]
-        location = found_tokens[0]
+        location = get_most_specific_token(found_tokens)
         lat = location[:lat].to_f
         lon = location[:lon].to_f
         type = location[:type]
@@ -64,24 +64,36 @@ def google_geocoder_api_call(params)
           ]
         elsif type == :POSTAL_CODE
           bounding_range = 0.1
-          type_name = 'administrative_area_level_2'
+          type_name = 'postal_code'
           address_components = [
             {
               'long_name' => location[:matched_string],
               'short_name' => location[:code].strip,
-              'types' => [ 'administrative_area_level_2', 'political' ],
+              'types' => [ 'postal_code', 'political' ],
             },
+          ]
+          found_tokens.each do |token|
+            if token[:type] == :CITY
+              address_components <<
+                {
+                  'long_name' => token[:matched_string],
+                  'short_name' => token[:matched_string],
+                  'types' => [ 'locality', 'political' ],
+                }
+            end
+          end
+          address_components <<
             {
               'long_name' => location[:region_code],
               'short_name' => location[:region_code].strip,
               'types' => [ 'administrative_area_level_1', 'political' ],
-            },
+            }
+          address_components <<
             {
               'long_name' => location[:country_code],
               'short_name' => location[:country_code],
               'types' => [ 'country', 'political' ],
-            },
-          ]
+            }
         elsif type == :REGION
           bounding_range = 1.0
           type_name = 'administrative_area_level_1'
