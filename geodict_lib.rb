@@ -128,8 +128,11 @@ end
 
 # Caches the countries and regions tables in memory
 $countries_cache = {}
+$is_countries_cache_setup = false
 
 def setup_countries_cache(conn)
+
+  if $is_countries_cache_setup then return end
 
   select = 'SELECT * FROM countries'
   hashes = select_as_hashes(conn, select)
@@ -141,12 +144,17 @@ def setup_countries_cache(conn)
     end
     $countries_cache[last_word].push(hash)
   end
-  
+
+  $is_countries_cache_setup = true
+
 end
 
 $regions_cache = {}
+$is_regions_cache_setup = false
 
 def setup_regions_cache(conn)
+
+  if $is_regions_cache_setup then return end
 
   select = 'SELECT * FROM regions'
   hashes = select_as_hashes(conn, select)
@@ -158,6 +166,9 @@ def setup_regions_cache(conn)
     end
     $regions_cache[last_word].push(hash)
   end
+
+
+  $is_regions_cache_setup = true
 
 end
 
