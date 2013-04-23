@@ -304,37 +304,39 @@ def load_postal_codes(conn)
   
   postal_codes = {}
 
-  file_name = DSTKConfig::SOURCE_FOLDER+'geonames_postalcodes.tsv'
-  File.foreach(file_name) do |line|    
-    row = line.split("\t")
-    country_code = row[0]
-    postal_code = row[1]
-    place_name = row[2]
-    admin_name1 = row[3]
-    admin_code1 = row[4]
-    admin_name2 = row[5]
-    admin_code2 = row[6]
-    admin_name3 = row[7]
-    admin_code3 = row[8]
-    lat_string = row[9]
-    lon_string = row[10]
-    accuracy = row[11]
+  [DSTKConfig::SOURCE_FOLDER+'geonames_postalcodes.tsv',
+    DSTKConfig::SOURCE_FOLDER+'crawled_postalcodes.tsv'].each do |file_name|
+    File.foreach(file_name) do |line|
+      row = line.split("\t")
+      country_code = row[0]
+      postal_code = row[1]
+      place_name = row[2]
+      admin_name1 = row[3]
+      admin_code1 = row[4]
+      admin_name2 = row[5]
+      admin_code2 = row[6]
+      admin_name3 = row[7]
+      admin_code3 = row[8]
+      lat_string = row[9]
+      lon_string = row[10]
+      accuracy = row[11]
 
-    if !postal_code or postal_code == '' then next end
-    if !admin_code1 or admin_code1 == '' then next end
-    if !lat_string or lat_string == '' then next end
-    if !lon_string or lon_string == '' then next end
-    
-    key = country_code + '*' + postal_code
-    if !postal_codes[key]
-      postal_codes[key] = {
-        'postal_code' => postal_code,
-        'region_code' => admin_code1,
-        'country_code' => country_code,
-        'coordinates' => []
-      }
+      if !postal_code or postal_code == '' then next end
+      if !admin_code1 or admin_code1 == '' then next end
+      if !lat_string or lat_string == '' then next end
+      if !lon_string or lon_string == '' then next end
+      
+      key = country_code + '*' + postal_code
+      if !postal_codes[key]
+        postal_codes[key] = {
+          'postal_code' => postal_code,
+          'region_code' => admin_code1,
+          'country_code' => country_code,
+          'coordinates' => []
+        }
+      end
+      postal_codes[key]['coordinates'] << {'lat' => lat_string.to_f, 'lon' => lon_string.to_f}
     end
-    postal_codes[key]['coordinates'] << {'lat' => lat_string.to_f, 'lon' => lon_string.to_f}
   end
 
   postal_codes.each do |key, info|
@@ -372,7 +374,7 @@ end
 
 conn = get_database_connection()
 
-load_cities(conn)
-load_countries(conn)
-load_regions(conn)
+#load_cities(conn)
+#load_countries(conn)
+#load_regions(conn)
 load_postal_codes(conn)
