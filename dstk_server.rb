@@ -1305,7 +1305,7 @@ end
 
 get '/text2sentiment/*' do
   callback = params[:callback]
-  text = JSON.parse(params['splat'][0])[0]
+  text = params['splat'][0]
 
   score = text2sentiment(text)
   result = {'score' => score}
