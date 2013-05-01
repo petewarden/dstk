@@ -1306,6 +1306,7 @@ end
 get '/text2sentiment/*' do
   callback = params[:callback]
   text = params['splat'][0]
+  text.gsub!(/^\["(.*)"\]$/, '\1')
 
   score = text2sentiment(text)
   result = {'score' => score}
