@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		591BB17E17309BDF0061C1A7 /* text2sentiment.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = text2sentiment.rb; sourceTree = "<group>"; };
 		5929E11013243ECB00B81D2E /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		5929E11213243ECB00B81D2E /* geodict_lib.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = geodict_lib.rb; sourceTree = "<group>"; };
 		5929E11413243ECB00B81D2E /* gpl.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gpl.txt; sourceTree = "<group>"; };
@@ -101,6 +102,7 @@
 				5929E11813243ECB00B81D2E /* testinput.txt */,
 				596BF3A91340347100D42EE1 /* tests */,
 				597D8CE2133561460042C251 /* text2people.rb */,
+				591BB17E17309BDF0061C1A7 /* text2sentiment.rb */,
 				596BF3AB1340402600D42EE1 /* text2times.rb */,
 				5929E1F013258C0500B81D2E /* views */,
 			);

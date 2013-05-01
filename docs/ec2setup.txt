@@ -1,10 +1,31 @@
 Start with AMI # ami-3fec7956 (Ubuntu 12.04), 32GB
 (ec2-run-instances ami-3fec7956 -t m1.large --region us-east-1 -z us-east-1d --block-device-mapping /dev/sda1=:32:false)
 
+sudo apt-add-repository -y ppa:olivier-berten/geo
+sudo add-apt-repository -y ppa:webupd8team/java
 sudo aptitude update
 sudo aptitude safe-upgrade -y
 sudo aptitude full-upgrade -y
-sudo aptitude install -y build-essential apache2 apache2.2-common apache2-mpm-prefork apache2-utils libexpat1 ssl-cert postgresql libpq-dev ruby1.8-dev ruby1.8 ri1.8 rdoc1.8 irb1.8 libreadline-ruby1.8 libruby1.8 libopenssl-ruby sqlite3 libsqlite3-ruby1.8 git-core libcurl4-openssl-dev apache2-prefork-dev libapr1-dev libaprutil1-dev subversion postgresql-9.1-postgis autoconf libtool libxml2-dev libbz2-1.0 libbz2-dev libgeos-dev proj-bin libproj-dev ocropus pdftohtml catdoc unzip ant openjdk-6-jdk lftp php5-cli rubygems flex
+sudo aptitude install -y build-essential apache2 apache2.2-common apache2-mpm-prefork apache2-utils libexpat1 ssl-cert postgresql libpq-dev ruby1.8-dev ruby1.8 ri1.8 rdoc1.8 irb1.8 libreadline-ruby1.8 libruby1.8 libopenssl-ruby sqlite3 libsqlite3-ruby1.8 git-core libcurl4-openssl-dev apache2-prefork-dev libapr1-dev libaprutil1-dev subversion postgresql-9.1-postgis autoconf libtool libxml2-dev libbz2-1.0 libbz2-dev libgeos-dev proj-bin libproj-dev ocropus pdftohtml catdoc unzip ant openjdk-6-jdk lftp php5-cli rubygems flex postgresql-server-dev-9.1 proj libjson0-dev xsltproc docbook-xsl docbook-mathml gettext postgresql-contrib-9.1 pgadmin3 python-software-properties bison
+sudo aptitude install -y oracle-java7-installer
+sudo aptitude install -y libgdal-dev
+sudo aptitude install -y libgeos++-dev
+sudo bash -c 'echo "/usr/lib/jvm/java-7-oracle/jre/lib/amd64/server" > /etc/ld.so.conf.d/jvm.conf'
+sudo ldconfig
+
+./configure --prefix=/usr/lib/postgresql/9.1 --with-openssl
+sed -i 's/^\(#define MaxAllocSize.*\)\(0x[0-9a-f][0-9a-f]*\)/\10x7fffffff/' src/include/utils/memutils.h
+
+mkdir ~/sources
+cd ~/sources
+wget http://download.osgeo.org/postgis/source/postgis-2.0.3.tar.gz
+tar xfvz postgis-2.0.3.tar.gz
+cd postgis-2.0.3
+./configure --with-gui
+make
+sudo make install
+sudo ldconfig
+sudo make comments-install
 
 sudo sed -i "s/ident/trust/" /etc/postgresql/9.1/main/pg_hba.conf
 sudo sed -i "s/md5/trust/" /etc/postgresql/9.1/main/pg_hba.conf
@@ -12,7 +33,62 @@ sudo sed -i "s/peer/trust/" /etc/postgresql/9.1/main/pg_hba.conf
 sudo /etc/init.d/postgresql restart
 createdb -U postgres geodict
 
-mkdir ~/sources
+sudo -u postgres createdb template_postgis
+sudo -u postgres psql -d template_postgis -f /usr/share/postgresql/9.1/contrib/postgis-2.0/postgis.sql
+sudo -u postgres psql -d template_postgis -f /usr/share/postgresql/9.1/contrib/postgis-2.0/spatial_ref_sys.sql
+sudo -u postgres psql -d template_postgis -f /usr/share/postgresql/9.1/contrib/postgis-2.0/postgis_comments.sql
+sudo -u postgres psql -d template_postgis -f /usr/share/postgresql/9.1/contrib/postgis-2.0/rtpostgis.sql
+sudo -u postgres psql -d template_postgis -f /usr/share/postgresql/9.1/contrib/postgis-2.0/raster_comments.sql
+sudo -u postgres psql -d template_postgis -f /usr/share/postgresql/9.1/contrib/postgis-2.0/topology.sql
+sudo -u postgres psql -d template_postgis -f /usr/share/postgresql/9.1/contrib/postgis-2.0/topology_comments.sql
+sudo -u postgres psql -d template_postgis -f /usr/share/postgresql/9.1/contrib/postgis-2.0/legacy.sql
+sudo -u postgres psql -d template_postgis -f /usr/share/postgresql/9.1/contrib/postgis-2.0/legacy_gist.sql
+
+createdb -U postgres -T template_postgis statistics
+
+cd ~/sources/dstkdata
+tar xzf gl_gpwfe_pdens_15_bil_25.tar.gz
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 gl_gpwfe_pdens_15_bil_25/glds15ag.bil public.population_density | psql -U postgres -d statistics
+rm -rf gl_gpwfe_pdens_15_bil_25
+unzip glc2000_v1_1_Tiff.zip
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I Tiff/glc2000_v1_1.tif public.land_cover | psql -U postgres -d statistics
+rm -rf Tiff
+unzip SRTM_NE_250m.tif.zip
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 SRTM_NE_250m.tif public.elevation | psql -U postgres -d statistics
+rm -rf SRTM_NE_250m.tif
+unzip SRTM_W_250m.tif.zip
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -a SRTM_W_250m.tif public.elevation | psql -U postgres -d statistics
+rm -rf unzip SRTM_W_250m.tif
+unzip SRTM_SE_250m.tif.zip
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -a -I SRTM_SE_250m.tif public.elevation | psql -U postgres -d statistics
+rm -rf SRTM_SE_250m.tif
+unzip tmean_30s_bil.zip
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I tmean_1.bil public.mean_temperature_01 | psql -U postgres -d statistics
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I tmean_2.bil public.mean_temperature_02 | psql -U postgres -d statistics
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I tmean_3.bil public.mean_temperature_03 | psql -U postgres -d statistics
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I tmean_4.bil public.mean_temperature_04 | psql -U postgres -d statistics
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I tmean_5.bil public.mean_temperature_05 | psql -U postgres -d statistics
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I tmean_6.bil public.mean_temperature_06 | psql -U postgres -d statistics
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I tmean_7.bil public.mean_temperature_07 | psql -U postgres -d statistics
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I tmean_8.bil public.mean_temperature_08 | psql -U postgres -d statistics
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I tmean_9.bil public.mean_temperature_09 | psql -U postgres -d statistics
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I tmean_10.bil public.mean_temperature_10 | psql -U postgres -d statistics
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I tmean_11.bil public.mean_temperature_11 | psql -U postgres -d statistics
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I tmean_12.bil public.mean_temperature_12 | psql -U postgres -d statistics
+
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I prec_1.bil public.precipitation_01 | psql -U postgres -d statistics
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I prec_2.bil public.precipitation_02 | psql -U postgres -d statistics
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I prec_3.bil public.precipitation_03 | psql -U postgres -d statistics
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I prec_4.bil public.precipitation_04 | psql -U postgres -d statistics
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I prec_5.bil public.precipitation_05 | psql -U postgres -d statistics
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I prec_6.bil public.precipitation_06 | psql -U postgres -d statistics
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I prec_7.bil public.precipitation_07 | psql -U postgres -d statistics
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I prec_8.bil public.precipitation_08 | psql -U postgres -d statistics
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I prec_9.bil public.precipitation_09 | psql -U postgres -d statistics
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I prec_10.bil public.precipitation_10 | psql -U postgres -d statistics
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I prec_11.bil public.precipitation_11 | psql -U postgres -d statistics
+/usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I prec_12.bil public.precipitation_12 | psql -U postgres -d statistics
+
 cd ~/sources
 git clone git://github.com/petewarden/dstk.git
 git clone git://github.com/petewarden/dstkdata.git
@@ -81,12 +157,7 @@ make
 sudo make install
 sudo ln -s /usr/local/libiconv/lib/libiconv.so.2 /usr/lib/libiconv.so.2
 
-createdb -U postgres postgis_template
-createlang -U postgres plpgsql postgis_template
-psql -U postgres -d postgis_template -f /usr/share/postgresql/9.1/contrib/postgis-1.5/postgis.sql
-psql -U postgres -d postgis_template -f /usr/share/postgresql/9.1/contrib/postgis-1.5/spatial_ref_sys.sql
-psql -U postgres -d postgis_template -f /usr/share/postgresql/9.1/contrib/postgis_comments.sql
-createdb -U postgres -T postgis_template reversegeo
+createdb -U postgres -T template_postgis reversegeo
 
 cd ~/sources
 git clone git://github.com/petewarden/osm2pgsql
