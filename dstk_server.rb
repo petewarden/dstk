@@ -44,6 +44,7 @@ require File.join(cwd, 'text2times')
 require File.join(cwd, 'street2coordinates')
 require File.join(cwd, 'coordinates2politics')
 require File.join(cwd, 'emulategoogle')
+require File.join(cwd, 'text2sentiment')
 
 enable :run
 
