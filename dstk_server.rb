@@ -1289,6 +1289,30 @@ get '/text2times/*' do
   make_json(results, callback)
 end
 
+# Returns a sentiment score for the input text
+post '/text2sentiment' do
+
+  # Pull in the raw data in the body of the request
+  text = request.env['rack.input'].read
+
+  score = text2sentiment(text)
+  result = {'score' => score}
+
+  content_type 'application/json'
+  make_json(result)
+end
+
+get '/text2sentiment/*' do
+  callback = params[:callback]
+  text = JSON.parse(params['splat'][0])[0]
+
+  score = text2sentiment(text)
+  result = {'score' => score}
+
+  content_type 'application/json'
+  make_json(result, callback)
+end
+
 get '/maps/api/geocode/:format' do
   callback = params[:callback]
   result = google_geocoder_api_call(params)

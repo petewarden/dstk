@@ -353,7 +353,8 @@ I’m tired and don’t feel like doing things. Going to bed early. I’ll triag
 The press conference was more about the press than the President, @Lawrence notes.
 We are looking for an experienced ruby developer to join our awesome team. More here: http://ar.gy/478E 
 I need to learn to lock my laptop screen. :'(
-.@mshocked seeks redemption for her anti-gay rants by dropping into a small local FM station. http://bit.ly/Yl0eE3 
+.@mshocked seeks redemption for her anti-gay rants by dropping into a small local FM station. http://bit.ly/Yl0eE3
+I hate this hotel!
 TEXT
 
   test_tweets = test_text.split("\n")

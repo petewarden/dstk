@@ -571,6 +571,26 @@
 
       This API uses the [Chronic Ruby gem](https://github.com/mojombo/chronic/) to convert the strings it finds into times.
     
+    %a{:name=>"text2sentiment"}
+    :markdown
+      #### Text to Sentiment
+      
+      Tries to guess whether the text represents a roughly positive or negative comment, and returns a score between -5 and 5. The lowest score indicates that there were words associated with unhappiness or dissatisfaction, a score of zero either means that no charged words were found, or that the positive and negative words balanced themselves out, and a high score shows that there were one or more 'good' words that occur in pleased, happy comments.
+      
+      For example, "Great trip. Thanks for the warm welcome, Dallas and Fort Worth" gets a score of +2 because "great" has a weight of +3, and "warm" gives +1, so the average is +2.
+
+      It's using a very simple algorithm, based around [Finn Årup's annotated list of words](http://neuro.imm.dtu.dk/wiki/AFINN) originally designed for analyzing the sentiment of Twitter messages. If you're diving deep into sentiment analysis, it's likely that you'll want to build your own algorithm trained for your particular domain, but Finn's list has proved very effective for everyday use.
+      <hr>
+      `curl -d "I hate this hotel!" "http://www.datasciencetoolkit.org/text2times"`
+      
+      `{"score": -3.0},`
+
+      <hr>
+
+      The text is passed in either as a JSON-encoded array in the remainder of the URL for a GET call, or in the raw body of the request for POST. The usual 8,000 character limit on GET URLs applies, so use POST for larger texts.
+
+      This API uses [Finn Årup's annotated list of words](http://neuro.imm.dtu.dk/wiki/AFINN) under an [ODbL license](http://www.opendatacommons.org/licenses/odbl/1.0/).
+    
     %a{:name=>"setup"}
     :markdown
       ### Setting up your own server
