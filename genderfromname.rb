@@ -29,7 +29,7 @@ def gender_from_name(name, looseness=5)
 
   debug_log("Matching '"+name+"'")
 
-  begin
+#  begin
 
     confidence = -1
     (0..looseness).each do |i|
@@ -64,9 +64,9 @@ def gender_from_name(name, looseness=5)
       end
 
     end
-  rescue
-    printf(STDERR, "Exception\n")
-  end
+#  rescue
+#    printf(STDERR, "Exception\n")
+#  end
     
   if !gender
     return nil
@@ -124,7 +124,7 @@ def either_weight(name)
   end
 
   if gender
-    debug_log("\tF: "+str(female_hit)+", M: "+str(male_hit)+"\n");
+    debug_log("\tF: " + female_hit.to_s + ", M: " + male_hit.to_s + "\n");
   end
   
   return gender

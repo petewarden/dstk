@@ -19,7 +19,15 @@
 
 require 'rubygems' if RUBY_VERSION < '1.9'
 
+require 'csv'
+require 'json'
+
+# Some hackiness to include the library script, even if invoked from another directory
+require File.join(File.expand_path(File.dirname(__FILE__)), 'dstk_config')
+
 require 'genderfromname'
+
+$surnames_map = nil
 
 def debug_log(message)
 #  begin
@@ -100,13 +108,15 @@ def text2people(text)
       first_name = first_word
       surnames = remaining_words[0..-1].join(' ')
     end
-  
+
+    ethnicity = get_ethnicity_from_last_name(surnames.split(' ').last)
+
     matched_string = full_match.to_s
     start_index = offset
     end_index = (offset + matched_string.length)
 
     offset = end_index
-  
+
     result.push({
       :gender => gender,
       :title => title,
@@ -114,7 +124,8 @@ def text2people(text)
       :surnames => surnames,
       :matched_string => matched_string,
       :start_index => start_index,
-      :end_index => end_index
+      :end_index => end_index,
+      :ethnicity => ethnicity
     })
 
   end
@@ -187,6 +198,71 @@ def match_first_name(word)
   { :gender => info[:gender] }  
 end
 
-#text = open('../cruftstripper/test_data/inputs/cnn.com.html').read()
-#output = text2people(text)
-#puts output.inspect
+def load_surnames_map
+  $surnames_map = {}
+  file_name = DSTKConfig::ETHNICITY_OF_SURNAMES_FILE
+  File.foreach(file_name).with_index do |line, line_number|
+    # Skip the header line, assume fixed column positions
+    if line_number == 0 then next end
+    row = CSV.parse_line(line)
+    name = row[0].downcase
+    rank = row[1].to_i
+    percentage_of_total = row[3].to_f / 1000.0
+    percentage_white = row[5].to_f
+    percentage_black = row[6].to_f
+    percentage_asian_or_pacific_islander = row[7].to_f
+    percentage_american_indian_or_alaska_native = row[8].to_f
+    percentage_two_or_more = row[9].to_f
+    percentage_hispanic = row[10].to_f
+    $surnames_map[name] = [
+      rank,
+      percentage_of_total,
+      percentage_white,
+      percentage_black,
+      percentage_asian_or_pacific_islander,
+      percentage_american_indian_or_alaska_native,
+      percentage_two_or_more,
+      percentage_hispanic,
+    ]
+  end
+end
+
+def get_ethnicity_from_last_name(last_name)
+  if !$surnames_map
+    load_surnames_map
+  end
+  if !$surnames_map[last_name.downcase] then return nil end
+  row = $surnames_map[last_name.downcase]
+  {
+    :rank => row[0],
+    :percentage_of_total => row[1],
+    :percentage_white => row[2],
+    :percentage_black => row[3],
+    :percentage_asian_or_pacific_islander => row[4],
+    :percentage_american_indian_or_alaska_native => row[5],
+    :percentage_two_or_more => row[6],
+    :percentage_hispanic => row[7],
+  }
+end
+
+if __FILE__ == $0
+  test_text = <<-TEXT
+Elvis Presley
+Something else that's not a name
+Pete Warden, blah blah
+Tony Blair
+Samuel L Jackson
+David Aceveda
+Henry Martinez
+TEXT
+
+  test_text.each_line do |line|
+    output = text2people(line)
+    puts line
+    if output
+      puts JSON.pretty_generate(output)
+    end
+    puts '************'
+  end
+
+end

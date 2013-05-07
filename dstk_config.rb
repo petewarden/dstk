@@ -58,4 +58,7 @@ module DSTKConfig
   # For backwards compatibility, look for any of these versions, starting with the first
   GEOCODER_DB_FILES = ['../geocoderdata/geocoder2012.db', '../geocoderdata/geocoder2011.db']
 
+  # The location of the MaxMind database file holding IP to location mappings
+  ETHNICITY_OF_SURNAMES_FILE = '../dstkdata/ethnicityofsurnames.csv'
+
 end
