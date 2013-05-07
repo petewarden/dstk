@@ -653,11 +653,11 @@
           if (person['ethnicity'] !== null) {
             var ethnicity = person['ethnicity'];
             ethnicityString += ' - Americans with this surname are: ';
-            ethnicityString += ethnicity['percentage_white'].to_s + '% white, '
-            ethnicityString += ethnicity['percentage_black'].to_s + '% black, '
-            ethnicityString += ethnicity['percentage_hispanic'].to_s + '% hispanic, '
-            ethnicityString += ethnicity['percentage_asian_or_pacific_islander'].to_s + '% Asian or Pacific Islander, '
-            ethnicityString += ethnicity['percentage_american_indian_or_alaskan_native'].to_s + '% American Indian or Alaskan Native'
+            ethnicityString += ethnicity['percentage_white'] + '% white, '
+            ethnicityString += ethnicity['percentage_black'] + '% black, '
+            ethnicityString += ethnicity['percentage_hispanic'] + '% hispanic, '
+            ethnicityString += ethnicity['percentage_asian_or_pacific_islander'] + '% Asian or Pacific Islander, '
+            ethnicityString += ethnicity['percentage_american_indian_or_alaskan_native'] + '% American Indian or Alaskan Native'
           }
 
           var html = 
