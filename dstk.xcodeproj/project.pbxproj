@@ -8,6 +8,7 @@
 
 /* Begin PBXFileReference section */
 		591BB17E17309BDF0061C1A7 /* text2sentiment.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = text2sentiment.rb; sourceTree = "<group>"; };
+		591BB181173ACA9C0061C1A7 /* coordinates2statistics.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = coordinates2statistics.rb; sourceTree = "<group>"; };
 		5929E11013243ECB00B81D2E /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		5929E11213243ECB00B81D2E /* geodict_lib.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = geodict_lib.rb; sourceTree = "<group>"; };
 		5929E11413243ECB00B81D2E /* gpl.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gpl.txt; sourceTree = "<group>"; };
@@ -78,6 +79,7 @@
 			children = (
 				5929E11B13243FBE00B81D2E /* config.ru */,
 				5950FA6714E65BBB00361BF2 /* coordinates2politics.rb */,
+				591BB181173ACA9C0061C1A7 /* coordinates2statistics.rb */,
 				597D8BAE13340F3E0042C251 /* cruftstripper.rb */,
 				59D0BE0A17247F02007AAE04 /* dataconversion */,
 				5950FA5D14E51EA600361BF2 /* docs */,

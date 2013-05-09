@@ -29,14 +29,12 @@ $connections = {}
 # fragments it could identify as locations, together with lat/lon positions
 def find_locations_in_text(text)
 
-  cursor = get_database_connection()
-
   current_index = text.length-1
   result = []
   $tokenized_words = {}
 
-  setup_countries_cache(cursor)
-  setup_regions_cache(cursor)
+  setup_countries_cache()
+  setup_regions_cache()
   
   # This loop goes through the text string in *reverse* order. Since locations in English are typically
   # described with the broadest category last, preceded by more and more specific designations towards
@@ -82,7 +80,7 @@ def find_locations_in_text(text)
         else
           # The meat of the algorithm, checks the ending of the current string against the
           # token testing function, eg seeing if it matches a country name
-          token_result = send(match_function, cursor, text, token_index, token_result)
+          token_result = send(match_function, text, token_index, token_result)
           if token_position == 0
             match_cache[token_name] = token_result
           end
@@ -130,12 +128,12 @@ end
 $countries_cache = {}
 $is_countries_cache_setup = false
 
-def setup_countries_cache(conn)
+def setup_countries_cache()
 
   if $is_countries_cache_setup then return end
 
   select = 'SELECT * FROM countries'
-  hashes = select_as_hashes(conn, select)
+  hashes = select_as_hashes(select, DSTKConfig::DATABASE)
     
   hashes.each do |hash|
     last_word = hash['last_word'].downcase
@@ -152,12 +150,12 @@ end
 $regions_cache = {}
 $is_regions_cache_setup = false
 
-def setup_regions_cache(conn)
+def setup_regions_cache()
 
   if $is_regions_cache_setup then return end
 
   select = 'SELECT * FROM regions'
-  hashes = select_as_hashes(conn, select)
+  hashes = select_as_hashes(select, DSTKConfig::DATABASE)
     
   hashes.each do |hash|
     last_word = hash['last_word'].downcase
@@ -175,8 +173,7 @@ end
 # Translates a two-letter country code into a readable name
 def get_country_name_from_code(country_code)
   if !country_code then return nil end
-  cursor = get_database_connection()
-  setup_countries_cache(cursor)
+  setup_countries_cache()
   result = country_code
   $countries_cache.each do |last_word, countries|
     countries.each do |row|
@@ -189,7 +186,7 @@ def get_country_name_from_code(country_code)
 end
 
 # Matches the current fragment against our database of countries
-def is_country(conn, text, text_starting_index, previous_result)
+def is_country(text, text_starting_index, previous_result)
         
   current_word = ''
   current_index = text_starting_index
@@ -290,7 +287,7 @@ end
 
 # Looks through our database of 2 million towns and cities around the world to locate any that match the
 # words at the end of the current text fragment
-def is_city(conn, text, text_starting_index, previous_result)
+def is_city(text, text_starting_index, previous_result)
     
   # If we're part of a sequence, then use any country or region information to narrow down our search
   country_code = nil
@@ -332,7 +329,7 @@ def is_city(conn, text, text_starting_index, previous_result)
       # There may be multiple cities with the same name, so pick the one with the largest population
       select += ' ORDER BY population;'
       
-      hashes = select_as_hashes(conn, select)
+      hashes = select_as_hashes(select, DSTKConfig::DATABASE)
       
       name_map = {}
       hashes.each do |hash|
@@ -398,7 +395,7 @@ def is_city(conn, text, text_starting_index, previous_result)
 end
 
 # This looks for sub-regions within countries. At the moment the only values in the database are for US states
-def is_region(cursor, text, text_starting_index, previous_result)
+def is_region(text, text_starting_index, previous_result)
 
   # Narrow down the search by country, if we already have it
   country_code = nil
@@ -510,7 +507,7 @@ end
 # A special case - used to look for 'at' or 'in' before a possible location word. This helps me be more certain
 # that it really is a location in this context. Think 'the New York Times' vs 'in New York' - with the latter
 # fragment we can be pretty sure it's talking about a location
-def is_location_word(cursor, text, text_starting_index, previous_result)
+def is_location_word(text, text_starting_index, previous_result)
 
   current_index = text_starting_index
   current_word, current_index, end_skipped = pull_word_from_end(text, current_index)
@@ -529,7 +526,7 @@ def is_location_word(cursor, text, text_starting_index, previous_result)
 
 end
 
-def is_postal_code(cursor, text, text_starting_index, previous_result)
+def is_postal_code(text, text_starting_index, previous_result)
   # Narrow down the search by country, if we already have it
   country_code = nil
   if previous_result
@@ -563,7 +560,7 @@ def is_postal_code(cursor, text, text_starting_index, previous_result)
         select += " AND country_code='"+country_code.upcase+"'"
       end
 
-      candidate_dicts = select_as_hashes(cursor, select)
+      candidate_dicts = select_as_hashes(select, DSTKConfig::DATABASE)
       
       name_map = {}
       candidate_dicts.each do |candidate_dict|
@@ -619,7 +616,7 @@ def is_postal_code(cursor, text, text_starting_index, previous_result)
   end
 
   # Also pull in the prefixed region, if there is one
-  region_result = is_region(cursor, text, current_index, nil)
+  region_result = is_region(text, current_index, nil)
   if region_result
     region_token = region_result[:found_tokens][0]
     region_code = region_token[:code]
@@ -663,27 +660,6 @@ def is_postal_code(cursor, text, text_starting_index, previous_result)
     
   return current_result
 
-end
-
-# Utility functions
-
-def get_database_connection
-  begin
-    Thread.critical = true
-    if !$connections['geodict_db_connection']
-      $connections['geodict_db_connection'] = PGconn.connect(
-        DSTKConfig::HOST,
-        DSTKConfig::PORT,
-        '',
-        '',
-        DSTKConfig::DATABASE,
-        DSTKConfig::USER,
-        DSTKConfig::PASSWORD)
-    end
-  ensure
-    Thread.critical = false
-  end
-  $connections['geodict_db_connection']
 end
 
 # Characters to ignore when pulling out words
@@ -760,9 +736,12 @@ def get_most_specific_token(tokens)
 end
 
 # Returns the results of the SQL select statement as associative arrays/hashes
-def select_as_hashes(conn, select, connection_name = 'geodict_db_connection')
+def select_as_hashes(select, database_name)
 
   begin
+
+    conn = get_database_connection(database_name)
+
     Thread.critical = true
 
     res = conn.exec('BEGIN')
@@ -787,7 +766,7 @@ def select_as_hashes(conn, select, connection_name = 'geodict_db_connection')
   rescue PGError
     printf(STDERR, conn.error)
     conn.close
-    $connections[connection_name] = nil
+    $connections[database_name] = nil
     exit(1)
   ensure
     Thread.critical = false
@@ -797,22 +776,22 @@ def select_as_hashes(conn, select, connection_name = 'geodict_db_connection')
 
 end
 
-def get_reverse_geo_db_connection
+def get_database_connection(database_name)
   begin
     Thread.critical = true
-    if !$connections['reverse_geo_db_connection']
-      $connections['reverse_geo_db_connection'] = PGconn.connect(DSTKConfig::HOST,
+    if !$connections[database_name]
+      $connections[database_name] = PGconn.connect(DSTKConfig::HOST,
         DSTKConfig::PORT,
         '',
         '',
-        DSTKConfig::REVERSE_GEO_DATABASE,
+        database_name,
         DSTKConfig::USER,
         DSTKConfig::PASSWORD)
     end
   ensure
     Thread.critical = false
   end
-  $connections['reverse_geo_db_connection']
+  $connections[database_name]
 end
 
 # Types of locations we'll be looking for

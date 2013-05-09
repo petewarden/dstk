@@ -89,6 +89,14 @@ unzip tmean_30s_bil.zip
 /usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I prec_11.bil public.precipitation_11 | psql -U postgres -d statistics
 /usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I prec_12.bil public.precipitation_12 | psql -U postgres -d statistics
 
+unzip us_statistics_rasters.zip -d us_statistics_rasters
+cd us_statistics_rasters/
+for f in *.tif
+do
+  /usr/lib/postgresql/9.1/bin/raster2pgsql -s 4236 -t 32x32 -I $f `basename $f .tif` | psql -U postgres -d statistics
+done
+
+
 cd ~/sources
 git clone git://github.com/petewarden/dstk.git
 git clone git://github.com/petewarden/dstkdata.git

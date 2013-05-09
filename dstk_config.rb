@@ -36,6 +36,9 @@ module DSTKConfig
   # The name of the database holding the geometry used in reverse geocoding
   REVERSE_GEO_DATABASE = 'reversegeo'
 
+  # The name of the database holding geographic statistics
+  STATISTICS_DATABASE = 'statistics'
+
   # The maximum number of words in any name
   WORD_MAX = 3
 

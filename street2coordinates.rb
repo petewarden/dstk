@@ -58,8 +58,6 @@ def street2coordinates(addresses)
     $geocoder_db = Geocoder::US::Database.new(db_file, {:debug => false})
   end
 
-  conn = get_reverse_geo_db_connection
-
   default_country = guess_top_country_for_list(addresses)
 
   output = {}
@@ -69,7 +67,7 @@ def street2coordinates(addresses)
       if country == 'us'
         info = geocode_us_address(address)
       elsif country == 'uk'
-        info = geocode_uk_address(address, conn)
+        info = geocode_uk_address(address)
       else
         info = nil
       end
@@ -498,7 +496,7 @@ def geocode_us_address(address)
 end
 
 # Does the actual conversion of the UK address string into coordinates
-def geocode_uk_address(address, conn)
+def geocode_uk_address(address)
 
   whitespace_re = Regexp.new(S2C_WHITESPACE)
   clean_address = address.gsub(whitespace_re, ' ')
@@ -525,7 +523,7 @@ def geocode_uk_address(address, conn)
 
     s2c_debug_log("post_code_select='%s'" % post_code_select)
 
-    post_code_hashes = select_as_hashes(conn, post_code_select, 'reverse_geo_db_connection')
+    post_code_hashes = select_as_hashes(post_code_select, DSTKConfig::REVERSE_GEO_DATABASE)
 
     s2c_debug_log("post_code_hashes='%s'" % post_code_hashes.inspect)
   
@@ -536,7 +534,7 @@ def geocode_uk_address(address, conn)
       district_code = post_code_info['county_code']+post_code_info['district_code']
       district_select = 'SELECT * FROM uk_district_names WHERE district_code=\''+district_code+'\';'
       s2c_debug_log("district_select='%s'" % district_select.inspect)
-      district_hashes = select_as_hashes(conn, district_select, 'reverse_geo_db_connection')
+      district_hashes = select_as_hashes(district_select, DSTKConfig::REVERSE_GEO_DATABASE)
       s2c_debug_log("district_hashes='%s'" % district_hashes.inspect)
       district_info = district_hashes[0]
       district_name = district_info['name']
@@ -544,7 +542,7 @@ def geocode_uk_address(address, conn)
       ward_code = district_code+post_code_info['ward_code']
       ward_select = 'SELECT * FROM uk_ward_names WHERE ward_code=\''+ward_code+'\';'
       s2c_debug_log("ward_select='%s'" % ward_select.inspect)
-      ward_hashes = select_as_hashes(conn, ward_select, 'reverse_geo_db_connection')
+      ward_hashes = select_as_hashes(ward_select, DSTKConfig::REVERSE_GEO_DATABASE)
       s2c_debug_log("ward_hashes='%s'" % ward_hashes.inspect)
       ward_info = ward_hashes[0]
       ward_name = ward_info['name']
@@ -660,7 +658,7 @@ def geocode_uk_address(address, conn)
 
     s2c_debug_log("location_select='%s'" % location_select.inspect)
 
-    location_hashes = select_as_hashes(conn, location_select, 'reverse_geo_db_connection')
+    location_hashes = select_as_hashes(location_select, DSTKConfig::REVERSE_GEO_DATABASE)
   
     if !location_hashes or location_hashes.length == 0
       s2c_debug_log("No matches found for '%s'" % candidate_name)
@@ -808,7 +806,7 @@ def geocode_uk_address(address, conn)
 
       s2c_debug_log("road_select='%s'" % road_select.inspect)
 
-      road_hashes = select_as_hashes(conn, road_select, 'reverse_geo_db_connection')
+      road_hashes = select_as_hashes(road_select, DSTKConfig::REVERSE_GEO_DATABASE)
     
       if !road_hashes or road_hashes.length == 0
         s2c_debug_log("No matches found for '%s'" % candidate_name)

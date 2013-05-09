@@ -415,7 +415,7 @@ def load_postal_codes(conn)
 
 end
 
-conn = get_database_connection()
+conn = get_database_connection(DSTKConfig::DATABASE)
 
 load_cities(conn)
 load_countries(conn)

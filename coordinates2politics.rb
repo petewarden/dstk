@@ -37,8 +37,6 @@ TypeToFriendly = {
 # within
 def coordinates2politics(locations, callback=nil)
 
-  conn = get_reverse_geo_db_connection
-
   result = []
   locations.each do |location|
 
@@ -56,7 +54,7 @@ def coordinates2politics(locations, callback=nil)
     if is_valid
       point_string = 'setsrid(makepoint(' + lon_s + ', ' + lat_s +'), 4326)'
       country_select = 'SELECT name,country_code FROM "world_countries_polygon" WHERE ST_DWithin('+point_string+', way, 0.1);'
-      country_hashes = select_as_hashes(conn, country_select, 'reverse_geo_db_connection')
+      country_hashes = select_as_hashes(country_select, DSTKConfig::REVERSE_GEO_DATABASE)
       if !country_hashes or country_hashes.length == 0
         is_valid = false
       end
@@ -81,7 +79,7 @@ def coordinates2politics(locations, callback=nil)
 
         area_select = 'SELECT name,code,type FROM "admin_areas_polygon" WHERE ST_DWithin('+point_string+', way, 0.01);'
 
-        area_hashes = select_as_hashes(conn, area_select, 'reverse_geo_db_connection')
+        area_hashes = select_as_hashes(area_select, DSTKConfig::REVERSE_GEO_DATABASE)
         if area_hashes
         
           area_hashes.each do |area_hash|
@@ -107,7 +105,7 @@ def coordinates2politics(locations, callback=nil)
         if country_code == 'usa'
           neighborhood_select = 'SELECT name,city,state FROM "neighborhoods_polygon" WHERE ST_DWithin('+point_string+', way, 0.0001);'
 
-          neighborhood_hashes = select_as_hashes(conn, neighborhood_select, 'reverse_geo_db_connection')
+          neighborhood_hashes = select_as_hashes(neighborhood_select, DSTKConfig::REVERSE_GEO_DATABASE)
           if neighborhood_hashes
           
             neighborhood_hashes.each do |neighborhood_hash|
@@ -143,7 +141,7 @@ def coordinates2politics(locations, callback=nil)
               point_string+
               ', location) LIMIT 1;'
 
-            uk_hashes = select_as_hashes(conn, uk_select, 'reverse_geo_db_connection')
+            uk_hashes = select_as_hashes(uk_select, DSTKConfig::REVERSE_GEO_DATABASE)
               
             distance *= 2
           end
@@ -156,7 +154,7 @@ def coordinates2politics(locations, callback=nil)
               ward_code = uk_hash['county_code']+uk_hash['district_code']+uk_hash['ward_code'] 
               
               ward_select = 'SELECT * FROM uk_ward_names WHERE ward_code=\''+ward_code+'\';'
-              ward_hashes = select_as_hashes(conn, ward_select, 'reverse_geo_db_connection')
+              ward_hashes = select_as_hashes(ward_select, DSTKConfig::REVERSE_GEO_DATABASE)
               ward_info = ward_hashes[0]
               ward_name = ward_info['name']
               
