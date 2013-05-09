@@ -1,0 +1,28 @@
+# Install vagrant and virtual box
+
+# Run the following locally
+vagrant box add dstk http://static.datasciencetoolkit.org/dstk_0.41.box
+vagrant init dstk
+vagrant up
+vagrant halt
+
+# Open the Oracle VM VirtualBox Manager
+# The dstk virtual box should be listed in the powered off state
+# Start the VM in interactive mode
+# From the Devices menu, select "Install Guest Additions..."
+
+# Uninstall the VirtualBox Guest Additions
+# Log into the DSTK VM. Login: vagrant, Password: vagrant
+mkdir /mnt/cdrom
+sudo mount /dev/sr0 /mnt/cdrom
+cd /mnt/cdrom
+sudo sh ./VboxLinuxAdditions.run uninstall
+sudo umount /mnt/cdrom
+sudo shutdown -h now
+
+# In the VirtualBox Manager, select File -> Export Appliance...
+# Select DSTK VM from the list and click Next
+# Choose an export path and click Next
+# Click Export
+
+# When the process is complete, you will have a .ova file you an import into VMWare desktop or server

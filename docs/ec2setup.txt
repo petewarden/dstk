@@ -1,5 +1,7 @@
-Start with AMI # ami-3fec7956 (Ubuntu 12.04), 32GB
-(ec2-run-instances ami-3fec7956 -t m1.large --region us-east-1 -z us-east-1d --block-device-mapping /dev/sda1=:32:false)
+# Some of these steps require a very long time to run. Use a screen session if working remotely to prevent network timeouts from terminating your interactive session.
+
+# Start with AMI # ami-3fec7956 (Ubuntu 12.04), 32GB
+# (ec2-run-instances ami-3fec7956 -t m1.large --region us-east-1 -z us-east-1d --block-device-mapping /dev/sda1=:32:false)
 
 sudo apt-add-repository -y ppa:olivier-berten/geo
 sudo add-apt-repository -y ppa:webupd8team/java
@@ -10,6 +12,8 @@ sudo aptitude install -y build-essential apache2 apache2.2-common apache2-mpm-pr
 sudo aptitude install -y oracle-java7-installer
 sudo aptitude install -y libgdal-dev
 sudo aptitude install -y libgeos++-dev
+
+# If running on a 32 bit OS, replace amd64 with i386 in the next line
 sudo bash -c 'echo "/usr/lib/jvm/java-7-oracle/jre/lib/amd64/server" > /etc/ld.so.conf.d/jvm.conf'
 sudo ldconfig
 
@@ -107,8 +111,8 @@ sudo bundle install
 sudo gem install passenger
 sudo passenger-install-apache2-module
 
-sudo bash -c 'echo "LoadModule passenger_module /var/lib/gems/1.8/gems/passenger-3.0.19/ext/apache2/mod_passenger.so"  > /etc/apache2/mods-enabled/passenger.load'
-sudo bash -c 'echo "PassengerRoot /var/lib/gems/1.8/gems/passenger-3.0.19" > /etc/apache2/mods-enabled/passenger.conf'
+sudo bash -c 'echo "LoadModule passenger_module /var/lib/gems/1.8/gems/passenger-4.0.2/libout/apache2/mod_passenger.so"  > /etc/apache2/mods-enabled/passenger.load'
+sudo bash -c 'echo "PassengerRoot /var/lib/gems/1.8/gems/passenger-4.0.2" > /etc/apache2/mods-enabled/passenger.conf'
 sudo bash -c 'echo "PassengerRuby /usr/bin/ruby1.8" >> /etc/apache2/mods-enabled/passenger.conf'
 sudo bash -c 'echo "PassengerMaxPoolSize 3" >> /etc/apache2/mods-enabled/passenger.conf'
 sudo sed -i "s/MaxRequestsPerChild[ \t][ \t]*[0-9][0-9]*/MaxRequestsPerChild 5/" /etc/apache2/apache2.conf
@@ -135,6 +139,7 @@ sudo /etc/init.d/apache2 restart
 sudo gem install postgres -v '0.7.9.2008.01.28'
 sudo gem uninstall postgres -v '>0.7.9.2008.01.28'
 
+# This step takes a long time
 ./populate_database.rb
 
 cd ~/sources
@@ -190,8 +195,10 @@ cd src
 javac -cp ../dist/boilerpipe-1.1-dev.jar boilerpipe.java
 
 cd ~/sources/dstk/
+# Edit the home directory path referenced in loadukpostcodes.sql if you are not running as the user ubuntu
 psql -U postgres -d reversegeo -f sql/loadukpostcodes.sql
 
+# If using a 32 bit OS, add a -s option to the end of the line below
 osm2pgsql -U postgres -d reversegeo -p uk_osm -S ../osm2pgsql/default.style ../dstkdata/uk_osm.osm.bz2 -l
 
 psql -U postgres -d reversegeo -f sql/buildukindexes.sql
@@ -203,6 +210,7 @@ make
 sudo make install
 
 # Build the latest Tiger/Line data for US address lookups
+# This step takes a very long time
 cd ~/sources
 mkdir tigerdata
 cd ~/sources/tigerdata
