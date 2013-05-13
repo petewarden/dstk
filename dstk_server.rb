@@ -1343,7 +1343,7 @@ post '/coordinates2statistics' do
 
     result = []
     locations_list.each do |location|
-      result << coordinates2statistics(location[:lat], location[:lon])
+      result << coordinates2statistics(location[:latitude], location[:longitude])
     end
 
     content_type 'application/json'
@@ -1376,7 +1376,7 @@ get '/coordinates2statistics/*' do
 
     result = []
     locations_list.each do |location|
-      result << coordinates2statistics(location[:lat], location[:lon])
+      result << coordinates2statistics(location[:latitude], location[:longitude])
     end
 
     content_type 'application/json'
