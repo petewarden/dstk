@@ -647,7 +647,7 @@ def coordinates2statistics_cli(dstk, options, inputs, output):
     coordinates_list.append([coordinates[0], coordinates[1]])
 
   results = dstk.coordinates2statistics(coordinates_list)
-  
+
   if options['showHeaders']:
     row = ['latitude', 'longitude', 'statistic', 'value', 'description']
     writer.writerow(row)
