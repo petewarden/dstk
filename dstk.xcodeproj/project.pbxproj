@@ -9,6 +9,8 @@
 /* Begin PBXFileReference section */
 		591BB17E17309BDF0061C1A7 /* text2sentiment.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = text2sentiment.rb; sourceTree = "<group>"; };
 		591BB181173ACA9C0061C1A7 /* coordinates2statistics.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = coordinates2statistics.rb; sourceTree = "<group>"; };
+		591BB18217417EA90061C1A7 /* text2sentiment */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = text2sentiment; path = python/text2sentiment; sourceTree = "<group>"; };
+		591BB1831741831B0061C1A7 /* coordinates2statistics */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = coordinates2statistics; path = python/coordinates2statistics; sourceTree = "<group>"; };
 		5929E11013243ECB00B81D2E /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		5929E11213243ECB00B81D2E /* geodict_lib.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = geodict_lib.rb; sourceTree = "<group>"; };
 		5929E11413243ECB00B81D2E /* gpl.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gpl.txt; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				597D8C90133526740042C251 /* coordinates2politics */,
+				591BB1831741831B0061C1A7 /* coordinates2statistics */,
 				597D8C91133526740042C251 /* dstk.py */,
 				597D8C92133526740042C251 /* file2text */,
 				597D8C93133526740042C251 /* html2story */,
@@ -214,6 +217,7 @@
 				597D8CF613357A260042C251 /* text2people */,
 				597D8C99133526740042C251 /* text2places */,
 				597D8C9A133526740042C251 /* text2sentences */,
+				591BB18217417EA90061C1A7 /* text2sentiment */,
 				59F0A27313455E6F00098746 /* text2times */,
 			);
 			name = python;

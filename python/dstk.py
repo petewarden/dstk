@@ -202,6 +202,30 @@ class DSTK:
     
     return response
 
+  def text2sentiment(self, text):
+    
+    api_url = self.api_base+'/text2sentiment'
+    api_body = text
+    response_string = urllib.urlopen(api_url, api_body).read()
+    response = json.loads(response_string)
+    
+    if 'error' in response:
+      raise Exception(response['error'])
+    
+    return response
+
+  def coordinates2statistics(self, coordinates):
+    
+    api_url = self.api_base+'/coordinates2statistics'
+    api_body = json.dumps(coordinates)
+    response_string = urllib.urlopen(api_url, api_body).read()
+    response = json.loads(response_string)
+    
+    if 'error' in response:
+      raise Exception(response['error'])
+    
+    return response
+
 # We need to post files as multipart form data, and Python has no native function for
 # that, so these utility functions implement what we need.
 # See http://code.activestate.com/recipes/146306/ 
@@ -571,6 +595,82 @@ def text2times_format(result, file_name, writer):
     writer.writerow(row)
   return
 
+def text2sentiment_cli(dstk, options, inputs, output):
+  writer = csv.writer(sys.stdout)
+
+  if options['showHeaders']:
+    row = ['sentiment', 'sentence', 'file_name']
+    writer.writerow(row)
+  options['showHeaders'] = False
+
+  if options['from_stdin']:
+    result = []
+    for sentence in inputs:
+      result = dstk.text2sentiment(sentence)
+      text2sentiment_format(result, sentence, 'stdin', writer)
+    return
+
+  for file_name in inputs:
+    if os.path.isdir(file_name):
+      children = os.listdir(file_name)
+      full_children = []
+      for child in children:
+        full_children.append(os.path.join(file_name, child))
+      text2sentiment_cli(dstk, options, full_children, output)
+    else:
+      file_data = get_file_or_url_contents(file_name)
+      for sentence in file_data.split("\n"):
+        result = dstk.text2sentiment(sentence)
+        text2sentiment_format(result, sentence, 'stdin', writer)
+
+  return
+
+def text2sentiment_format(result, sentence, file_name, writer):
+  row = [
+    result['score'],
+    sentence.strip(),
+    file_name
+  ]
+  writer.writerow(row)
+  return
+
+def coordinates2statistics_cli(dstk, options, inputs, output):
+
+  writer = csv.writer(output)
+
+  coordinates_list = []
+  for input in inputs:
+    coordinates = input.split(',')
+    if len(coordinates)!=2:
+      output.write('You must enter coordinates as a series of comma-separated pairs, eg 37.76,-122.42')
+      exit(-1)
+    coordinates_list.append([coordinates[0], coordinates[1]])
+
+  results = dstk.coordinates2statistics(coordinates_list)
+  
+  if options['showHeaders']:
+    row = ['latitude', 'longitude', 'statistic', 'value', 'description']
+    writer.writerow(row)
+
+  for result in results:
+
+    location = result['location']
+    statistics = result['statistics']
+
+    for statistic, info in statistics.items():
+
+      value = info['value']
+      description = info['description']
+      row = [location['latitude'],
+        location['longitude'], 
+        statistic,
+        value,
+        description,
+      ]
+      writer.writerow(row)
+
+  return
+
 def get_file_or_url_contents(file_name):
   if re.match(r'http://', file_name):
     file_data = urllib.urlopen(file_name).read()
@@ -584,16 +684,18 @@ def print_usage(message=''):
   print "Usage:"
   print "python dstk.py <command> [-a/--api_base 'http://yourhost.com'] [-h/--show_headers] <inputs>"
   print "Where <command> is one of:"
-  print "  ip2coordinates        (lat/lons for IP addresses)" 
-  print "  street2coordinates    (lat/lons for postal addresses)" 
-  print "  coordinates2politics  (country/state/county/constituency/etc for lat/lon)" 
-  print "  text2places           (lat/lons for places mentioned in unstructured text)"
-  print "  file2text             (PDF/Excel/Word to text, and OCR on PNG/Jpeg/Tiff images)"
-  print "  text2sentences        (parts of the text that look like proper sentences)"
-  print "  html2text             (text version of the HTML document)"
-  print "  html2story            (text version of the HTML with no boilerplate)"  
-  print "  text2people           (gender for people mentioned in unstructured text)"
-  print "  text2times            (times and dates mentioned in unstructured text)"
+  print "  ip2coordinates          (lat/lons for IP addresses)"
+  print "  street2coordinates      (lat/lons for postal addresses)"
+  print "  coordinates2politics    (country/state/county/constituency/etc for lat/lon)"
+  print "  text2places             (lat/lons for places mentioned in unstructured text)"
+  print "  file2text               (PDF/Excel/Word to text, and OCR on PNG/Jpeg/Tiff images)"
+  print "  text2sentences          (parts of the text that look like proper sentences)"
+  print "  html2text               (text version of the HTML document)"
+  print "  html2story              (text version of the HTML with no boilerplate)"
+  print "  text2people             (gender for people mentioned in unstructured text)"
+  print "  text2times              (times and dates mentioned in unstructured text)"
+  print "  text2sentiment          (estimates the positive or negative sentiment of each line of text)"
+  print "  coordinates2statistics  (population/climate/elevation/etc for lat/lon)"
   print "If no inputs are specified, then standard input will be read and used"
   print "See http://www.datasciencetoolkit.org/developerdocs for more details"
   print "Examples:"
@@ -618,6 +720,8 @@ if __name__ == '__main__':
     'html2story': { 'handler': html2story_cli },
     'text2people': { 'handler': text2people_cli },
     'text2times': { 'handler': text2times_cli },
+    'text2sentiment': { 'handler': text2sentiment_cli },
+    'coordinates2statistics': { 'handler': coordinates2statistics_cli },
   }
   switches = {
     'api_base': True,
