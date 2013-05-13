@@ -1377,7 +1377,7 @@ get '/coordinates2statistics/*' do
     result = []
     locations_list.each do |location|
       statistics = coordinates2statistics(location[:latitude], location[:longitude])
-      result = {
+      result << {
         'location' => location,
         'statistics' => statistics,
       }
