@@ -386,12 +386,15 @@ def coordinates2statistics(lat, lon, wanted = nil, callback=nil)
     result[statistic] = output
   end
 
+  filtered_result = {}
+
   result.each do |statistic, output|
     info = AVAILABLE_STATISTICS[statistic]
     if info['divide_by']
       dependency_name = info['divide_by']
       dependency_result = result[dependency_name]
       dependency_value = dependency_result['value']
+      if dependency_value === 0.0 then next end
       raw_value = output['value']
       output['value'] = raw_value.to_f / dependency_value
       output['proportion_of'] = dependency_value
@@ -410,6 +413,7 @@ def coordinates2statistics(lat, lon, wanted = nil, callback=nil)
         output['value'] = (output['value'] * scale)
       end
     end
+    filtered_result[statistic] = output
   end
 
   result  
