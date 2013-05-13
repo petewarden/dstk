@@ -816,21 +816,24 @@
         $('#coordinates2statisticsresults').empty()
         
         for (var index in result) {
-          var info = result[index];
+          var statistics = result[index];
           
-          var value = info['value'];
-          var description = info['description'];
-          var units = info['units'];
+          for (var statistic in statistics) {
+            var info = statistics[statistic];
+            var value = info['value'];
+            var description = info['description'];
+            var units = info['units'];
 
-          var html = '<div>';
-          html += value + ' ';
-          if (typeof units !== 'undefined') {
-            html += units + ' ';
+            var html = '<div>';
+            html += value + ' ';
+            if (typeof units !== 'undefined') {
+              html += units + ' ';
+            }
+            html += ' - ' + description;
+            html += '</div>'
+            
+            $('#coordinates2politicsresults').append($(html));
           }
-          html += ' - ' + description;
-          html += '</div>'
-          
-          $('#coordinates2politicsresults').append($(html));
         }
       })
       
