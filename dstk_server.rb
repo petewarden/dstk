@@ -1355,7 +1355,7 @@ post '/coordinates2statistics' do
 end
 
 # The GET interface for the location to statistics endpoint
-get '/coordinates2politics/*' do
+get '/coordinates2statistics/*' do
 
   callback = params[:callback]
 
@@ -1365,11 +1365,20 @@ get '/coordinates2politics/*' do
       fatal_error('You need to place the latitude/longitude coordinates as a JSON-encoded array as part of the URL', 
         'json', 500, callback)
     end
-    
+
+    wanted = nil
+    if params[:statistics]
+      wanted = params[:statistics].split(',')
+    end
+
     locations_list = locations_list_from_string(locations_string, callback)
 
-    result = coordinates2politics(locations_list, callback)
+    result = []
+    locations_list.each do |location|
+      result << coordinates2statistics(location[:lat], location[:lon])
+    end
 
+    content_type 'application/json'
     make_json(result, callback)
 
   rescue
