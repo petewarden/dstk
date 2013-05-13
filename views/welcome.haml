@@ -807,9 +807,9 @@
       
       dstk.coordinates2statistics(coordinatesObjects, function(results) {
 
-        if (typeof result['error'] !== 'undefined') {
+        if (typeof results['error'] !== 'undefined') {
           $('#coordinates2statisticsresults')
-          .text(result.error);
+          .text(results.error);
           return;
         }
 
