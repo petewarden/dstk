@@ -769,7 +769,9 @@ def select_as_hashes(select, database_name)
     else
       $stderr.puts 'select_as_hashes() - no connection for ' + database_name
     end
-    conn.close
+    if conn
+      conn.close
+    end
     $connections[database_name] = nil
     exit(1)
   ensure
@@ -794,6 +796,9 @@ def get_database_connection(database_name)
     end
   ensure
     Thread.critical = false
+  end
+  if !$connections[database_name]
+    $stderr.puts "get_database_connection('#{database_name}') - Couldn't open connection"
   end
   $connections[database_name]
 end
