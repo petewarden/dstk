@@ -239,7 +239,7 @@ cd ~/sources/geocoder
 bin/rebuild_metaphones ../geocoderdata/geocoder2012.db
 chmod +x build/build_indexes 
 build/build_indexes ../geocoderdata/geocoder2012.db
-rm -rf ../tigerdata
+rm -rf /mnt/data/tigerdata
 
 # Fix for postgres crashes, 
 sudo sed -i "s/shared_buffers = [0-9A-Za-z]*/shared_buffers = 512MB/" /etc/postgresql/9.1/main/postgresql.conf
