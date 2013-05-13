@@ -184,6 +184,26 @@ DSTK.prototype.googlestylegeocoder = function(address, callback) {
   });
 };
 
+DSTK.prototype.text2sentiment = function(text, callback) {
+  this.makeTextCall(text, callback, 'text2sentiment');
+};
+
+DSTK.prototype.coordinates2statistics = function(coordinates, callback) {
+
+  if (typeof coordinates.length == 'undefined') {
+    coordinates = [coordinates];
+  }
+
+  var apiUrl = this.apiBase+'/coordinates2statistics';
+  apiUrl += '/'+encodeURIComponent($.toJSON(coordinates));
+
+  $.ajax(apiUrl, {
+    success: callback,
+    dataType: 'jsonp',
+    crossDomain: true
+  });
+};
+
 DSTK.prototype.makeTextCall = function(text, callback, method) {
 
   var apiUrl = this.apiBase+'/'+method;

@@ -95,23 +95,6 @@
   #googlestylegeocoderresults{:style=>"margin-top:30px;"}  
 
   %div{:style=>"margin-top:20px; font-size: 125%;"}
-    %h3 File to Text
-    API: 
-    %a{:href=>"/developerdocs#file2text"} /file2text
-    %br
-    Converts PDFs, Word Documents, Excel Spreadsheets to text.
-    %br
-    Recovers text from JPEG, PNG or TIFF images of scanned documents.
-
-  .tryfile2text{:style=>"margin-top:20px; font-size: 125%;"}
-    Try it for yourself. Upload a file to see what text it finds.
-
-  %form{:target=>"_new", :action=>"/file2text", :method=>"post", :enctype=>"multipart/form-data", :display=>"inline"}
-    %input{:type=>"file", :name=>"inputfile"}
-    %br
-    %input.button{:type=>"submit", :value=>"Extract Text", :style=>"font-size:125%; height: 35px;"}
-
-  %div{:style=>"margin-top:20px; font-size: 125%;"}
     %h3 Coordinates to Political Areas
     API: 
     %a{:href=>"/developerdocs#coordinates2politics"} /coordinates2politics
@@ -130,6 +113,38 @@
     %input#uploadcoordinates2politicstext.button{:type=>"submit", :value=>"Find", :style=>"width:150px; height:35px; font-size: 125%;"}
 
   #coordinates2politicsresults{:style=>"margin-top:30px;"}  
+
+  %div{:style=>"margin-top:20px; font-size: 125%;"}
+    %h3 Text to Sentiment
+    API: 
+    %a{:href=>"/developerdocs#text2sentiment"} /text2sentiment
+    %br
+    Estimates whether a piece of text comment is complimentary or negative.
+    %br
+  .try{:style=>"margin-top:20px; font-size: 125%;"}
+    Try it for yourself. Copy and paste your text into the box below to estimate sentiment.
+
+  %textarea#text2sentimenttext{:style=>"width: 800px; margin-top: 10px;"}
+
+  #uploadtext2sentiment.button{:style=>"width:150px; font-size: 125%;"} Find Sentiment
+
+  #text2sentimentresults{:style=>"margin-top:30px;"}
+
+  %div{:style=>"margin-top:20px; font-size: 125%;"}
+    %h3 Coordinates to Statistics
+    API: 
+    %a{:href=>"/developerdocs#coordinates2statistics"} /coordinates2statistics
+    %br
+    Returns the population density, elevation, terrain, climate, and other conditions at a point.
+    %br
+  .trycoordinates2statistics{:style=>"margin-top:20px; font-size: 125%;"}
+    Try it for yourself. Copy and paste some coordinates into the box below to see what it finds.
+
+  %textarea#coordinates2statisticstext{:style=>"width: 600px; margin-top: 10px; float:left;"} 37.769456,-122.429128
+
+  %input#uploadcoordinates2statisticstext.button{:type=>"submit", :value=>"Find", :style=>"width:150px; height:35px; font-size: 125%;"}
+
+  #coordinates2statisticsresults{:style=>"margin-top:30px;"}  
 
   %div{:style=>"margin-top:20px; font-size: 125%;"}
     %h3 Geodict
@@ -251,6 +266,23 @@
   #uploadtext2times.button{:style=>"width:150px; font-size: 125%;"} Find Times
   
   #text2timesresults{:style=>"margin-top:30px;"}
+
+  %div{:style=>"margin-top:20px; font-size: 125%;"}
+    %h3 File to Text
+    API: 
+    %a{:href=>"/developerdocs#file2text"} /file2text
+    %br
+    Converts PDFs, Word Documents, Excel Spreadsheets to text.
+    %br
+    Recovers text from JPEG, PNG or TIFF images of scanned documents.
+
+  .tryfile2text{:style=>"margin-top:20px; font-size: 125%;"}
+    Try it for yourself. Upload a file to see what text it finds.
+
+  %form{:target=>"_new", :action=>"/file2text", :method=>"post", :enctype=>"multipart/form-data", :display=>"inline"}
+    %input{:type=>"file", :name=>"inputfile"}
+    %br
+    %input.button{:type=>"submit", :value=>"Extract Text", :style=>"font-size:125%; height: 35px;"}
 
 %script{:src=>"/scripts/jquery.exptextarea.js", :type=>"text/javascript"}
 :javascript
@@ -711,5 +743,98 @@
         }
       })
     });
-    
+
+    $('#uploadtext2sentiment').click(function() {
+      var text = $('#text2sentimenttext').val();
+      if (text.length<1) {
+        $('#text2sentimentresults').html("No text found in input box.");
+        return;
+      }
+
+      dstk.text2sentiment(text, function(result) {
+        if (typeof result['error'] !== 'undefined') {
+          $('#text2sentimentresults')
+          .text(result.error);
+          return;
+        }
+
+        $('#text2sentimentresults').empty();
+
+        if (typeof result['score'] === 'undefined') {
+          $('#text2sentimentresults')
+          .text('Error finding sentiment');
+          return;
+        }
+        
+        var score = result['score'];
+        var lookup = [
+          '-5 Extremely negative',
+          '-4 Very negative',
+          '-3 Negative',
+          '-2 Somewhat negative',
+          '-1 Mildly negative',
+          '0 Neutral',
+          '+1 Mildly positive',
+          '+2 Somewhat positive',
+          '+3 Positive',
+          '+4 Very positive',
+          '+5 Extremely positive',
+        ];
+        var html = lookup[score + 5];
+
+        $('#text2sentimentresults').append($(html));
+
+      })
+    });
+
+    $('#uploadcoordinates2statisticstext').click(function() {
+      var text = $('#coordinates2statisticstext').val();
+      var isEmptyText = (text.length<1)
+      
+      if (isEmptyText) {
+        $('#coordinates2statisticsresults').html("No text found in input box.");
+        return false;
+      }
+
+      coordinatesList = text.split("\n");
+      
+      var coordinatesObjects = [];
+      for (var index in coordinatesList) {
+        var coordinates = coordinatesList[index].split(',');
+        var coordinatesObject = [coordinates[0],coordinates[1]]
+        coordinatesObjects.push(coordinatesObject);
+      }
+      
+      dstk.coordinates2statistics(coordinatesObjects, function(result) {
+
+        if (typeof result['error'] !== 'undefined') {
+          $('#coordinates2statisticsresults')
+          .text(result.error);
+          return;
+        }
+
+        $('#coordinates2statisticsresults').empty()
+        
+        for (var index in result) {
+          var info = result[index];
+          
+          var value = info['value'];
+          var description = info['description'];
+          var units = info['units'];
+
+          var html = '<div>';
+          html += value + ' ';
+          if (typeof units !== 'undefined') {
+            html += units + ' ';
+          }
+          html += ' - ' + description;
+          html += '</div>'
+          
+          $('#coordinates2politicsresults').append($(html));
+        }
+      })
+      
+      return false;
+    });
+
   });
