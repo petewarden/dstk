@@ -823,13 +823,20 @@
             var value = info['value'];
             var description = info['description'];
             var units = info['units'];
+            if (typeof info['proportion_of'] !== 'undefined') {
+              value = (Math.round(value * 1000) / 10) + '%';
+            }
 
             var html = '<div>';
+            html += '<b>';
             html += value + ' ';
             if (typeof units !== 'undefined') {
               html += units + ' ';
             }
+            html += '</b>';
+            html += '<i>';
             html += ' - ' + description;
+            html += '</i>';
             html += '</div>'
             
             $('#coordinates2politicsresults').append($(html));

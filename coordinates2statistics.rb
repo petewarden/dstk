@@ -65,7 +65,7 @@ AVAILABLE_STATISTICS = {
     'description' => 'The height of the surface above sea level at this point.',
     'source_name' => 'NASA and the CGIAR Consortium for Spatial Information',
     'source_url' => 'http://srtm.csi.cgiar.org/',
-    'unit' => 'meters',
+    'units' => 'meters',
   },
   'mean_temperature' => {
     'description' => 'The mean monthly temperature at this point.',
@@ -401,6 +401,7 @@ def coordinates2statistics(lat, lon, wanted = nil, callback=nil)
       dependency_value = dependency_result['value']
       raw_value = output['value']
       output['value'] = raw_value.to_f / dependency_value
+      output['proportion_of'] = dependency_value
     elsif info['translation_table']
       translation_table = info['translation_table']
       raw_value = result[statistic]['value']
