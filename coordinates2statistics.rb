@@ -131,13 +131,6 @@ AVAILABLE_STATISTICS = {
     'source_name' => 'US Census and the CGIAR Consortium for Spatial Information',
     'source_url' => 'http://sedac.ciesin.columbia.edu/data/collection/usgrid/sets/browse',
   },
-  'us_household_income' => {
-    'description' => 'The average household income for the area',
-    'table' => 'usahhi00',
-    'units' => 'US Dollars',
-    'source_name' => 'US Census and the CGIAR Consortium for Spatial Information',
-    'source_url' => 'http://sedac.ciesin.columbia.edu/data/collection/usgrid/sets/browse',
-  },
   'us_sample_area' => {
     'description' => 'The total area of the grid cell US Census samples were calculated on',
     'table' => 'usarea00',
