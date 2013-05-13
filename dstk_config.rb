@@ -27,7 +27,7 @@ module DSTKConfig
   PASSWORD = ''
 
   # The address and port number of your database server
-  HOST = 'localhost'
+  HOST = 'ec2-54-234-200-75.compute-1.amazonaws.com'
   PORT = 5432
 
   # The name of the database holding the gazetteer data

@@ -369,7 +369,7 @@ def coordinates2statistics(lat, lon, wanted = nil, callback=nil)
         $stderr.puts select
         rows = select_as_hashes(select, DSTKConfig::STATISTICS_DATABASE)
         if !rows or rows.length < 1
-          raise "coordinates2statistics - SQL statement failed - '#{select}'"
+          next
         end
         row = rows[0]
         value << row['value'].to_i
@@ -379,7 +379,7 @@ def coordinates2statistics(lat, lon, wanted = nil, callback=nil)
       $stderr.puts select
       rows = select_as_hashes(select, DSTKConfig::STATISTICS_DATABASE)
       if !rows or rows.length < 1
-        raise "coordinates2statistics - SQL statement failed - '#{select}'"
+        next
       end
       row = rows[0]
       value = row['value'].to_i
@@ -429,7 +429,7 @@ if __FILE__ == $0
     wanted = nil
   end
 
-  statistics = coordinates2statistics(37.769456, -122.429128, wanted)
+  statistics = coordinates2statistics(52.315615, 0.013046, wanted)
   $stderr.puts "statistics=#{JSON.pretty_generate(statistics)}"
 
 end

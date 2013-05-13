@@ -1321,3 +1321,60 @@ get '/maps/api/geocode/:format' do
   content_type 'application/json'
   make_json(result, callback)
 end
+
+# The POST interface for the location to statistics endpoint
+post '/coordinates2statistics' do
+  begin
+    # Pull in the raw data in the body of the request
+    locations_string = request.env['rack.input'].read
+    
+    if !locations_string
+      fatal_error('You need to place the latitude/longitude coordinates as a JSON-encoded array inside the POST body', 
+        'json', 500, nil)
+    end
+
+    wanted = nil
+    if params[:statistics]
+      wanted = params[:statistics].split(',')
+    end
+
+    locations_list = locations_list_from_string(locations_string)
+
+    result = []
+    locations_list.each do |location|
+      result << coordinates2statistics(location[:lat], location[:lon])
+    end
+
+    content_type 'application/json'
+    make_json(result)
+
+  rescue
+    fatal_error('coordinates2politics error: '+$!.inspect + $@.inspect, 'json', 500)
+  end
+
+end
+
+# The GET interface for the location to statistics endpoint
+get '/coordinates2politics/*' do
+
+  callback = params[:callback]
+
+  begin
+    locations_string = params['splat'][0]
+    if !locations_string
+      fatal_error('You need to place the latitude/longitude coordinates as a JSON-encoded array as part of the URL', 
+        'json', 500, callback)
+    end
+    
+    locations_list = locations_list_from_string(locations_string, callback)
+
+    result = coordinates2politics(locations_list, callback)
+
+    make_json(result, callback)
+
+  rescue
+    fatal_error('coordinates2politics error: '+$!.inspect + $@.inspect, 'json', 500, callback)
+  end
+
+end
+

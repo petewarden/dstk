@@ -768,21 +768,21 @@
         
         var score = result['score'];
         var lookup = [
-          '-5 Extremely negative',
-          '-4 Very negative',
-          '-3 Negative',
-          '-2 Somewhat negative',
-          '-1 Mildly negative',
-          '0 Neutral',
-          '+1 Mildly positive',
-          '+2 Somewhat positive',
-          '+3 Positive',
-          '+4 Very positive',
-          '+5 Extremely positive',
+          '-5 (Extremely negative)',
+          '-4 (Very negative)',
+          '-3 (Negative)',
+          '-2 (Somewhat negative)',
+          '-1 (Mildly negative)',
+          '0 (Neutral)',
+          '+1 (Mildly positive)',
+          '+2 (Somewhat positive)',
+          '+3 (Positive)',
+          '+4 (Very positive)',
+          '+5 (Extremely positive)',
         ];
         var html = lookup[score + 5];
 
-        $('#text2sentimentresults').append($(html));
+        $('#text2sentimentresults').append(html);
 
       })
     });

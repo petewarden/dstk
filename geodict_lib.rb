@@ -764,7 +764,11 @@ def select_as_hashes(select, database_name)
     end
     
   rescue PGError
-    printf(STDERR, conn.error)
+    if conn
+      printf(STDERR, conn.error)
+    else
+      $stderr.puts 'select_as_hashes() - no connection for ' + database_name
+    end
     conn.close
     $connections[database_name] = nil
     exit(1)
