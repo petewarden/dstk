@@ -416,7 +416,7 @@ def coordinates2statistics(lat, lon, wanted = nil, callback=nil)
     filtered_result[statistic] = output
   end
 
-  result  
+  filtered_result
 end
 
 if __FILE__ == $0
