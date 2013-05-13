@@ -498,10 +498,10 @@ def locations_list_from_string(locations_string, callback=nil)
     list = JSON.parse(locations_string)
     result = []
     if (list.length == 2) and (list[0].is_a?(Numeric))
-      result.push({ :latitude => list[0], :longitude => list[1]})
+      result.push({ :latitude => list[0].to_f, :longitude => list[1].to_f})
     else
       list.each do |item|
-        result.push({ :latitude => item[0], :longitude => item[1]})
+        result.push({ :latitude => item[0].to_f, :longitude => item[1].to_f})
       end
     end
   else
@@ -510,7 +510,7 @@ def locations_list_from_string(locations_string, callback=nil)
       fatal_error('Couldn\t understand string "'+locations_string+'" passed into coordinates2politics', 
         'json', 500, callback)
     end
-    result = [{ :latitude => coordinates[0], :longitude => coordinates[1] }] 
+    result = [{ :latitude => coordinates[0].to_f, :longitude => coordinates[1].to_f }] 
   end
   
   result
