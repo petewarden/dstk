@@ -631,9 +631,13 @@
 
       Here are the possible statistics:
 
-    %ul
-      - @statistics.each do |statistic|
-        %li=statistic['statistic']
+    %p
+      %ul
+        - @statistics.each do |statistic|
+          %li=statistic['statistic'] + ' - ' statistic['description']
+          %a{:href => #{statistic['source_url']}}
+            From #{statistic['source']}
+      %br
 
     %a{:name=>"setup"}
     :markdown
