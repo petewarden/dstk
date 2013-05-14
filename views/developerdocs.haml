@@ -61,6 +61,9 @@
     &nbsp;&nbsp;&nbsp;&nbsp;
     %a{:href=>"#text2sentiment"} Text to Sentiment
     %br
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    %a{:href=>"#coordinates2statistics"} Coordinates to Statistics
+    %br
     %a{:href=>"#setup"} Setting up your own server
     %br
     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -593,7 +596,45 @@
       The text is passed in either as a JSON-encoded array in the remainder of the URL for a GET call, or in the raw body of the request for POST. The usual 8,000 character limit on GET URLs applies, so use POST for larger texts.
 
       This API uses [Finn Årup's annotated list of words](http://neuro.imm.dtu.dk/wiki/AFINN) under an [ODbL license](http://www.opendatacommons.org/licenses/odbl/1.0/).
-    
+
+    %a{:name=>"coordinates2statistics"}
+    :markdown
+      #### Coordinates to Statistics
+      
+      Returns characteristics like population density, elevation, climate, ethnic makeup, and other statistics for points all around the world at a 1km-squared or finer resolution.
+      
+      By default it will return all of the statistics it can find for a given point, but you can narrow down the results by passing in a comma-separated list of the ones you want in the statistics URL parameter.
+      
+      There are more statistics available for the US than other areas, and their names are prefixed by us_. There's a full list of all the statistics and their sources below.
+
+      The API takes either a single string representing a comma-separated pair of latitude/longitude coordinates, or a JSON-encoded array of objects containing two keys, one for latitude and one for longitude. It returns a JSON array containing an object for every input location. The location member holds the coordinates that were queried, and statistics holds a dictionary of all the information that was found. The value property holds the value of the statistic at that point, and the source_name, description, and units properties describe it in more detail. If it's a proportion, the proportion_of property tells you what other statistic it's a fraction of. Here's an example:
+      <hr>
+      `curl "http://www.datasciencetoolkit.org/coordinates2statistics/37.769456%2c-122.429128?statistics=population_density"`
+      
+      `[{"location": {"latitude": 37.769456, "longitude": -122.429128},"statistics": {`
+
+      `"population_density": {`
+
+      `  "description": "The number of inhabitants per square kilometer around this point.",`
+
+      `  "value": 13543,`
+
+      `  "source_name": "NASA Socioeconomic Data and Applications Center (SEDAC) – Hosted by CIESIN at Columbia University"`
+
+      `}}}]`
+
+      To call the API, you can make either a GET or a POST request to `/coordinates2politics`. If you make a GET request, then you need to pass in the locations in the suffix of the URL, as above.
+
+      Using GET you can also pass in a callback parameter in the URL, making it possible to run this as a JSONP cross-domain request. You can see this method in action if you view source on the home page of this server.
+      
+      You can also make a POST request passing in the locations in the body of the request. This is useful if you have very large arrays of locations you need to process, since you won't hit any URL size limits.
+
+      Here are the possible statistics:
+
+      %ul
+      - @statistics.each do |statistic|
+        %li=statistic['statistic']
+
     %a{:name=>"setup"}
     :markdown
       ### Setting up your own server

@@ -419,6 +419,15 @@ def coordinates2statistics(lat, lon, wanted = nil, callback=nil)
   filtered_result
 end
 
+def list_available_statistics
+  result = AVAILABLE_STATISTICS.map do |statistic, info|
+    output = info.clone
+    output['statistic'] = statistic
+  end
+  result = result.sort_by do |k| k['statistic'] end
+  result
+end
+
 if __FILE__ == $0
 
   if ARGV.length > 0

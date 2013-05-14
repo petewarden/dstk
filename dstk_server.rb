@@ -708,7 +708,8 @@ end
 get '/developerdocs' do
   
   @headline = 'Developer Documentation'
-  
+  @statistics = list_available_statistics
+
   haml :developerdocs
 
 end
