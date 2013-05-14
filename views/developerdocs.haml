@@ -634,7 +634,7 @@
     %p
       %ul
         - @statistics.each do |statistic|
-          %li=statistic['statistic'] + ' - ' statistic['description']
+          %li=statistic['statistic'] + ' - ' + statistic['description']
           %a{:href => #{statistic['source_url']}}
             From #{statistic['source']}
       %br
