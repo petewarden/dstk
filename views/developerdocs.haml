@@ -20,6 +20,9 @@
     &nbsp;&nbsp;&nbsp;&nbsp;
     %a{:href=>"#rlanguage"} R Language
     %br
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    %a{:href=>"#excel"} Excel Macros
+    %br
     %a{:href=>"#api"} API
     %br
     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -163,7 +166,7 @@
     :markdown
       #### Python
 
-      Download [python_tools.zip](/python_tools.zip), extract into a new folder, `cd` into it and run `python setup.py`
+      A package is [available on PyPi](https://pypi.python.org/pypi/dstk/) so you can run `pip install dstk`, or you can manually download [python_tools.zip](/python_tools.zip), extract into a new folder, `cd` into it and run `python setup.py`
       
       This installs the DSTK interface as a module. If you run the Python interactive console, you can test it out:
       
@@ -225,7 +228,21 @@
     :markdown
       #### R Language
       
-      You can use the toolkit from R by grabbing [the package from CRAN](http://cran.r-project.org/web/packages/RDSTK/index.html). Big thanks go to [Ryan Elmore](http://twitter.com/rtelmore) and Andrew Heiss for putting this together.     
+      You can use the toolkit from R by grabbing [the package from CRAN](http://cran.r-project.org/web/packages/RDSTK/index.html). Big thanks go to [Ryan Elmore](http://twitter.com/rtelmore) and Andrew Heiss for putting this together.
+      
+      To use it, just run `require('RDSTK')` and then one of the functions corresponding to an API name, eg
+      
+      `coordinates2statistics(37.769456, -122.429128, 'population_density')`
+      
+      `text2sentiment("I love this hotel!")`
+
+    %a{:name=>"excel"}
+    :markdown
+      #### Excel Macros
+      
+      You can use the geocoding functions from Excel by grabbing [this VBA file frim github](https://github.com/lukewp/dstk_excel). Thanks to [Luke Peterson](https://twitter.com/LWP) for creating this.
+      
+      Feed a USA street address to getGeocode() to get an API response, which you can pass through getLatitude() and getLongitude() in order to put the Long/Lat into separate columns. Best-practice is to pull the API response into a single field with getGeocode(), then parse that field with getLatitude() and getLongitude(), rather than using getLatitude(getGeocode([Address])) and getLongitude(getGeocode([Address])),  since the latter will double the number of requests to the dstk server.
 
     %a{:name=>"api"}
     :markdown
