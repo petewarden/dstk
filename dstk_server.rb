@@ -937,7 +937,7 @@ end
 ########################################
 
 # Returns version information about this server
-get '/info' do
+get '/info/?' do
 
   callback = params[:callback]
 
@@ -957,7 +957,7 @@ get '/v1/document' do
 end
 
 # The more standard REST/JSON interface for the Placemaker emulation
-post '/text2places' do
+post '/text2places/?' do
 
   # Pull in the raw data in the body of the request
   text = request.env['rack.input'].read
@@ -974,7 +974,7 @@ get '/text2places/*' do
 end
 
 # The POST interface for the IP address to location lookup
-post '/ip2coordinates' do
+post '/ip2coordinates/?' do
   # Pull in the raw data in the body of the request
   ips_string = request.env['rack.input'].read
   
@@ -1016,7 +1016,7 @@ get '/ip2coordinates/:ips?' do
 end
 
 # The POST interface for the street address to location lookup
-post '/street2coordinates' do
+post '/street2coordinates/?' do
   begin
     # Pull in the raw data in the body of the request
     addresses_string = request.env['rack.input'].read
@@ -1062,7 +1062,7 @@ get '/street2coordinates/*' do
 end
 
 # The POST interface for the location to political areas lookup
-post '/coordinates2politics' do
+post '/coordinates2politics/?' do
   begin
     # Pull in the raw data in the body of the request
     locations_string = request.env['rack.input'].read
@@ -1110,7 +1110,7 @@ get '/coordinates2politics/*' do
 end
 
 # The interface used to convert a pdf/word/excel/image file into text
-post '/file2text' do
+post '/file2text/?' do
 
   # Pull out the data we were given
   unless params[:inputfile] &&
@@ -1182,7 +1182,7 @@ post '/file2text' do
 end
 
 # Returns the portions of the text that look like sentences
-post '/text2sentences' do
+post '/text2sentences/?' do
 
   # Pull in the raw data in the body of the request
   text = request.env['rack.input'].read
@@ -1204,7 +1204,7 @@ get '/text2sentences/*' do
 end
 
 # Extracts the displayed text from the input HTML
-post '/html2text' do
+post '/html2text/?' do
 
   # Pull in the raw data in the body of the request
   text = request.env['rack.input'].read
@@ -1226,7 +1226,7 @@ get '/html2text/*' do
 end
 
 # Extracts the main story text from the input HTML
-post '/html2story' do
+post '/html2story/?' do
 
   # Pull in the raw data in the body of the request
   text = request.env['rack.input'].read
@@ -1248,7 +1248,7 @@ get '/html2story/*' do
 end
 
 # Pulls out strings that look like people's names
-post '/text2people' do
+post '/text2people/?' do
 
   # Pull in the raw data in the body of the request
   text = request.env['rack.input'].read
@@ -1270,7 +1270,7 @@ get '/text2people/*' do
 end
 
 # Pulls out strings that look like times or dates
-post '/text2times' do
+post '/text2times/?' do
 
   # Pull in the raw data in the body of the request
   text = request.env['rack.input'].read
@@ -1292,7 +1292,7 @@ get '/text2times/*' do
 end
 
 # Returns a sentiment score for the input text
-post '/text2sentiment' do
+post '/text2sentiment/?' do
 
   # Pull in the raw data in the body of the request
   text = request.env['rack.input'].read
