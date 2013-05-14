@@ -32,7 +32,7 @@ AVAILABLE_STATISTICS = {
     'source_url' => 'http://sedac.ciesin.columbia.edu/data/set/gpw-v3-population-density',
   },
   'land_cover' => {
-    'description' => 'What type of environment exists around this point - urban, water, vegetation, mountains, etc',
+    'description' => 'What type of environment exists around this point - urban, water, vegetation, mountains, etc.',
     'source_name' => 'European Commission Land Resource Management Unit Global Land Cover 2000',
     'source_url' => 'http://bioval.jrc.ec.europa.eu/products/glc2000/products.php',
     'translation_table' => {
@@ -132,7 +132,7 @@ AVAILABLE_STATISTICS = {
     'source_url' => 'http://sedac.ciesin.columbia.edu/data/collection/usgrid/sets/browse',
   },
   'us_sample_area' => {
-    'description' => 'The total area of the grid cell US Census samples were calculated on',
+    'description' => 'The total area of the grid cell US Census samples were calculated on.',
     'table' => 'usarea00',
     'units' => 'square meters',
     'source_name' => 'US Census and the CGIAR Consortium for Spatial Information',
