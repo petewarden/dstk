@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # Python interface to the Data Science Toolkit Plugin
-# version: 1.30 (2011-03-16)
+# version: 1.50 (2013-05-14)
 #
 # See http://www.datasciencetoolkit.org/developerdocs#python for full details
 #
@@ -64,7 +64,7 @@ class DSTK:
       
   def check_version(self):
   
-    required_version = 40
+    required_version = 50
     
     api_url = self.api_base+'/info'
     
