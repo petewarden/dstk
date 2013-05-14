@@ -423,6 +423,7 @@ def list_available_statistics
   result = AVAILABLE_STATISTICS.map do |statistic, info|
     output = info.clone
     output['statistic'] = statistic
+    output
   end
   result = result.sort_by do |k| k['statistic'] end
   result
