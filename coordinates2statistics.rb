@@ -381,9 +381,6 @@ def coordinates2statistics(lat, lon, wanted = nil, callback=nil)
       'value' => value,
       'description' => info['description'],
       'source_name' => info['source_name'],
-      'units' => '',
-      'proportion_of' => '',
-      'index' => '',
     }
     if info['units'] then output['units'] = info['units'] end
     result[statistic] = output
