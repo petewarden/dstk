@@ -635,8 +635,8 @@
       %ul
         - @statistics.each do |statistic|
           %li=statistic['statistic'] + ' - ' + statistic['description']
-          %a{:href => "#{statistic['source_url']}"}
-            From #{statistic['source_name']}
+            %a{:href => "#{statistic['source_url']}"}
+              From #{statistic['source_name']}
       %br
 
     %a{:name=>"setup"}
