@@ -1343,7 +1343,7 @@ post '/coordinates2statistics' do
 
     result = []
     locations_list.each do |location|
-      statistics = coordinates2statistics(location[:latitude], location[:longitude])
+      statistics = coordinates2statistics(location[:latitude], location[:longitude], wanted)
       result << {
         'location' => location,
         'statistics' => statistics,
@@ -1354,7 +1354,7 @@ post '/coordinates2statistics' do
     make_json(result)
 
   rescue
-    fatal_error('coordinates2politics error: '+$!.inspect + $@.inspect, 'json', 500)
+    fatal_error('coordinates2statistics error: '+$!.inspect + $@.inspect, 'json', 500)
   end
 
 end
@@ -1380,7 +1380,7 @@ get '/coordinates2statistics/*' do
 
     result = []
     locations_list.each do |location|
-      statistics = coordinates2statistics(location[:latitude], location[:longitude])
+      statistics = coordinates2statistics(location[:latitude], location[:longitude], wanted)
       result << {
         'location' => location,
         'statistics' => statistics,
@@ -1391,7 +1391,7 @@ get '/coordinates2statistics/*' do
     make_json(result, callback)
 
   rescue
-    fatal_error('coordinates2politics error: '+$!.inspect + $@.inspect, 'json', 500, callback)
+    fatal_error('coordinates2statistics error: '+$!.inspect + $@.inspect, 'json', 500, callback)
   end
 
 end
