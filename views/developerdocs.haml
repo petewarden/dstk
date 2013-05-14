@@ -638,7 +638,8 @@
             %b
               #{statistic['statistic']}
             #{' - ' + statistic['description']}. From the
-            %a{:href => "#{statistic['source_url']}"}=#{statistic['source_name']}
+            %a{:href => "#{statistic['source_url']}"}
+              #{statistic['source_name']}
       %br
 
     %a{:name=>"setup"}
