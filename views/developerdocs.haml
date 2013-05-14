@@ -240,9 +240,9 @@
     :markdown
       #### Excel Macros
       
-      You can use the geocoding functions from Excel by grabbing [this VBA file frim github](https://github.com/lukewp/dstk_excel). Thanks to [Luke Peterson](https://twitter.com/LWP) for creating this.
+      You can use the geocoding functions from Excel by installing [this VBA file from github](https://github.com/lukewp/dstk_excel). Thanks to [Luke Peterson](https://twitter.com/LWP) for creating this.
       
-      Feed a USA street address to getGeocode() to get an API response, which you can pass through getLatitude() and getLongitude() in order to put the Long/Lat into separate columns. Best-practice is to pull the API response into a single field with getGeocode(), then parse that field with getLatitude() and getLongitude(), rather than using getLatitude(getGeocode([Address])) and getLongitude(getGeocode([Address])),  since the latter will double the number of requests to the dstk server.
+      Feed a USA street address to `getGeocode()` to get an API response, which you can pass through `getLatitude()` and `getLongitude()` in order to put the Long/Lat into separate columns. Best-practice is to pull the API response into a single field with `getGeocode()`, then parse that field with `getLatitude()` and `getLongitude()`, rather than using `getLatitude(getGeocode([Address]))` and `getLongitude(getGeocode([Address]))`,  since the latter will double the number of requests to the dstk server.
 
     %a{:name=>"api"}
     :markdown
