@@ -21,6 +21,9 @@
     %a{:href=>"#rlanguage"} R Language
     %br
     &nbsp;&nbsp;&nbsp;&nbsp;
+    %a{:href=>"#ruby"} Ruby
+    %br
+    &nbsp;&nbsp;&nbsp;&nbsp;
     %a{:href=>"#excel"} Excel Macros
     %br
     %a{:href=>"#api"} API
@@ -235,6 +238,24 @@
       `coordinates2statistics(37.769456, -122.429128, 'population_density')`
       
       `text2sentiment("I love this hotel!")`
+
+    %br
+
+    %a{:name=>"ruby"}
+    :markdown
+      #### Ruby
+      
+      Install the gem using `gem install dstk` and then create an instance of the client like this:
+      
+      `dstk = DSTK::DSTK.new`
+      
+      Then you can call functions corresponding to an API name, eg
+      
+      `dstk.coordinates2statistics([37.769456, -122.429128], 'population_density')`
+      
+      `dstk.text2sentiment('I love this hotel!')`
+
+    %br
 
     %a{:name=>"excel"}
     :markdown

@@ -11,6 +11,10 @@
 		591BB181173ACA9C0061C1A7 /* coordinates2statistics.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = coordinates2statistics.rb; sourceTree = "<group>"; };
 		591BB18217417EA90061C1A7 /* text2sentiment */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = text2sentiment; path = python/text2sentiment; sourceTree = "<group>"; };
 		591BB1831741831B0061C1A7 /* coordinates2statistics */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = coordinates2statistics; path = python/coordinates2statistics; sourceTree = "<group>"; };
+		591BB1851742D8C00061C1A7 /* dstk.gemspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = dstk.gemspec; sourceTree = "<group>"; };
+		591BB1871742D8C00061C1A7 /* dstk.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = dstk.rb; sourceTree = "<group>"; };
+		591BB1881742F1B60061C1A7 /* rakefile */ = {isa = PBXFileReference; lastKnownFileType = text; path = rakefile; sourceTree = "<group>"; };
+		591BB18A1742F1C40061C1A7 /* test_dstk.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = test_dstk.rb; sourceTree = "<group>"; };
 		5929E11013243ECB00B81D2E /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		5929E11213243ECB00B81D2E /* geodict_lib.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = geodict_lib.rb; sourceTree = "<group>"; };
 		5929E11413243ECB00B81D2E /* gpl.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gpl.txt; sourceTree = "<group>"; };
@@ -76,6 +80,33 @@
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
+		591BB1841742D8C00061C1A7 /* rubygem */ = {
+			isa = PBXGroup;
+			children = (
+				591BB1851742D8C00061C1A7 /* dstk.gemspec */,
+				591BB1861742D8C00061C1A7 /* lib */,
+				591BB1881742F1B60061C1A7 /* rakefile */,
+				591BB1891742F1C40061C1A7 /* test */,
+			);
+			path = rubygem;
+			sourceTree = "<group>";
+		};
+		591BB1861742D8C00061C1A7 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				591BB1871742D8C00061C1A7 /* dstk.rb */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		591BB1891742F1C40061C1A7 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				591BB18A1742F1C40061C1A7 /* test_dstk.rb */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
 		5929E0FE13243EA700B81D2E = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +131,7 @@
 				5929E1E813258B3700B81D2E /* public */,
 				597D8A7213314B920042C251 /* python */,
 				5929E1E5132576FA00B81D2E /* readme.asciidoc */,
+				591BB1841742D8C00061C1A7 /* rubygem */,
 				59F0A285134E961F00098746 /* sql */,
 				59F0A2891351062800098746 /* street2coordinates.rb */,
 				5929E14613245CB200B81D2E /* test_suite */,
