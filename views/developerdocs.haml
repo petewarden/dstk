@@ -691,15 +691,15 @@
     :markdown
       The simplest way to create a server is to grab a virtual machine. This whole server is available ready-to-go as either a Vagrant VM or Amazon EC2 Image. 
       
-      For Amazon, find the AMI with the id `ami-49dc4820`. Start a new instance from this image (for example with `ec2-run-instances ami-49dc4820 -t m1.large -z us-east-1d`), wait a couple of minutes for the machine to boot up, and then paste the public DNS name of the instance into your browser. You should see the normal home page of this site. You can test that it's working by pasting text into the main input. You can then just change your code base URL to that DNS name, and start using the API from your own server immediately. If you don't, check to make sure that your security group rules allow you to access port 80.
+      For Amazon, find the AMI with the id `ami-7b9df412` in the US East region. Start a new instance from this image (for example with `ec2-run-instances ami-49dc4820 -t m1.large -z us-east-1d`), wait a couple of minutes for the machine to boot up, and then paste the public DNS name of the instance into your browser. You should see the normal home page of this site. You can test that it's working by pasting text into the main input. You can then just change your code base URL to that DNS name, and start using the API from your own server immediately. If you don't, check to make sure that your security group rules allow you to access port 80.
 
     %a{:name=>"vagrant"}
     :markdown
       [Vagrant](http://www.vagrantup.com/) is a free and easy way to run VMs on your local machine. Once you've [set up the base software](http://docs.vagrantup.com/v1/docs/getting-started/index.html), you can run
       
-      `vagrant box add dstk http://static.datasciencetoolkit.org/dstk_0.41.box`
+      `vagrant box add dstk http://static.datasciencetoolkit.org/dstk_0.50.box`
         
-      to download the DSTK image. The VM is almost 5GB, because of the large amount of geographical data included locally, so you'll need a good connection. Then create a new directory, run 
+      to download the DSTK image. The VM is almost 20GB, because of the large amount of geographical data included locally, so you'll need a good connection. You may want to try [this BitTorrent](http://static.datasciencetoolkit.org/dstk_0.50.torrent) if the standard HTTP download is too slow. Once you have the image, create a new directory and run
       
       `vagrant init`
       
@@ -707,4 +707,4 @@
       
       and you should have a local copy of the toolkit accessible at http://localhost:8080. `vagrant ssh` will give you shell access, or the username and password are both 'vagrant' if you need to log in through VirtualBox's GUI.
 
-      If you want to roll your own server from source on an in-house machine, or on another hosting provider, docs/ec2setup.txt in the [github repository](http://github.com/petewarden/dstk) contains instructions on the exact steps I took to create that image starting from a clean Ubuntu 12.04 installation.
+      If you want to roll your own server from source on an in-house machine, or on another hosting provider, docs/ec2setup.txt in the [github repository](http://github.com/petewarden/dstk) contains instructions on the exact steps I took to create that image starting from a clean Ubuntu 12.04 installation. You can also download [a VMware-compatible .ova image](http://static.datasciencetoolkit.org/dstk_0.50.ova).
