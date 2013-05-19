@@ -289,4 +289,6 @@ cd ~/sources/
 mkdir dstkdata_runtime
 mv dstkdata/ethnicityofsurnames.csv dstkdata_runtime/
 mv dstkdata/GeoLiteCity.dat dstkdata_runtime/
+rm -rf dstkdata
+mv dstkdata_runtime dstkdata
 

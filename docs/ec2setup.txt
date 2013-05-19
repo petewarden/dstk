@@ -248,3 +248,14 @@ sudo bash -c 'echo "kernel.shmmax=576798720" >> /etc/sysctl.conf'
 sudo bash -c 'echo "vm.overcommit_memory=2" >> /etc/sysctl.conf'
 sudo sed -i "s/max_connections = 100/max_connections = 200/" /etc/postgresql/9.1/main/postgresql.conf
 sudo /etc/init.d/postgresql restart
+
+# Remove files not needed at runtime
+rm -rf /mnt/data/*
+rm -rf ~/sources/libiconv-1.11.tar.gz
+rm -rf ~/sources/postgis-2.0.3.tar.gz
+cd ~/sources/
+mkdir dstkdata_runtime
+mv dstkdata/ethnicityofsurnames.csv dstkdata_runtime/
+mv dstkdata/GeoLiteCity.dat dstkdata_runtime/
+rm -rf dstkdata
+mv dstkdata_runtime dstkdata
