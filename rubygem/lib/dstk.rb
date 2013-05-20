@@ -28,7 +28,7 @@ module DSTK
           
       @api_base = options[:api_base]
 
-      if options[:check_version]:
+      if options[:check_version]
         self.check_version()
       end
     end
@@ -81,7 +81,7 @@ module DSTK
       required_version = 50
       response = json_api_call('/info')
       actual_version = response['version']
-      if actual_version < required_version:
+      if actual_version < required_version
         raise "DSTK: Version #{actual_version.to_s} found but #{required_version.to_s} is required"
       end
     end
