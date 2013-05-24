@@ -39,6 +39,9 @@ module DSTKConfig
   # The name of the database holding geographic statistics
   STATISTICS_DATABASE = 'statistics'
 
+  # The name of the database with information about people's names
+  NAMES_DATABASE = 'names'
+
   # The maximum number of words in any name
   WORD_MAX = 3
 

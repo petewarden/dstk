@@ -90,7 +90,7 @@ Dir.glob(File.join(NAME_INPUT_FOLDER, 'yob*.txt')) do |filename|
   year_index = (year - START_YEAR)
   File.open(filename).each_line do |line|
     row = line.split(',')
-    name = row[0]
+    name = row[0].downcase
     gender = row[1]
     count = row[2].to_i
     year_totals[year_index] += count
