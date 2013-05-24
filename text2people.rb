@@ -24,6 +24,7 @@ require 'json'
 
 # Some hackiness to include the library script, even if invoked from another directory
 require File.join(File.expand_path(File.dirname(__FILE__)), 'dstk_config')
+require File.join(File.expand_path(File.dirname(__FILE__)), 'geodict_lib')
 
 require 'genderfromname'
 
