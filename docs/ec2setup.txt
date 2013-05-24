@@ -245,13 +245,8 @@ createdb -U postgres names
 cd /mnt/data
 curl -O "http://www.ssa.gov/oact/babynames/names.zip"
 dos2unix yob*.txt
-for FILE in yob*.txt
-do
-    BASEFILENAME=`basename $FILE`
-    sed "s/\$/,$BASEFILENAME/" $FILE >> allyears.txt
-done
-export LC_ALL=C
-sort -s -t, allyears.txt | ~/sources/dstk/dataconversion/analyzebabynames.rb > babynames.csv
+~/sources/dstk/dataconversion/analyzebabynames.rb . > babynames.csv
+psql -U postgres -d names -f ~/dstk/sql/loadnames.sql
 
 # Fix for postgres crashes, 
 sudo sed -i "s/shared_buffers = [0-9A-Za-z]*/shared_buffers = 512MB/" /etc/postgresql/9.1/main/postgresql.conf
