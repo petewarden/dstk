@@ -26,5 +26,5 @@ CREATE TABLE first_names(
 );
 
 COPY first_names(name, count, male_percentage, most_popular_year, earliest_common_year, latest_common_year)
-  FROM 'babynames.csv'
+  FROM '/mnt/data/babynames.csv'
   WITH DELIMITER AS ',' CSV HEADER;
