@@ -78,6 +78,7 @@
 		59F0A29213525B4C00098746 /* test_street2coordinates.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = test_street2coordinates.py; sourceTree = "<group>"; };
 		59F0A293135265BF00098746 /* buildukindexes.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = buildukindexes.sql; sourceTree = "<group>"; };
 		59F85DBE174DD08500DD695F /* loadnames.sql */ = {isa = PBXFileReference; lastKnownFileType = text; path = loadnames.sql; sourceTree = "<group>"; };
+		59F85DC0174EF4CF00DD695F /* analyzebabynames.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = analyzebabynames.rb; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -259,6 +260,7 @@
 		59D0BE0A17247F02007AAE04 /* dataconversion */ = {
 			isa = PBXGroup;
 			children = (
+				59F85DC0174EF4CF00DD695F /* analyzebabynames.rb */,
 				59D0BE0E1725F99B007AAE04 /* analyzepostcodes.rb */,
 				59D0BE0C172492E1007AAE04 /* createpostcodes.rb */,
 				59D0BE0B17247F32007AAE04 /* simplegeo2postcodes.rb */,

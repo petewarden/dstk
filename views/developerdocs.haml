@@ -585,7 +585,7 @@
 
       The text is passed in either as a JSON-encoded array in the remainder of the URL for a GET call, or in the raw body of the request for POST. The usual 8,000 character limit on GET URLs applies, so use POST for larger texts.
 
-      This API uses my Ruby port of Eamon Daly and Jon Orwant's original [GenderFromName Perl module](http://search.cpan.org/~edaly/Text-GenderFromName-0.32/GenderFromName.pm) to classify first names.
+      This API uses my Ruby port of Eamon Daly and Jon Orwant's original [GenderFromName Perl module](http://search.cpan.org/~edaly/Text-GenderFromName-0.32/GenderFromName.pm) to classify first names. It also uses information from [the US Social Security Administration's analysis of baby names](http://www.ssa.gov/oact/babynames/limits.html).
 
     %a{:name=>"text2times"}
     :markdown
