@@ -60,7 +60,7 @@ $stdin.each_line do |line|
   row = line.split(',')
   name = row[0]
   gender = row[1]
-  count = row[2]
+  count = row[2].to_i
   filename = row[3]
   year = filename.gsub(/yob([0-9]+)\.txt/, '\1').to_i
 
