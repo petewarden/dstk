@@ -4,9 +4,10 @@ require 'rubygems'
 
 require 'json'
 
-START_YEAR = 1880
-END_YEAR = 2080
-NUMBER_OF_YEARS = (END_YEAR - START_YEAR)
+MAXIMUM_AGE = 70
+END_YEAR = 2012
+START_YEAR = (END_YEAR - MAXIMUM_AGE)
+NUMBER_OF_YEARS = (MAXIMUM_AGE + 1)
 
 def output_row(name, male_count, female_count, year_counts)
 

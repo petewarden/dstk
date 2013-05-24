@@ -250,6 +250,8 @@ do
     BASEFILENAME=`basename $FILE`
     sed "s/\$/,$BASEFILENAME/" $FILE >> allyears.txt
 done
+export LC_ALL=C
+sort -s -t, allyears.txt | ~/sources/dstk/dataconversion/analyzebabynames.rb > babynames.csv
 
 # Fix for postgres crashes, 
 sudo sed -i "s/shared_buffers = [0-9A-Za-z]*/shared_buffers = 512MB/" /etc/postgresql/9.1/main/postgresql.conf
