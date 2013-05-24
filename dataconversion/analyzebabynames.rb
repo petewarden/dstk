@@ -54,7 +54,7 @@ end
 previous_name = nil
 previous_male_count = 0
 previous_female_count = 0
-previous_year_counts = Array.new(NUMBER_OF_YEARS)
+previous_year_counts = Array.new(NUMBER_OF_YEARS, 0)
 
 $stdin.each_line do |line|
   row = line.split(',')
@@ -71,7 +71,7 @@ $stdin.each_line do |line|
     previous_name = name
     previous_male_count = 0
     previous_female_count = 0
-    previous_year_counts = Array.new(NUMBER_OF_YEARS)
+    previous_year_counts = Array.new(NUMBER_OF_YEARS, 0)
   end
 
   if gender == 'M'
