@@ -11,7 +11,7 @@ NUMBER_OF_YEARS = (END_YEAR - START_YEAR)
 def output_row(name, male_count, female_count, year_counts)
 
   count = (male_count + female_count)
-  male_to_female_ratio = (male_count.to_f / female_count.to_f)
+  male_percentage = (male_count.to_f / count.to_f) * 100.0
 
   median_year = nil
   earliest_year = nil
@@ -44,7 +44,7 @@ def output_row(name, male_count, female_count, year_counts)
   puts [
     name,
     count,
-    male_to_female_ratio,
+    male_percentage,
     median_year,
     earliest_year,
     latest_year,
