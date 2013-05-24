@@ -88,7 +88,9 @@ def text2people(text)
   
     title_match = match_title(first_word)
     first_name_match = match_first_name(first_word)
-    
+    $stderr.puts "first_word=#{first_word}"
+    $stderr.puts "first_name_match=#{first_name_match?first_name_match.to_json:'nil'}"
+
     if !title_match and !first_name_match
       debug_log('"'+first_word+'" doesn\'t match a first name or title, skipping')
       offset += first_word.length+1
