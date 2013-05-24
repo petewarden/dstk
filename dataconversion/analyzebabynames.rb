@@ -44,7 +44,7 @@ def output_row(name, male_count, female_count, year_counts)
   puts [
     name,
     count,
-    gender_ratio,
+    male_to_female_ratio,
     median_year,
     earliest_year,
     latest_year,
