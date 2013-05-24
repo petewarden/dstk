@@ -8,16 +8,16 @@ START_YEAR = 1880
 END_YEAR = 2080
 NUMBER_OF_YEARS = (END_YEAR - START_YEAR)
 
-def output_row(previous_name, previous_male_count, previous_female_count, previous_year_counts)
+def output_row(name, male_count, female_count, year_counts)
 
-  count = (previous_male_count + previous_female_count)
-  male_to_female_ratio = (previous_male_count.to_f / previous_female_count.to_f)
+  count = (male_count + female_count)
+  male_to_female_ratio = (male_count.to_f / female_count.to_f)
 
   median_year = nil
   earliest_year = nil
   latest_year = nil
   running_total = 0
-  previous_year_counts.each_with_index do |value, offset_year|
+  year_counts.each_with_index do |value, offset_year|
     year = (START_YEAR + offset_year)
     new_running_total = running_total + value
     percentile_05 = (count * 0.05)
