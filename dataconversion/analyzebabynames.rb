@@ -86,7 +86,7 @@ year_totals = Array.new(NUMBER_OF_YEARS, 0)
 name_rows = {}
 
 Dir.glob(File.join(NAME_INPUT_FOLDER, 'yob*.txt')) do |filename|
-  year = filename.gsub(/yob([0-9]+)\.txt/, '\1').to_i
+  year = filename.gsub(/.*yob([0-9]+)\.txt/, '\1').to_i
   $stderr.puts "year=#{year}"
   year_index = (year - START_YEAR)
   $stderr.puts "year_index=#{year_index}"
