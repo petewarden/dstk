@@ -231,7 +231,7 @@ def match_first_name(word)
 end
 
 def get_ethnicity_from_last_name(last_name)
-  select = "SELECT * FROM ethnicity_of_surnames WHERE name='#{word.upcase}';"
+  select = "SELECT * FROM ethnicity_of_surnames WHERE name='#{last_name.upcase}';"
   rows = select_as_hashes(select, DSTKConfig::NAMES_DATABASE)
   if !rows or rows.length < 1 then return nil end
   row = rows[0]
