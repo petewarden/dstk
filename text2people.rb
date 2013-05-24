@@ -210,11 +210,11 @@ def match_first_name(word)
   rows = select_as_hashes(select, DSTKConfig::NAMES_DATABASE)
   if rows and rows.length > 0
     row = rows[0]
-    count = row['count']
-    male_percentage = row['male_percentage']
-    most_popular_year = row['most_popular_year']
-    earliest_common_year = row['earliest_common_year']
-    latest_common_year = row['latest_common_year']
+    count = row['count'].to_i
+    male_percentage = row['male_percentage'].to_f
+    most_popular_year = row['most_popular_year'].to_i
+    earliest_common_year = row['earliest_common_year'].to_i
+    latest_common_year = row['latest_common_year'].to_i
     if !result then result = {} end
     if !result.has_key?(:gender)
       if male_percentage > 0.5
@@ -235,14 +235,14 @@ def get_ethnicity_from_last_name(last_name)
   rows = select_as_hashes(select, DSTKConfig::NAMES_DATABASE)
   if !rows or rows.length < 1 then return nil end
   row = rows[0]
-  rank = row['rank']
-  percentage_of_total = row['prop100k'] / 1000.0
-  percentage_white = row['pctwhite']
-  percentage_black = row['pctblack']
-  percentage_asian_or_pacific_islander = row['pctapi']
-  percentage_american_indian_or_alaska_native = row['pctaian']
-  percentage_two_or_more = row['pct2prace']
-  percentage_hispanic = row['pcthispanic']
+  rank = row['rank'].to_i
+  percentage_of_total = row['prop100k'].to_f / 1000.0
+  percentage_white = row['pctwhite'].to_f
+  percentage_black = row['pctblack'].to_f
+  percentage_asian_or_pacific_islander = row['pctapi'].to_f
+  percentage_american_indian_or_alaska_native = row['pctaian'].to_f
+  percentage_two_or_more = row['pct2prace'].to_f
+  percentage_hispanic = row['pcthispanic'].to_f
   {
     :rank => rank,
     :percentage_of_total => percentage_of_total,
