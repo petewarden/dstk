@@ -87,12 +87,16 @@ name_rows = {}
 
 Dir.glob(File.join(NAME_INPUT_FOLDER, 'yob*.txt')) do |filename|
   year = filename.gsub(/yob([0-9]+)\.txt/, '\1').to_i
+  $stderr.puts "year=#{year}"
+  year_index = (year - START_YEAR)
+  $stderr.puts "year_index=#{year_index}"
   File.open(filename).each_line do |line|
     row = line.split(',')
     name = row[0]
     gender = row[1]
     count = row[2].to_i
-    year_totals[year - START_YEAR] += count
+    $stderr.puts "count=#{count}"
+    year_totals[year_index] += count
     if !name_rows[name] then name_rows[name] = [] end
     name_rows[name] << [gender, count, year]
   end
