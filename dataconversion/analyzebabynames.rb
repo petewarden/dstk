@@ -128,6 +128,6 @@ name_rows.each do |name, rows|
     year_percentages[offset_year] += (percentage_of_year * percentage_of_survivors)
   end
 
-  output_row(previous_name, previous_male_count, previous_female_count, previous_year_counts, year_percentages)
+  output_row(name, male_count, female_count, year_counts, year_percentages)
 end
 
