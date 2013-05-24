@@ -6,7 +6,7 @@ require 'json'
 
 START_YEAR = 1880
 END_YEAR = 2080
-NUMBER_OF_YEARS = (START_YEAR - END_YEAR)
+NUMBER_OF_YEARS = (END_YEAR - START_YEAR)
 
 def output_row(name, male_count, female_count, year_counts, year_ranks)
 
