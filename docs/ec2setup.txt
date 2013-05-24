@@ -248,7 +248,7 @@ dos2unix yob*.txt
 for FILE in yob*.txt
 do
     BASEFILENAME=`basename $FILE`
-    sed "s/\$/,$BASEFILENAME/" $FILE | sed -n "p;=" | sed "N;s/\n/,/" >> allyears.txt
+    sed "s/\$/,$BASEFILENAME/" $FILE >> allyears.txt
 done
 export LC_ALL=C
 sort -s -t, allyears.txt | ~/sources/dstk/dataconversion/analyzebabynames.rb > babynames.csv

@@ -7,8 +7,34 @@ require 'json'
 START_YEAR = 1880
 END_YEAR = 2080
 NUMBER_OF_YEARS = (END_YEAR - START_YEAR)
+CURRENT_YEAR = Time.now.year
 
-def output_row(name, male_count, female_count, year_counts, year_ranks)
+# What proportion of people born are still alive at each age
+# Derived from http://www.cdc.gov/nchs/data/nvsr/nvsr61/nvsr61_03.pdf
+SURVIVORS_BY_FIVE_YEARS = [
+  0.99228, # 5
+  0.99167, # 10
+  0.99089, # 15
+  0.98804, # 20
+  0.98341, # 25
+  0.97863, # 30
+  0.97328, # 35
+  0.96639, # 40
+  0.95602, # 45
+  0.93999, # 50
+  0.91635, # 55
+  0.88356, # 60
+  0.83720, # 65
+  0.77153, # 70
+  0.68006, # 75
+  0.55562, # 80
+  0.39797, # 85
+  0.22347, # 90
+  0.08303, # 95
+  0.01680, # 100
+]
+
+def output_row(name, male_count, female_count, year_counts, year_percentages)
 
   count = (male_count + female_count)
   male_percentage = (male_count.to_f / count.to_f) * 100.0
@@ -35,12 +61,12 @@ def output_row(name, male_count, female_count, year_counts, year_ranks)
   end
 
   most_popular_year = nil
-  most_popular_rank = nil
-  year_ranks.each_with_index do |rank, offset_year|
+  most_popular_percentage = nil
+  year_percentages.each_with_index do |percentage, offset_year|
     year = (START_YEAR + offset_year)
-    if !most_popular_year or rank > most_popular_rank
+    if !most_popular_year or percentage > most_popular_percentage
       most_popular_year = year
-      most_popular_rank = rank
+      most_popular_percentage = percentage
     end
   end
 
@@ -54,40 +80,53 @@ def output_row(name, male_count, female_count, year_counts, year_ranks)
   ].join(',')
 end
 
-previous_name = nil
-previous_male_count = 0
-previous_female_count = 0
-previous_year_counts = Array.new(NUMBER_OF_YEARS, 0)
-previous_year_ranks = Array.new(NUMBER_OF_YEARS, 0)
+NAME_INPUT_FOLDER = ARGV[0]
 
-$stdin.each_line do |line|
-  row = line.split(',')
-  name = row[0]
-  gender = row[1]
-  count = row[2].to_i
-  filename = row[3]
-  rank = row[4]
+year_totals = Array.new(NUMBER_OF_YEARS, 0)
+name_rows = {}
+
+Dir.glob(File.join(NAME_INPUT_FOLDER, 'yob*.txt')) do |filename|
   year = filename.gsub(/yob([0-9]+)\.txt/, '\1').to_i
-
-  if name != previous_name
-    if previous_name
-      output_row(previous_name, previous_male_count, previous_female_count, previous_year_counts, previous_year_ranks)
-    end
-    previous_name = name
-    previous_male_count = 0
-    previous_female_count = 0
-    previous_year_counts = Array.new(NUMBER_OF_YEARS, 0)
-    previous_year_ranks = Array.new(NUMBER_OF_YEARS, 0)
+  File.open(filename).each_line do |line|
+    row = line.split(',')
+    name = row[0]
+    gender = row[1]
+    count = row[2].to_i
+    year_totals[year - START_YEAR] += count
+    if !name_rows[name] then name_rows[name] = [] end
+    name_rows[name] << [gender, count, year]
   end
-
-  if gender == 'M'
-    previous_male_count += count
-  else
-    previous_female_count += count
-  end
-  offset_year = (year - START_YEAR)
-  previous_year_counts[offset_year] += count
-  previous_year_ranks[offset_year] += count
 end
 
-output_row(previous_name, previous_male_count, previous_female_count, previous_year_counts)
+name_rows.each do |name, rows|
+
+  male_count = 0
+  female_count = 0
+  year_counts = Array.new(NUMBER_OF_YEARS, 0)
+  year_percentages = Array.new(NUMBER_OF_YEARS, 0.0)
+  rows.each do |row|
+    gender = row[0]
+    count = row[1]
+    year = row[2]
+    if gender == 'M'
+      male_count += count
+    else
+      female_count += count
+    end
+    offset_year = (year - START_YEAR)
+    year_counts[offset_year] += count
+    year_total = year_totals[offset_year]
+    percentage_of_year = (count / year_total.to_f)
+    age = CURRENT_YEAR - year
+    survivors_index = (age / 5).floor
+    if survivors_index >= SURVIVORS_BY_FIVE_YEARS.length
+      percentage_of_survivors = 0.0
+    else
+      percentage_of_survivors = SURVIVORS_BY_FIVE_YEARS[survivors_index]
+    end
+    year_percentages[offset_year] += (percentage_of_year * percentage_of_survivors)
+  end
+
+  output_row(previous_name, previous_male_count, previous_female_count, previous_year_counts, year_percentages)
+end
+
