@@ -202,7 +202,7 @@ def match_first_name(word)
   result = nil
   heuristic_info = gender_from_name(word, 1)
   if heuristic_info
-    result = { :gender => info[:gender] }
+    result = { :gender => heuristic_info[:gender] }
   end
 
   select = "SELECT * FROM first_names WHERE name='#{word.downcase}';"
