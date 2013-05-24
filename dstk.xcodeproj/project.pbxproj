@@ -77,6 +77,7 @@
 		59F0A2891351062800098746 /* street2coordinates.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = street2coordinates.rb; sourceTree = "<group>"; };
 		59F0A29213525B4C00098746 /* test_street2coordinates.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = test_street2coordinates.py; sourceTree = "<group>"; };
 		59F0A293135265BF00098746 /* buildukindexes.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = buildukindexes.sql; sourceTree = "<group>"; };
+		59F85DBE174DD08500DD695F /* loadnames.sql */ = {isa = PBXFileReference; lastKnownFileType = text; path = loadnames.sql; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -271,6 +272,7 @@
 			children = (
 				59F0A293135265BF00098746 /* buildukindexes.sql */,
 				5950FA6514E6410900361BF2 /* loadcountyunemployment.sql */,
+				59F85DBE174DD08500DD695F /* loadnames.sql */,
 				59F0A286134E961F00098746 /* loadukpostcodes.sql */,
 			);
 			path = sql;
