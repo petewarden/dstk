@@ -4,17 +4,15 @@ require 'rubygems'
 
 require 'json'
 
-MAXIMUM_AGE = 70
-END_YEAR = 2012
-START_YEAR = (END_YEAR - MAXIMUM_AGE)
-NUMBER_OF_YEARS = (MAXIMUM_AGE + 1)
+START_YEAR = 1880
+END_YEAR = 2080
+NUMBER_OF_YEARS = (START_YEAR - END_YEAR)
 
-def output_row(name, male_count, female_count, year_counts)
+def output_row(name, male_count, female_count, year_counts, year_ranks)
 
   count = (male_count + female_count)
   male_percentage = (male_count.to_f / count.to_f) * 100.0
 
-  median_year = nil
   earliest_year = nil
   latest_year = nil
   running_total = 0
@@ -27,12 +25,6 @@ def output_row(name, male_count, female_count, year_counts)
       new_running_total >= percentile_05
       earliest_year = year
     end
-    percentile_50 = (count * 0.5)
-    if !median_year and
-      running_total < percentile_50 and
-      new_running_total >= percentile_50
-      median_year = year
-    end
     percentile_95 = (count * 0.95)
     if !latest_year and
       running_total < percentile_95 and
@@ -42,11 +34,21 @@ def output_row(name, male_count, female_count, year_counts)
     running_total = new_running_total
   end
 
+  most_popular_year = nil
+  most_popular_rank = nil
+  year_ranks.each_with_index do |rank, offset_year|
+    year = (START_YEAR + offset_year)
+    if !most_popular_year or rank > most_popular_rank
+      most_popular_year = year
+      most_popular_rank = rank
+    end
+  end
+
   puts [
     name,
     count,
     male_percentage,
-    median_year,
+    most_popular_year,
     earliest_year,
     latest_year,
   ].join(',')
@@ -56,6 +58,7 @@ previous_name = nil
 previous_male_count = 0
 previous_female_count = 0
 previous_year_counts = Array.new(NUMBER_OF_YEARS, 0)
+previous_year_ranks = Array.new(NUMBER_OF_YEARS, 0)
 
 $stdin.each_line do |line|
   row = line.split(',')
@@ -63,16 +66,18 @@ $stdin.each_line do |line|
   gender = row[1]
   count = row[2].to_i
   filename = row[3]
+  rank = row[4]
   year = filename.gsub(/yob([0-9]+)\.txt/, '\1').to_i
 
   if name != previous_name
     if previous_name
-      output_row(previous_name, previous_male_count, previous_female_count, previous_year_counts)
+      output_row(previous_name, previous_male_count, previous_female_count, previous_year_counts, previous_year_ranks)
     end
     previous_name = name
     previous_male_count = 0
     previous_female_count = 0
     previous_year_counts = Array.new(NUMBER_OF_YEARS, 0)
+    previous_year_ranks = Array.new(NUMBER_OF_YEARS, 0)
   end
 
   if gender == 'M'
@@ -82,6 +87,7 @@ $stdin.each_line do |line|
   end
   offset_year = (year - START_YEAR)
   previous_year_counts[offset_year] += count
+  previous_year_ranks[offset_year] += count
 end
 
 output_row(previous_name, previous_male_count, previous_female_count, previous_year_counts)
