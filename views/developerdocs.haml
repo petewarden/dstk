@@ -569,6 +569,7 @@
       #### Text to People
       
       Extracts any sequences of words that look like people's names, and tries to guess their gender, likely age, and ethnicity from any first names found. It's largely based on American surveys, and so works best on names that are common in English-speaking countries, though it does cover the most popular foreign-language names too. It also looks for some common titles like Mr and Mrs to help it spot possible people. It relies on capitalization of names, so it will only work on more formal texts.
+      
       There will inevitably be some noise (is "Will Hunting" in "Good Will Hunting" a name?) so you'll need an application where some false positives aren't a problem. For example, you could use this to spot the most popular people in a collection of crawled news pages.
       <hr>
       `curl -d "Tim O'Reilly, Archbishop Huxley" "http://www.datasciencetoolkit.org/text2people"`
