@@ -568,7 +568,7 @@
     :markdown
       #### Text to People
       
-      Extracts any sequences of words that look like people's names, and tries to guess their gender from any first names found. This works best on names that are common in English-speaking countries, though it does cover the most popular foreign-language names too. It also looks for some common titles like Mr and Mrs to help it spot possible people. It relies on capitalization of names, so it will only work on more formal texts.
+      Extracts any sequences of words that look like people's names, and tries to guess their gender, likely age, and ethnicity from any first names found. It's largely based on American surveys, and so works best on names that are common in English-speaking countries, though it does cover the most popular foreign-language names too. It also looks for some common titles like Mr and Mrs to help it spot possible people. It relies on capitalization of names, so it will only work on more formal texts.
       There will inevitably be some noise (is "Will Hunting" in "Good Will Hunting" a name?) so you'll need an application where some false positives aren't a problem. For example, you could use this to spot the most popular people in a collection of crawled news pages.
       <hr>
       `curl -d "Tim O'Reilly, Archbishop Huxley" "http://www.datasciencetoolkit.org/text2people"`
@@ -627,7 +627,9 @@
 
       The text is passed in either as a JSON-encoded array in the remainder of the URL for a GET call, or in the raw body of the request for POST. The usual 8,000 character limit on GET URLs applies, so use POST for larger texts.
 
-      This API uses my Ruby port of Eamon Daly and Jon Orwant's original [GenderFromName Perl module](http://search.cpan.org/~edaly/Text-GenderFromName-0.32/GenderFromName.pm) to classify first names. It also uses information from [the US Social Security Administration's analysis of baby names](http://www.ssa.gov/oact/babynames/limits.html).
+      This API uses my Ruby port of Eamon Daly and Jon Orwant's original [GenderFromName Perl module](http://search.cpan.org/~edaly/Text-GenderFromName-0.32/GenderFromName.pm) to guess the gender of first names. It also uses information from [the US Social Security Administration's analysis of baby names](http://www.ssa.gov/oact/babynames/limits.html) to guess both gender. The likely age guessing uses the same baby names data, and [actuarial data from the NCHS](http://www.cdc.gov/nchs/data/nvsr/nvsr61/nvsr61_03.pdf) to normalize for life expectancy.
+      
+      The ethnicity breakdown of surnames is based on [the US Census's list of all names that occurred 100 or more times in the 2000 survey](http://www.census.gov/genealogy/www/data/2000surnames/index.html).
 
     %a{:name=>"text2times"}
     :markdown
