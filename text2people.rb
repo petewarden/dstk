@@ -227,8 +227,8 @@ def match_first_name(word)
     latest_common_year = row['latest_common_year'].to_i
     year_percentages_strings = row['year_percentages'].split('_')
     year_percentages = year_percentages_strings.map do |i| i.to_f end
-    log "year_percentages_strings.length = #{year_percentages_strings.length}"
-    log "year_percentages.length = #{year_percentages.length}"
+    $stderr.puts "year_percentages_strings.length = #{year_percentages_strings.length}"
+    $stderr.puts "year_percentages.length = #{year_percentages.length}"
     if !result then result = {} end
     if !result.has_key?(:gender)
       if male_percentage > 0.5
@@ -280,6 +280,7 @@ Tony Blair
 Samuel L Jackson
 David Aceveda
 Henry Martinez
+Simon Johnson
 TEXT
 
   test_text.each_line do |line|
