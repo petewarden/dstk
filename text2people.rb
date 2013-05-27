@@ -227,6 +227,7 @@ def match_first_name(word)
     latest_common_year = row['latest_common_year'].to_i
     year_percentages_strings = row['year_percentages'].split('_')
     year_percentages = year_percentages_strings.map do |i| i.to_f end
+    $stderr.puts "row['year_percentages'] = #{row['year_percentages']}"
     $stderr.puts "year_percentages_strings.length = #{year_percentages_strings.length}"
     $stderr.puts "year_percentages.length = #{year_percentages.length}"
     if !result then result = {} end
