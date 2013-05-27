@@ -12,6 +12,7 @@ CURRENT_YEAR = Time.now.year
 # What proportion of people born are still alive at each age
 # Derived from http://www.cdc.gov/nchs/data/nvsr/nvsr61/nvsr61_03.pdf
 SURVIVORS_BY_FIVE_YEARS = [
+  1.0,     # 0
   0.99228, # 5
   0.99167, # 10
   0.99089, # 15
@@ -33,6 +34,26 @@ SURVIVORS_BY_FIVE_YEARS = [
   0.08303, # 95
   0.01680, # 100
 ]
+SURVIVORS_STEP = 5.0
+
+def get_survivor_percentage_from_age(age)
+  earlier_index = (age / SURVIVORS_STEP).floor
+  later_index = (age / SURVIVORS_STEP).ceil
+  lerp = (age / SURVIVORS_STEP) - earlier_index
+  one_minus_lerp = (1.0 - lerp)
+  if (earlier_index < 0) or (earlier_index >= SURVIVORS_BY_FIVE_YEARS.length)
+    earlier_value = 0
+  else
+    earlier_value = SURVIVORS_BY_FIVE_YEARS[earlier_index]
+  end
+  if (later_index < 0) or (later_index >= SURVIVORS_BY_FIVE_YEARS.length)
+    later_value = 0
+  else
+    later_value = SURVIVORS_BY_FIVE_YEARS[later_index]
+  end
+  survivor_percentage = (earlier_value * one_minus_lerp) + (later_value * lerp)
+  survivor_percentage
+end
 
 def output_row(name, male_count, female_count, year_counts, year_percentages)
 
@@ -120,12 +141,7 @@ name_rows.each do |name, rows|
     year_total = year_totals[offset_year]
     percentage_of_year = (count / year_total.to_f)
     age = CURRENT_YEAR - year
-    survivors_index = (age / 5).floor
-    if survivors_index >= SURVIVORS_BY_FIVE_YEARS.length
-      percentage_of_survivors = 0.0
-    else
-      percentage_of_survivors = SURVIVORS_BY_FIVE_YEARS[survivors_index]
-    end
+    percentage_of_survivors = get_survivor_percentage_from_age(age)
     year_percentages[offset_year] += (percentage_of_year * percentage_of_survivors)
   end
 
