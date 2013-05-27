@@ -219,7 +219,7 @@ def match_first_name(word)
     most_popular_year = row['most_popular_year'].to_i
     earliest_common_year = row['earliest_common_year'].to_i
     latest_common_year = row['latest_common_year'].to_i
-    year_percentages = row['year_percentages'].split(',').map do |i| i.to_f end
+    year_percentages = row['year_percentages'].split('_').map do |i| i.to_f end
     if !result then result = {} end
     if !result.has_key?(:gender)
       if male_percentage > 0.5

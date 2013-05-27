@@ -26,6 +26,6 @@ CREATE TABLE first_names(
   year_percentages TEXT
 );
 
-COPY first_names(name, count, male_percentage, most_popular_year, earliest_common_year, latest_common_year)
+COPY first_names(name, count, male_percentage, most_popular_year, earliest_common_year, latest_common_year, year_percentages)
   FROM '/mnt/data/babynames.csv'
   WITH DELIMITER AS ',' CSV HEADER;
