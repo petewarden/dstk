@@ -118,8 +118,12 @@ def text2people(text)
 
     if first_name_match
       likely_age = first_name_match[:age]
+      year_percentages = first_name_match[:year_percentages]
+      year_percentages_start_year = first_name_match[:year_percentages_start_year]
     else
       likely_age = nil
+      year_percentages = nil
+      year_percentages_start_year = nil
     end
 
     ethnicity = get_ethnicity_from_last_name(surnames.split(' ').last)
@@ -139,7 +143,9 @@ def text2people(text)
       :start_index => start_index,
       :end_index => end_index,
       :ethnicity => ethnicity,
-      :likely_age => likely_age
+      :likely_age => likely_age,
+      :year_percentages => year_percentages,
+      :year_percentages_start_year => year_percentages_start_year
     })
 
   end
