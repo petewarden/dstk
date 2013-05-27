@@ -77,6 +77,7 @@ def output_row(name, male_count, female_count, year_counts, year_percentages)
     most_popular_year,
     earliest_year,
     latest_year,
+    '"' + year_percentages.join(',') + '"'
   ].join(',')
 end
 

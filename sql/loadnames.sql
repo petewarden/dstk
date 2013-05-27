@@ -22,7 +22,8 @@ CREATE TABLE first_names(
   male_percentage FLOAT,
   most_popular_year INT,
   earliest_common_year INT,
-  latest_common_year INT
+  latest_common_year INT,
+  year_percentages TEXT
 );
 
 COPY first_names(name, count, male_percentage, most_popular_year, earliest_common_year, latest_common_year)
