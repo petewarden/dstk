@@ -50,6 +50,9 @@ sudo bundle install
 
 cd ~/sources/dstkdata
 
+# If you want to save disk space and don't need geo-statistics, you can skip everything
+# up until the comment indicating the end of the geostats loading.
+
 createdb -U postgres -T template_postgis statistics
 
 tar xzf statistics/gl_gpwfe_pdens_15_bil_25.tar.gz
@@ -113,6 +116,8 @@ unzip /home/ubuntu/sources/dstkdata/statistics/us_statistics_rasters.zip -d .
 for f in *.tif; do raster2pgsql -s 4236 -t 32x32 -I $f `basename $f .tif` | psql -U postgres -d statistics; done
 rm -rf us*
 rm -rf metadata
+
+# This is the end of the geostats loading, continue from here if you decide to skip that part.
 
 sudo gem install passenger
 sudo passenger-install-apache2-module
