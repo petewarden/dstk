@@ -1,0 +1,27 @@
+PATH
+  remote: .
+  specs:
+    dstk (0.50.2)
+      httmultiparty
+      httparty
+      json
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    httmultiparty (0.3.10)
+      httparty (>= 0.7.3)
+      multipart-post
+    httparty (0.11.0)
+      multi_json (~> 1.0)
+      multi_xml (>= 0.5.2)
+    json (1.8.0)
+    multi_json (1.7.6)
+    multi_xml (0.5.4)
+    multipart-post (1.2.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  dstk!
