@@ -869,3 +869,21 @@ def canonicalize_street_string(street_string)
 
   output
 end
+
+if __FILE__ == $0
+  test_text = <<-TEXT
+2543 Graystone Place, Simi Valley, CA 93065
+11 Meadow Lane, Over, Cambridge CB24 5NF
+400 Duboce Ave, San Francisco, CA 94117
+TEXT
+
+  test_text.each_line do |line|
+    output = street2coordinates(line)
+    puts line
+    if output
+      puts JSON.pretty_generate(output)
+    end
+    puts '************'
+  end
+
+end
