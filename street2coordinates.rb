@@ -20,6 +20,8 @@
 
 require 'rubygems'
 
+require 'json'
+
 # A horrible hack to work around my problems getting the Geocoder to install as a gem
 $LOAD_PATH.unshift '../geocoder/lib'
 require 'geocoder/us/database'
