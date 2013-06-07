@@ -120,10 +120,12 @@ def text2people(text)
       likely_age = first_name_match[:age]
       year_percentages = first_name_match[:year_percentages]
       year_percentages_start_year = first_name_match[:year_percentages_start_year]
+      male_percentage = first_name_match[:male_percentage]
     else
       likely_age = nil
       year_percentages = nil
       year_percentages_start_year = nil
+      male_percentage = nil
     end
 
     ethnicity = get_ethnicity_from_last_name(surnames.split(' ').last)
@@ -238,6 +240,7 @@ def match_first_name(word)
         result[:gender] = 'f'
       end
     end
+    result[:male_percentage] = male_percentage
     result[:age] = CURRENT_YEAR - most_popular_year
     result[:year_percentages] = year_percentages
     result[:year_percentages_start_year] = 1880
