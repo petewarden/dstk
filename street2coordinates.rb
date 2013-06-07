@@ -39,7 +39,7 @@ $geocoder_db = nil
 S2C_WHITESPACE = '(([ \t.,;]+)|^|$)'
 
 def s2c_debug_log(message)
-  printf(STDERR, "%s\n" % message)
+#  printf(STDERR, "%s\n" % message)
 end
 
 # Takes an array of postal addresses as input, and looks up their locations using
