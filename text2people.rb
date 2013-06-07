@@ -138,6 +138,7 @@ def text2people(text)
 
     result.push({
       :gender => gender,
+      :male_percentage => male_percentage,
       :title => title,
       :first_name => first_name,
       :surnames => surnames,
