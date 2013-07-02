@@ -9,3 +9,5 @@ By http://petewarden.typepad.com/[Pete Warden] <pete@petewarden.com>
 A collection of the best open data sets and open-source tools for data science, wrapped in an easy-to-use REST/JSON API with http://www.datasciencetoolkit.org/developerdocs#commandline[command line], http://www.datasciencetoolkit.org/developerdocs#python[Python] and http://www.datasciencetoolkit.org/developerdocs#javascript[Javascript] interfaces. Available as a http://www.datasciencetoolkit.org/developerdocs#vmware[self-contained VM] or http://www.datasciencetoolkit.org/developerdocs#amazon[EC2 AMI] that you can deploy yourself.
 
 See http://www.datasciencetoolkit.org/developerdocs[www.datasciencetoolkit.org/developerdocs] for full documentation.
+
+Server code dual-licensed under the MIT and GPL licenses, see mit.txt and gpl.txt for details.

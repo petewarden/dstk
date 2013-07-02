@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		5900B07B17839F52009B5EC3 /* mit.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = mit.txt; sourceTree = "<group>"; };
 		591BB17E17309BDF0061C1A7 /* text2sentiment.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = text2sentiment.rb; sourceTree = "<group>"; };
 		591BB181173ACA9C0061C1A7 /* coordinates2statistics.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = coordinates2statistics.rb; sourceTree = "<group>"; };
 		591BB18217417EA90061C1A7 /* text2sentiment */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = text2sentiment; path = python/text2sentiment; sourceTree = "<group>"; };
@@ -128,6 +129,7 @@
 				5929E11213243ECB00B81D2E /* geodict_lib.rb */,
 				5929E11413243ECB00B81D2E /* gpl.txt */,
 				5929E11513243ECB00B81D2E /* largetestinput.txt */,
+				5900B07B17839F52009B5EC3 /* mit.txt */,
 				5950FA6114E5254100361BF2 /* php */,
 				5929E11613243ECB00B81D2E /* populate_database.rb */,
 				5929E1E813258B3700B81D2E /* public */,
