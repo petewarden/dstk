@@ -21,6 +21,13 @@ class DSTKTest < Test::Unit::TestCase
     response = @dstk.street2coordinates(input)
     assert_equal expected, response
   end
+
+  def test_geocode
+    input = '2543 Graystone Pl, Simi Valley, CA 93065'
+    expected = {"status"=>"OK", "results"=> [{"address_components"=> [{"types"=>["street_number"], "short_name"=>"2543", "long_name"=>"2543"}, {"types"=>["route"], "short_name"=>"Graystone Pl", "long_name"=>"Graystone Pl"}, {"types"=>["locality", "political"], "short_name"=>"Simi Valley", "long_name"=>"Simi Valley"}, {"types"=>["administrative_area_level_1", "political"], "short_name"=>"CA", "long_name"=>"CA"}, {"types"=>["country", "political"], "short_name"=>"US", "long_name"=>"United States"}], "types"=>["street_address"], "formatted_address"=>"2543 Graystone Pl, Simi Valley, CA 93065", "geometry"=> {"location"=>{"lat"=>34.280874, "lng"=>-118.766282}, "viewport"=> {"northeast"=>{"lat"=>34.281874, "lng"=>-118.765282}, "southwest"=>{"lat"=>34.279874, "lng"=>-118.767282}}, "location_type"=>"ROOFTOP"}}]}
+    response = @dstk.geocode(input)
+    assert_equal expected, response
+  end
     
   def test_coordinates2politics
     input = [34.281016, -118.766282]
