@@ -42,7 +42,7 @@ module DSTK
 
       api_url = @api_base + endpoint
       arguments_list = arguments.map do |name, value|
-        name + '=' + u(value)
+        name + '=' + URI.encode(value)
       end
       if arguments_list.length > 0
         arguments_string = '?' + arguments_list.join('&')
@@ -98,6 +98,11 @@ module DSTK
       response
     end
       
+    def geocode(address)
+      response = json_api_call('/maps/api/geocode/json', { 'address' => address })
+      response
+    end
+
     def coordinates2politics(coordinates)
       response = json_api_call('/coordinates2politics', {}, coordinates)
       response
