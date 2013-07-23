@@ -738,7 +738,7 @@
     :markdown
       The simplest way to create a server is to grab a virtual machine. This whole server is available ready-to-go as either a Vagrant VM or Amazon EC2 Image. 
       
-      For Amazon, find the AMI with the id `ami-7b9df412` ([see here for detailed instructions on how to do that](https://sites.google.com/site/planetblix/cloud-technologies/amazon-aws). Start a new instance from this image (for example with `ec2-run-instances ami-49dc4820 -t m1.large -z us-east-1d`), wait a couple of minutes for the machine to boot up, and then paste the public DNS name of the instance into your browser. You should see the normal home page of this site. You can test that it's working by pasting text into the main input. You can then just change your code base URL to that DNS name, and start using the API from your own server immediately. If you don't, check to make sure that your security group rules allow you to access port 80.
+      For Amazon, find the AMI with the id `ami-7b9df412` ([see here for the details of tracking down an image](https://sites.google.com/site/planetblix/cloud-technologies/amazon-aws)). Start a new instance from this image (for example with `ec2-run-instances ami-49dc4820 -t m1.large -z us-east-1d`), wait a couple of minutes for the machine to boot up, and then paste the public DNS name of the instance into your browser. You should see the normal home page of this site. You can test that it's working by pasting text into the main input. You can then just change your code base URL to that DNS name, and start using the API from your own server immediately. If you don't, check to make sure that your security group rules allow you to access port 80.
 
     %a{:name=>"vagrant"}
     :markdown
