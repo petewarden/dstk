@@ -468,7 +468,12 @@ end
 
 # Does the actual conversion of the US address string into coordinates
 def geocode_us_address(address)
-  locations = $geocoder_db.geocode(address, true)
+
+  country_names = '(U\.?S\.?A?\.?|United States|America)'
+  country_names_suffix_re = Regexp.new(S2C_WHITESPACE+country_names+S2C_WHITESPACE+'?$', Regexp::IGNORECASE)
+  countryless_address = address.gsub(country_names_suffix_re, '')
+
+  locations = $geocoder_db.geocode(countryless_address, true)
   if locations and locations.length>0
     location = locations[0]
     if location[:number] and location[:street]
