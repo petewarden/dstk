@@ -223,6 +223,10 @@ sudo make install
 cd /mnt/data
 mkdir tigerdata
 cd tigerdata
+# if lftp gets stuck at "[Making data connection...]" try setting these values in the /etc/lftp.conf file
+# set ftp:passive-mode off
+# set ftp:ssl-allow 0
+
 lftp ftp2.census.gov:/geo/tiger/TIGER2012/EDGES
 mirror --parallel=5 .
 cd ../FEATNAMES
