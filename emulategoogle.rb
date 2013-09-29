@@ -35,6 +35,9 @@ def google_geocoder_api_call(params)
   if address
     result = google_style_street2coordinates(address)
     if !result
+      result = google_style_twofishes(address)
+    end
+    if !result
       result = google_style_geodict(address)
     end
   elsif latlng
@@ -242,6 +245,137 @@ def google_style_geodict(address)
     }
     break
   end
+  result
+end
+
+def get_json(url)
+  uri = URI.parse(url)
+  http = Net::HTTP.new(uri.host, uri.port)
+  
+  headers = { 'User-Agent' => ENV['CRAWLER_USER_AGENT'] }
+  request = Net::HTTP::Get.new(uri.request_uri, headers)
+  
+  begin
+    response = http.request(request)  
+    
+    result_string = nil
+    if response.code != '200'
+      log "Bad response code #{response.status} for '#{url}'"
+      result = nil
+      else
+      if response.header[ 'Content-Encoding' ].eql?( 'gzip' ) then
+        sio = StringIO.new( response.body )
+        gz = Zlib::GzipReader.new( sio )
+        result_string = gz.read()
+      else
+        result_string = response.body
+      end
+    end
+  rescue NoMethodError
+    result_string = nil
+  end
+
+  if !result_string
+    result = nil
+  else
+    result = JSON.parse(result_string)
+  end
+
+  result
+end
+
+WOE_TYPE_TOWN = 7
+WOE_TYPE_REGION = 8
+WOE_TYPE_POSTALCODE = 11
+WOE_TYPE_COUNTRY = 12
+
+def google_style_twofishes(address)
+  url = 'http://localhost/twofishes?query=' + URI.encode(address)
+  twofishes_data = get_json(url)
+  if !twofishes_data or !twofishes_data['interpretations'] then return nil end
+  interpretations = twofishes_data['interpretations']
+  if interpretations.length == 0 then return nil end
+  interpretation = interpretations[0]
+  if !interpretation['feature'] then return nil end
+  feature = interpretation['feature']
+  country_code = feature['cc']
+  country_name = get_country_name_from_code(country_code)
+
+  geometry = feature['geometry']
+  center = geometry['center']
+  lat = geometry['lat']
+  lon = geometry['lng']
+
+  bounds = geometry['bounds']
+  ne = geometry['ne']
+  ne_lat = ne['lat']
+  ne_lon = ne['lon']
+  sw = geometry['sw']
+  sw_lat = sw['lat']
+  sw_lon = sw['lon']
+
+  short_name = feature['name']
+  long_name = feature['display_name']
+
+  woe_type = feature['woeType']
+  if woe_type == WOE_TYPE_TOWN
+    type_name = 'locality'
+    address_components = [
+      {
+        'long_name' => long_name,
+        'short_name' => short_name,
+        'types' => [ 'locality', 'political' ],
+      },
+    ]
+  elsif woe_type == WOE_TYPE_POSTAL_CODE
+    type_name = 'postal_code'
+    address_components = [
+      {
+        'long_name' => long_name,
+        'short_name' => short_name,
+        'types' => [ 'postal_code', 'political' ],
+      },
+    ]
+  elsif woe_type == WOE_TYPE_REGION
+    type_name = 'administrative_area_level_1'
+    address_components = [
+      {
+        'long_name' => long_name,
+        'short_name' => short_name,
+        'types' => [ 'administrative_area_level_1', 'political' ],
+      },
+    ]
+  elsif woe_type == WOE_TYPE_COUNTRY
+    type_name = 'country'
+    address_components = []
+  end
+  address_components <<
+    {
+      'long_name' => country_name,
+      'short_name' => country_code,
+      'types' => [ 'country', 'political' ],
+    }
+  result = {
+    'address_components' => address_components,
+    'geometry' => {
+      'location' => {
+        'lat' => lat,
+        'lng' => lon,
+      },
+      'location_type' => 'APPROXIMATE',
+      'viewport' => {
+        'northeast' => {
+          'lat' => ne_lat,
+          'lng' => ne_lon,
+        },
+        'southwest' => {
+          'lat' => ne_lat,
+          'lng' => ne_lon,
+        },
+      }
+    },
+    'types' => [ type_name, 'political' ],
+  }
   result
 end
 
