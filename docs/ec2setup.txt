@@ -138,6 +138,9 @@ sudo bash -c 'echo "
       RewriteRule ^(.*)$ http://www.datasciencetoolkit.org$1 [R=301,L]
       RewriteCond %{HTTP_HOST} ^datasciencetoolkit.com$ [NC]
       RewriteRule ^(.*)$ http://www.datasciencetoolkit.com$1 [R=301,L]
+      # We have an internal TwoFishes server running on port 8081, so redirect
+      # requests that look like they belong to its API
+      ProxyPass /twofishes http://localhost:8081        
       <Directory /home/ubuntu/sources/dstk/public>
          AllowOverride all
          Options -MultiViews
@@ -145,6 +148,8 @@ sudo bash -c 'echo "
    </VirtualHost>
 " > /etc/apache2/sites-enabled/000-default'
 sudo ln -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/rewrite.load
+sudo ln -s /etc/apache2/mods-available/proxy.load /etc/apache2/mods-enabled/proxy.load
+sudo ln -s /etc/apache2/mods-available/proxy_http.load /etc/apache2/mods-enabled/proxy_http.load
 
 sudo /etc/init.d/apache2 restart
 
@@ -276,6 +281,7 @@ mkdir data
 curl "http://www.twofishes.net/indexes/revgeo/latest.zip" > data/twofishesdata.zip
 cd data
 unzip twofishesdata.zip
+sudo cp ~/sources/dstk/twofishes.conf /etc/init/twofishes.conf
 java -jar ~/sources/twofishes/bin/twofishes.jar --hfile_basepath ~/sources/twofishes/data/2013-06-08/
 
 # Remove files not needed at runtime
