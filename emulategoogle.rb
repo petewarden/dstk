@@ -24,6 +24,11 @@ require 'json'
 require 'uri'
 require 'net/http'
 
+WOE_TYPE_TOWN = 7
+WOE_TYPE_REGION = 8
+WOE_TYPE_POSTAL_CODE = 11
+WOE_TYPE_COUNTRY = 12
+
 cwd = File.expand_path(File.dirname(__FILE__))
 require File.join(cwd, 'street2coordinates')
 
@@ -285,11 +290,6 @@ def get_json(url)
 
   result
 end
-
-WOE_TYPE_TOWN = 7
-WOE_TYPE_REGION = 8
-WOE_TYPE_POSTALCODE = 11
-WOE_TYPE_COUNTRY = 12
 
 def google_style_twofishes(address)
   url = 'http://localhost/twofishes?query=' + URI.encode(address)
