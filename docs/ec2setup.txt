@@ -261,6 +261,23 @@ sudo bash -c 'echo "vm.overcommit_memory=2" >> /etc/sysctl.conf'
 sudo sed -i "s/max_connections = 100/max_connections = 200/" /etc/postgresql/9.1/main/postgresql.conf
 sudo /etc/init.d/postgresql restart
 
+# Up to this point, you'll have a 0.50 version of the toolkit.
+# The following will upgrade you to a 0.51 version
+
+cd ~/sources/dstk
+git pull origin master
+
+# TwoFishes geocoder
+mkdir ~/sources/twofishes
+cd ~/sources/twofishes
+mkdir bin
+curl "http://www.twofishes.net/binaries/latest.jar" > bin/twofishes.jar
+mkdir data
+curl "http://www.twofishes.net/indexes/revgeo/latest.zip" > data/twofishesdata.zip
+cd data
+unzip twofishesdata.zip
+java -jar ~/sources/twofishes/bin/twofishes.jar --hfile_basepath ~/sources/twofishes/data/2013-06-08/
+
 # Remove files not needed at runtime
 rm -rf /mnt/data/*
 rm -rf ~/sources/libiconv-1.11.tar.gz
