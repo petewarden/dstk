@@ -254,7 +254,7 @@ def get_json(url)
   uri = URI.parse(url)
   http = Net::HTTP.new(uri.host, uri.port)
   
-  headers = { 'User-Agent' => ENV['CRAWLER_USER_AGENT'] }
+  headers = {}
   request = Net::HTTP::Get.new(uri.request_uri, headers)
   
   begin
