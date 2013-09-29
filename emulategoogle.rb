@@ -305,16 +305,16 @@ def google_style_twofishes(address)
 
   geometry = feature['geometry']
   center = geometry['center']
-  lat = geometry['lat']
-  lon = geometry['lng']
+  lat = center['lat']
+  lon = center['lng']
 
   bounds = geometry['bounds']
   ne = bounds['ne']
   ne_lat = ne['lat']
-  ne_lon = ne['lon']
+  ne_lon = ne['lng']
   sw = bounds['sw']
   sw_lat = sw['lat']
-  sw_lon = sw['lon']
+  sw_lon = sw['lng']
 
   short_name = feature['name']
   long_name = feature['display_name']
@@ -371,8 +371,8 @@ def google_style_twofishes(address)
           'lng' => ne_lon,
         },
         'southwest' => {
-          'lat' => ne_lat,
-          'lng' => ne_lon,
+          'lat' => sw_lat,
+          'lng' => sw_lon,
         },
       }
     },
