@@ -317,7 +317,7 @@ def google_style_twofishes(address)
   sw_lon = sw['lng']
 
   short_name = feature['name']
-  long_name = feature['display_name']
+  long_name = feature['displayName']
 
   woe_type = feature['woeType']
   if woe_type == WOE_TYPE_TOWN
