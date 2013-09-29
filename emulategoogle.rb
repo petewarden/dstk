@@ -295,7 +295,6 @@ def google_style_twofishes(address)
   url = 'http://localhost/twofishes?query=' + URI.encode(address)
   twofishes_data = get_json(url)
   if !twofishes_data or !twofishes_data['interpretations'] then return nil end
-$stderr.puts JSON.pretty_generate(twofishes_data)
   interpretations = twofishes_data['interpretations']
   if interpretations.length == 0 then return nil end
   interpretation = interpretations[0]
@@ -310,10 +309,10 @@ $stderr.puts JSON.pretty_generate(twofishes_data)
   lon = geometry['lng']
 
   bounds = geometry['bounds']
-  ne = geometry['ne']
+  ne = bounds['ne']
   ne_lat = ne['lat']
   ne_lon = ne['lon']
-  sw = geometry['sw']
+  sw = bounds['sw']
   sw_lat = sw['lat']
   sw_lon = sw['lon']
 
