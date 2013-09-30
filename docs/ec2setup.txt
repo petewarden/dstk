@@ -289,7 +289,7 @@ curl "http://www.twofishes.net/indexes/revgeo/latest.zip" > data/twofishesdata.z
 cd data
 unzip twofishesdata.zip
 sudo cp ~/sources/dstk/twofishes.conf /etc/init/twofishes.conf
-sudo service twofishes start &
+sudo service twofishes start
 
 sudo bash -c 'echo "
   <VirtualHost *:80>
