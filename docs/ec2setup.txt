@@ -273,8 +273,9 @@ cd ~/sources/dstk
 git pull origin master
 
 # TwoFishes geocoder
-mkdir ~/sources/twofishes
-cd ~/sources/twofishes
+cd ~/sources
+mkdir twofishes
+cd twofishes
 mkdir bin
 curl "http://www.twofishes.net/binaries/latest.jar" > bin/twofishes.jar
 mkdir data
@@ -282,7 +283,6 @@ curl "http://www.twofishes.net/indexes/revgeo/latest.zip" > data/twofishesdata.z
 cd data
 unzip twofishesdata.zip
 sudo cp ~/sources/dstk/twofishes.conf /etc/init/twofishes.conf
-java -jar ~/sources/twofishes/bin/twofishes.jar --hfile_basepath ~/sources/twofishes/data/2013-06-08/
 
 # Remove files not needed at runtime
 rm -rf /mnt/data/*
