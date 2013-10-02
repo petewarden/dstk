@@ -55,7 +55,7 @@ module DSTKConfig
   IP_MAPPING_DATABASE = '../dstkdata/GeoLiteCity.dat'
   
   # The version of the API this code implements
-  API_VERSION = 50
+  API_VERSION = 51
   
   # The home of the Boilerplate framework
   BOILERPIPE_FOLDER = '../boilerpipe/boilerpipe-core/'
