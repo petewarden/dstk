@@ -735,7 +735,7 @@
     :markdown
       #### TwoFishes Geocoder
       
-      The open-source city-level [TwoFishes geocoder](http://www.twofishes.net/) written by [David Blackman](http://twitter.com/blackmad) at Foursquare is included in this package. It's used as part of the main [Google-style geocoder](#googlestylegeocoder) for non-street addresses, but you can access more advanced features through the `/twofishes` endpoint. The full API is documented at [twofishes.net](http://www.twofishes.net), and all methods should work as described, but with `/twofishes` added to the start of the URL. Here's a simple example, demonstrating how the geocoder recognizes native-language cities worldwide and can separate out non-geographic terms:
+      The open-source city-level [TwoFishes geocoder](http://www.twofishes.net/) written by [David Blackman](http://twitter.com/blackmad) at Foursquare is included in this package. It's used as part of the [Google-style geocoder](#googlestylegeocoder) for non-street addresses, but you can access more advanced features through the `/twofishes` endpoint. The full API is documented at [twofishes.net](http://www.twofishes.net), and all methods should work as described, but with `/twofishes` added to the start of the URL. Here's a simple example, demonstrating how the geocoder recognizes native-language cities worldwide and can separate out non-geographic terms:
 
       `curl "http://www.datasciencetoolkit.org/twofishes?query=pizza+%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9"`
       
