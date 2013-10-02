@@ -292,3 +292,49 @@ mv dstkdata/GeoLiteCity.dat dstkdata_runtime/
 rm -rf dstkdata
 mv dstkdata_runtime dstkdata
 
+# Up to this point, you'll have a 0.50 version of the toolkit.
+# The following will upgrade you to a 0.51 version
+
+cd ~/sources/dstk
+git checkout Gemfile*
+git checkout dstk_*
+git pull origin master
+
+sudo aptitude install -y curl
+
+# TwoFishes geocoder
+cd ~/sources
+mkdir twofishes
+cd twofishes
+mkdir bin
+curl "http://www.twofishes.net/binaries/latest.jar" > bin/twofishes.jar
+mkdir data
+curl "http://www.twofishes.net/indexes/revgeo/latest.zip" > data/twofishesdata.zip
+cd data
+unzip twofishesdata.zip
+sudo cp ~/sources/dstk/twofishes.conf /etc/init/twofishes.conf
+sudo service twofishes start
+
+sudo bash -c 'echo "
+  <VirtualHost *:80>
+      ServerName www.yourhost.com
+      DocumentRoot /home/ubuntu/sources/dstk/public
+      RewriteEngine On
+      RewriteCond %{HTTP_HOST} ^datasciencetoolkit.org$ [NC]
+      RewriteRule ^(.*)$ http://www.datasciencetoolkit.org$1 [R=301,L]
+      RewriteCond %{HTTP_HOST} ^datasciencetoolkit.com$ [NC]
+      RewriteRule ^(.*)$ http://www.datasciencetoolkit.com$1 [R=301,L]
+      # We have an internal TwoFishes server running on port 8081, so redirect
+      # requests that look like they belong to its API
+      ProxyPass /twofishes http://localhost:8081        
+      <Directory /home/ubuntu/sources/dstk/public>
+         AllowOverride all
+         Options -MultiViews
+      </Directory>
+   </VirtualHost>
+" > /etc/apache2/sites-enabled/000-default'
+sudo ln -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/rewrite.load
+sudo ln -s /etc/apache2/mods-available/proxy.load /etc/apache2/mods-enabled/proxy.load
+sudo ln -s /etc/apache2/mods-available/proxy_http.load /etc/apache2/mods-enabled/proxy_http.load
+
+sudo /etc/init.d/apache2 restart
