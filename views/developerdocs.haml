@@ -70,6 +70,9 @@
     &nbsp;&nbsp;&nbsp;&nbsp;
     %a{:href=>"#coordinates2statistics"} Coordinates to Statistics
     %br
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    %a{:href=>"#twofishes"} TwoFishes Geocoder
+    %br
     %a{:href=>"#setup"} Setting up your own server
     %br
     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -727,6 +730,37 @@
               #{statistic['source_name']}
             #{'.'}
       %br
+
+    %a{:name=>"twofishes"}
+    :markdown
+      #### TwoFishes Geocoder
+      
+      The open-source city-level [TwoFishes geocoder](http://www.twofishes.net/) written by [David Blackman](http://twitter.com/blackmad) at Foursquare is included in this package. It's used as part of the main [Google-style geocoder](#googlestylegeocoder) for non-street addresses, but you can access more advanced features through the `/twofishes` endpoint. The full API is documented at [twofishes.net](http://www.twofishes.net), and all methods should work as described, but with `/twofishes` added to the start of the URL. Here's a simple example, demonstrating how the geocoder recognizes native-language cities worldwide and can separate out non-geographic terms:
+
+      `curl "http://www.datasciencetoolkit.org/twofishes?query=pizza+%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9"`
+      
+      `{"interpretations":[{"what":"pizza","where":"القاهرة",`
+      
+      `  "feature":{"cc":"EG","geometry":{"center":{"lat":30.06263,"lng":31.24967},`
+      
+      `  "bounds":{"ne":{"lat":30.1480960846,"lng":31.3563537598},`
+      
+      `  "sw":{"lat":29.9635601044,"lng":31.1625480652}}},`
+      
+      `  "name":"Cairo","displayName":"Cairo, EG","woeType":7,`
+      
+      `  "ids":[{"source":"geonameid","id":"360630"}],`
+      
+      `  "names":[{"name":"Cairo","lang":"en","flags":[16,1]},`
+      
+      `  {"name":"Cairo","lang":"en","flags":[16]}],"highlightedName":"<b>القاهرة</b>, EG",`
+      
+      `  "matchedName":"القاهرة, EG","id":"geonameid:360630","attributes":{`
+      
+      `  "adm0cap":1,"scalerank":0,"labelrank":3,"natscale":600,"population":7734614},`
+      
+      `  "longId":"72057594038288566"},"scores":{}}]}`
+
 
     %a{:name=>"setup"}
     :markdown
