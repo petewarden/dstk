@@ -772,7 +772,38 @@
     :markdown
       The simplest way to create a server is to grab a virtual machine. This whole server is available ready-to-go as either a Vagrant VM or Amazon EC2 Image. 
       
-      For Amazon, find the AMI with the id `ami-9386d1fa` on US-East-1 ([see here for the details of tracking down an image](https://sites.google.com/site/planetblix/cloud-technologies/amazon-aws)). Start a new instance from this image (for example with `ec2-run-instances ami-9386d1fa -t m1.large -z us-east-1d`), wait a couple of minutes for the machine to boot up, and then paste the public DNS name of the instance into your browser. You should see the normal home page of this site. You can test that it's working by pasting text into the main input. You can then just change your code base URL to that DNS name, and start using the API from your own server immediately. If you don't, check to make sure that your security group rules allow you to access port 80.
+      For Amazon, find the AMI for your region from the list below, e.g. `ami-9386d1fa` for US-East-1 ([see here for the details of tracking down an image](https://sites.google.com/site/planetblix/cloud-technologies/amazon-aws)).
+      
+      %table
+        %tr
+          %td= Region
+          %td= AMI ID
+        %tr
+          %td= US East (N. Virginia)
+          %td= ami-9386d1fa
+        %tr
+          %td= US West (Oregon)
+          %td= ami-02be2032
+        %tr
+          %td= US West (N. California)
+          %td= ami-000a3e45
+        %tr
+          %td= EU (Ireland)
+          %td= ami-70b95f07
+        %tr
+          %td= Asia Pacific (Singapore)
+          %td= ami-0a317b58
+        %tr
+          %td= Asia Pacific (Tokyo)
+          %td= ami-e11886e0
+        %tr
+          %td= Asia Pacific (Sydney)
+          %td= ami-831b86b9
+        %tr
+          %td= South America (São Paulo)
+          %td= ami-c15dfadc
+
+      Start a new instance from this image (for example with `ec2-run-instances ami-9386d1fa -t m1.large -z us-east-1d`), wait a couple of minutes for the machine to boot up, and then paste the public DNS name of the instance into your browser. You should see the normal home page of this site. You can test that it's working by pasting text into the main input. You can then just change your code base URL to that DNS name, and start using the API from your own server immediately. If you don't, check to make sure that your security group rules allow you to access port 80.
 
     %a{:name=>"vagrant"}
     :markdown

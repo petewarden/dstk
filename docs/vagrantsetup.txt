@@ -300,7 +300,9 @@ git checkout Gemfile*
 git checkout dstk_*
 git pull origin master
 
-sudo aptitude install -y curl
+sudo aptitude update
+sudo aptitude install -y curl openjdk-7-jre openjdk-7-jdk
+sudo update-java-alternatives -s java-1.7.0-openjdk-amd64
 
 # TwoFishes geocoder
 cd ~/sources
