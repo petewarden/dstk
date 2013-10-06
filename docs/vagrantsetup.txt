@@ -296,13 +296,7 @@ mv dstkdata_runtime dstkdata
 # The following will upgrade you to a 0.51 version
 
 cd ~/sources/dstk
-git checkout Gemfile*
-git checkout dstk_*
 git pull origin master
-
-sudo aptitude update
-sudo aptitude install -y curl openjdk-7-jre openjdk-7-jdk
-sudo update-java-alternatives -s java-1.7.0-openjdk-amd64
 
 # TwoFishes geocoder
 cd ~/sources
@@ -314,6 +308,7 @@ mkdir data
 curl "http://www.twofishes.net/indexes/revgeo/latest.zip" > data/twofishesdata.zip
 cd data
 unzip twofishesdata.zip
+rm -rf twofishesdata.zip
 sudo cp ~/sources/dstk/twofishes.conf /etc/init/twofishes.conf
 sudo service twofishes start
 
