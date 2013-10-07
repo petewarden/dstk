@@ -1,10 +1,9 @@
-Create and attach volume per 
-http://webkist.wordpress.com/2010/03/16/creating-an-amazon-ec2-ebs-ami-from-a-running-instance/
 
 sudo /etc/init.d/postgresql stop
 sudo /etc/init.d/apache2 stop
 sudo rm -rf /var/log/apache2/*
 sudo rm -rf ~/.ssh/authorized_keys
+sudo rm -rf /root/.ssh/authorized_keys
 sudo rm -rf /etc/ssh/ssh_host_dsa_key
 sudo rm -rf /etc/ssh/ssh_host_dsa_key.pub
 sudo rm -rf /etc/ssh/ssh_host_rsa_key
