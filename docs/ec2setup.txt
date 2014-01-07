@@ -306,11 +306,14 @@ sudo bash -c 'echo "
       <Directory /home/ubuntu/sources/dstk/public>
          AllowOverride all
          Options -MultiViews
+         Header set Access-Control-Allow-Origin "*"
+         Header set Cache-Control "max-age=86400"
       </Directory>
    </VirtualHost>
 " > /etc/apache2/sites-enabled/000-default'
 sudo ln -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/rewrite.load
 sudo ln -s /etc/apache2/mods-available/proxy.load /etc/apache2/mods-enabled/proxy.load
 sudo ln -s /etc/apache2/mods-available/proxy_http.load /etc/apache2/mods-enabled/proxy_http.load
+sudo ln -s /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/headers.load
 
 sudo /etc/init.d/apache2 restart
