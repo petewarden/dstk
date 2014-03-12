@@ -249,6 +249,7 @@ rm -rf /mnt/data/tigerdata
 createdb -U postgres names
 cd /mnt/data
 curl -O "http://www.ssa.gov/oact/babynames/names.zip"
+unzip names.zip
 dos2unix yob*.txt
 ~/sources/dstk/dataconversion/analyzebabynames.rb . > babynames.csv
 psql -U postgres -d names -f ~/sources/dstk/sql/loadnames.sql
