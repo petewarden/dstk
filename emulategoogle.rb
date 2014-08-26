@@ -305,7 +305,7 @@ def google_style_twofishes(address)
 
   geometry = feature['geometry']
   if !geometry
-    stderr.puts "Missing geometry for '#{address}' - found '#{interpretation.to_json}'"
+    $stderr.puts "Missing geometry for '#{address}' - found '#{interpretation.to_json}'"
     return nil
   end
   center = geometry['center']
@@ -314,7 +314,7 @@ def google_style_twofishes(address)
 
   bounds = geometry['bounds']
   if !bounds
-    stderr.puts "Missing bounds for '#{address}' - found '#{geometry.to_json}'"
+    $stderr.puts "Missing bounds for '#{address}' - found '#{geometry.to_json}'"
     return nil
   end
   ne = bounds['ne']
