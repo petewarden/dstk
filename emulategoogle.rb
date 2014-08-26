@@ -304,6 +304,10 @@ def google_style_twofishes(address)
   country_name = get_country_name_from_code(country_code)
 
   geometry = feature['geometry']
+  if !geometry
+    log "Missing geometry for '#{address}' - found '#{interpretation.to_json}'"
+    return nil
+  end
   center = geometry['center']
   lat = center['lat']
   lon = center['lng']
