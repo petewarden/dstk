@@ -313,6 +313,10 @@ def google_style_twofishes(address)
   lon = center['lng']
 
   bounds = geometry['bounds']
+  if !bounds
+    log "Missing bounds for '#{address}' - found '#{geometry.to_json}'"
+    return nil
+  end
   ne = bounds['ne']
   ne_lat = ne['lat']
   ne_lon = ne['lng']
