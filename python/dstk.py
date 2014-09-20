@@ -102,6 +102,7 @@ class DSTK:
     api_url = self.api_base+'/street2coordinates'
     api_body = json.dumps(addresses)
     response_string = urllib.urlopen(api_url, api_body).read()
+    response_string = unicode(response_string, 'latin-1')
     response = json.loads(response_string)
     
     if 'error' in response:
