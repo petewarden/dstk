@@ -1,6 +1,7 @@
 Start with AMI # ami-3fec7956 (Ubuntu 12.04), 32GB
 (ec2-run-instances ami-3fec7956 -t m1.large --region us-east-1 -z us-east-1d --block-device-mapping /dev/sda1=:32:false -k <your key>)
 
+sudo apt-get install software-properties-common
 sudo apt-add-repository -y ppa:olivier-berten/geo
 sudo add-apt-repository -y ppa:webupd8team/java
 sudo aptitude update
@@ -222,6 +223,10 @@ sudo make install
 cd /mnt/data
 mkdir tigerdata
 cd tigerdata
+# if lftp gets stuck at "[Making data connection...]" try setting these values in the /etc/lftp.conf file
+# set ftp:passive-mode off
+# set ftp:ssl-allow 0
+
 lftp ftp2.census.gov:/geo/tiger/TIGER2012/EDGES
 mirror --parallel=5 .
 cd ../FEATNAMES
