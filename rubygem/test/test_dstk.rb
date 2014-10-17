@@ -91,4 +91,11 @@ class DSTKTest < Test::Unit::TestCase
     response = @dstk.coordinates2statistics(input, 'population_density')
     assert_equal expected, response
   end
+
+  def test_twofishes
+    input = "pizza القاهرة"
+    expected = {"interpretations"=> [{"what"=>"pizza", "where"=>"القاهرة", "feature"=> {"cc"=>"EG", "geometry"=> {"center"=>{"lat"=>30.06263, "lng"=>31.24967}, "bounds"=> {"ne"=>{"lat"=>30.1480960846, "lng"=>31.3563537598}, "sw"=>{"lat"=>29.9635601044, "lng"=>31.1625480652}}}, "name"=>"Cairo", "displayName"=>"Cairo, EG", "woeType"=>7, "ids"=>[{"source"=>"geonameid", "id"=>"360630"}], "names"=> [{"name"=>"Cairo", "lang"=>"en", "flags"=>[16, 1]}, {"name"=>"Cairo", "lang"=>"en", "flags"=>[16]}], "highlightedName"=>"<b>القاهرة</b>, EG", "matchedName"=>"القاهرة, EG", "id"=>"geonameid:360630", "attributes"=> {"adm0cap"=>1, "scalerank"=>0, "labelrank"=>3, "natscale"=>600, "population"=>7734614}, "longId"=>"72057594038288566"}, "scores"=>{}}]}
+    response = @dstk.twofishes(input)
+    assert_equal expected, response
+  end
 end

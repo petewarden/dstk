@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'dstk'
-  s.version     = '0.50.3'
+  s.version     = '0.51.0'
   s.date        = '2013-07-02'
   s.summary     = "Data Science Toolkit client"
   s.description = "An interface to the datasciencetoolkit.org open API for geocoding addresses, extracting entities and sentiment from unstructured text, and other common semantic and geo data tasks."
