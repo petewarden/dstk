@@ -523,6 +523,7 @@ def geocode_uk_address(address)
     second_part = post_code_match[3].to_s
     
     full_post_code = first_part+second_part
+    full_post_code.upcase!
   
     post_code_select = 'SELECT postcode,country_code,county_code,district_code,ward_code'+
       ',ST_Y(location::geometry) as latitude, ST_X(location::geometry) AS longitude'+
