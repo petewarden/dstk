@@ -26,7 +26,7 @@ require 'json'
 require File.join(File.expand_path(File.dirname(__FILE__)), 'dstk_config')
 require File.join(File.expand_path(File.dirname(__FILE__)), 'geodict_lib')
 
-require 'genderfromname'
+require_relative './genderfromname'
 
 CURRENT_YEAR = Time.now.year
 
