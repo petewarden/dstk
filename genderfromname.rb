@@ -91,7 +91,7 @@ def one_only(name)
 
   if female_hit and not male_hit
     gender = 'f'
-  elsif male_hit and not female_hit:
+  elsif male_hit and not female_hit
     gender = 'm'
   end
 

@@ -16,7 +16,7 @@
 
 require 'rubygems'
 
-require 'postgres'
+require 'pg'
 require 'set'
 
 # Some hackiness to include the library script, even if invoked from another directory
@@ -296,9 +296,9 @@ def is_city(text, text_starting_index, previous_result)
     found_tokens = previous_result[:found_tokens]
     found_tokens.each do |found_token|
       type = found_token[:type]
-      if type == :COUNTRY:
+      if type == :COUNTRY
         country_code = found_token[:code]
-      elsif type == :REGION:
+      elsif type == :REGION
         region_code = found_token[:code]
       end
     end
@@ -430,7 +430,7 @@ def is_region(text, text_starting_index, previous_result)
         candidate_dicts = []
         all_candidate_dicts.each do |possible_dict|
           candidate_country = possible_dict['country_code']
-          if candidate_country.downcase() == country_code.downcase():
+          if candidate_country.downcase() == country_code.downcase()
             candidate_dicts << possible_dict
           end
         end
